@@ -1,0 +1,26 @@
+name: Sync with Upstream
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Sync with upstream
+        run: |
+          git remote add upstream https://github.com/EtienneLescot/n8n-as-code.git
+          git fetch upstream
+          git merge upstream/main --allow-unrelated-histories -m "chore: sync with upstream"
+          git push
