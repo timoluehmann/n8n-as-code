@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-21T05:42:03.638Z",
+  "generatedAt": "2026-04-22T05:38:41.888Z",
   "version": "1.0.0",
   "sourceUrl": "https://docs.n8n.io/llms.txt",
   "totalPages": 1263,
@@ -15530,7 +15530,7 @@
       "nodeName": null,
       "nodeType": null,
       "content": {
-        "markdown": "# Nodes environment variables\n\nFile-based configuration\n\nYou can add `_FILE` to individual variables to provide their configuration in a separate file. Refer to [Keeping sensitive data in separate files](../../configuration-methods/#keeping-sensitive-data-in-separate-files) for more details.\n\nThis page lists the environment variables configuration options for managing [nodes](../../../../glossary/#node-n8n) in n8n, including specifying which nodes to load or exclude, importing built-in or external modules in the Code node, and enabling community nodes.\n\n| Variable                                 | Type             | Default                                                                    | Description                                                                                                                                                                                                                                                                    |\n| ---------------------------------------- | ---------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |\n| `N8N_COMMUNITY_PACKAGES_ENABLED`         | Boolean          | `true`                                                                     | Enables (true) or disables (false) the functionality to install and load community nodes. If set to false, neither verified nor unverified community packages will be available, regardless of their individual settings.                                                      |\n| `N8N_COMMUNITY_PACKAGES_PREVENT_LOADING` | Boolean          | `false`                                                                    | Prevents (true) or allows (false) loading installed community nodes on instance startup. Use this if a faulty node prevents the instance from starting.                                                                                                                        |\n| `N8N_COMMUNITY_PACKAGES_REGISTRY`        | String           | `https://registry.npmjs.org`                                               | NPM registry URL to pull community packages from (license required).                                                                                                                                                                                                           |\n| `N8N_CUSTOM_EXTENSIONS`                  | String           | -                                                                          | Specify the path to directories containing your custom nodes.                                                                                                                                                                                                                  |\n| `N8N_PYTHON_ENABLED`                     | Boolean          | `true`                                                                     | Whether to enable Python execution on the Code node.                                                                                                                                                                                                                           |\n| `N8N_UNVERIFIED_PACKAGES_ENABLED`        | Boolean          | `true`                                                                     | When `N8N_COMMUNITY_PACKAGES_ENABLED` is true, this variable controls whether to enable the installation and use of unverified community nodes from an NPM registry (true) or not (false).                                                                                     |\n| `N8N_VERIFIED_PACKAGES_ENABLED`          | Boolean          | `true`                                                                     | When `N8N_COMMUNITY_PACKAGES_ENABLED` is true, this variable controls whether to show verified community nodes in the nodes panel for installation and use (true) or to hide them (false).                                                                                     |\n| `NODE_FUNCTION_ALLOW_BUILTIN`            | String           | -                                                                          | Permit users to import specific built-in modules in the Code node. Use * to allow all. n8n disables importing modules by default.                                                                                                                                              |\n| `NODE_FUNCTION_ALLOW_EXTERNAL`           | String           | -                                                                          | Permit users to import specific external modules (from `n8n/node_modules`) in the Code node. n8n disables importing modules by default.                                                                                                                                        |\n| `NODES_ERROR_TRIGGER_TYPE`               | String           | `n8n-nodes-base.errorTrigger`                                              | Specify which node type to use as Error Trigger.                                                                                                                                                                                                                               |\n| `NODES_EXCLUDE`                          | Array of strings | `[\\\"n8n-nodes-base.executeCommand\\\", \\\"n8n-nodes-base.localFileTrigger\\\"]` | Specify which nodes not to load. For example, to block nodes that can be a security risk if users aren't trustworthy: `NODES_EXCLUDE: \"[\\\"n8n-nodes-base.executeCommand\\\", \\\"@n8n/n8n-nodes-langchain.lmChatDeepSeek\\\"]\"`. To enable all nodes, specify `NODES_EXCLUDE: \"[]\"`. |\n| `NODES_INCLUDE`                          | Array of strings | -                                                                          | Specify which nodes to load.                                                                                                                                                                                                                                                   |\n",
+        "markdown": "# Nodes environment variables\n\nFile-based configuration\n\nYou can add `_FILE` to individual variables to provide their configuration in a separate file. Refer to [Keeping sensitive data in separate files](../../configuration-methods/#keeping-sensitive-data-in-separate-files) for more details.\n\nThis page lists the environment variables configuration options for managing [nodes](../../../../glossary/#node-n8n) in n8n, including specifying which nodes to load or exclude, importing built-in or external modules in the Code node, and enabling community nodes.\n\n| Variable                                 | Type             | Default                                                                    | Description                                                                                                                                                                                                                                                                    |\n| ---------------------------------------- | ---------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |\n| `N8N_COMMUNITY_PACKAGES_AUTH_TOKEN`      | String           | -                                                                          | Authentication token for a private npm registry. Use with `N8N_COMMUNITY_PACKAGES_REGISTRY` to authenticate requests when installing community nodes from a private registry.                                                                                                  |\n| `N8N_COMMUNITY_PACKAGES_ENABLED`         | Boolean          | `true`                                                                     | Enables (true) or disables (false) the functionality to install and load community nodes. If set to false, neither verified nor unverified community packages will be available, regardless of their individual settings.                                                      |\n| `N8N_COMMUNITY_PACKAGES_PREVENT_LOADING` | Boolean          | `false`                                                                    | Prevents (true) or allows (false) loading installed community nodes on instance startup. Use this if a faulty node prevents the instance from starting.                                                                                                                        |\n| `N8N_COMMUNITY_PACKAGES_REGISTRY`        | String           | `https://registry.npmjs.org`                                               | NPM registry URL to pull community packages from (license required).                                                                                                                                                                                                           |\n| `N8N_CUSTOM_EXTENSIONS`                  | String           | -                                                                          | Specify the path to directories containing your custom nodes.                                                                                                                                                                                                                  |\n| `N8N_PYTHON_ENABLED`                     | Boolean          | `true`                                                                     | Whether to enable Python execution on the Code node.                                                                                                                                                                                                                           |\n| `N8N_UNVERIFIED_PACKAGES_ENABLED`        | Boolean          | `true`                                                                     | When `N8N_COMMUNITY_PACKAGES_ENABLED` is true, this variable controls whether to enable the installation and use of unverified community nodes from an NPM registry (true) or not (false).                                                                                     |\n| `N8N_VERIFIED_PACKAGES_ENABLED`          | Boolean          | `true`                                                                     | When `N8N_COMMUNITY_PACKAGES_ENABLED` is true, this variable controls whether to show verified community nodes in the nodes panel for installation and use (true) or to hide them (false).                                                                                     |\n| `NODE_FUNCTION_ALLOW_BUILTIN`            | String           | -                                                                          | Permit users to import specific built-in modules in the Code node. Use * to allow all. n8n disables importing modules by default.                                                                                                                                              |\n| `NODE_FUNCTION_ALLOW_EXTERNAL`           | String           | -                                                                          | Permit users to import specific external modules (from `n8n/node_modules`) in the Code node. n8n disables importing modules by default.                                                                                                                                        |\n| `NODES_ERROR_TRIGGER_TYPE`               | String           | `n8n-nodes-base.errorTrigger`                                              | Specify which node type to use as Error Trigger.                                                                                                                                                                                                                               |\n| `NODES_EXCLUDE`                          | Array of strings | `[\\\"n8n-nodes-base.executeCommand\\\", \\\"n8n-nodes-base.localFileTrigger\\\"]` | Specify which nodes not to load. For example, to block nodes that can be a security risk if users aren't trustworthy: `NODES_EXCLUDE: \"[\\\"n8n-nodes-base.executeCommand\\\", \\\"@n8n/n8n-nodes-langchain.lmChatDeepSeek\\\"]\"`. To enable all nodes, specify `NODES_EXCLUDE: \"[]\"`. |\n| `NODES_INCLUDE`                          | Array of strings | -                                                                          | Specify which nodes to load.                                                                                                                                                                                                                                                   |\n",
         "excerpt": "# Nodes environment variables  File-based configuration  You can add `_FILE` to individual variables to provide their configuration in a separate file. Refer to [Keeping sensitive data in separate files](../../configuration-methods/#keeping-sensitive-data-in-separate-files) for more details.  This page lists the environment variables configuration options for managing [nodes](../../../../glossary/#node-n8n) in n8n, including specifying which nodes to load or exclude, importing built-in or extern...",
         "sections": [
           {
@@ -15549,22 +15549,24 @@
         "useCases": [],
         "operations": [],
         "codeExamples": 0,
-        "complexity": "beginner",
+        "complexity": "intermediate",
         "readingTime": "3 min",
-        "contentLength": 6356,
+        "contentLength": 6770,
         "relatedPages": []
       },
       "searchIndex": {
-        "fullText": "nodes # nodes environment variables\n\nfile-based configuration\n\nyou can add `_file` to individual variables to provide their configuration in a separate file. refer to [keeping sensitive data in separate files](../../configuration-methods/#keeping-sensitive-data-in-separate-files) for more details.\n\nthis page lists the environment variables configuration options for managing [nodes](../../../../glossary/#node-n8n) in n8n, including specifying which nodes to load or exclude, importing built-in or external modules in the code node, and enabling community nodes.\n\n| variable                                 | type             | default                                                                    | description                                                                                                                                                                                                                                                                    |\n| ---------------------------------------- | ---------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |\n| `n8n_community_packages_enabled`         | boolean          | `true`                                                                     | enables (true) or disables (false) the functionality to install and load community nodes. if set to false, neither verified nor unverified community packages will be available, regardless of their individual settings.                                                      |\n| `n8n_community_packages_prevent_loading` | boolean          | `false`                                                                    | prevents (true) or allows (false) loading installed community nodes on instance startup. use this if a faulty node prevents the instance from starting.                                                                                                                        |\n| `n8n_community_packages_registry`        | string           | `https://registry.npmjs.org`                                               | npm registry url to pull community packages from (license required).                                                                                                                                                                                                           |\n| `n8n_custom_extensions`                  | string           | -                                                                          | specify the path to directories containing your custom nodes.                                                                                                                                                                                                                  |\n| `n8n_python_enabled`                     | boolean          | `true`                                                                     | whether to enable python execution on the code node.                                                                                                                                                                                                                           |\n| `n8n_unverified_packages_enabled`        | boolean          | `true`                                                                     | when `n8n_community_packages_enabled` is true, this variable controls whether to enable the installation and use of unverified community nodes from an npm registry (true) or not (false).                                                                                     |\n| `n8n_verified_packages_enabled`          | boolean          | `true`                                                                     | when `n8n_community_packages_enabled` is true, this variable controls whether to show verified community nodes in the nodes panel for installation and use (true) or to hide them (false).                                                                                     |\n| `node_function_allow_builtin`            | string           | -                                                                          | permit users to import specific built-in modules in the code node. use * to allow all. n8n disables importing modules by default.                                                                                                                                              |\n| `node_function_allow_external`           | string           | -                                                                          | permit users to import specific external modules (from `n8n/node_modules`) in the code node. n8n disables importing modules by default.                                                                                                                                        |\n| `nodes_error_trigger_type`               | string           | `n8n-nodes-base.errortrigger`                                              | specify which node type to use as error trigger.                                                                                                                                                                                                                               |\n| `nodes_exclude`                          | array of strings | `[\\\"n8n-nodes-base.executecommand\\\", \\\"n8n-nodes-base.localfiletrigger\\\"]` | specify which nodes not to load. for example, to block nodes that can be a security risk if users aren't trustworthy: `nodes_exclude: \"[\\\"n8n-nodes-base.executecommand\\\", \\\"@n8n/n8n-nodes-langchain.lmchatdeepseek\\\"]\"`. to enable all nodes, specify `nodes_exclude: \"[]\"`. |\n| `nodes_include`                          | array of strings | -                                                                          | specify which nodes to load.                                                                                                                                                                                                                                                   |\n nodes environment variables",
+        "fullText": "nodes # nodes environment variables\n\nfile-based configuration\n\nyou can add `_file` to individual variables to provide their configuration in a separate file. refer to [keeping sensitive data in separate files](../../configuration-methods/#keeping-sensitive-data-in-separate-files) for more details.\n\nthis page lists the environment variables configuration options for managing [nodes](../../../../glossary/#node-n8n) in n8n, including specifying which nodes to load or exclude, importing built-in or external modules in the code node, and enabling community nodes.\n\n| variable                                 | type             | default                                                                    | description                                                                                                                                                                                                                                                                    |\n| ---------------------------------------- | ---------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |\n| `n8n_community_packages_auth_token`      | string           | -                                                                          | authentication token for a private npm registry. use with `n8n_community_packages_registry` to authenticate requests when installing community nodes from a private registry.                                                                                                  |\n| `n8n_community_packages_enabled`         | boolean          | `true`                                                                     | enables (true) or disables (false) the functionality to install and load community nodes. if set to false, neither verified nor unverified community packages will be available, regardless of their individual settings.                                                      |\n| `n8n_community_packages_prevent_loading` | boolean          | `false`                                                                    | prevents (true) or allows (false) loading installed community nodes on instance startup. use this if a faulty node prevents the instance from starting.                                                                                                                        |\n| `n8n_community_packages_registry`        | string           | `https://registry.npmjs.org`                                               | npm registry url to pull community packages from (license required).                                                                                                                                                                                                           |\n| `n8n_custom_extensions`                  | string           | -                                                                          | specify the path to directories containing your custom nodes.                                                                                                                                                                                                                  |\n| `n8n_python_enabled`                     | boolean          | `true`                                                                     | whether to enable python execution on the code node.                                                                                                                                                                                                                           |\n| `n8n_unverified_packages_enabled`        | boolean          | `true`                                                                     | when `n8n_community_packages_enabled` is true, this variable controls whether to enable the installation and use of unverified community nodes from an npm registry (true) or not (false).                                                                                     |\n| `n8n_verified_packages_enabled`          | boolean          | `true`                                                                     | when `n8n_community_packages_enabled` is true, this variable controls whether to show verified community nodes in the nodes panel for installation and use (true) or to hide them (false).                                                                                     |\n| `node_function_allow_builtin`            | string           | -                                                                          | permit users to import specific built-in modules in the code node. use * to allow all. n8n disables importing modules by default.                                                                                                                                              |\n| `node_function_allow_external`           | string           | -                                                                          | permit users to import specific external modules (from `n8n/node_modules`) in the code node. n8n disables importing modules by default.                                                                                                                                        |\n| `nodes_error_trigger_type`               | string           | `n8n-nodes-base.errortrigger`                                              | specify which node type to use as error trigger.                                                                                                                                                                                                                               |\n| `nodes_exclude`                          | array of strings | `[\\\"n8n-nodes-base.executecommand\\\", \\\"n8n-nodes-base.localfiletrigger\\\"]` | specify which nodes not to load. for example, to block nodes that can be a security risk if users aren't trustworthy: `nodes_exclude: \"[\\\"n8n-nodes-base.executecommand\\\", \\\"@n8n/n8n-nodes-langchain.lmchatdeepseek\\\"]\"`. to enable all nodes, specify `nodes_exclude: \"[]\"`. |\n| `nodes_include`                          | array of strings | -                                                                          | specify which nodes to load.                                                                                                                                                                                                                                                   |\n nodes environment variables",
         "importantTerms": [
           "nodes",
           "true",
-          "node",
           "community",
+          "node",
+          "string",
           "false",
           "modules",
+          "registry",
+          "from",
           "boolean",
-          "string",
           "specify",
           "variables",
           "configuration",
@@ -15572,15 +15574,14 @@
           "which",
           "load",
           "code",
-          "from",
           "base",
           "environment",
           "separate",
           "importing",
           "variable",
           "default",
+          "when",
           "disables",
-          "registry",
           "whether",
           "enable",
           "users"
@@ -65026,59 +65027,6 @@
     },
     {
       "id": "page-0838",
-      "title": "Invoice Ninja credentials",
-      "url": "https://docs.n8n.io/integrations/builtin/credentials/invoiceninja/index.md",
-      "urlPath": "integrations/builtin/credentials/invoiceninja/index.md",
-      "category": "other",
-      "subcategory": null,
-      "nodeName": null,
-      "nodeType": null,
-      "content": {
-        "markdown": "# Invoice Ninja credentials\n\nYou can use these credentials to authenticate the following nodes:\n\n- [Invoice Ninja](../../app-nodes/n8n-nodes-base.invoiceninja/)\n- [Invoice Ninja Trigger](../../trigger-nodes/n8n-nodes-base.invoiceninjatrigger/)\n\n## Prerequisites\n\nCreate an [Invoice Ninja](https://www.invoiceninja.com/) account. Only the Pro and Enterprise plans support API integrations.\n\n## Supported authentication methods\n\n- API key\n\n## Related resources\n\nRefer to Invoice Ninja's [v4 API documentation](https://invoice-ninja.readthedocs.io/en/latest/api.html) and [v5 API documentation](https://api-docs.invoicing.co/) for more information about the APIs.\n\n## Using API key\n\nTo configure this credential, you'll need:\n\n- A **URL**: If Invoice Ninja hosts your installation, use either of the default URLs mentioned. If you're self-hosting your installation, use the URL of your Invoice Ninja instance.\n- An **API Token**: Generate an API token in **Settings > Account Management > API Tokens**.\n- An optional **Secret**, available only for v5 API users\n",
-        "excerpt": "# Invoice Ninja credentials  You can use these credentials to authenticate the following nodes:  - [Invoice Ninja](../../app-nodes/n8n-nodes-base.invoiceninja/) - [Invoice Ninja Trigger](../../trigger-nodes/n8n-nodes-base.invoiceninjatrigger/)  ## Prerequisites  Create an [Invoice Ninja](https://www.invoiceninja.com/) account. Only the Pro and Enterprise plans support API integrations.  ## Supported authentication methods  - API key  ## Related resources  Refer to Invoice Ninja's [v4 API documen...",
-        "sections": [
-          {
-            "title": "Invoice Ninja credentials",
-            "level": 1,
-            "content": "You can use these credentials to authenticate the following nodes:\n\n- [Invoice Ninja](../../app-nodes/n8n-nodes-base.invoiceninja/)\n- [Invoice Ninja Trigger](../../trigger-nodes/n8n-nodes-base.invoiceninjatrigger/)"
-          }
-        ]
-      },
-      "metadata": {
-        "keywords": [
-          "invoice",
-          "ninja",
-          "credentials",
-          "prerequisites",
-          "supported",
-          "authentication",
-          "methods",
-          "related",
-          "resources",
-          "using"
-        ],
-        "useCases": [],
-        "operations": [],
-        "codeExamples": 0,
-        "complexity": "beginner",
-        "readingTime": "1 min",
-        "contentLength": 1058,
-        "relatedPages": []
-      },
-      "searchIndex": {
-        "fullText": "invoice ninja credentials # invoice ninja credentials\n\nyou can use these credentials to authenticate the following nodes:\n\n- [invoice ninja](../../app-nodes/n8n-nodes-base.invoiceninja/)\n- [invoice ninja trigger](../../trigger-nodes/n8n-nodes-base.invoiceninjatrigger/)\n\n## prerequisites\n\ncreate an [invoice ninja](https://www.invoiceninja.com/) account. only the pro and enterprise plans support api integrations.\n\n## supported authentication methods\n\n- api key\n\n## related resources\n\nrefer to invoice ninja's [v4 api documentation](https://invoice-ninja.readthedocs.io/en/latest/api.html) and [v5 api documentation](https://api-docs.invoicing.co/) for more information about the apis.\n\n## using api key\n\nto configure this credential, you'll need:\n\n- a **url**: if invoice ninja hosts your installation, use either of the default urls mentioned. if you're self-hosting your installation, use the url of your invoice ninja instance.\n- an **api token**: generate an api token in **settings > account management > api tokens**.\n- an optional **secret**, available only for v5 api users\n invoice ninja credentials",
-        "importantTerms": [
-          "invoice",
-          "ninja",
-          "nodes",
-          "credentials",
-          "https",
-          "your"
-        ]
-      }
-    },
-    {
-      "id": "page-0839",
       "title": "Intercom credentials",
       "url": "https://docs.n8n.io/integrations/builtin/credentials/intercom/index.md",
       "urlPath": "integrations/builtin/credentials/intercom/index.md",
@@ -65135,6 +65083,59 @@
           "build",
           "integration",
           "learn"
+        ]
+      }
+    },
+    {
+      "id": "page-0839",
+      "title": "Invoice Ninja credentials",
+      "url": "https://docs.n8n.io/integrations/builtin/credentials/invoiceninja/index.md",
+      "urlPath": "integrations/builtin/credentials/invoiceninja/index.md",
+      "category": "other",
+      "subcategory": null,
+      "nodeName": null,
+      "nodeType": null,
+      "content": {
+        "markdown": "# Invoice Ninja credentials\n\nYou can use these credentials to authenticate the following nodes:\n\n- [Invoice Ninja](../../app-nodes/n8n-nodes-base.invoiceninja/)\n- [Invoice Ninja Trigger](../../trigger-nodes/n8n-nodes-base.invoiceninjatrigger/)\n\n## Prerequisites\n\nCreate an [Invoice Ninja](https://www.invoiceninja.com/) account. Only the Pro and Enterprise plans support API integrations.\n\n## Supported authentication methods\n\n- API key\n\n## Related resources\n\nRefer to Invoice Ninja's [v4 API documentation](https://invoice-ninja.readthedocs.io/en/latest/api.html) and [v5 API documentation](https://api-docs.invoicing.co/) for more information about the APIs.\n\n## Using API key\n\nTo configure this credential, you'll need:\n\n- A **URL**: If Invoice Ninja hosts your installation, use either of the default URLs mentioned. If you're self-hosting your installation, use the URL of your Invoice Ninja instance.\n- An **API Token**: Generate an API token in **Settings > Account Management > API Tokens**.\n- An optional **Secret**, available only for v5 API users\n",
+        "excerpt": "# Invoice Ninja credentials  You can use these credentials to authenticate the following nodes:  - [Invoice Ninja](../../app-nodes/n8n-nodes-base.invoiceninja/) - [Invoice Ninja Trigger](../../trigger-nodes/n8n-nodes-base.invoiceninjatrigger/)  ## Prerequisites  Create an [Invoice Ninja](https://www.invoiceninja.com/) account. Only the Pro and Enterprise plans support API integrations.  ## Supported authentication methods  - API key  ## Related resources  Refer to Invoice Ninja's [v4 API documen...",
+        "sections": [
+          {
+            "title": "Invoice Ninja credentials",
+            "level": 1,
+            "content": "You can use these credentials to authenticate the following nodes:\n\n- [Invoice Ninja](../../app-nodes/n8n-nodes-base.invoiceninja/)\n- [Invoice Ninja Trigger](../../trigger-nodes/n8n-nodes-base.invoiceninjatrigger/)"
+          }
+        ]
+      },
+      "metadata": {
+        "keywords": [
+          "invoice",
+          "ninja",
+          "credentials",
+          "prerequisites",
+          "supported",
+          "authentication",
+          "methods",
+          "related",
+          "resources",
+          "using"
+        ],
+        "useCases": [],
+        "operations": [],
+        "codeExamples": 0,
+        "complexity": "beginner",
+        "readingTime": "1 min",
+        "contentLength": 1058,
+        "relatedPages": []
+      },
+      "searchIndex": {
+        "fullText": "invoice ninja credentials # invoice ninja credentials\n\nyou can use these credentials to authenticate the following nodes:\n\n- [invoice ninja](../../app-nodes/n8n-nodes-base.invoiceninja/)\n- [invoice ninja trigger](../../trigger-nodes/n8n-nodes-base.invoiceninjatrigger/)\n\n## prerequisites\n\ncreate an [invoice ninja](https://www.invoiceninja.com/) account. only the pro and enterprise plans support api integrations.\n\n## supported authentication methods\n\n- api key\n\n## related resources\n\nrefer to invoice ninja's [v4 api documentation](https://invoice-ninja.readthedocs.io/en/latest/api.html) and [v5 api documentation](https://api-docs.invoicing.co/) for more information about the apis.\n\n## using api key\n\nto configure this credential, you'll need:\n\n- a **url**: if invoice ninja hosts your installation, use either of the default urls mentioned. if you're self-hosting your installation, use the url of your invoice ninja instance.\n- an **api token**: generate an api token in **settings > account management > api tokens**.\n- an optional **secret**, available only for v5 api users\n invoice ninja credentials",
+        "importantTerms": [
+          "invoice",
+          "ninja",
+          "nodes",
+          "credentials",
+          "https",
+          "your"
         ]
       }
     },
@@ -91616,6 +91617,48 @@
     },
     {
       "id": "page-1250",
+      "title": "Workflow ID",
+      "url": "https://docs.n8n.io/workflows/workflow-id/index.md",
+      "urlPath": "workflows/workflow-id/index.md",
+      "category": "workflows",
+      "subcategory": null,
+      "nodeName": null,
+      "nodeType": null,
+      "content": {
+        "markdown": "# Find your workflow ID\n\nYour workflow ID is available in:\n\n- The URL of the open workflow.\n- The workflow settings title.\n",
+        "excerpt": "# Find your workflow ID  Your workflow ID is available in:  - The URL of the open workflow. - The workflow settings title....",
+        "sections": [
+          {
+            "title": "Find your workflow ID",
+            "level": 1,
+            "content": "Your workflow ID is available in:\n\n- The URL of the open workflow.\n- The workflow settings title."
+          }
+        ]
+      },
+      "metadata": {
+        "keywords": [
+          "workflow",
+          "find",
+          "your"
+        ],
+        "useCases": [],
+        "operations": [],
+        "codeExamples": 0,
+        "complexity": "beginner",
+        "readingTime": "1 min",
+        "contentLength": 123,
+        "relatedPages": []
+      },
+      "searchIndex": {
+        "fullText": "workflow id # find your workflow id\n\nyour workflow id is available in:\n\n- the url of the open workflow.\n- the workflow settings title.\n find your workflow id",
+        "importantTerms": [
+          "workflow",
+          "your"
+        ]
+      }
+    },
+    {
+      "id": "page-1251",
       "title": "Templates",
       "url": "https://docs.n8n.io/workflows/templates/index.md",
       "urlPath": "workflows/templates/index.md",
@@ -91710,48 +91753,6 @@
           "http",
           "json",
           "draft"
-        ]
-      }
-    },
-    {
-      "id": "page-1251",
-      "title": "Workflow ID",
-      "url": "https://docs.n8n.io/workflows/workflow-id/index.md",
-      "urlPath": "workflows/workflow-id/index.md",
-      "category": "workflows",
-      "subcategory": null,
-      "nodeName": null,
-      "nodeType": null,
-      "content": {
-        "markdown": "# Find your workflow ID\n\nYour workflow ID is available in:\n\n- The URL of the open workflow.\n- The workflow settings title.\n",
-        "excerpt": "# Find your workflow ID  Your workflow ID is available in:  - The URL of the open workflow. - The workflow settings title....",
-        "sections": [
-          {
-            "title": "Find your workflow ID",
-            "level": 1,
-            "content": "Your workflow ID is available in:\n\n- The URL of the open workflow.\n- The workflow settings title."
-          }
-        ]
-      },
-      "metadata": {
-        "keywords": [
-          "workflow",
-          "find",
-          "your"
-        ],
-        "useCases": [],
-        "operations": [],
-        "codeExamples": 0,
-        "complexity": "beginner",
-        "readingTime": "1 min",
-        "contentLength": 123,
-        "relatedPages": []
-      },
-      "searchIndex": {
-        "fullText": "workflow id # find your workflow id\n\nyour workflow id is available in:\n\n- the url of the open workflow.\n- the workflow settings title.\n find your workflow id",
-        "importantTerms": [
-          "workflow",
-          "your"
         ]
       }
     },
@@ -94490,7 +94491,7 @@
         "page-1237",
         "page-1238",
         "page-1245",
-        "page-1250",
+        "page-1251",
         "page-1258"
       ],
       "default": [
@@ -97332,7 +97333,7 @@
         "page-1204",
         "page-1205",
         "page-1222",
-        "page-1250"
+        "page-1251"
       ],
       "hosting": [
         "page-0009",
@@ -100410,7 +100411,7 @@
         "page-0715",
         "page-0718",
         "page-1205",
-        "page-1250"
+        "page-1251"
       ],
       "widget": [
         "page-0017"
@@ -101912,7 +101913,7 @@
         "page-1173",
         "page-1175",
         "page-1176",
-        "page-1250"
+        "page-1251"
       ],
       "fill": [
         "page-0037"
@@ -102081,7 +102082,7 @@
         "page-1204",
         "page-1205",
         "page-1222",
-        "page-1250"
+        "page-1251"
       ],
       "instances": [
         "page-0043",
@@ -102603,7 +102604,7 @@
         "page-0796",
         "page-1048",
         "page-1113",
-        "page-1251"
+        "page-1250"
       ],
       "piece": [
         "page-0051",
@@ -103907,7 +103908,7 @@
         "page-0674",
         "page-0709",
         "page-0831",
-        "page-1250"
+        "page-1251"
       ],
       "index": [
         "page-0071",
@@ -106209,19 +106210,19 @@
         "page-0720",
         "page-1038",
         "page-1161",
-        "page-1250"
+        "page-1251"
       ],
       "endpoints": [
         "page-0159",
         "page-0175",
         "page-1205",
         "page-1228",
-        "page-1250"
+        "page-1251"
       ],
       "schemas": [
         "page-0159",
         "page-0521",
-        "page-1250"
+        "page-1251"
       ],
       "encryption": [
         "page-0160",
@@ -108789,17 +108790,17 @@
       ],
       "intercom": [
         "page-0343",
-        "page-0839"
+        "page-0838"
       ],
       "invoice": [
         "page-0344",
-        "page-0838",
+        "page-0839",
         "page-0880",
         "page-1075"
       ],
       "ninja": [
         "page-0344",
-        "page-0838",
+        "page-0839",
         "page-1075"
       ],
       "iterable": [
@@ -112676,7 +112677,7 @@
         "page-1247"
       ],
       "n8n:": [
-        "page-1250"
+        "page-1251"
       ],
       "components": [
         "page-1252"
