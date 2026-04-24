@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-23T05:43:26.890Z",
+  "generatedAt": "2026-04-24T05:48:19.859Z",
   "version": "1.0.0",
   "sourceUrl": "https://docs.n8n.io/llms.txt",
   "totalPages": 1266,
@@ -16628,6 +16628,123 @@
     },
     {
       "id": "page-0198",
+      "title": "Azure",
+      "url": "https://docs.n8n.io/hosting/installation/server-setups/azure/index.md",
+      "urlPath": "hosting/installation/server-setups/azure/index.md",
+      "category": "hosting",
+      "subcategory": null,
+      "nodeName": null,
+      "nodeType": null,
+      "content": {
+        "markdown": "# Hosting n8n on Azure\n\nThis hosting guide shows you how to self-host n8n on Azure. It uses n8n with Postgres as a database backend using Kubernetes to manage the necessary resources and reverse proxy.\n\n## Prerequisites\n\nYou need [The Azure command line tool](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)\n\nSelf-hosting knowledge prerequisites\n\nSelf-hosting n8n requires technical knowledge, including:\n\n- Setting up and configuring servers and containers\n- Managing application resources and scaling\n- Securing servers and applications\n- Configuring n8n\n\nn8n recommends self-hosting for expert users. Mistakes can lead to data loss, security issues, and downtime. If you aren't experienced at managing servers, n8n recommends [n8n Cloud](https://n8n.io/cloud/).\n\nStable and Beta versions\n\nn8n releases a new minor version most weeks. The `stable` version is for production use. `beta` is the most recent release. The `beta` version may be unstable. To report issues, use the [forum](https://community.n8n.io/c/questions/12).\n\nCurrent `stable`: 2.17.4 Current `beta`: 2.18.1\n\n## Hosting options\n\nAzure offers several ways suitable for hosting n8n, including Azure Container Instances (optimized for running containers), Linux Virtual Machines, and Azure Kubernetes Service (containers running with Kubernetes).\n\nThis guide uses the Azure Kubernetes Service (AKS) as the hosting option. Using Kubernetes requires some additional complexity and configuration, but is the best method for scaling n8n as demand changes.\n\nThe steps in this guide use a mix of the Azure UI and command line tool, but you can use either to accomplish most tasks.\n\n## Open the Azure Kubernetes Service\n\nFrom [the Azure portal](https://portal.azure.com/) select **Kubernetes services**.\n\n## Create a cluster\n\nFrom the Kubernetes services page, select **Create** > **Create a Kubernetes cluster**.\n\nYou can select any of the configuration options that suit your needs, then select **Create** when done.\n\n## Set Kubectl context\n\nThe remainder of the steps in this guide require you to set the Azure instance as the Kubectl context. You can find the connection details for a cluster instance by opening its details page and then the **Connect** button. The resulting code snippets shows the steps to paste and run into a terminal to change your local Kubernetes settings to use the new cluster.\n\n## Clone configuration repository\n\nKubernetes and n8n require a series of configuration files. You can clone these from [this repository](https://github.com/n8n-io/n8n-hosting). The following steps tell you which file configures what and what you need to change.\n\nClone the repository with the following command:\n\n```\ngit clone https://github.com/n8n-io/n8n-hosting.git\n```\n\nAnd change directory:\n\n```\ncd n8n-hosting/kubernetes\n```\n\n## Configure Postgres\n\nFor larger scale n8n deployments, Postgres provides a more robust database backend than SQLite.\n\n### Configure volume for persistent storage\n\nTo maintain data between pod restarts, the Postgres deployment needs a persistent volume. The default storage class is suitable for this purpose and is defined in the `postgres-claim0-persistentvolumeclaim.yaml` manifest.\n\nSpecialized storage classes\n\nIf you have specialised or higher requirements for storage classes, [read more on the options Azure offers in the documentation](https://learn.microsoft.com/en-us/azure/aks/concepts-storage#storage-classes).\n\n### Postgres environment variables\n\nPostgres needs some environment variables set to pass to the application running in the containers.\n\nThe example `postgres-secret.yaml` file contains placeholders you need to replace with your own values. Postgres will use these details when creating the database..\n\nThe `postgres-deployment.yaml` manifest then uses the values from this manifest file to send to the application pods.\n\n## Configure n8n\n\n### Create a volume for file storage\n\nWhile not essential for running n8n, using persistent volumes is required for:\n\n- Using nodes that interact with files, such as the binary data node.\n- If you want to persist [manual n8n encryption keys](../../../configuration/environment-variables/deployment/) between restarts. This saves a file containing the key into file storage during startup.\n\nThe `n8n-claim0-persistentvolumeclaim.yaml` manifest creates this, and the n8n Deployment mounts that claim in the `volumes` section of the `n8n-deployment.yaml` manifest.\n\n```\n…\nvolumes:\n  - name: n8n-claim0\n    persistentVolumeClaim:\n      claimName: n8n-claim0\n…\n```\n\n### Pod resources\n\n[Kubernetes lets you](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) optionally specify the minimum resources application containers need and the limits they can run to. The example YAML files cloned above contain the following in the `resources` section of the `n8n-deployment.yaml` file:\n\n```\n…\nresources:\n  requests:\n    memory: \"250Mi\"\n  limits:\n    memory: \"500Mi\"\n…\n```\n\nThis defines a minimum of 250mb per container, a maximum of 500mb, and lets Kubernetes handle CPU. You can change these values to match your own needs. As a guide, here are the resources values for the n8n cloud offerings:\n\n- **Start**: 320mb RAM, 10 millicore CPU burstable\n- **Pro (10k executions)**: 640mb RAM, 20 millicore CPU burstable\n- **Pro (50k executions)**: 1280mb RAM, 80 millicore CPU burstable\n\n### Optional: Environment variables\n\nYou can configure n8n settings and behaviors using environment variables.\n\nCreate an `n8n-secret.yaml` file. Refer to [Environment variables](../../../configuration/environment-variables/) for n8n environment variables details.\n\n## Deployments\n\nThe two deployment manifests (`n8n-deployment.yaml` and `postgres-deployment.yaml`) define the n8n and Postgres applications to Kubernetes.\n\nThe manifests define the following:\n\n- Send the environment variables defined to each application pod\n- Define the container image to use\n- Set resource consumption limits with the `resources` object\n- The `volumes` defined earlier and `volumeMounts` to define the path in the container to mount volumes.\n- Scaling and restart policies. The example manifests define one instance of each pod. You should change this to meet your needs.\n\n## Services\n\nThe two service manifests (`postgres-service.yaml` and `n8n-service.yaml`) expose the services to the outside world using the Kubernetes load balancer using ports 5432 and 5678 respectively.\n\n## Send to Kubernetes cluster\n\nSend all the manifests to the cluster with the following command:\n\n```\nkubectl apply -f .\n```\n\nNamespace error\n\nYou may see an error message about not finding an \"n8n\" namespace as that resources isn't ready yet. You can run the same command again, or apply the namespace manifest first with the following command:\n\n```\nkubectl apply -f namespace.yaml\n```\n\n## Set up DNS\n\nn8n typically operates on a subdomain. Create a DNS record with your provider for the subdomain and point it to the IP address of the n8n service. Find the IP address of the n8n service from the **Services & ingresses** menu item of the cluster you want to use under the **External IP** column. You need to add the n8n port, \"5678\" to the URL.\n\nStatic IP addresses with AKS\n\n[Read this tutorial](https://learn.microsoft.com/en-us/azure/aks/static-ip) for more details on how to use a static IP address with AKS.\n\n## Delete resources\n\nRemove the resources created by the manifests with the following command:\n\n```\nkubectl delete -f .\n```\n\n## Next steps\n\n- Learn more about [configuring](../../../configuration/environment-variables/) and [scaling](../../../scaling/overview/) n8n.\n- Or explore using n8n: try the [Quickstarts](../../../../try-it-out/).\n",
+        "excerpt": "# Hosting n8n on Azure  This hosting guide shows you how to self-host n8n on Azure. It uses n8n with Postgres as a database backend using Kubernetes to manage the necessary resources and reverse proxy.  ## Prerequisites  You need [The Azure command line tool](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)  Self-hosting knowledge prerequisites  Self-hosting n8n requires technical knowledge, including:  - Setting up and configuring servers and containers - Managing application reso...",
+        "sections": [
+          {
+            "title": "Hosting n8n on Azure",
+            "level": 1,
+            "content": "This hosting guide shows you how to self-host n8n on Azure. It uses n8n with Postgres as a database backend using Kubernetes to manage the necessary resources and reverse proxy."
+          }
+        ]
+      },
+      "metadata": {
+        "keywords": [
+          "azure",
+          "hosting",
+          "prerequisites",
+          "options",
+          "open",
+          "kubernetes",
+          "service",
+          "create",
+          "cluster",
+          "kubectl",
+          "context",
+          "clone",
+          "configuration",
+          "repository",
+          "configure",
+          "postgres",
+          "volume",
+          "persistent",
+          "storage",
+          "environment",
+          "variables",
+          "file",
+          "resources",
+          "optional:",
+          "deployments",
+          "services",
+          "send",
+          "delete",
+          "next",
+          "steps"
+        ],
+        "useCases": [],
+        "operations": [],
+        "codeExamples": 7,
+        "complexity": "beginner",
+        "readingTime": "6 min",
+        "contentLength": 7701,
+        "relatedPages": []
+      },
+      "searchIndex": {
+        "fullText": "azure # hosting n8n on azure\n\nthis hosting guide shows you how to self-host n8n on azure. it uses n8n with postgres as a database backend using kubernetes to manage the necessary resources and reverse proxy.\n\n## prerequisites\n\nyou need [the azure command line tool](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)\n\nself-hosting knowledge prerequisites\n\nself-hosting n8n requires technical knowledge, including:\n\n- setting up and configuring servers and containers\n- managing application resources and scaling\n- securing servers and applications\n- configuring n8n\n\nn8n recommends self-hosting for expert users. mistakes can lead to data loss, security issues, and downtime. if you aren't experienced at managing servers, n8n recommends [n8n cloud](https://n8n.io/cloud/).\n\nstable and beta versions\n\nn8n releases a new minor version most weeks. the `stable` version is for production use. `beta` is the most recent release. the `beta` version may be unstable. to report issues, use the [forum](https://community.n8n.io/c/questions/12).\n\ncurrent `stable`: 2.17.4 current `beta`: 2.18.1\n\n## hosting options\n\nazure offers several ways suitable for hosting n8n, including azure container instances (optimized for running containers), linux virtual machines, and azure kubernetes service (containers running with kubernetes).\n\nthis guide uses the azure kubernetes service (aks) as the hosting option. using kubernetes requires some additional complexity and configuration, but is the best method for scaling n8n as demand changes.\n\nthe steps in this guide use a mix of the azure ui and command line tool, but you can use either to accomplish most tasks.\n\n## open the azure kubernetes service\n\nfrom [the azure portal](https://portal.azure.com/) select **kubernetes services**.\n\n## create a cluster\n\nfrom the kubernetes services page, select **create** > **create a kubernetes cluster**.\n\nyou can select any of the configuration options that suit your needs, then select **create** when done.\n\n## set kubectl context\n\nthe remainder of the steps in this guide require you to set the azure instance as the kubectl context. you can find the connection details for a cluster instance by opening its details page and then the **connect** button. the resulting code snippets shows the steps to paste and run into a terminal to change your local kubernetes settings to use the new cluster.\n\n## clone configuration repository\n\nkubernetes and n8n require a series of configuration files. you can clone these from [this repository](https://github.com/n8n-io/n8n-hosting). the following steps tell you which file configures what and what you need to change.\n\nclone the repository with the following command:\n\n```\ngit clone https://github.com/n8n-io/n8n-hosting.git\n```\n\nand change directory:\n\n```\ncd n8n-hosting/kubernetes\n```\n\n## configure postgres\n\nfor larger scale n8n deployments, postgres provides a more robust database backend than sqlite.\n\n### configure volume for persistent storage\n\nto maintain data between pod restarts, the postgres deployment needs a persistent volume. the default storage class is suitable for this purpose and is defined in the `postgres-claim0-persistentvolumeclaim.yaml` manifest.\n\nspecialized storage classes\n\nif you have specialised or higher requirements for storage classes, [read more on the options azure offers in the documentation](https://learn.microsoft.com/en-us/azure/aks/concepts-storage#storage-classes).\n\n### postgres environment variables\n\npostgres needs some environment variables set to pass to the application running in the containers.\n\nthe example `postgres-secret.yaml` file contains placeholders you need to replace with your own values. postgres will use these details when creating the database..\n\nthe `postgres-deployment.yaml` manifest then uses the values from this manifest file to send to the application pods.\n\n## configure n8n\n\n### create a volume for file storage\n\nwhile not essential for running n8n, using persistent volumes is required for:\n\n- using nodes that interact with files, such as the binary data node.\n- if you want to persist [manual n8n encryption keys](../../../configuration/environment-variables/deployment/) between restarts. this saves a file containing the key into file storage during startup.\n\nthe `n8n-claim0-persistentvolumeclaim.yaml` manifest creates this, and the n8n deployment mounts that claim in the `volumes` section of the `n8n-deployment.yaml` manifest.\n\n```\n…\nvolumes:\n  - name: n8n-claim0\n    persistentvolumeclaim:\n      claimname: n8n-claim0\n…\n```\n\n### pod resources\n\n[kubernetes lets you](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) optionally specify the minimum resources application containers need and the limits they can run to. the example yaml files cloned above contain the following in the `resources` section of the `n8n-deployment.yaml` file:\n\n```\n…\nresources:\n  requests:\n    memory: \"250mi\"\n  limits:\n    memory: \"500mi\"\n…\n```\n\nthis defines a minimum of 250mb per container, a maximum of 500mb, and lets kubernetes handle cpu. you can change these values to match your own needs. as a guide, here are the resources values for the n8n cloud offerings:\n\n- **start**: 320mb ram, 10 millicore cpu burstable\n- **pro (10k executions)**: 640mb ram, 20 millicore cpu burstable\n- **pro (50k executions)**: 1280mb ram, 80 millicore cpu burstable\n\n### optional: environment variables\n\nyou can configure n8n settings and behaviors using environment variables.\n\ncreate an `n8n-secret.yaml` file. refer to [environment variables](../../../configuration/environment-variables/) for n8n environment variables details.\n\n## deployments\n\nthe two deployment manifests (`n8n-deployment.yaml` and `postgres-deployment.yaml`) define the n8n and postgres applications to kubernetes.\n\nthe manifests define the following:\n\n- send the environment variables defined to each application pod\n- define the container image to use\n- set resource consumption limits with the `resources` object\n- the `volumes` defined earlier and `volumemounts` to define the path in the container to mount volumes.\n- scaling and restart policies. the example manifests define one instance of each pod. you should change this to meet your needs.\n\n## services\n\nthe two service manifests (`postgres-service.yaml` and `n8n-service.yaml`) expose the services to the outside world using the kubernetes load balancer using ports 5432 and 5678 respectively.\n\n## send to kubernetes cluster\n\nsend all the manifests to the cluster with the following command:\n\n```\nkubectl apply -f .\n```\n\nnamespace error\n\nyou may see an error message about not finding an \"n8n\" namespace as that resources isn't ready yet. you can run the same command again, or apply the namespace manifest first with the following command:\n\n```\nkubectl apply -f namespace.yaml\n```\n\n## set up dns\n\nn8n typically operates on a subdomain. create a dns record with your provider for the subdomain and point it to the ip address of the n8n service. find the ip address of the n8n service from the **services & ingresses** menu item of the cluster you want to use under the **external ip** column. you need to add the n8n port, \"5678\" to the url.\n\nstatic ip addresses with aks\n\n[read this tutorial](https://learn.microsoft.com/en-us/azure/aks/static-ip) for more details on how to use a static ip address with aks.\n\n## delete resources\n\nremove the resources created by the manifests with the following command:\n\n```\nkubectl delete -f .\n```\n\n## next steps\n\n- learn more about [configuring](../../../configuration/environment-variables/) and [scaling](../../../scaling/overview/) n8n.\n- or explore using n8n: try the [quickstarts](../../../../try-it-out/).\n hosting n8n on azure",
+        "importantTerms": [
+          "azure",
+          "kubernetes",
+          "postgres",
+          "yaml",
+          "hosting",
+          "this",
+          "with",
+          "resources",
+          "environment",
+          "variables",
+          "https",
+          "deployment",
+          "using",
+          "service",
+          "configuration",
+          "file",
+          "storage",
+          "command",
+          "create",
+          "cluster",
+          "following",
+          "containers",
+          "your",
+          "manifest",
+          "manifests",
+          "guide",
+          "need",
+          "application",
+          "scaling",
+          "steps",
+          "from",
+          "services",
+          "needs",
+          "kubectl",
+          "details",
+          "change",
+          "volumes",
+          "define",
+          "self",
+          "learn",
+          "beta",
+          "container",
+          "running",
+          "select",
+          "that",
+          "clone",
+          "configure",
+          "more",
+          "values",
+          "send"
+        ]
+      }
+    },
+    {
+      "id": "page-0199",
       "title": "Digital Ocean",
       "url": "https://docs.n8n.io/hosting/installation/server-setups/digital-ocean/index.md",
       "urlPath": "hosting/installation/server-setups/digital-ocean/index.md",
@@ -16772,7 +16889,7 @@
       }
     },
     {
-      "id": "page-0199",
+      "id": "page-0200",
       "title": "Docker Compose",
       "url": "https://docs.n8n.io/hosting/installation/server-setups/docker-compose/index.md",
       "urlPath": "hosting/installation/server-setups/docker-compose/index.md",
@@ -16959,7 +17076,143 @@
       }
     },
     {
-      "id": "page-0200",
+      "id": "page-0201",
+      "title": "Google Cloud Run",
+      "url": "https://docs.n8n.io/hosting/installation/server-setups/google-cloud-run/index.md",
+      "urlPath": "hosting/installation/server-setups/google-cloud-run/index.md",
+      "category": "hosting",
+      "subcategory": null,
+      "nodeName": null,
+      "nodeType": null,
+      "content": {
+        "markdown": "# Hosting n8n on Google Cloud Run\n\nThis hosting guide shows you how to self-host n8n on Google Cloud Run, a serverless container runtime. If you're just getting started with n8n and don't need a production-grade deployment, you can go with the \"easy mode\" option below for deployment. Otherwise, if you intend to use this n8n deployment at-scale, refer to the \"durable mode\" instructions further down.\n\nYou can also enable access via OAuth to Google Workspace, such as Gmail and Drive, to use these services as n8n workflow tools. Instructions for granting n8n access to these services are at the end of of this documentation.\n\nIf you want to deploy to Google Kubernetes Engine (GKE) instead, you can refer to [these instructions](../google-kubernetes-engine/).\n\nSelf-hosting knowledge prerequisites\n\nSelf-hosting n8n requires technical knowledge, including:\n\n- Setting up and configuring servers and containers\n- Managing application resources and scaling\n- Securing servers and applications\n- Configuring n8n\n\nn8n recommends self-hosting for expert users. Mistakes can lead to data loss, security issues, and downtime. If you aren't experienced at managing servers, n8n recommends [n8n Cloud](https://n8n.io/cloud/).\n\nStable and Beta versions\n\nn8n releases a new minor version most weeks. The `stable` version is for production use. `beta` is the most recent release. The `beta` version may be unstable. To report issues, use the [forum](https://community.n8n.io/c/questions/12).\n\nCurrent `stable`: 2.17.4 Current `beta`: 2.18.1\n\n## Before you begin: get a Google Cloud project\n\nIf you have not yet created a Google Cloud project, [do this first](https://developers.google.com/workspace/guides/create-project) (and ensure you have billing enabled on the project; even if your Cloud Run service runs for free you must have billing activated to deploy). Otherwise, navigate to the project where you want to deploy n8n.\n\n## Easy mode\n\nThis is the fastest way to deploy n8n on Cloud Run. For this deployment, n8n's data is in-memory so this is only recommended for demo purposes. **Anytime this Cloud Run service scales to zero or is redeployed, the n8n data will be lost.** Refer to the durable mode instructions below if you need a production-grade deployment.\n\nIf you have not yet created a Google Cloud project, [do this first](https://developers.google.com/workspace/guides/create-project) (and ensure you have billing enabled on the project; even if your Cloud Run service will run for free you must have billing enabled to activated to deploy). Otherwise, navigate to the project where you want to deploy n8n.\n\nOpen the Cloud Shell Terminal (on the Google Cloud console, either type \"G\" then \"S\" or click on the terminal icon on the upper right).\n\nOnce your session is open, you may need to run this command first to login (and follow the steps it asks you to complete):\n\n```\ngcloud auth login\n```\n\nYou can also explicitly enable the Cloud Run API (even if you don't do this, it will ask if you want this enabled when you deploy):\n\n```\ngcloud services enable run.googleapis.com\n```\n\nRequired: Custom health check endpoint\n\nGoogle Cloud Run reserves `/healthz` for its own health checks. Since n8n uses this path by default, it can conflict and cause connection issues in the workflow canvas. To fix this, set the `N8N_ENDPOINT_HEALTH` environment variable to a custom path (included in the deployment commands below).\n\nTo deploy n8n:\n\n```\ngcloud run deploy n8n \\\n    --image=n8nio/n8n \\\n    --region=us-west1 \\\n    --allow-unauthenticated \\\n    --port=5678 \\\n    --no-cpu-throttling \\\n    --memory=2Gi \\\n    --set-env-vars=\"N8N_ENDPOINT_HEALTH=health\"\n```\n\n(you can specify whichever region you prefer, instead of \"us-west1\")\n\nOnce the deployment finishes, open another tab to navigate to the Service URL. n8n may still be loading and you will see a \"n8n is starting up. Please wait\" message, but shortly thereafter you should see the n8n login screen.\n\nOptional: If you want to keep this n8n service running for as long as possible to avoid data loss, you can also set manual scale to 1 to prevent it from autoscaling to 0.\n\n```\ngcloud run deploy n8n \\\n    --image=n8nio/n8n \\\n    --region=us-west1 \\\n    --allow-unauthenticated \\\n    --port=5678 \\\n    --no-cpu-throttling \\\n    --memory=2Gi \\\n    --scaling=1 \\\n    --set-env-vars=\"N8N_ENDPOINT_HEALTH=health\"\n```\n\nThis does not prevent data loss completely, such as whenever the Cloud Run service is re-deployed/updated. If you want truly persistant data, you should refer to the instructions below for how to attach a database.\n\n## Durable mode\n\nThe following instructions are intended for a more durable, production-grade deployment of n8n on Cloud Run. It includes resources such as a database for persistance and secret manager for sensitive data.\n\nIf you want to deploy the following setup via Terraform, refer to this [example](https://github.com/ryanpei/n8n-hosting/tree/main/google-cloud-run) which deploys the same setup as the following (without the OAuth setup for Google Workspace tools).\n\n## Enable APIs and set env vars\n\nOpen the Cloud Shell Terminal (on the Google Cloud console, either type \"G\" then \"S\" or click on the terminal icon on the upper right) and run these commands in the terminal session:\n\n```\n## You may need to login first\ngcloud auth login\n\ngcloud services enable run.googleapis.com\ngcloud services enable sqladmin.googleapis.com\ngcloud services enable secretmanager.googleapis.com\n```\n\nYou'll also want to set some environment variables for the remainder of these instructions:\n\n```\nexport PROJECT_ID=your-project\nexport REGION=region-where-you-want-this-deployed\n```\n\n## Setup your Postgres database\n\nRun this command to create the Postgres DB instance (it will take a few minutes to complete; also ensure you update the root-password field with your own desired password):\n\n```\ngcloud sql instances create n8n-db \\\n    --database-version=POSTGRES_13 \\\n    --tier=db-f1-micro \\\n    --region=$REGION \\\n    --root-password=\"change-this-password\" \\\n    --storage-size=10GB \\\n    --availability-type=ZONAL \\\n    --no-backup \\\n    --storage-type=HDD\n```\n\nOnce complete, you can add the database that n8n will use:\n\n```\ngcloud sql databases create n8n --instance=n8n-db\n```\n\nCreate the DB user for n8n (change the password value, of course):\n\n```\ngcloud sql users create n8n-user \\\n    --instance=n8n-db \\\n    --password=\"change-this-password\"\n```\n\nYou can save the password you set for this n8n-user to a file for the next step of saving the password in Secret Manager. Be sure to delete this file later.\n\n## Store sensitive data in Secret Manager\n\nWhile not required, it's absolutely recommended to store your sensitive data in Secrets Manager.\n\nCreate a secret for the database password (replace \"/your/password/file\" with the file you created above for the n8n-user password):\n\n```\ngcloud secrets create n8n-db-password \\\n    --data-file=/your/password/file \\\n    --replication-policy=\"automatic\"\n```\n\nCreate an encryption key (you can use your own, this example generates a random one):\n\n```\nopenssl rand -base64 -out my-encryption-key 42\n```\n\nCreate a secret for this encryption key (replace \"my-encryption-key\" if you are supplying your own):\n\n```\ngcloud secrets create n8n-encryption-key \\\n    --data-file=my-encryption-key \\\n    --replication-policy=\"automatic\"\n```\n\nNow you can delete my-encryption-key and the database password files you created. These values are now securely stored in Secret Manager.\n\n## Create a service account for Cloud Run\n\nYou want this Cloud Run service to be restricted to access only the resources it needs. The following commands create the service account and adds the permissions necessary to access secrets and the database:\n\n```\ngcloud iam service-accounts create n8n-service-account \\\n    --display-name=\"n8n Service Account\"\n\ngcloud secrets add-iam-policy-binding n8n-db-password \\\n    --member=\"serviceAccount:n8n-service-account@$PROJECT_ID.iam.gserviceaccount.com\" \\\n    --role=\"roles/secretmanager.secretAccessor\"\n\ngcloud secrets add-iam-policy-binding n8n-encryption-key \\\n    --member=\"serviceAccount:n8n-service-account@$PROJECT_ID.iam.gserviceaccount.com\" \\\n    --role=\"roles/secretmanager.secretAccessor\"\n\ngcloud projects add-iam-policy-binding $PROJECT_ID \\\n    --member=\"serviceAccount:n8n-service-account@$PROJECT_ID.iam.gserviceaccount.com\" \\\n    --role=\"roles/cloudsql.client\"\n```\n\n## Deploy the Cloud Run service\n\nNow you can deploy your n8n service:\n\n```\ngcloud run deploy n8n \\\n    --image=n8nio/n8n:latest \\\n    --command=\"/bin/sh\" \\\n    --args=\"-c,sleep 5;n8n start\" \\\n    --region=$REGION \\\n    --allow-unauthenticated \\\n    --port=5678 \\\n    --memory=2Gi \\\n    --no-cpu-throttling \\\n    --set-env-vars=\"N8N_PORT=5678,N8N_PROTOCOL=https,N8N_ENDPOINT_HEALTH=health,DB_TYPE=postgresdb,DB_POSTGRESDB_DATABASE=n8n,DB_POSTGRESDB_USER=n8n-user,DB_POSTGRESDB_HOST=/cloudsql/$PROJECT_ID:$REGION:n8n-db,DB_POSTGRESDB_PORT=5432,DB_POSTGRESDB_SCHEMA=public,GENERIC_TIMEZONE=UTC,QUEUE_HEALTH_CHECK_ACTIVE=true\" \\\n    --set-secrets=\"DB_POSTGRESDB_PASSWORD=n8n-db-password:latest,N8N_ENCRYPTION_KEY=n8n-encryption-key:latest\" \\\n    --add-cloudsql-instances=$PROJECT_ID:$REGION:n8n-db \\\n    --service-account=n8n-service-account@$PROJECT_ID.iam.gserviceaccount.com\n```\n\nOnce the deployment finishes, open another tab to navigate to the Service URL. You should see the n8n login screen.\n\n## Troubleshooting\n\nIf you see a \"Cannot GET /\" screen this usually indicates that n8n is still starting up. You can refresh the page and it should eventually load.\n\n## (Optional) Enabling Google Workspace services as n8n tools\n\nIf you want to use Google Workspace services (Gmail, Calendar, Drive, etc.) as tools in n8n, it's recommended to setup OAuth to access these services.\n\nFirst ensure the respective APIs you want are enabled:\n\n```\n## Enable whichever APIs you need\n## Note: If you want Sheets/Docs, it's not enough to just enable Drive; these services each have their own API\ngcloud services enable gmail.googleapis.com\ngcloud services enable drive.googleapis.com\ngcloud services enable sheets.googleapis.com\ngcloud services enable docs.googleapis.com\ngcloud services enable calendar-json.googleapis.com\n```\n\nRe-deploy n8n on Cloud Run with the necessary OAuth callback URLs as environment variables:\n\n```\nexport SERVICE_URL=\"your-n8n-service-URL\"\n## e.g. https://n8n-12345678.us-west1.run.app\n\ngcloud run services update n8n \\\n    --region=$REGION \\\n    --update-env-vars=\"N8N_HOST=$(echo $SERVICE_URL | sed 's/https:\\/\\///'),WEBHOOK_URL=$SERVICE_URL,N8N_EDITOR_BASE_URL=$SERVICE_URL\"\n```\n\nLastly, you must setup OAuth for these services. Visit `https://console.cloud.google.com/auth` and follow these steps:\n\n1. Click \"Get Started\" if this button shows (when you have not yet setup OAuth in this Cloud project).\n1. For \"App Information\", enter whichever \"App Name\" and \"User Support Email\" you prefer.\n1. For \"Audience\", select \"Internal\" if you intend to only enable access to your user(s) within this same Google Workspace. Otherwise, you can select \"External\".\n1. Enter \"Contact Information\".\n1. If you selected \"External\", then click \"Audience\" and add any test users you need to grant access.\n1. Click \"Clients\" > \"Create client\", select \"Web application\" for \"Application type\", enter your n8n service URL into \"Authorized JavaScript origins\", and \"/rest/oauth2-credential/callback\" into \"Authorized redirect URIs\" where your YOUR-N8N-URL is also the n8n service URL (e.g. `https://n8n-12345678.us-west1.run.app/rest/oauth2-credential/callback`). Make sure you download the created client's JSON file since it contains the client secret which you will not be able to see later in the Console.\n1. Click \"Data Access\" and add the scopes you want n8n to have access for (e.g. to access Google Sheets, you need `https://googleapis.com/auth/drive.file` and `https://googleapis.com/auth/spreadsheets`)\n1. Now you should be able to use these workspace services. You can test if it works by logging into n8n, add a Tool for the respective service and add its credentials using the information in the OAuth client JSON file from step 6.\n",
+        "excerpt": "# Hosting n8n on Google Cloud Run  This hosting guide shows you how to self-host n8n on Google Cloud Run, a serverless container runtime. If you're just getting started with n8n and don't need a production-grade deployment, you can go with the \"easy mode\" option below for deployment. Otherwise, if you intend to use this n8n deployment at-scale, refer to the \"durable mode\" instructions further down.  You can also enable access via OAuth to Google Workspace, such as Gmail and Drive, to use these s...",
+        "sections": [
+          {
+            "title": "Hosting n8n on Google Cloud Run",
+            "level": 1,
+            "content": "This hosting guide shows you how to self-host n8n on Google Cloud Run, a serverless container runtime. If you're just getting started with n8n and don't need a production-grade deployment, you can go with the \"easy mode\" option below for deployment. Otherwise, if you intend to use this n8n deployment at-scale, refer to the \"durable mode\" instructions further down.\n\nYou can also enable access via OAuth to Google Workspace, such as Gmail and Drive, to use these services as n8n workflow tools. Instructions for granting n8n access to these services are at the end of of this documentation.\n\nIf you want to deploy to Google Kubernetes Engine (GKE) instead, you can refer to [these instructions](../google-kubernetes-engine/).\n\nSelf-hosting knowledge prerequisites\n\nSelf-hosting n8n requires technical knowledge, including:\n\n- Setting up and configuring servers and containers\n- Managing application resources and scaling\n- Securing servers and applications\n- Configuring n8n\n\nn8n recommends self-hos"
+          }
+        ]
+      },
+      "metadata": {
+        "keywords": [
+          "google",
+          "cloud",
+          "hosting",
+          "before",
+          "begin:",
+          "project",
+          "easy",
+          "mode",
+          "durable",
+          "enable",
+          "apis",
+          "vars",
+          "need",
+          "login",
+          "first",
+          "setup",
+          "your",
+          "postgres",
+          "database",
+          "store",
+          "sensitive",
+          "data",
+          "secret",
+          "manager",
+          "create",
+          "service",
+          "account",
+          "deploy",
+          "troubleshooting",
+          "(optional)",
+          "enabling",
+          "workspace",
+          "services",
+          "tools",
+          "whichever",
+          "note:",
+          "want",
+          "sheets/docs,",
+          "it's",
+          "enough",
+          "just",
+          "drive;",
+          "these",
+          "each",
+          "have",
+          "their",
+          "https://n8n",
+          "12345678",
+          "west1"
+        ],
+        "useCases": [],
+        "operations": [],
+        "codeExamples": 16,
+        "complexity": "intermediate",
+        "readingTime": "9 min",
+        "contentLength": 12168,
+        "relatedPages": []
+      },
+      "searchIndex": {
+        "fullText": "google cloud run # hosting n8n on google cloud run\n\nthis hosting guide shows you how to self-host n8n on google cloud run, a serverless container runtime. if you're just getting started with n8n and don't need a production-grade deployment, you can go with the \"easy mode\" option below for deployment. otherwise, if you intend to use this n8n deployment at-scale, refer to the \"durable mode\" instructions further down.\n\nyou can also enable access via oauth to google workspace, such as gmail and drive, to use these services as n8n workflow tools. instructions for granting n8n access to these services are at the end of of this documentation.\n\nif you want to deploy to google kubernetes engine (gke) instead, you can refer to [these instructions](../google-kubernetes-engine/).\n\nself-hosting knowledge prerequisites\n\nself-hosting n8n requires technical knowledge, including:\n\n- setting up and configuring servers and containers\n- managing application resources and scaling\n- securing servers and applications\n- configuring n8n\n\nn8n recommends self-hosting for expert users. mistakes can lead to data loss, security issues, and downtime. if you aren't experienced at managing servers, n8n recommends [n8n cloud](https://n8n.io/cloud/).\n\nstable and beta versions\n\nn8n releases a new minor version most weeks. the `stable` version is for production use. `beta` is the most recent release. the `beta` version may be unstable. to report issues, use the [forum](https://community.n8n.io/c/questions/12).\n\ncurrent `stable`: 2.17.4 current `beta`: 2.18.1\n\n## before you begin: get a google cloud project\n\nif you have not yet created a google cloud project, [do this first](https://developers.google.com/workspace/guides/create-project) (and ensure you have billing enabled on the project; even if your cloud run service runs for free you must have billing activated to deploy). otherwise, navigate to the project where you want to deploy n8n.\n\n## easy mode\n\nthis is the fastest way to deploy n8n on cloud run. for this deployment, n8n's data is in-memory so this is only recommended for demo purposes. **anytime this cloud run service scales to zero or is redeployed, the n8n data will be lost.** refer to the durable mode instructions below if you need a production-grade deployment.\n\nif you have not yet created a google cloud project, [do this first](https://developers.google.com/workspace/guides/create-project) (and ensure you have billing enabled on the project; even if your cloud run service will run for free you must have billing enabled to activated to deploy). otherwise, navigate to the project where you want to deploy n8n.\n\nopen the cloud shell terminal (on the google cloud console, either type \"g\" then \"s\" or click on the terminal icon on the upper right).\n\nonce your session is open, you may need to run this command first to login (and follow the steps it asks you to complete):\n\n```\ngcloud auth login\n```\n\nyou can also explicitly enable the cloud run api (even if you don't do this, it will ask if you want this enabled when you deploy):\n\n```\ngcloud services enable run.googleapis.com\n```\n\nrequired: custom health check endpoint\n\ngoogle cloud run reserves `/healthz` for its own health checks. since n8n uses this path by default, it can conflict and cause connection issues in the workflow canvas. to fix this, set the `n8n_endpoint_health` environment variable to a custom path (included in the deployment commands below).\n\nto deploy n8n:\n\n```\ngcloud run deploy n8n \\\n    --image=n8nio/n8n \\\n    --region=us-west1 \\\n    --allow-unauthenticated \\\n    --port=5678 \\\n    --no-cpu-throttling \\\n    --memory=2gi \\\n    --set-env-vars=\"n8n_endpoint_health=health\"\n```\n\n(you can specify whichever region you prefer, instead of \"us-west1\")\n\nonce the deployment finishes, open another tab to navigate to the service url. n8n may still be loading and you will see a \"n8n is starting up. please wait\" message, but shortly thereafter you should see the n8n login screen.\n\noptional: if you want to keep this n8n service running for as long as possible to avoid data loss, you can also set manual scale to 1 to prevent it from autoscaling to 0.\n\n```\ngcloud run deploy n8n \\\n    --image=n8nio/n8n \\\n    --region=us-west1 \\\n    --allow-unauthenticated \\\n    --port=5678 \\\n    --no-cpu-throttling \\\n    --memory=2gi \\\n    --scaling=1 \\\n    --set-env-vars=\"n8n_endpoint_health=health\"\n```\n\nthis does not prevent data loss completely, such as whenever the cloud run service is re-deployed/updated. if you want truly persistant data, you should refer to the instructions below for how to attach a database.\n\n## durable mode\n\nthe following instructions are intended for a more durable, production-grade deployment of n8n on cloud run. it includes resources such as a database for persistance and secret manager for sensitive data.\n\nif you want to deploy the following setup via terraform, refer to this [example](https://github.com/ryanpei/n8n-hosting/tree/main/google-cloud-run) which deploys the same setup as the following (without the oauth setup for google workspace tools).\n\n## enable apis and set env vars\n\nopen the cloud shell terminal (on the google cloud console, either type \"g\" then \"s\" or click on the terminal icon on the upper right) and run these commands in the terminal session:\n\n```\n## you may need to login first\ngcloud auth login\n\ngcloud services enable run.googleapis.com\ngcloud services enable sqladmin.googleapis.com\ngcloud services enable secretmanager.googleapis.com\n```\n\nyou'll also want to set some environment variables for the remainder of these instructions:\n\n```\nexport project_id=your-project\nexport region=region-where-you-want-this-deployed\n```\n\n## setup your postgres database\n\nrun this command to create the postgres db instance (it will take a few minutes to complete; also ensure you update the root-password field with your own desired password):\n\n```\ngcloud sql instances create n8n-db \\\n    --database-version=postgres_13 \\\n    --tier=db-f1-micro \\\n    --region=$region \\\n    --root-password=\"change-this-password\" \\\n    --storage-size=10gb \\\n    --availability-type=zonal \\\n    --no-backup \\\n    --storage-type=hdd\n```\n\nonce complete, you can add the database that n8n will use:\n\n```\ngcloud sql databases create n8n --instance=n8n-db\n```\n\ncreate the db user for n8n (change the password value, of course):\n\n```\ngcloud sql users create n8n-user \\\n    --instance=n8n-db \\\n    --password=\"change-this-password\"\n```\n\nyou can save the password you set for this n8n-user to a file for the next step of saving the password in secret manager. be sure to delete this file later.\n\n## store sensitive data in secret manager\n\nwhile not required, it's absolutely recommended to store your sensitive data in secrets manager.\n\ncreate a secret for the database password (replace \"/your/password/file\" with the file you created above for the n8n-user password):\n\n```\ngcloud secrets create n8n-db-password \\\n    --data-file=/your/password/file \\\n    --replication-policy=\"automatic\"\n```\n\ncreate an encryption key (you can use your own, this example generates a random one):\n\n```\nopenssl rand -base64 -out my-encryption-key 42\n```\n\ncreate a secret for this encryption key (replace \"my-encryption-key\" if you are supplying your own):\n\n```\ngcloud secrets create n8n-encryption-key \\\n    --data-file=my-encryption-key \\\n    --replication-policy=\"automatic\"\n```\n\nnow you can delete my-encryption-key and the database password files you created. these values are now securely stored in secret manager.\n\n## create a service account for cloud run\n\nyou want this cloud run service to be restricted to access only the resources it needs. the following commands create the service account and adds the permissions necessary to access secrets and the database:\n\n```\ngcloud iam service-accounts create n8n-service-account \\\n    --display-name=\"n8n service account\"\n\ngcloud secrets add-iam-policy-binding n8n-db-password \\\n    --member=\"serviceaccount:n8n-service-account@$project_id.iam.gserviceaccount.com\" \\\n    --role=\"roles/secretmanager.secretaccessor\"\n\ngcloud secrets add-iam-policy-binding n8n-encryption-key \\\n    --member=\"serviceaccount:n8n-service-account@$project_id.iam.gserviceaccount.com\" \\\n    --role=\"roles/secretmanager.secretaccessor\"\n\ngcloud projects add-iam-policy-binding $project_id \\\n    --member=\"serviceaccount:n8n-service-account@$project_id.iam.gserviceaccount.com\" \\\n    --role=\"roles/cloudsql.client\"\n```\n\n## deploy the cloud run service\n\nnow you can deploy your n8n service:\n\n```\ngcloud run deploy n8n \\\n    --image=n8nio/n8n:latest \\\n    --command=\"/bin/sh\" \\\n    --args=\"-c,sleep 5;n8n start\" \\\n    --region=$region \\\n    --allow-unauthenticated \\\n    --port=5678 \\\n    --memory=2gi \\\n    --no-cpu-throttling \\\n    --set-env-vars=\"n8n_port=5678,n8n_protocol=https,n8n_endpoint_health=health,db_type=postgresdb,db_postgresdb_database=n8n,db_postgresdb_user=n8n-user,db_postgresdb_host=/cloudsql/$project_id:$region:n8n-db,db_postgresdb_port=5432,db_postgresdb_schema=public,generic_timezone=utc,queue_health_check_active=true\" \\\n    --set-secrets=\"db_postgresdb_password=n8n-db-password:latest,n8n_encryption_key=n8n-encryption-key:latest\" \\\n    --add-cloudsql-instances=$project_id:$region:n8n-db \\\n    --service-account=n8n-service-account@$project_id.iam.gserviceaccount.com\n```\n\nonce the deployment finishes, open another tab to navigate to the service url. you should see the n8n login screen.\n\n## troubleshooting\n\nif you see a \"cannot get /\" screen this usually indicates that n8n is still starting up. you can refresh the page and it should eventually load.\n\n## (optional) enabling google workspace services as n8n tools\n\nif you want to use google workspace services (gmail, calendar, drive, etc.) as tools in n8n, it's recommended to setup oauth to access these services.\n\nfirst ensure the respective apis you want are enabled:\n\n```\n## enable whichever apis you need\n## note: if you want sheets/docs, it's not enough to just enable drive; these services",
+        "importantTerms": [
+          "this",
+          "cloud",
+          "service",
+          "gcloud",
+          "google",
+          "services",
+          "your",
+          "password",
+          "create",
+          "enable",
+          "deploy",
+          "want",
+          "region",
+          "data",
+          "https",
+          "these",
+          "project",
+          "googleapis",
+          "access",
+          "file",
+          "deployment",
+          "have",
+          "encryption",
+          "account",
+          "workspace",
+          "database",
+          "hosting",
+          "need",
+          "instructions",
+          "oauth",
+          "will",
+          "secret",
+          "setup",
+          "user",
+          "secrets",
+          "also",
+          "click",
+          "login",
+          "with",
+          "mode",
+          "refer",
+          "drive",
+          "created",
+          "first",
+          "enabled",
+          "open",
+          "terminal",
+          "type",
+          "auth",
+          "health"
+        ]
+      }
+    },
+    {
+      "id": "page-0202",
       "title": "Google Kubernetes Engine",
       "url": "https://docs.n8n.io/hosting/installation/server-setups/google-kubernetes-engine/index.md",
       "urlPath": "hosting/installation/server-setups/google-kubernetes-engine/index.md",
@@ -17076,7 +17329,7 @@
       }
     },
     {
-      "id": "page-0201",
+      "id": "page-0203",
       "title": "Heroku",
       "url": "https://docs.n8n.io/hosting/installation/server-setups/heroku/index.md",
       "urlPath": "hosting/installation/server-setups/heroku/index.md",
@@ -17164,7 +17417,7 @@
       }
     },
     {
-      "id": "page-0202",
+      "id": "page-0204",
       "title": "Hetzner",
       "url": "https://docs.n8n.io/hosting/installation/server-setups/hetzner/index.md",
       "urlPath": "hosting/installation/server-setups/hetzner/index.md",
@@ -17308,143 +17561,7 @@
       }
     },
     {
-      "id": "page-0203",
-      "title": "Google Cloud Run",
-      "url": "https://docs.n8n.io/hosting/installation/server-setups/google-cloud-run/index.md",
-      "urlPath": "hosting/installation/server-setups/google-cloud-run/index.md",
-      "category": "hosting",
-      "subcategory": null,
-      "nodeName": null,
-      "nodeType": null,
-      "content": {
-        "markdown": "# Hosting n8n on Google Cloud Run\n\nThis hosting guide shows you how to self-host n8n on Google Cloud Run, a serverless container runtime. If you're just getting started with n8n and don't need a production-grade deployment, you can go with the \"easy mode\" option below for deployment. Otherwise, if you intend to use this n8n deployment at-scale, refer to the \"durable mode\" instructions further down.\n\nYou can also enable access via OAuth to Google Workspace, such as Gmail and Drive, to use these services as n8n workflow tools. Instructions for granting n8n access to these services are at the end of of this documentation.\n\nIf you want to deploy to Google Kubernetes Engine (GKE) instead, you can refer to [these instructions](../google-kubernetes-engine/).\n\nSelf-hosting knowledge prerequisites\n\nSelf-hosting n8n requires technical knowledge, including:\n\n- Setting up and configuring servers and containers\n- Managing application resources and scaling\n- Securing servers and applications\n- Configuring n8n\n\nn8n recommends self-hosting for expert users. Mistakes can lead to data loss, security issues, and downtime. If you aren't experienced at managing servers, n8n recommends [n8n Cloud](https://n8n.io/cloud/).\n\nStable and Beta versions\n\nn8n releases a new minor version most weeks. The `stable` version is for production use. `beta` is the most recent release. The `beta` version may be unstable. To report issues, use the [forum](https://community.n8n.io/c/questions/12).\n\nCurrent `stable`: 2.17.4 Current `beta`: 2.18.1\n\n## Before you begin: get a Google Cloud project\n\nIf you have not yet created a Google Cloud project, [do this first](https://developers.google.com/workspace/guides/create-project) (and ensure you have billing enabled on the project; even if your Cloud Run service runs for free you must have billing activated to deploy). Otherwise, navigate to the project where you want to deploy n8n.\n\n## Easy mode\n\nThis is the fastest way to deploy n8n on Cloud Run. For this deployment, n8n's data is in-memory so this is only recommended for demo purposes. **Anytime this Cloud Run service scales to zero or is redeployed, the n8n data will be lost.** Refer to the durable mode instructions below if you need a production-grade deployment.\n\nIf you have not yet created a Google Cloud project, [do this first](https://developers.google.com/workspace/guides/create-project) (and ensure you have billing enabled on the project; even if your Cloud Run service will run for free you must have billing enabled to activated to deploy). Otherwise, navigate to the project where you want to deploy n8n.\n\nOpen the Cloud Shell Terminal (on the Google Cloud console, either type \"G\" then \"S\" or click on the terminal icon on the upper right).\n\nOnce your session is open, you may need to run this command first to login (and follow the steps it asks you to complete):\n\n```\ngcloud auth login\n```\n\nYou can also explicitly enable the Cloud Run API (even if you don't do this, it will ask if you want this enabled when you deploy):\n\n```\ngcloud services enable run.googleapis.com\n```\n\nRequired: Custom health check endpoint\n\nGoogle Cloud Run reserves `/healthz` for its own health checks. Since n8n uses this path by default, it can conflict and cause connection issues in the workflow canvas. To fix this, set the `N8N_ENDPOINT_HEALTH` environment variable to a custom path (included in the deployment commands below).\n\nTo deploy n8n:\n\n```\ngcloud run deploy n8n \\\n    --image=n8nio/n8n \\\n    --region=us-west1 \\\n    --allow-unauthenticated \\\n    --port=5678 \\\n    --no-cpu-throttling \\\n    --memory=2Gi \\\n    --set-env-vars=\"N8N_ENDPOINT_HEALTH=health\"\n```\n\n(you can specify whichever region you prefer, instead of \"us-west1\")\n\nOnce the deployment finishes, open another tab to navigate to the Service URL. n8n may still be loading and you will see a \"n8n is starting up. Please wait\" message, but shortly thereafter you should see the n8n login screen.\n\nOptional: If you want to keep this n8n service running for as long as possible to avoid data loss, you can also set manual scale to 1 to prevent it from autoscaling to 0.\n\n```\ngcloud run deploy n8n \\\n    --image=n8nio/n8n \\\n    --region=us-west1 \\\n    --allow-unauthenticated \\\n    --port=5678 \\\n    --no-cpu-throttling \\\n    --memory=2Gi \\\n    --scaling=1 \\\n    --set-env-vars=\"N8N_ENDPOINT_HEALTH=health\"\n```\n\nThis does not prevent data loss completely, such as whenever the Cloud Run service is re-deployed/updated. If you want truly persistant data, you should refer to the instructions below for how to attach a database.\n\n## Durable mode\n\nThe following instructions are intended for a more durable, production-grade deployment of n8n on Cloud Run. It includes resources such as a database for persistance and secret manager for sensitive data.\n\nIf you want to deploy the following setup via Terraform, refer to this [example](https://github.com/ryanpei/n8n-hosting/tree/main/google-cloud-run) which deploys the same setup as the following (without the OAuth setup for Google Workspace tools).\n\n## Enable APIs and set env vars\n\nOpen the Cloud Shell Terminal (on the Google Cloud console, either type \"G\" then \"S\" or click on the terminal icon on the upper right) and run these commands in the terminal session:\n\n```\n## You may need to login first\ngcloud auth login\n\ngcloud services enable run.googleapis.com\ngcloud services enable sqladmin.googleapis.com\ngcloud services enable secretmanager.googleapis.com\n```\n\nYou'll also want to set some environment variables for the remainder of these instructions:\n\n```\nexport PROJECT_ID=your-project\nexport REGION=region-where-you-want-this-deployed\n```\n\n## Setup your Postgres database\n\nRun this command to create the Postgres DB instance (it will take a few minutes to complete; also ensure you update the root-password field with your own desired password):\n\n```\ngcloud sql instances create n8n-db \\\n    --database-version=POSTGRES_13 \\\n    --tier=db-f1-micro \\\n    --region=$REGION \\\n    --root-password=\"change-this-password\" \\\n    --storage-size=10GB \\\n    --availability-type=ZONAL \\\n    --no-backup \\\n    --storage-type=HDD\n```\n\nOnce complete, you can add the database that n8n will use:\n\n```\ngcloud sql databases create n8n --instance=n8n-db\n```\n\nCreate the DB user for n8n (change the password value, of course):\n\n```\ngcloud sql users create n8n-user \\\n    --instance=n8n-db \\\n    --password=\"change-this-password\"\n```\n\nYou can save the password you set for this n8n-user to a file for the next step of saving the password in Secret Manager. Be sure to delete this file later.\n\n## Store sensitive data in Secret Manager\n\nWhile not required, it's absolutely recommended to store your sensitive data in Secrets Manager.\n\nCreate a secret for the database password (replace \"/your/password/file\" with the file you created above for the n8n-user password):\n\n```\ngcloud secrets create n8n-db-password \\\n    --data-file=/your/password/file \\\n    --replication-policy=\"automatic\"\n```\n\nCreate an encryption key (you can use your own, this example generates a random one):\n\n```\nopenssl rand -base64 -out my-encryption-key 42\n```\n\nCreate a secret for this encryption key (replace \"my-encryption-key\" if you are supplying your own):\n\n```\ngcloud secrets create n8n-encryption-key \\\n    --data-file=my-encryption-key \\\n    --replication-policy=\"automatic\"\n```\n\nNow you can delete my-encryption-key and the database password files you created. These values are now securely stored in Secret Manager.\n\n## Create a service account for Cloud Run\n\nYou want this Cloud Run service to be restricted to access only the resources it needs. The following commands create the service account and adds the permissions necessary to access secrets and the database:\n\n```\ngcloud iam service-accounts create n8n-service-account \\\n    --display-name=\"n8n Service Account\"\n\ngcloud secrets add-iam-policy-binding n8n-db-password \\\n    --member=\"serviceAccount:n8n-service-account@$PROJECT_ID.iam.gserviceaccount.com\" \\\n    --role=\"roles/secretmanager.secretAccessor\"\n\ngcloud secrets add-iam-policy-binding n8n-encryption-key \\\n    --member=\"serviceAccount:n8n-service-account@$PROJECT_ID.iam.gserviceaccount.com\" \\\n    --role=\"roles/secretmanager.secretAccessor\"\n\ngcloud projects add-iam-policy-binding $PROJECT_ID \\\n    --member=\"serviceAccount:n8n-service-account@$PROJECT_ID.iam.gserviceaccount.com\" \\\n    --role=\"roles/cloudsql.client\"\n```\n\n## Deploy the Cloud Run service\n\nNow you can deploy your n8n service:\n\n```\ngcloud run deploy n8n \\\n    --image=n8nio/n8n:latest \\\n    --command=\"/bin/sh\" \\\n    --args=\"-c,sleep 5;n8n start\" \\\n    --region=$REGION \\\n    --allow-unauthenticated \\\n    --port=5678 \\\n    --memory=2Gi \\\n    --no-cpu-throttling \\\n    --set-env-vars=\"N8N_PORT=5678,N8N_PROTOCOL=https,N8N_ENDPOINT_HEALTH=health,DB_TYPE=postgresdb,DB_POSTGRESDB_DATABASE=n8n,DB_POSTGRESDB_USER=n8n-user,DB_POSTGRESDB_HOST=/cloudsql/$PROJECT_ID:$REGION:n8n-db,DB_POSTGRESDB_PORT=5432,DB_POSTGRESDB_SCHEMA=public,GENERIC_TIMEZONE=UTC,QUEUE_HEALTH_CHECK_ACTIVE=true\" \\\n    --set-secrets=\"DB_POSTGRESDB_PASSWORD=n8n-db-password:latest,N8N_ENCRYPTION_KEY=n8n-encryption-key:latest\" \\\n    --add-cloudsql-instances=$PROJECT_ID:$REGION:n8n-db \\\n    --service-account=n8n-service-account@$PROJECT_ID.iam.gserviceaccount.com\n```\n\nOnce the deployment finishes, open another tab to navigate to the Service URL. You should see the n8n login screen.\n\n## Troubleshooting\n\nIf you see a \"Cannot GET /\" screen this usually indicates that n8n is still starting up. You can refresh the page and it should eventually load.\n\n## (Optional) Enabling Google Workspace services as n8n tools\n\nIf you want to use Google Workspace services (Gmail, Calendar, Drive, etc.) as tools in n8n, it's recommended to setup OAuth to access these services.\n\nFirst ensure the respective APIs you want are enabled:\n\n```\n## Enable whichever APIs you need\n## Note: If you want Sheets/Docs, it's not enough to just enable Drive; these services each have their own API\ngcloud services enable gmail.googleapis.com\ngcloud services enable drive.googleapis.com\ngcloud services enable sheets.googleapis.com\ngcloud services enable docs.googleapis.com\ngcloud services enable calendar-json.googleapis.com\n```\n\nRe-deploy n8n on Cloud Run with the necessary OAuth callback URLs as environment variables:\n\n```\nexport SERVICE_URL=\"your-n8n-service-URL\"\n## e.g. https://n8n-12345678.us-west1.run.app\n\ngcloud run services update n8n \\\n    --region=$REGION \\\n    --update-env-vars=\"N8N_HOST=$(echo $SERVICE_URL | sed 's/https:\\/\\///'),WEBHOOK_URL=$SERVICE_URL,N8N_EDITOR_BASE_URL=$SERVICE_URL\"\n```\n\nLastly, you must setup OAuth for these services. Visit `https://console.cloud.google.com/auth` and follow these steps:\n\n1. Click \"Get Started\" if this button shows (when you have not yet setup OAuth in this Cloud project).\n1. For \"App Information\", enter whichever \"App Name\" and \"User Support Email\" you prefer.\n1. For \"Audience\", select \"Internal\" if you intend to only enable access to your user(s) within this same Google Workspace. Otherwise, you can select \"External\".\n1. Enter \"Contact Information\".\n1. If you selected \"External\", then click \"Audience\" and add any test users you need to grant access.\n1. Click \"Clients\" > \"Create client\", select \"Web application\" for \"Application type\", enter your n8n service URL into \"Authorized JavaScript origins\", and \"/rest/oauth2-credential/callback\" into \"Authorized redirect URIs\" where your YOUR-N8N-URL is also the n8n service URL (e.g. `https://n8n-12345678.us-west1.run.app/rest/oauth2-credential/callback`). Make sure you download the created client's JSON file since it contains the client secret which you will not be able to see later in the Console.\n1. Click \"Data Access\" and add the scopes you want n8n to have access for (e.g. to access Google Sheets, you need `https://googleapis.com/auth/drive.file` and `https://googleapis.com/auth/spreadsheets`)\n1. Now you should be able to use these workspace services. You can test if it works by logging into n8n, add a Tool for the respective service and add its credentials using the information in the OAuth client JSON file from step 6.\n",
-        "excerpt": "# Hosting n8n on Google Cloud Run  This hosting guide shows you how to self-host n8n on Google Cloud Run, a serverless container runtime. If you're just getting started with n8n and don't need a production-grade deployment, you can go with the \"easy mode\" option below for deployment. Otherwise, if you intend to use this n8n deployment at-scale, refer to the \"durable mode\" instructions further down.  You can also enable access via OAuth to Google Workspace, such as Gmail and Drive, to use these s...",
-        "sections": [
-          {
-            "title": "Hosting n8n on Google Cloud Run",
-            "level": 1,
-            "content": "This hosting guide shows you how to self-host n8n on Google Cloud Run, a serverless container runtime. If you're just getting started with n8n and don't need a production-grade deployment, you can go with the \"easy mode\" option below for deployment. Otherwise, if you intend to use this n8n deployment at-scale, refer to the \"durable mode\" instructions further down.\n\nYou can also enable access via OAuth to Google Workspace, such as Gmail and Drive, to use these services as n8n workflow tools. Instructions for granting n8n access to these services are at the end of of this documentation.\n\nIf you want to deploy to Google Kubernetes Engine (GKE) instead, you can refer to [these instructions](../google-kubernetes-engine/).\n\nSelf-hosting knowledge prerequisites\n\nSelf-hosting n8n requires technical knowledge, including:\n\n- Setting up and configuring servers and containers\n- Managing application resources and scaling\n- Securing servers and applications\n- Configuring n8n\n\nn8n recommends self-hos"
-          }
-        ]
-      },
-      "metadata": {
-        "keywords": [
-          "google",
-          "cloud",
-          "hosting",
-          "before",
-          "begin:",
-          "project",
-          "easy",
-          "mode",
-          "durable",
-          "enable",
-          "apis",
-          "vars",
-          "need",
-          "login",
-          "first",
-          "setup",
-          "your",
-          "postgres",
-          "database",
-          "store",
-          "sensitive",
-          "data",
-          "secret",
-          "manager",
-          "create",
-          "service",
-          "account",
-          "deploy",
-          "troubleshooting",
-          "(optional)",
-          "enabling",
-          "workspace",
-          "services",
-          "tools",
-          "whichever",
-          "note:",
-          "want",
-          "sheets/docs,",
-          "it's",
-          "enough",
-          "just",
-          "drive;",
-          "these",
-          "each",
-          "have",
-          "their",
-          "https://n8n",
-          "12345678",
-          "west1"
-        ],
-        "useCases": [],
-        "operations": [],
-        "codeExamples": 16,
-        "complexity": "intermediate",
-        "readingTime": "9 min",
-        "contentLength": 12168,
-        "relatedPages": []
-      },
-      "searchIndex": {
-        "fullText": "google cloud run # hosting n8n on google cloud run\n\nthis hosting guide shows you how to self-host n8n on google cloud run, a serverless container runtime. if you're just getting started with n8n and don't need a production-grade deployment, you can go with the \"easy mode\" option below for deployment. otherwise, if you intend to use this n8n deployment at-scale, refer to the \"durable mode\" instructions further down.\n\nyou can also enable access via oauth to google workspace, such as gmail and drive, to use these services as n8n workflow tools. instructions for granting n8n access to these services are at the end of of this documentation.\n\nif you want to deploy to google kubernetes engine (gke) instead, you can refer to [these instructions](../google-kubernetes-engine/).\n\nself-hosting knowledge prerequisites\n\nself-hosting n8n requires technical knowledge, including:\n\n- setting up and configuring servers and containers\n- managing application resources and scaling\n- securing servers and applications\n- configuring n8n\n\nn8n recommends self-hosting for expert users. mistakes can lead to data loss, security issues, and downtime. if you aren't experienced at managing servers, n8n recommends [n8n cloud](https://n8n.io/cloud/).\n\nstable and beta versions\n\nn8n releases a new minor version most weeks. the `stable` version is for production use. `beta` is the most recent release. the `beta` version may be unstable. to report issues, use the [forum](https://community.n8n.io/c/questions/12).\n\ncurrent `stable`: 2.17.4 current `beta`: 2.18.1\n\n## before you begin: get a google cloud project\n\nif you have not yet created a google cloud project, [do this first](https://developers.google.com/workspace/guides/create-project) (and ensure you have billing enabled on the project; even if your cloud run service runs for free you must have billing activated to deploy). otherwise, navigate to the project where you want to deploy n8n.\n\n## easy mode\n\nthis is the fastest way to deploy n8n on cloud run. for this deployment, n8n's data is in-memory so this is only recommended for demo purposes. **anytime this cloud run service scales to zero or is redeployed, the n8n data will be lost.** refer to the durable mode instructions below if you need a production-grade deployment.\n\nif you have not yet created a google cloud project, [do this first](https://developers.google.com/workspace/guides/create-project) (and ensure you have billing enabled on the project; even if your cloud run service will run for free you must have billing enabled to activated to deploy). otherwise, navigate to the project where you want to deploy n8n.\n\nopen the cloud shell terminal (on the google cloud console, either type \"g\" then \"s\" or click on the terminal icon on the upper right).\n\nonce your session is open, you may need to run this command first to login (and follow the steps it asks you to complete):\n\n```\ngcloud auth login\n```\n\nyou can also explicitly enable the cloud run api (even if you don't do this, it will ask if you want this enabled when you deploy):\n\n```\ngcloud services enable run.googleapis.com\n```\n\nrequired: custom health check endpoint\n\ngoogle cloud run reserves `/healthz` for its own health checks. since n8n uses this path by default, it can conflict and cause connection issues in the workflow canvas. to fix this, set the `n8n_endpoint_health` environment variable to a custom path (included in the deployment commands below).\n\nto deploy n8n:\n\n```\ngcloud run deploy n8n \\\n    --image=n8nio/n8n \\\n    --region=us-west1 \\\n    --allow-unauthenticated \\\n    --port=5678 \\\n    --no-cpu-throttling \\\n    --memory=2gi \\\n    --set-env-vars=\"n8n_endpoint_health=health\"\n```\n\n(you can specify whichever region you prefer, instead of \"us-west1\")\n\nonce the deployment finishes, open another tab to navigate to the service url. n8n may still be loading and you will see a \"n8n is starting up. please wait\" message, but shortly thereafter you should see the n8n login screen.\n\noptional: if you want to keep this n8n service running for as long as possible to avoid data loss, you can also set manual scale to 1 to prevent it from autoscaling to 0.\n\n```\ngcloud run deploy n8n \\\n    --image=n8nio/n8n \\\n    --region=us-west1 \\\n    --allow-unauthenticated \\\n    --port=5678 \\\n    --no-cpu-throttling \\\n    --memory=2gi \\\n    --scaling=1 \\\n    --set-env-vars=\"n8n_endpoint_health=health\"\n```\n\nthis does not prevent data loss completely, such as whenever the cloud run service is re-deployed/updated. if you want truly persistant data, you should refer to the instructions below for how to attach a database.\n\n## durable mode\n\nthe following instructions are intended for a more durable, production-grade deployment of n8n on cloud run. it includes resources such as a database for persistance and secret manager for sensitive data.\n\nif you want to deploy the following setup via terraform, refer to this [example](https://github.com/ryanpei/n8n-hosting/tree/main/google-cloud-run) which deploys the same setup as the following (without the oauth setup for google workspace tools).\n\n## enable apis and set env vars\n\nopen the cloud shell terminal (on the google cloud console, either type \"g\" then \"s\" or click on the terminal icon on the upper right) and run these commands in the terminal session:\n\n```\n## you may need to login first\ngcloud auth login\n\ngcloud services enable run.googleapis.com\ngcloud services enable sqladmin.googleapis.com\ngcloud services enable secretmanager.googleapis.com\n```\n\nyou'll also want to set some environment variables for the remainder of these instructions:\n\n```\nexport project_id=your-project\nexport region=region-where-you-want-this-deployed\n```\n\n## setup your postgres database\n\nrun this command to create the postgres db instance (it will take a few minutes to complete; also ensure you update the root-password field with your own desired password):\n\n```\ngcloud sql instances create n8n-db \\\n    --database-version=postgres_13 \\\n    --tier=db-f1-micro \\\n    --region=$region \\\n    --root-password=\"change-this-password\" \\\n    --storage-size=10gb \\\n    --availability-type=zonal \\\n    --no-backup \\\n    --storage-type=hdd\n```\n\nonce complete, you can add the database that n8n will use:\n\n```\ngcloud sql databases create n8n --instance=n8n-db\n```\n\ncreate the db user for n8n (change the password value, of course):\n\n```\ngcloud sql users create n8n-user \\\n    --instance=n8n-db \\\n    --password=\"change-this-password\"\n```\n\nyou can save the password you set for this n8n-user to a file for the next step of saving the password in secret manager. be sure to delete this file later.\n\n## store sensitive data in secret manager\n\nwhile not required, it's absolutely recommended to store your sensitive data in secrets manager.\n\ncreate a secret for the database password (replace \"/your/password/file\" with the file you created above for the n8n-user password):\n\n```\ngcloud secrets create n8n-db-password \\\n    --data-file=/your/password/file \\\n    --replication-policy=\"automatic\"\n```\n\ncreate an encryption key (you can use your own, this example generates a random one):\n\n```\nopenssl rand -base64 -out my-encryption-key 42\n```\n\ncreate a secret for this encryption key (replace \"my-encryption-key\" if you are supplying your own):\n\n```\ngcloud secrets create n8n-encryption-key \\\n    --data-file=my-encryption-key \\\n    --replication-policy=\"automatic\"\n```\n\nnow you can delete my-encryption-key and the database password files you created. these values are now securely stored in secret manager.\n\n## create a service account for cloud run\n\nyou want this cloud run service to be restricted to access only the resources it needs. the following commands create the service account and adds the permissions necessary to access secrets and the database:\n\n```\ngcloud iam service-accounts create n8n-service-account \\\n    --display-name=\"n8n service account\"\n\ngcloud secrets add-iam-policy-binding n8n-db-password \\\n    --member=\"serviceaccount:n8n-service-account@$project_id.iam.gserviceaccount.com\" \\\n    --role=\"roles/secretmanager.secretaccessor\"\n\ngcloud secrets add-iam-policy-binding n8n-encryption-key \\\n    --member=\"serviceaccount:n8n-service-account@$project_id.iam.gserviceaccount.com\" \\\n    --role=\"roles/secretmanager.secretaccessor\"\n\ngcloud projects add-iam-policy-binding $project_id \\\n    --member=\"serviceaccount:n8n-service-account@$project_id.iam.gserviceaccount.com\" \\\n    --role=\"roles/cloudsql.client\"\n```\n\n## deploy the cloud run service\n\nnow you can deploy your n8n service:\n\n```\ngcloud run deploy n8n \\\n    --image=n8nio/n8n:latest \\\n    --command=\"/bin/sh\" \\\n    --args=\"-c,sleep 5;n8n start\" \\\n    --region=$region \\\n    --allow-unauthenticated \\\n    --port=5678 \\\n    --memory=2gi \\\n    --no-cpu-throttling \\\n    --set-env-vars=\"n8n_port=5678,n8n_protocol=https,n8n_endpoint_health=health,db_type=postgresdb,db_postgresdb_database=n8n,db_postgresdb_user=n8n-user,db_postgresdb_host=/cloudsql/$project_id:$region:n8n-db,db_postgresdb_port=5432,db_postgresdb_schema=public,generic_timezone=utc,queue_health_check_active=true\" \\\n    --set-secrets=\"db_postgresdb_password=n8n-db-password:latest,n8n_encryption_key=n8n-encryption-key:latest\" \\\n    --add-cloudsql-instances=$project_id:$region:n8n-db \\\n    --service-account=n8n-service-account@$project_id.iam.gserviceaccount.com\n```\n\nonce the deployment finishes, open another tab to navigate to the service url. you should see the n8n login screen.\n\n## troubleshooting\n\nif you see a \"cannot get /\" screen this usually indicates that n8n is still starting up. you can refresh the page and it should eventually load.\n\n## (optional) enabling google workspace services as n8n tools\n\nif you want to use google workspace services (gmail, calendar, drive, etc.) as tools in n8n, it's recommended to setup oauth to access these services.\n\nfirst ensure the respective apis you want are enabled:\n\n```\n## enable whichever apis you need\n## note: if you want sheets/docs, it's not enough to just enable drive; these services",
-        "importantTerms": [
-          "this",
-          "cloud",
-          "service",
-          "gcloud",
-          "google",
-          "services",
-          "your",
-          "password",
-          "create",
-          "enable",
-          "deploy",
-          "want",
-          "region",
-          "data",
-          "https",
-          "these",
-          "project",
-          "googleapis",
-          "access",
-          "file",
-          "deployment",
-          "have",
-          "encryption",
-          "account",
-          "workspace",
-          "database",
-          "hosting",
-          "need",
-          "instructions",
-          "oauth",
-          "will",
-          "secret",
-          "setup",
-          "user",
-          "secrets",
-          "also",
-          "click",
-          "login",
-          "with",
-          "mode",
-          "refer",
-          "drive",
-          "created",
-          "first",
-          "enabled",
-          "open",
-          "terminal",
-          "type",
-          "auth",
-          "health"
-        ]
-      }
-    },
-    {
-      "id": "page-0204",
+      "id": "page-0205",
       "title": "OpenShift CRC",
       "url": "https://docs.n8n.io/hosting/installation/server-setups/openshift-crc/index.md",
       "urlPath": "hosting/installation/server-setups/openshift-crc/index.md",
@@ -17948,7 +18065,7 @@
       }
     },
     {
-      "id": "page-0205",
+      "id": "page-0206",
       "title": "Logging",
       "url": "https://docs.n8n.io/hosting/logging-monitoring/logging/index.md",
       "urlPath": "hosting/logging-monitoring/logging/index.md",
@@ -18079,123 +18196,6 @@
           "useful",
           "information",
           "development"
-        ]
-      }
-    },
-    {
-      "id": "page-0206",
-      "title": "Azure",
-      "url": "https://docs.n8n.io/hosting/installation/server-setups/azure/index.md",
-      "urlPath": "hosting/installation/server-setups/azure/index.md",
-      "category": "hosting",
-      "subcategory": null,
-      "nodeName": null,
-      "nodeType": null,
-      "content": {
-        "markdown": "# Hosting n8n on Azure\n\nThis hosting guide shows you how to self-host n8n on Azure. It uses n8n with Postgres as a database backend using Kubernetes to manage the necessary resources and reverse proxy.\n\n## Prerequisites\n\nYou need [The Azure command line tool](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)\n\nSelf-hosting knowledge prerequisites\n\nSelf-hosting n8n requires technical knowledge, including:\n\n- Setting up and configuring servers and containers\n- Managing application resources and scaling\n- Securing servers and applications\n- Configuring n8n\n\nn8n recommends self-hosting for expert users. Mistakes can lead to data loss, security issues, and downtime. If you aren't experienced at managing servers, n8n recommends [n8n Cloud](https://n8n.io/cloud/).\n\nStable and Beta versions\n\nn8n releases a new minor version most weeks. The `stable` version is for production use. `beta` is the most recent release. The `beta` version may be unstable. To report issues, use the [forum](https://community.n8n.io/c/questions/12).\n\nCurrent `stable`: 2.17.4 Current `beta`: 2.18.1\n\n## Hosting options\n\nAzure offers several ways suitable for hosting n8n, including Azure Container Instances (optimized for running containers), Linux Virtual Machines, and Azure Kubernetes Service (containers running with Kubernetes).\n\nThis guide uses the Azure Kubernetes Service (AKS) as the hosting option. Using Kubernetes requires some additional complexity and configuration, but is the best method for scaling n8n as demand changes.\n\nThe steps in this guide use a mix of the Azure UI and command line tool, but you can use either to accomplish most tasks.\n\n## Open the Azure Kubernetes Service\n\nFrom [the Azure portal](https://portal.azure.com/) select **Kubernetes services**.\n\n## Create a cluster\n\nFrom the Kubernetes services page, select **Create** > **Create a Kubernetes cluster**.\n\nYou can select any of the configuration options that suit your needs, then select **Create** when done.\n\n## Set Kubectl context\n\nThe remainder of the steps in this guide require you to set the Azure instance as the Kubectl context. You can find the connection details for a cluster instance by opening its details page and then the **Connect** button. The resulting code snippets shows the steps to paste and run into a terminal to change your local Kubernetes settings to use the new cluster.\n\n## Clone configuration repository\n\nKubernetes and n8n require a series of configuration files. You can clone these from [this repository](https://github.com/n8n-io/n8n-hosting). The following steps tell you which file configures what and what you need to change.\n\nClone the repository with the following command:\n\n```\ngit clone https://github.com/n8n-io/n8n-hosting.git\n```\n\nAnd change directory:\n\n```\ncd n8n-hosting/kubernetes\n```\n\n## Configure Postgres\n\nFor larger scale n8n deployments, Postgres provides a more robust database backend than SQLite.\n\n### Configure volume for persistent storage\n\nTo maintain data between pod restarts, the Postgres deployment needs a persistent volume. The default storage class is suitable for this purpose and is defined in the `postgres-claim0-persistentvolumeclaim.yaml` manifest.\n\nSpecialized storage classes\n\nIf you have specialised or higher requirements for storage classes, [read more on the options Azure offers in the documentation](https://learn.microsoft.com/en-us/azure/aks/concepts-storage#storage-classes).\n\n### Postgres environment variables\n\nPostgres needs some environment variables set to pass to the application running in the containers.\n\nThe example `postgres-secret.yaml` file contains placeholders you need to replace with your own values. Postgres will use these details when creating the database..\n\nThe `postgres-deployment.yaml` manifest then uses the values from this manifest file to send to the application pods.\n\n## Configure n8n\n\n### Create a volume for file storage\n\nWhile not essential for running n8n, using persistent volumes is required for:\n\n- Using nodes that interact with files, such as the binary data node.\n- If you want to persist [manual n8n encryption keys](../../../configuration/environment-variables/deployment/) between restarts. This saves a file containing the key into file storage during startup.\n\nThe `n8n-claim0-persistentvolumeclaim.yaml` manifest creates this, and the n8n Deployment mounts that claim in the `volumes` section of the `n8n-deployment.yaml` manifest.\n\n```\n…\nvolumes:\n  - name: n8n-claim0\n    persistentVolumeClaim:\n      claimName: n8n-claim0\n…\n```\n\n### Pod resources\n\n[Kubernetes lets you](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) optionally specify the minimum resources application containers need and the limits they can run to. The example YAML files cloned above contain the following in the `resources` section of the `n8n-deployment.yaml` file:\n\n```\n…\nresources:\n  requests:\n    memory: \"250Mi\"\n  limits:\n    memory: \"500Mi\"\n…\n```\n\nThis defines a minimum of 250mb per container, a maximum of 500mb, and lets Kubernetes handle CPU. You can change these values to match your own needs. As a guide, here are the resources values for the n8n cloud offerings:\n\n- **Start**: 320mb RAM, 10 millicore CPU burstable\n- **Pro (10k executions)**: 640mb RAM, 20 millicore CPU burstable\n- **Pro (50k executions)**: 1280mb RAM, 80 millicore CPU burstable\n\n### Optional: Environment variables\n\nYou can configure n8n settings and behaviors using environment variables.\n\nCreate an `n8n-secret.yaml` file. Refer to [Environment variables](../../../configuration/environment-variables/) for n8n environment variables details.\n\n## Deployments\n\nThe two deployment manifests (`n8n-deployment.yaml` and `postgres-deployment.yaml`) define the n8n and Postgres applications to Kubernetes.\n\nThe manifests define the following:\n\n- Send the environment variables defined to each application pod\n- Define the container image to use\n- Set resource consumption limits with the `resources` object\n- The `volumes` defined earlier and `volumeMounts` to define the path in the container to mount volumes.\n- Scaling and restart policies. The example manifests define one instance of each pod. You should change this to meet your needs.\n\n## Services\n\nThe two service manifests (`postgres-service.yaml` and `n8n-service.yaml`) expose the services to the outside world using the Kubernetes load balancer using ports 5432 and 5678 respectively.\n\n## Send to Kubernetes cluster\n\nSend all the manifests to the cluster with the following command:\n\n```\nkubectl apply -f .\n```\n\nNamespace error\n\nYou may see an error message about not finding an \"n8n\" namespace as that resources isn't ready yet. You can run the same command again, or apply the namespace manifest first with the following command:\n\n```\nkubectl apply -f namespace.yaml\n```\n\n## Set up DNS\n\nn8n typically operates on a subdomain. Create a DNS record with your provider for the subdomain and point it to the IP address of the n8n service. Find the IP address of the n8n service from the **Services & ingresses** menu item of the cluster you want to use under the **External IP** column. You need to add the n8n port, \"5678\" to the URL.\n\nStatic IP addresses with AKS\n\n[Read this tutorial](https://learn.microsoft.com/en-us/azure/aks/static-ip) for more details on how to use a static IP address with AKS.\n\n## Delete resources\n\nRemove the resources created by the manifests with the following command:\n\n```\nkubectl delete -f .\n```\n\n## Next steps\n\n- Learn more about [configuring](../../../configuration/environment-variables/) and [scaling](../../../scaling/overview/) n8n.\n- Or explore using n8n: try the [Quickstarts](../../../../try-it-out/).\n",
-        "excerpt": "# Hosting n8n on Azure  This hosting guide shows you how to self-host n8n on Azure. It uses n8n with Postgres as a database backend using Kubernetes to manage the necessary resources and reverse proxy.  ## Prerequisites  You need [The Azure command line tool](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)  Self-hosting knowledge prerequisites  Self-hosting n8n requires technical knowledge, including:  - Setting up and configuring servers and containers - Managing application reso...",
-        "sections": [
-          {
-            "title": "Hosting n8n on Azure",
-            "level": 1,
-            "content": "This hosting guide shows you how to self-host n8n on Azure. It uses n8n with Postgres as a database backend using Kubernetes to manage the necessary resources and reverse proxy."
-          }
-        ]
-      },
-      "metadata": {
-        "keywords": [
-          "azure",
-          "hosting",
-          "prerequisites",
-          "options",
-          "open",
-          "kubernetes",
-          "service",
-          "create",
-          "cluster",
-          "kubectl",
-          "context",
-          "clone",
-          "configuration",
-          "repository",
-          "configure",
-          "postgres",
-          "volume",
-          "persistent",
-          "storage",
-          "environment",
-          "variables",
-          "file",
-          "resources",
-          "optional:",
-          "deployments",
-          "services",
-          "send",
-          "delete",
-          "next",
-          "steps"
-        ],
-        "useCases": [],
-        "operations": [],
-        "codeExamples": 7,
-        "complexity": "beginner",
-        "readingTime": "6 min",
-        "contentLength": 7701,
-        "relatedPages": []
-      },
-      "searchIndex": {
-        "fullText": "azure # hosting n8n on azure\n\nthis hosting guide shows you how to self-host n8n on azure. it uses n8n with postgres as a database backend using kubernetes to manage the necessary resources and reverse proxy.\n\n## prerequisites\n\nyou need [the azure command line tool](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)\n\nself-hosting knowledge prerequisites\n\nself-hosting n8n requires technical knowledge, including:\n\n- setting up and configuring servers and containers\n- managing application resources and scaling\n- securing servers and applications\n- configuring n8n\n\nn8n recommends self-hosting for expert users. mistakes can lead to data loss, security issues, and downtime. if you aren't experienced at managing servers, n8n recommends [n8n cloud](https://n8n.io/cloud/).\n\nstable and beta versions\n\nn8n releases a new minor version most weeks. the `stable` version is for production use. `beta` is the most recent release. the `beta` version may be unstable. to report issues, use the [forum](https://community.n8n.io/c/questions/12).\n\ncurrent `stable`: 2.17.4 current `beta`: 2.18.1\n\n## hosting options\n\nazure offers several ways suitable for hosting n8n, including azure container instances (optimized for running containers), linux virtual machines, and azure kubernetes service (containers running with kubernetes).\n\nthis guide uses the azure kubernetes service (aks) as the hosting option. using kubernetes requires some additional complexity and configuration, but is the best method for scaling n8n as demand changes.\n\nthe steps in this guide use a mix of the azure ui and command line tool, but you can use either to accomplish most tasks.\n\n## open the azure kubernetes service\n\nfrom [the azure portal](https://portal.azure.com/) select **kubernetes services**.\n\n## create a cluster\n\nfrom the kubernetes services page, select **create** > **create a kubernetes cluster**.\n\nyou can select any of the configuration options that suit your needs, then select **create** when done.\n\n## set kubectl context\n\nthe remainder of the steps in this guide require you to set the azure instance as the kubectl context. you can find the connection details for a cluster instance by opening its details page and then the **connect** button. the resulting code snippets shows the steps to paste and run into a terminal to change your local kubernetes settings to use the new cluster.\n\n## clone configuration repository\n\nkubernetes and n8n require a series of configuration files. you can clone these from [this repository](https://github.com/n8n-io/n8n-hosting). the following steps tell you which file configures what and what you need to change.\n\nclone the repository with the following command:\n\n```\ngit clone https://github.com/n8n-io/n8n-hosting.git\n```\n\nand change directory:\n\n```\ncd n8n-hosting/kubernetes\n```\n\n## configure postgres\n\nfor larger scale n8n deployments, postgres provides a more robust database backend than sqlite.\n\n### configure volume for persistent storage\n\nto maintain data between pod restarts, the postgres deployment needs a persistent volume. the default storage class is suitable for this purpose and is defined in the `postgres-claim0-persistentvolumeclaim.yaml` manifest.\n\nspecialized storage classes\n\nif you have specialised or higher requirements for storage classes, [read more on the options azure offers in the documentation](https://learn.microsoft.com/en-us/azure/aks/concepts-storage#storage-classes).\n\n### postgres environment variables\n\npostgres needs some environment variables set to pass to the application running in the containers.\n\nthe example `postgres-secret.yaml` file contains placeholders you need to replace with your own values. postgres will use these details when creating the database..\n\nthe `postgres-deployment.yaml` manifest then uses the values from this manifest file to send to the application pods.\n\n## configure n8n\n\n### create a volume for file storage\n\nwhile not essential for running n8n, using persistent volumes is required for:\n\n- using nodes that interact with files, such as the binary data node.\n- if you want to persist [manual n8n encryption keys](../../../configuration/environment-variables/deployment/) between restarts. this saves a file containing the key into file storage during startup.\n\nthe `n8n-claim0-persistentvolumeclaim.yaml` manifest creates this, and the n8n deployment mounts that claim in the `volumes` section of the `n8n-deployment.yaml` manifest.\n\n```\n…\nvolumes:\n  - name: n8n-claim0\n    persistentvolumeclaim:\n      claimname: n8n-claim0\n…\n```\n\n### pod resources\n\n[kubernetes lets you](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) optionally specify the minimum resources application containers need and the limits they can run to. the example yaml files cloned above contain the following in the `resources` section of the `n8n-deployment.yaml` file:\n\n```\n…\nresources:\n  requests:\n    memory: \"250mi\"\n  limits:\n    memory: \"500mi\"\n…\n```\n\nthis defines a minimum of 250mb per container, a maximum of 500mb, and lets kubernetes handle cpu. you can change these values to match your own needs. as a guide, here are the resources values for the n8n cloud offerings:\n\n- **start**: 320mb ram, 10 millicore cpu burstable\n- **pro (10k executions)**: 640mb ram, 20 millicore cpu burstable\n- **pro (50k executions)**: 1280mb ram, 80 millicore cpu burstable\n\n### optional: environment variables\n\nyou can configure n8n settings and behaviors using environment variables.\n\ncreate an `n8n-secret.yaml` file. refer to [environment variables](../../../configuration/environment-variables/) for n8n environment variables details.\n\n## deployments\n\nthe two deployment manifests (`n8n-deployment.yaml` and `postgres-deployment.yaml`) define the n8n and postgres applications to kubernetes.\n\nthe manifests define the following:\n\n- send the environment variables defined to each application pod\n- define the container image to use\n- set resource consumption limits with the `resources` object\n- the `volumes` defined earlier and `volumemounts` to define the path in the container to mount volumes.\n- scaling and restart policies. the example manifests define one instance of each pod. you should change this to meet your needs.\n\n## services\n\nthe two service manifests (`postgres-service.yaml` and `n8n-service.yaml`) expose the services to the outside world using the kubernetes load balancer using ports 5432 and 5678 respectively.\n\n## send to kubernetes cluster\n\nsend all the manifests to the cluster with the following command:\n\n```\nkubectl apply -f .\n```\n\nnamespace error\n\nyou may see an error message about not finding an \"n8n\" namespace as that resources isn't ready yet. you can run the same command again, or apply the namespace manifest first with the following command:\n\n```\nkubectl apply -f namespace.yaml\n```\n\n## set up dns\n\nn8n typically operates on a subdomain. create a dns record with your provider for the subdomain and point it to the ip address of the n8n service. find the ip address of the n8n service from the **services & ingresses** menu item of the cluster you want to use under the **external ip** column. you need to add the n8n port, \"5678\" to the url.\n\nstatic ip addresses with aks\n\n[read this tutorial](https://learn.microsoft.com/en-us/azure/aks/static-ip) for more details on how to use a static ip address with aks.\n\n## delete resources\n\nremove the resources created by the manifests with the following command:\n\n```\nkubectl delete -f .\n```\n\n## next steps\n\n- learn more about [configuring](../../../configuration/environment-variables/) and [scaling](../../../scaling/overview/) n8n.\n- or explore using n8n: try the [quickstarts](../../../../try-it-out/).\n hosting n8n on azure",
-        "importantTerms": [
-          "azure",
-          "kubernetes",
-          "postgres",
-          "yaml",
-          "hosting",
-          "this",
-          "with",
-          "resources",
-          "environment",
-          "variables",
-          "https",
-          "deployment",
-          "using",
-          "service",
-          "configuration",
-          "file",
-          "storage",
-          "command",
-          "create",
-          "cluster",
-          "following",
-          "containers",
-          "your",
-          "manifest",
-          "manifests",
-          "guide",
-          "need",
-          "application",
-          "scaling",
-          "steps",
-          "from",
-          "services",
-          "needs",
-          "kubectl",
-          "details",
-          "change",
-          "volumes",
-          "define",
-          "self",
-          "learn",
-          "beta",
-          "container",
-          "running",
-          "select",
-          "that",
-          "clone",
-          "configure",
-          "more",
-          "values",
-          "send"
         ]
       }
     },
@@ -38190,6 +38190,104 @@
     },
     {
       "id": "page-0498",
+      "title": "Draft operations",
+      "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gmail/draft-operations/index.md",
+      "urlPath": "integrations/builtin/app-nodes/n8n-nodes-base.gmail/draft-operations/index.md",
+      "category": "integrations",
+      "subcategory": "app-nodes",
+      "nodeName": "gmail",
+      "nodeType": "n8n-nodes-base.gmail",
+      "content": {
+        "markdown": "# Gmail node Draft Operations\n\nUse the Draft operations to create, delete, or get a draft or list drafts in Gmail. Refer to the [Gmail node](../) for more information on the Gmail node itself.\n\n## Create a draft\n\nUse this operation to create a new draft.\n\nEnter these parameters:\n\n- Select the **Credential to connect with** or create a new one.\n- **Resource**: Select **Draft**.\n- **Operation**: Select **Create**.\n- **Subject**: Enter the subject line.\n- Select the **Email Type**. Choose from **Text** or **HTML**.\n- **Message**: Enter the email message body.\n\n### Create draft options\n\nUse these options to further refine the node's behavior:\n\n- **Attachments**: Select **Add Attachment** to add an attachment. Enter the **Attachment Field Name (in Input)** to identify which field from the input node contains the attachment.\n  - For multiple properties, enter a comma-separated list.\n- **BCC**: Enter one or more email addresses for blind copy recipients. Separate multiple email addresses with a comma, for example `jay@gatsby.com, jon@smith.com`.\n- **CC**: Enter one or more email addresses for carbon copy recipients. Separate multiple email addresses with a comma, for example `jay@gatsby.com, jon@smith.com`.\n- **From Alias Name or ID**: Select an alias to send the draft from. This field populates based on the credential you selected in the parameters.\n- **Send Replies To**: Enter an email address to set as the reply to address.\n- **Thread ID**: If you want this draft attached to a thread, enter the ID for that thread.\n- **To Email**: Enter one or more email addresses for recipients. Separate multiple email addresses with a comma, for example `jay@gatsby.com, jon@smith.com`.\n\nRefer to the [Gmail API Method: users.drafts.create](https://developers.google.com/gmail/api/reference/rest/v1/users.drafts/create) documentation for more information.\n\n## Delete a draft\n\nUse this operation to delete a draft.\n\nEnter these parameters:\n\n- Select the **Credential to connect with** or create a new one.\n- **Resource**: Select **Draft**.\n- **Operation**: Select **Delete**.\n- **Draft ID**: Enter the ID of the draft you wish to delete.\n\nRefer to the [Gmail API Method: users.drafts.delete](https://developers.google.com/gmail/api/reference/rest/v1/users.drafts/delete) documentation for more information.\n\n## Get a draft\n\nUse this operation to get a single draft.\n\nEnter these parameters:\n\n- Select the **Credential to connect with** or create a new one.\n- **Resource**: Select **Draft**.\n- **Operation**: Select **Get**.\n- **Draft ID**: Enter the ID of the draft you wish to get information about.\n\n### Get draft options\n\nUse these options to further refine the node's behavior:\n\n- **Attachment Prefix**: Enter a prefix for the name of the binary property the node should write any attachments to. n8n adds an index starting with `0` to the prefix. For example, if you enter \\`attachment\\_' as the prefix, the first attachment saves to 'attachment_0'.\n- **Download Attachments**: Select whether the node should download the draft's attachments (turned on) or not (turned off).\n\nRefer to the [Gmail API Method: users.drafts.get](https://developers.google.com/gmail/api/reference/rest/v1/users.drafts/get) documentation for more information.\n\n## Get Many drafts\n\nUse this operation to get two or more drafts.\n\nEnter these parameters:\n\n- Select the **Credential to connect with** or create a new one.\n- **Resource**: Select **Draft**.\n- **Operation**: Select **Get Many**.\n- **Return All**: Choose whether the node returns all drafts (turned on) or only up to a set limit (turned off).\n- **Limit**: Enter the maximum number of drafts to return. Only used if you've turned off **Return All**.\n\n### Get Many drafts options\n\nUse these options to further refine the node's behavior:\n\n- **Attachment Prefix**: Enter a prefix for the name of the binary property the node should write any attachments to. n8n adds an index starting with `0` to the prefix. For example, if you enter \\`attachment\\_' as the prefix, the first attachment saves to 'attachment_0'.\n- **Download Attachments**: Select whether the node should download the draft's attachments (turned on) or not (turned off).\n- **Include Spam and Trash**: Select whether the node should get drafts in the Spam and Trash folders (turned on) or not (turned off).\n\nRefer to the [Gmail API Method: users.drafts.list](https://developers.google.com/gmail/api/reference/rest/v1/users.drafts/list) documentation for more information.\n\n## Common issues\n\nFor common errors or issues and suggested resolution steps, refer to [Common Issues](../common-issues/).\n",
+        "excerpt": "# Gmail node Draft Operations  Use the Draft operations to create, delete, or get a draft or list drafts in Gmail. Refer to the [Gmail node](../) for more information on the Gmail node itself.  ## Create a draft  Use this operation to create a new draft.  Enter these parameters:  - Select the **Credential to connect with** or create a new one. - **Resource**: Select **Draft**. - **Operation**: Select **Create**. - **Subject**: Enter the subject line. - Select the **Email Type**. Choose from **Te...",
+        "sections": [
+          {
+            "title": "Gmail node Draft Operations",
+            "level": 1,
+            "content": "Use the Draft operations to create, delete, or get a draft or list drafts in Gmail. Refer to the [Gmail node](../) for more information on the Gmail node itself."
+          }
+        ]
+      },
+      "metadata": {
+        "keywords": [
+          "draft",
+          "operations",
+          "gmail",
+          "node",
+          "create",
+          "options",
+          "delete",
+          "many",
+          "drafts",
+          "common",
+          "issues"
+        ],
+        "useCases": [],
+        "operations": [],
+        "codeExamples": 0,
+        "complexity": "beginner",
+        "readingTime": "4 min",
+        "contentLength": 4608,
+        "relatedPages": []
+      },
+      "searchIndex": {
+        "fullText": "draft operations # gmail node draft operations\n\nuse the draft operations to create, delete, or get a draft or list drafts in gmail. refer to the [gmail node](../) for more information on the gmail node itself.\n\n## create a draft\n\nuse this operation to create a new draft.\n\nenter these parameters:\n\n- select the **credential to connect with** or create a new one.\n- **resource**: select **draft**.\n- **operation**: select **create**.\n- **subject**: enter the subject line.\n- select the **email type**. choose from **text** or **html**.\n- **message**: enter the email message body.\n\n### create draft options\n\nuse these options to further refine the node's behavior:\n\n- **attachments**: select **add attachment** to add an attachment. enter the **attachment field name (in input)** to identify which field from the input node contains the attachment.\n  - for multiple properties, enter a comma-separated list.\n- **bcc**: enter one or more email addresses for blind copy recipients. separate multiple email addresses with a comma, for example `jay@gatsby.com, jon@smith.com`.\n- **cc**: enter one or more email addresses for carbon copy recipients. separate multiple email addresses with a comma, for example `jay@gatsby.com, jon@smith.com`.\n- **from alias name or id**: select an alias to send the draft from. this field populates based on the credential you selected in the parameters.\n- **send replies to**: enter an email address to set as the reply to address.\n- **thread id**: if you want this draft attached to a thread, enter the id for that thread.\n- **to email**: enter one or more email addresses for recipients. separate multiple email addresses with a comma, for example `jay@gatsby.com, jon@smith.com`.\n\nrefer to the [gmail api method: users.drafts.create](https://developers.google.com/gmail/api/reference/rest/v1/users.drafts/create) documentation for more information.\n\n## delete a draft\n\nuse this operation to delete a draft.\n\nenter these parameters:\n\n- select the **credential to connect with** or create a new one.\n- **resource**: select **draft**.\n- **operation**: select **delete**.\n- **draft id**: enter the id of the draft you wish to delete.\n\nrefer to the [gmail api method: users.drafts.delete](https://developers.google.com/gmail/api/reference/rest/v1/users.drafts/delete) documentation for more information.\n\n## get a draft\n\nuse this operation to get a single draft.\n\nenter these parameters:\n\n- select the **credential to connect with** or create a new one.\n- **resource**: select **draft**.\n- **operation**: select **get**.\n- **draft id**: enter the id of the draft you wish to get information about.\n\n### get draft options\n\nuse these options to further refine the node's behavior:\n\n- **attachment prefix**: enter a prefix for the name of the binary property the node should write any attachments to. n8n adds an index starting with `0` to the prefix. for example, if you enter \\`attachment\\_' as the prefix, the first attachment saves to 'attachment_0'.\n- **download attachments**: select whether the node should download the draft's attachments (turned on) or not (turned off).\n\nrefer to the [gmail api method: users.drafts.get](https://developers.google.com/gmail/api/reference/rest/v1/users.drafts/get) documentation for more information.\n\n## get many drafts\n\nuse this operation to get two or more drafts.\n\nenter these parameters:\n\n- select the **credential to connect with** or create a new one.\n- **resource**: select **draft**.\n- **operation**: select **get many**.\n- **return all**: choose whether the node returns all drafts (turned on) or only up to a set limit (turned off).\n- **limit**: enter the maximum number of drafts to return. only used if you've turned off **return all**.\n\n### get many drafts options\n\nuse these options to further refine the node's behavior:\n\n- **attachment prefix**: enter a prefix for the name of the binary property the node should write any attachments to. n8n adds an index starting with `0` to the prefix. for example, if you enter \\`attachment\\_' as the prefix, the first attachment saves to 'attachment_0'.\n- **download attachments**: select whether the node should download the draft's attachments (turned on) or not (turned off).\n- **include spam and trash**: select whether the node should get drafts in the spam and trash folders (turned on) or not (turned off).\n\nrefer to the [gmail api method: users.drafts.list](https://developers.google.com/gmail/api/reference/rest/v1/users.drafts/list) documentation for more information.\n\n## common issues\n\nfor common errors or issues and suggested resolution steps, refer to [common issues](../common-issues/).\n gmail node draft operations",
+        "importantTerms": [
+          "draft",
+          "enter",
+          "select",
+          "drafts",
+          "node",
+          "gmail",
+          "create",
+          "email",
+          "attachment",
+          "more",
+          "with",
+          "turned",
+          "operation",
+          "users",
+          "prefix",
+          "delete",
+          "these",
+          "attachments",
+          "refer",
+          "information",
+          "this",
+          "options",
+          "addresses",
+          "parameters",
+          "credential",
+          "example",
+          "should",
+          "operations",
+          "list",
+          "connect",
+          "resource",
+          "from",
+          "name",
+          "multiple",
+          "comma",
+          "method",
+          "https",
+          "developers",
+          "google",
+          "reference",
+          "rest",
+          "documentation",
+          "download",
+          "whether",
+          "common",
+          "issues",
+          "further",
+          "refine",
+          "behavior",
+          "field"
+        ]
+      }
+    },
+    {
+      "id": "page-0499",
       "title": "Label operations",
       "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gmail/label-operations/index.md",
       "urlPath": "integrations/builtin/app-nodes/n8n-nodes-base.gmail/label-operations/index.md",
@@ -38274,7 +38372,7 @@
       }
     },
     {
-      "id": "page-0499",
+      "id": "page-0500",
       "title": "Message operations",
       "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gmail/message-operations/index.md",
       "urlPath": "integrations/builtin/app-nodes/n8n-nodes-base.gmail/message-operations/index.md",
@@ -38382,7 +38480,7 @@
       }
     },
     {
-      "id": "page-0500",
+      "id": "page-0501",
       "title": "Thread operations",
       "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gmail/thread-operations/index.md",
       "urlPath": "integrations/builtin/app-nodes/n8n-nodes-base.gmail/thread-operations/index.md",
@@ -38487,7 +38585,7 @@
       }
     },
     {
-      "id": "page-0501",
+      "id": "page-0502",
       "title": "Google Calendar",
       "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlecalendar/index.md",
       "urlPath": "integrations/builtin/app-nodes/n8n-nodes-base.googlecalendar/index.md",
@@ -38557,7 +38655,7 @@
       }
     },
     {
-      "id": "page-0502",
+      "id": "page-0503",
       "title": "Calendar operations",
       "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlecalendar/calendar-operations/index.md",
       "urlPath": "integrations/builtin/app-nodes/n8n-nodes-base.googlecalendar/calendar-operations/index.md",
@@ -38615,7 +38713,7 @@
       }
     },
     {
-      "id": "page-0503",
+      "id": "page-0504",
       "title": "Event operations",
       "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlecalendar/event-operations/index.md",
       "urlPath": "integrations/builtin/app-nodes/n8n-nodes-base.googlecalendar/event-operations/index.md",
@@ -38711,7 +38809,7 @@
       }
     },
     {
-      "id": "page-0504",
+      "id": "page-0505",
       "title": "Google Drive",
       "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googledrive/index.md",
       "urlPath": "integrations/builtin/app-nodes/n8n-nodes-base.googledrive/index.md",
@@ -38798,7 +38896,7 @@
       }
     },
     {
-      "id": "page-0505",
+      "id": "page-0506",
       "title": "Common issues",
       "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googledrive/common-issues/index.md",
       "urlPath": "integrations/builtin/app-nodes/n8n-nodes-base.googledrive/common-issues/index.md",
@@ -38880,104 +38978,6 @@
           "select",
           "output",
           "choose"
-        ]
-      }
-    },
-    {
-      "id": "page-0506",
-      "title": "Draft operations",
-      "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gmail/draft-operations/index.md",
-      "urlPath": "integrations/builtin/app-nodes/n8n-nodes-base.gmail/draft-operations/index.md",
-      "category": "integrations",
-      "subcategory": "app-nodes",
-      "nodeName": "gmail",
-      "nodeType": "n8n-nodes-base.gmail",
-      "content": {
-        "markdown": "# Gmail node Draft Operations\n\nUse the Draft operations to create, delete, or get a draft or list drafts in Gmail. Refer to the [Gmail node](../) for more information on the Gmail node itself.\n\n## Create a draft\n\nUse this operation to create a new draft.\n\nEnter these parameters:\n\n- Select the **Credential to connect with** or create a new one.\n- **Resource**: Select **Draft**.\n- **Operation**: Select **Create**.\n- **Subject**: Enter the subject line.\n- Select the **Email Type**. Choose from **Text** or **HTML**.\n- **Message**: Enter the email message body.\n\n### Create draft options\n\nUse these options to further refine the node's behavior:\n\n- **Attachments**: Select **Add Attachment** to add an attachment. Enter the **Attachment Field Name (in Input)** to identify which field from the input node contains the attachment.\n  - For multiple properties, enter a comma-separated list.\n- **BCC**: Enter one or more email addresses for blind copy recipients. Separate multiple email addresses with a comma, for example `jay@gatsby.com, jon@smith.com`.\n- **CC**: Enter one or more email addresses for carbon copy recipients. Separate multiple email addresses with a comma, for example `jay@gatsby.com, jon@smith.com`.\n- **From Alias Name or ID**: Select an alias to send the draft from. This field populates based on the credential you selected in the parameters.\n- **Send Replies To**: Enter an email address to set as the reply to address.\n- **Thread ID**: If you want this draft attached to a thread, enter the ID for that thread.\n- **To Email**: Enter one or more email addresses for recipients. Separate multiple email addresses with a comma, for example `jay@gatsby.com, jon@smith.com`.\n\nRefer to the [Gmail API Method: users.drafts.create](https://developers.google.com/gmail/api/reference/rest/v1/users.drafts/create) documentation for more information.\n\n## Delete a draft\n\nUse this operation to delete a draft.\n\nEnter these parameters:\n\n- Select the **Credential to connect with** or create a new one.\n- **Resource**: Select **Draft**.\n- **Operation**: Select **Delete**.\n- **Draft ID**: Enter the ID of the draft you wish to delete.\n\nRefer to the [Gmail API Method: users.drafts.delete](https://developers.google.com/gmail/api/reference/rest/v1/users.drafts/delete) documentation for more information.\n\n## Get a draft\n\nUse this operation to get a single draft.\n\nEnter these parameters:\n\n- Select the **Credential to connect with** or create a new one.\n- **Resource**: Select **Draft**.\n- **Operation**: Select **Get**.\n- **Draft ID**: Enter the ID of the draft you wish to get information about.\n\n### Get draft options\n\nUse these options to further refine the node's behavior:\n\n- **Attachment Prefix**: Enter a prefix for the name of the binary property the node should write any attachments to. n8n adds an index starting with `0` to the prefix. For example, if you enter \\`attachment\\_' as the prefix, the first attachment saves to 'attachment_0'.\n- **Download Attachments**: Select whether the node should download the draft's attachments (turned on) or not (turned off).\n\nRefer to the [Gmail API Method: users.drafts.get](https://developers.google.com/gmail/api/reference/rest/v1/users.drafts/get) documentation for more information.\n\n## Get Many drafts\n\nUse this operation to get two or more drafts.\n\nEnter these parameters:\n\n- Select the **Credential to connect with** or create a new one.\n- **Resource**: Select **Draft**.\n- **Operation**: Select **Get Many**.\n- **Return All**: Choose whether the node returns all drafts (turned on) or only up to a set limit (turned off).\n- **Limit**: Enter the maximum number of drafts to return. Only used if you've turned off **Return All**.\n\n### Get Many drafts options\n\nUse these options to further refine the node's behavior:\n\n- **Attachment Prefix**: Enter a prefix for the name of the binary property the node should write any attachments to. n8n adds an index starting with `0` to the prefix. For example, if you enter \\`attachment\\_' as the prefix, the first attachment saves to 'attachment_0'.\n- **Download Attachments**: Select whether the node should download the draft's attachments (turned on) or not (turned off).\n- **Include Spam and Trash**: Select whether the node should get drafts in the Spam and Trash folders (turned on) or not (turned off).\n\nRefer to the [Gmail API Method: users.drafts.list](https://developers.google.com/gmail/api/reference/rest/v1/users.drafts/list) documentation for more information.\n\n## Common issues\n\nFor common errors or issues and suggested resolution steps, refer to [Common Issues](../common-issues/).\n",
-        "excerpt": "# Gmail node Draft Operations  Use the Draft operations to create, delete, or get a draft or list drafts in Gmail. Refer to the [Gmail node](../) for more information on the Gmail node itself.  ## Create a draft  Use this operation to create a new draft.  Enter these parameters:  - Select the **Credential to connect with** or create a new one. - **Resource**: Select **Draft**. - **Operation**: Select **Create**. - **Subject**: Enter the subject line. - Select the **Email Type**. Choose from **Te...",
-        "sections": [
-          {
-            "title": "Gmail node Draft Operations",
-            "level": 1,
-            "content": "Use the Draft operations to create, delete, or get a draft or list drafts in Gmail. Refer to the [Gmail node](../) for more information on the Gmail node itself."
-          }
-        ]
-      },
-      "metadata": {
-        "keywords": [
-          "draft",
-          "operations",
-          "gmail",
-          "node",
-          "create",
-          "options",
-          "delete",
-          "many",
-          "drafts",
-          "common",
-          "issues"
-        ],
-        "useCases": [],
-        "operations": [],
-        "codeExamples": 0,
-        "complexity": "beginner",
-        "readingTime": "4 min",
-        "contentLength": 4608,
-        "relatedPages": []
-      },
-      "searchIndex": {
-        "fullText": "draft operations # gmail node draft operations\n\nuse the draft operations to create, delete, or get a draft or list drafts in gmail. refer to the [gmail node](../) for more information on the gmail node itself.\n\n## create a draft\n\nuse this operation to create a new draft.\n\nenter these parameters:\n\n- select the **credential to connect with** or create a new one.\n- **resource**: select **draft**.\n- **operation**: select **create**.\n- **subject**: enter the subject line.\n- select the **email type**. choose from **text** or **html**.\n- **message**: enter the email message body.\n\n### create draft options\n\nuse these options to further refine the node's behavior:\n\n- **attachments**: select **add attachment** to add an attachment. enter the **attachment field name (in input)** to identify which field from the input node contains the attachment.\n  - for multiple properties, enter a comma-separated list.\n- **bcc**: enter one or more email addresses for blind copy recipients. separate multiple email addresses with a comma, for example `jay@gatsby.com, jon@smith.com`.\n- **cc**: enter one or more email addresses for carbon copy recipients. separate multiple email addresses with a comma, for example `jay@gatsby.com, jon@smith.com`.\n- **from alias name or id**: select an alias to send the draft from. this field populates based on the credential you selected in the parameters.\n- **send replies to**: enter an email address to set as the reply to address.\n- **thread id**: if you want this draft attached to a thread, enter the id for that thread.\n- **to email**: enter one or more email addresses for recipients. separate multiple email addresses with a comma, for example `jay@gatsby.com, jon@smith.com`.\n\nrefer to the [gmail api method: users.drafts.create](https://developers.google.com/gmail/api/reference/rest/v1/users.drafts/create) documentation for more information.\n\n## delete a draft\n\nuse this operation to delete a draft.\n\nenter these parameters:\n\n- select the **credential to connect with** or create a new one.\n- **resource**: select **draft**.\n- **operation**: select **delete**.\n- **draft id**: enter the id of the draft you wish to delete.\n\nrefer to the [gmail api method: users.drafts.delete](https://developers.google.com/gmail/api/reference/rest/v1/users.drafts/delete) documentation for more information.\n\n## get a draft\n\nuse this operation to get a single draft.\n\nenter these parameters:\n\n- select the **credential to connect with** or create a new one.\n- **resource**: select **draft**.\n- **operation**: select **get**.\n- **draft id**: enter the id of the draft you wish to get information about.\n\n### get draft options\n\nuse these options to further refine the node's behavior:\n\n- **attachment prefix**: enter a prefix for the name of the binary property the node should write any attachments to. n8n adds an index starting with `0` to the prefix. for example, if you enter \\`attachment\\_' as the prefix, the first attachment saves to 'attachment_0'.\n- **download attachments**: select whether the node should download the draft's attachments (turned on) or not (turned off).\n\nrefer to the [gmail api method: users.drafts.get](https://developers.google.com/gmail/api/reference/rest/v1/users.drafts/get) documentation for more information.\n\n## get many drafts\n\nuse this operation to get two or more drafts.\n\nenter these parameters:\n\n- select the **credential to connect with** or create a new one.\n- **resource**: select **draft**.\n- **operation**: select **get many**.\n- **return all**: choose whether the node returns all drafts (turned on) or only up to a set limit (turned off).\n- **limit**: enter the maximum number of drafts to return. only used if you've turned off **return all**.\n\n### get many drafts options\n\nuse these options to further refine the node's behavior:\n\n- **attachment prefix**: enter a prefix for the name of the binary property the node should write any attachments to. n8n adds an index starting with `0` to the prefix. for example, if you enter \\`attachment\\_' as the prefix, the first attachment saves to 'attachment_0'.\n- **download attachments**: select whether the node should download the draft's attachments (turned on) or not (turned off).\n- **include spam and trash**: select whether the node should get drafts in the spam and trash folders (turned on) or not (turned off).\n\nrefer to the [gmail api method: users.drafts.list](https://developers.google.com/gmail/api/reference/rest/v1/users.drafts/list) documentation for more information.\n\n## common issues\n\nfor common errors or issues and suggested resolution steps, refer to [common issues](../common-issues/).\n gmail node draft operations",
-        "importantTerms": [
-          "draft",
-          "enter",
-          "select",
-          "drafts",
-          "node",
-          "gmail",
-          "create",
-          "email",
-          "attachment",
-          "more",
-          "with",
-          "turned",
-          "operation",
-          "users",
-          "prefix",
-          "delete",
-          "these",
-          "attachments",
-          "refer",
-          "information",
-          "this",
-          "options",
-          "addresses",
-          "parameters",
-          "credential",
-          "example",
-          "should",
-          "operations",
-          "list",
-          "connect",
-          "resource",
-          "from",
-          "name",
-          "multiple",
-          "comma",
-          "method",
-          "https",
-          "developers",
-          "google",
-          "reference",
-          "rest",
-          "documentation",
-          "download",
-          "whether",
-          "common",
-          "issues",
-          "further",
-          "refine",
-          "behavior",
-          "field"
         ]
       }
     },
@@ -92864,13 +92864,13 @@
   "searchIndex": {
     "byKeyword": {
       "1000": [
-        "page-0204"
+        "page-0205"
       ],
       "2022": [
         "page-0133"
       ],
       "12345678": [
-        "page-0203"
+        "page-0201"
       ],
       "welcome": [
         "page-0001",
@@ -92884,7 +92884,7 @@
       "where": [
         "page-0001",
         "page-0143",
-        "page-0199",
+        "page-0200",
         "page-0230",
         "page-0714"
       ],
@@ -92895,10 +92895,10 @@
         "page-0165",
         "page-0193",
         "page-0194",
-        "page-0198",
         "page-0199",
-        "page-0202",
+        "page-0200",
         "page-0204",
+        "page-0205",
         "page-0218",
         "page-0720"
       ],
@@ -92948,7 +92948,7 @@
         "page-0003",
         "page-0013",
         "page-0143",
-        "page-0204",
+        "page-0205",
         "page-0208",
         "page-0532",
         "page-0591",
@@ -93309,7 +93309,7 @@
         "page-0499",
         "page-0500",
         "page-0501",
-        "page-0504",
+        "page-0502",
         "page-0505",
         "page-0506",
         "page-0512",
@@ -93694,7 +93694,7 @@
       ],
       "process": [
         "page-0002",
-        "page-0204",
+        "page-0205",
         "page-0218",
         "page-0717",
         "page-0859"
@@ -93710,8 +93710,8 @@
         "page-0153",
         "page-0165",
         "page-0184",
-        "page-0203",
-        "page-0204",
+        "page-0201",
+        "page-0205",
         "page-0211",
         "page-0212",
         "page-0218",
@@ -93761,9 +93761,9 @@
         "page-0157",
         "page-0163",
         "page-0193",
-        "page-0198",
         "page-0199",
-        "page-0202",
+        "page-0200",
+        "page-0204",
         "page-0213",
         "page-0516",
         "page-0523",
@@ -93777,7 +93777,7 @@
         "page-0013",
         "page-0019",
         "page-0152",
-        "page-0204",
+        "page-0205",
         "page-0431",
         "page-0879",
         "page-1135",
@@ -93929,8 +93929,8 @@
       "account": [
         "page-0002",
         "page-0163",
-        "page-0203",
-        "page-0204",
+        "page-0201",
+        "page-0205",
         "page-0223",
         "page-0776",
         "page-0798",
@@ -93951,9 +93951,9 @@
       "directory": [
         "page-0002",
         "page-0193",
-        "page-0198",
         "page-0199",
-        "page-0202",
+        "page-0200",
+        "page-0204",
         "page-1159",
         "page-1162",
         "page-1190",
@@ -93961,7 +93961,7 @@
       ],
       "installing": [
         "page-0002",
-        "page-0204",
+        "page-0205",
         "page-1160"
       ],
       "custom": [
@@ -94029,7 +94029,7 @@
         "page-0147",
         "page-0158",
         "page-0183",
-        "page-0199",
+        "page-0200",
         "page-0219",
         "page-0224",
         "page-0230",
@@ -94142,7 +94142,7 @@
         "page-0149",
         "page-0171",
         "page-0177",
-        "page-0203",
+        "page-0201",
         "page-0210",
         "page-0211",
         "page-0213",
@@ -94200,7 +94200,7 @@
       "removed": [
         "page-0002",
         "page-0003",
-        "page-0204",
+        "page-0205",
         "page-1208"
       ],
       "deprecated": [
@@ -94236,7 +94236,7 @@
         "page-0101",
         "page-0147",
         "page-0168",
-        "page-0204",
+        "page-0205",
         "page-0218",
         "page-0682",
         "page-0696",
@@ -94265,12 +94265,12 @@
         "page-0003",
         "page-0084",
         "page-0193",
-        "page-0198",
-        "page-0202",
+        "page-0199",
         "page-0204",
+        "page-0205",
         "page-0497",
-        "page-0499",
         "page-0500",
+        "page-0501",
         "page-0527",
         "page-0529",
         "page-0536",
@@ -94283,9 +94283,9 @@
         "page-0193",
         "page-0194",
         "page-0195",
-        "page-0198",
-        "page-0202",
+        "page-0199",
         "page-0204",
+        "page-0205",
         "page-0374",
         "page-1202"
       ],
@@ -94311,7 +94311,7 @@
         "page-0498",
         "page-0499",
         "page-0500",
-        "page-0504",
+        "page-0501",
         "page-0505",
         "page-0506",
         "page-0511",
@@ -94409,7 +94409,7 @@
       ],
       "return": [
         "page-0003",
-        "page-0204",
+        "page-0205",
         "page-0563",
         "page-0564",
         "page-0566",
@@ -94428,7 +94428,7 @@
         "page-0026",
         "page-0043",
         "page-0131",
-        "page-0204",
+        "page-0205",
         "page-0332",
         "page-0492",
         "page-0516",
@@ -94463,13 +94463,13 @@
         "page-0111",
         "page-0133",
         "page-0138",
-        "page-0199",
-        "page-0204",
+        "page-0200",
+        "page-0205",
         "page-0493",
         "page-0497",
-        "page-0499",
         "page-0500",
-        "page-0505",
+        "page-0501",
+        "page-0506",
         "page-0508",
         "page-0527",
         "page-0535",
@@ -94580,10 +94580,10 @@
         "page-0003",
         "page-0193",
         "page-0197",
-        "page-0200",
-        "page-0203",
-        "page-0204",
-        "page-0206",
+        "page-0198",
+        "page-0201",
+        "page-0202",
+        "page-0205",
         "page-0227",
         "page-1208"
       ],
@@ -94592,7 +94592,7 @@
         "page-0014",
         "page-0145",
         "page-0185",
-        "page-0204",
+        "page-0205",
         "page-0224",
         "page-0299",
         "page-0376",
@@ -94643,10 +94643,10 @@
         "page-0191",
         "page-0192",
         "page-0197",
-        "page-0200",
-        "page-0201",
-        "page-0204",
-        "page-0206",
+        "page-0198",
+        "page-0202",
+        "page-0203",
+        "page-0205",
         "page-0815",
         "page-0992",
         "page-1161",
@@ -94668,8 +94668,8 @@
         "page-0063",
         "page-0156",
         "page-0163",
-        "page-0199",
-        "page-0204",
+        "page-0200",
+        "page-0205",
         "page-0219",
         "page-0227",
         "page-0551",
@@ -94736,9 +94736,9 @@
       ],
       "default": [
         "page-0003",
-        "page-0198",
         "page-0199",
-        "page-0202",
+        "page-0200",
+        "page-0204",
         "page-0219",
         "page-0227",
         "page-0573",
@@ -94808,8 +94808,8 @@
         "page-0069",
         "page-0164",
         "page-0165",
-        "page-0200",
-        "page-0203",
+        "page-0201",
+        "page-0202",
         "page-0207",
         "page-0211",
         "page-0213",
@@ -95263,7 +95263,7 @@
       "oauth": [
         "page-0003",
         "page-0163",
-        "page-0505",
+        "page-0506",
         "page-0780",
         "page-0938",
         "page-0955",
@@ -95286,15 +95286,15 @@
       "value": [
         "page-0003",
         "page-0061",
-        "page-0199",
-        "page-0204",
+        "page-0200",
+        "page-0205",
         "page-0562",
         "page-0714",
         "page-1261"
       ],
       "restrict": [
         "page-0003",
-        "page-0204",
+        "page-0205",
         "page-0223",
         "page-0664"
       ],
@@ -95320,7 +95320,7 @@
         "page-0003",
         "page-0152",
         "page-0173",
-        "page-0204"
+        "page-0205"
       ],
       "legacy": [
         "page-0003"
@@ -95334,7 +95334,7 @@
         "page-0006",
         "page-0034",
         "page-0040",
-        "page-0204",
+        "page-0205",
         "page-0210",
         "page-0215",
         "page-0551",
@@ -95376,9 +95376,9 @@
         "page-0155",
         "page-0197",
         "page-0198",
-        "page-0200",
+        "page-0199",
         "page-0202",
-        "page-0206",
+        "page-0204",
         "page-0545",
         "page-0549",
         "page-0551",
@@ -95427,7 +95427,7 @@
         "page-0003",
         "page-0165",
         "page-0184",
-        "page-0204",
+        "page-0205",
         "page-0212",
         "page-0218",
         "page-1198",
@@ -95435,7 +95435,7 @@
       ],
       "worker": [
         "page-0003",
-        "page-0204",
+        "page-0205",
         "page-0218"
       ],
       "stalled": [
@@ -95455,11 +95455,11 @@
         "page-0094",
         "page-0149",
         "page-0151",
-        "page-0198",
         "page-0199",
-        "page-0202",
-        "page-0205",
-        "page-0505",
+        "page-0200",
+        "page-0204",
+        "page-0206",
+        "page-0506",
         "page-0507",
         "page-0537",
         "page-0680",
@@ -95471,7 +95471,7 @@
       ],
       "replace": [
         "page-0003",
-        "page-0204",
+        "page-0205",
         "page-1155"
       ],
       "command": [
@@ -95499,7 +95499,7 @@
         "page-0177",
         "page-0178",
         "page-0179",
-        "page-0204",
+        "page-0205",
         "page-0214",
         "page-0221",
         "page-0374",
@@ -95565,11 +95565,11 @@
         "page-0159",
         "page-0163",
         "page-0193",
-        "page-0198",
         "page-0199",
-        "page-0202",
-        "page-0203",
+        "page-0200",
+        "page-0201",
         "page-0204",
+        "page-0205",
         "page-0217",
         "page-0235",
         "page-0236",
@@ -95722,7 +95722,7 @@
         "page-0494",
         "page-0496",
         "page-0497",
-        "page-0504",
+        "page-0505",
         "page-0511",
         "page-0517",
         "page-0522",
@@ -95801,7 +95801,7 @@
         "page-0013",
         "page-0163",
         "page-0179",
-        "page-0204",
+        "page-0205",
         "page-1208",
         "page-1234",
         "page-1235"
@@ -95820,10 +95820,10 @@
         "page-0006",
         "page-0013",
         "page-0147",
-        "page-0200",
         "page-0201",
+        "page-0202",
         "page-0203",
-        "page-0204",
+        "page-0205",
         "page-0348",
         "page-1030",
         "page-1031",
@@ -95874,7 +95874,7 @@
         "page-0006",
         "page-0022",
         "page-0157",
-        "page-0203",
+        "page-0201",
         "page-0549",
         "page-0550",
         "page-0551",
@@ -95898,7 +95898,7 @@
       "manager": [
         "page-0005",
         "page-0163",
-        "page-0203",
+        "page-0201",
         "page-0245",
         "page-0603",
         "page-1207",
@@ -95908,7 +95908,7 @@
       "azure": [
         "page-0005",
         "page-0163",
-        "page-0206",
+        "page-0198",
         "page-0259",
         "page-0260",
         "page-0549",
@@ -95948,9 +95948,9 @@
       ],
       "read": [
         "page-0005",
-        "page-0204",
+        "page-0205",
         "page-0221",
-        "page-0499",
+        "page-0500",
         "page-0680",
         "page-0683",
         "page-0688"
@@ -95986,7 +95986,7 @@
         "page-0147",
         "page-0163",
         "page-0172",
-        "page-0204",
+        "page-0205",
         "page-0209",
         "page-0224",
         "page-0232",
@@ -96347,7 +96347,7 @@
         "page-0137",
         "page-0150",
         "page-0193",
-        "page-0204",
+        "page-0205",
         "page-0209",
         "page-0231",
         "page-0332",
@@ -96703,8 +96703,8 @@
         "page-0168",
         "page-0193",
         "page-0194",
-        "page-0199",
-        "page-0204",
+        "page-0200",
+        "page-0205",
         "page-0218",
         "page-0240",
         "page-0432",
@@ -96765,8 +96765,8 @@
         "page-0005",
         "page-0043",
         "page-0194",
-        "page-0203",
-        "page-0204",
+        "page-0201",
+        "page-0205",
         "page-0549",
         "page-0739",
         "page-1030",
@@ -96917,9 +96917,9 @@
         "page-0040",
         "page-0163",
         "page-0197",
-        "page-0200",
-        "page-0204",
-        "page-0206",
+        "page-0198",
+        "page-0202",
+        "page-0205",
         "page-0232",
         "page-0541"
       ],
@@ -97050,7 +97050,7 @@
         "page-0040",
         "page-0113",
         "page-0128",
-        "page-0199",
+        "page-0200",
         "page-0221",
         "page-0541",
         "page-0542"
@@ -97058,8 +97058,8 @@
       "template": [
         "page-0006",
         "page-0142",
-        "page-0201",
-        "page-0204",
+        "page-0203",
+        "page-0205",
         "page-0565",
         "page-0566",
         "page-0668",
@@ -97303,11 +97303,11 @@
         "page-0168",
         "page-0197",
         "page-0198",
-        "page-0200",
-        "page-0201",
+        "page-0199",
         "page-0202",
+        "page-0203",
         "page-0204",
-        "page-0206",
+        "page-0205",
         "page-0218",
         "page-0221",
         "page-0801",
@@ -97351,7 +97351,7 @@
       "which": [
         "page-0007",
         "page-0060",
-        "page-0199",
+        "page-0200",
         "page-0333"
       ],
       "calculate": [
@@ -97360,7 +97360,7 @@
       "values": [
         "page-0007",
         "page-0081",
-        "page-0204",
+        "page-0205",
         "page-0518",
         "page-0519",
         "page-0617",
@@ -97388,9 +97388,9 @@
         "page-0007",
         "page-0013",
         "page-0193",
-        "page-0198",
-        "page-0202",
+        "page-0199",
         "page-0204",
+        "page-0205",
         "page-1154",
         "page-1155",
         "page-1202",
@@ -97586,12 +97586,12 @@
         "page-0144",
         "page-0197",
         "page-0198",
-        "page-0200",
+        "page-0199",
         "page-0201",
         "page-0202",
         "page-0203",
         "page-0204",
-        "page-0206"
+        "page-0205"
       ],
       "build": [
         "page-0009",
@@ -97619,7 +97619,7 @@
         "page-0015",
         "page-0145",
         "page-0181",
-        "page-0204",
+        "page-0205",
         "page-1207"
       ],
       "variables": [
@@ -97658,10 +97658,10 @@
         "page-0191",
         "page-0192",
         "page-0197",
-        "page-0200",
-        "page-0201",
-        "page-0204",
-        "page-0206",
+        "page-0198",
+        "page-0202",
+        "page-0203",
+        "page-0205",
         "page-0703",
         "page-0704",
         "page-0716",
@@ -97678,7 +97678,7 @@
         "page-0043",
         "page-0044",
         "page-0196",
-        "page-0202",
+        "page-0204",
         "page-0218",
         "page-0516",
         "page-0702",
@@ -97707,7 +97707,7 @@
       "events": [
         "page-0011",
         "page-0013",
-        "page-0204",
+        "page-0205",
         "page-0228",
         "page-1042",
         "page-1043",
@@ -97782,7 +97782,7 @@
       "status": [
         "page-0012",
         "page-0145",
-        "page-0204",
+        "page-0205",
         "page-0666",
         "page-1247"
       ],
@@ -97813,7 +97813,7 @@
         "page-0165",
         "page-0166",
         "page-0188",
-        "page-0204",
+        "page-0205",
         "page-0217",
         "page-0224",
         "page-0551",
@@ -97856,7 +97856,7 @@
       ],
       "both": [
         "page-0012",
-        "page-0205"
+        "page-0206"
       ],
       "tabs": [
         "page-0012"
@@ -97880,12 +97880,12 @@
       ],
       "address": [
         "page-0012",
-        "page-0199"
+        "page-0200"
       ],
       "verify": [
         "page-0012",
         "page-0163",
-        "page-0204",
+        "page-0205",
         "page-0670",
         "page-1108"
       ],
@@ -97914,8 +97914,8 @@
         "page-0044",
         "page-0062",
         "page-0195",
-        "page-0204",
-        "page-0503",
+        "page-0205",
+        "page-0504",
         "page-0508",
         "page-0510",
         "page-0514",
@@ -98022,9 +98022,9 @@
         "page-0013",
         "page-0023",
         "page-0193",
-        "page-0198",
-        "page-0202",
+        "page-0199",
         "page-0204",
+        "page-0205",
         "page-0666",
         "page-1210",
         "page-1219"
@@ -98063,12 +98063,12 @@
         "page-0013",
         "page-0154",
         "page-0184",
-        "page-0198",
         "page-0199",
-        "page-0202",
-        "page-0203",
+        "page-0200",
+        "page-0201",
         "page-0204",
         "page-0205",
+        "page-0206",
         "page-0214",
         "page-0218",
         "page-0512",
@@ -98095,14 +98095,14 @@
         "page-0047",
         "page-0048",
         "page-0152",
-        "page-0202",
-        "page-0203",
+        "page-0201",
+        "page-0204",
         "page-0319",
         "page-0320",
         "page-0321",
         "page-0322",
         "page-0471",
-        "page-0505",
+        "page-0506",
         "page-0530",
         "page-0531",
         "page-0583",
@@ -98139,7 +98139,7 @@
       ],
       "things": [
         "page-0013",
-        "page-0204",
+        "page-0205",
         "page-1208",
         "page-1251"
       ],
@@ -98204,7 +98204,7 @@
       ],
       "permission": [
         "page-0013",
-        "page-0204",
+        "page-0205",
         "page-1234",
         "page-1264"
       ],
@@ -98244,7 +98244,7 @@
       ],
       "volumes": [
         "page-0013",
-        "page-0198",
+        "page-0199",
         "page-0547"
       ],
       "personal": [
@@ -98348,7 +98348,7 @@
         "page-0086",
         "page-0099",
         "page-0143",
-        "page-0204",
+        "page-0205",
         "page-0229",
         "page-0235",
         "page-0236",
@@ -98498,7 +98498,7 @@
         "page-0492",
         "page-0494",
         "page-0496",
-        "page-0504",
+        "page-0505",
         "page-0511",
         "page-0517",
         "page-0522",
@@ -98602,7 +98602,7 @@
         "page-0013",
         "page-0080",
         "page-0081",
-        "page-0203",
+        "page-0201",
         "page-0670"
       ],
       "product": [
@@ -98808,7 +98808,7 @@
         "page-0492",
         "page-0494",
         "page-0496",
-        "page-0504",
+        "page-0505",
         "page-0511",
         "page-0517",
         "page-0522",
@@ -98830,8 +98830,8 @@
       ],
       "context": [
         "page-0015",
-        "page-0200",
-        "page-0206",
+        "page-0198",
+        "page-0202",
         "page-0571",
         "page-1192",
         "page-1208"
@@ -98879,7 +98879,7 @@
         "page-0109",
         "page-0110",
         "page-0133",
-        "page-0199",
+        "page-0200",
         "page-0547",
         "page-0628",
         "page-0661",
@@ -98911,7 +98911,7 @@
       ],
       "want": [
         "page-0015",
-        "page-0203"
+        "page-0201"
       ],
       "something": [
         "page-0015"
@@ -98926,9 +98926,9 @@
         "page-0015",
         "page-0020",
         "page-0198",
-        "page-0202",
+        "page-0199",
         "page-0204",
-        "page-0206",
+        "page-0205",
         "page-1024",
         "page-1207",
         "page-1208",
@@ -98956,14 +98956,14 @@
         "page-0202",
         "page-0203",
         "page-0204",
-        "page-0206",
+        "page-0205",
         "page-0209",
         "page-0240",
         "page-0415",
         "page-0492",
         "page-0498",
-        "page-0503",
-        "page-0506",
+        "page-0499",
+        "page-0504",
         "page-0508",
         "page-0509",
         "page-0510",
@@ -99080,7 +99080,7 @@
       "main": [
         "page-0015",
         "page-0184",
-        "page-0204",
+        "page-0205",
         "page-0218",
         "page-1159",
         "page-1162",
@@ -99215,7 +99215,7 @@
         "page-0492",
         "page-0494",
         "page-0496",
-        "page-0501",
+        "page-0502",
         "page-0511",
         "page-0515",
         "page-0517",
@@ -99697,8 +99697,8 @@
         "page-0064",
         "page-0068",
         "page-0197",
-        "page-0200",
-        "page-0206",
+        "page-0198",
+        "page-0202",
         "page-0219",
         "page-0220",
         "page-0227",
@@ -99757,7 +99757,7 @@
         "page-0492",
         "page-0494",
         "page-0496",
-        "page-0501",
+        "page-0502",
         "page-0511",
         "page-0515",
         "page-0517",
@@ -100508,8 +100508,8 @@
         "page-0492",
         "page-0494",
         "page-0496",
-        "page-0501",
-        "page-0504",
+        "page-0502",
+        "page-0505",
         "page-0511",
         "page-0515",
         "page-0517",
@@ -100773,9 +100773,9 @@
         "page-0154",
         "page-0167",
         "page-0190",
-        "page-0198",
         "page-0199",
-        "page-0204",
+        "page-0200",
+        "page-0205",
         "page-0209",
         "page-0210",
         "page-0221",
@@ -100860,8 +100860,8 @@
         "page-0040",
         "page-0043",
         "page-0044",
-        "page-0203",
-        "page-0204",
+        "page-0201",
+        "page-0205",
         "page-0532",
         "page-0539",
         "page-0568",
@@ -100891,7 +100891,7 @@
         "page-0378",
         "page-0381",
         "page-0494",
-        "page-0499",
+        "page-0500",
         "page-0529",
         "page-0530",
         "page-0685",
@@ -100920,7 +100920,7 @@
       "system": [
         "page-0020",
         "page-0052",
-        "page-0204",
+        "page-0205",
         "page-0224",
         "page-0543",
         "page-0563",
@@ -100981,13 +100981,13 @@
         "page-0021",
         "page-0071",
         "page-0086",
-        "page-0199"
+        "page-0200"
       ],
       "need": [
         "page-0021",
         "page-0071",
         "page-0086",
-        "page-0203",
+        "page-0201",
         "page-0712",
         "page-0740",
         "page-0742",
@@ -101007,7 +101007,7 @@
         "page-0031",
         "page-0040",
         "page-0052",
-        "page-0204",
+        "page-0205",
         "page-0703"
       ],
       "needed)": [
@@ -101019,8 +101019,8 @@
         "page-0077",
         "page-0079",
         "page-0091",
-        "page-0198",
-        "page-0202",
+        "page-0199",
+        "page-0204",
         "page-0663",
         "page-0664",
         "page-0718",
@@ -101033,15 +101033,15 @@
       ],
       "changing": [
         "page-0021",
-        "page-0199",
-        "page-0201",
+        "page-0200",
+        "page-0203",
         "page-0716"
       ],
       "adding": [
         "page-0021",
         "page-0072",
         "page-0153",
-        "page-0205",
+        "page-0206",
         "page-0642",
         "page-1152"
       ],
@@ -101061,10 +101061,10 @@
         "page-0198",
         "page-0199",
         "page-0200",
-        "page-0201",
         "page-0202",
+        "page-0203",
         "page-0204",
-        "page-0206",
+        "page-0205",
         "page-0230",
         "page-1159",
         "page-1162",
@@ -101080,10 +101080,10 @@
         "page-0198",
         "page-0199",
         "page-0200",
-        "page-0201",
         "page-0202",
+        "page-0203",
         "page-0204",
-        "page-0206",
+        "page-0205",
         "page-0563",
         "page-0564",
         "page-0566",
@@ -101201,7 +101201,7 @@
       ],
       "view": [
         "page-0024",
-        "page-0204",
+        "page-0205",
         "page-0218",
         "page-1207",
         "page-1208",
@@ -101265,7 +101265,7 @@
         "page-0498",
         "page-0499",
         "page-0500",
-        "page-0504",
+        "page-0501",
         "page-0505",
         "page-0506",
         "page-0511",
@@ -101426,8 +101426,8 @@
         "page-0029",
         "page-0043",
         "page-0163",
-        "page-0200",
-        "page-0203",
+        "page-0201",
+        "page-0202",
         "page-0313",
         "page-0314",
         "page-0315",
@@ -101446,11 +101446,11 @@
         "page-0328",
         "page-0333",
         "page-0489",
-        "page-0501",
         "page-0502",
         "page-0503",
         "page-0504",
         "page-0505",
+        "page-0506",
         "page-0507",
         "page-0508",
         "page-0509",
@@ -101498,7 +101498,7 @@
       "have": [
         "page-0030",
         "page-0133",
-        "page-0203"
+        "page-0201"
       ],
       "introduction": [
         "page-0031",
@@ -101772,8 +101772,8 @@
         "page-0492",
         "page-0494",
         "page-0496",
-        "page-0501",
-        "page-0504",
+        "page-0502",
+        "page-0505",
         "page-0511",
         "page-0515",
         "page-0517",
@@ -102204,8 +102204,8 @@
         "page-0147",
         "page-0152",
         "page-0173",
-        "page-0203",
-        "page-0204",
+        "page-0201",
+        "page-0205",
         "page-0210",
         "page-0224",
         "page-0321",
@@ -102228,7 +102228,7 @@
       ],
       "stores": [
         "page-0040",
-        "page-0204"
+        "page-0205"
       ],
       "miscellaneous": [
         "page-0040"
@@ -102243,7 +102243,7 @@
         "page-0065",
         "page-0098",
         "page-0107",
-        "page-0205",
+        "page-0206",
         "page-0543",
         "page-0563",
         "page-0564",
@@ -102299,8 +102299,8 @@
         "page-0043",
         "page-0071",
         "page-0086",
-        "page-0199",
-        "page-0205",
+        "page-0200",
+        "page-0206",
         "page-0704",
         "page-1208",
         "page-1258",
@@ -102308,7 +102308,7 @@
       ],
       "enabling": [
         "page-0043",
-        "page-0203",
+        "page-0201",
         "page-1231"
       ],
       "hosted": [
@@ -102537,7 +102537,7 @@
       ],
       "exposing": [
         "page-0043",
-        "page-0201"
+        "page-0203"
       ],
       "clients": [
         "page-0043"
@@ -102573,7 +102573,7 @@
         "page-0051",
         "page-0104",
         "page-0113",
-        "page-0204",
+        "page-0205",
         "page-0240",
         "page-0285",
         "page-0421",
@@ -102604,7 +102604,7 @@
       "details": [
         "page-0044",
         "page-0143",
-        "page-0205",
+        "page-0206",
         "page-0275",
         "page-0853",
         "page-1159",
@@ -102615,7 +102615,7 @@
       ],
       "prepare": [
         "page-0044",
-        "page-0204"
+        "page-0205"
       ],
       "publish": [
         "page-0044",
@@ -102628,8 +102628,8 @@
       ],
       "folders": [
         "page-0044",
-        "page-0198",
-        "page-0202",
+        "page-0199",
+        "page-0204",
         "page-0507",
         "page-1208"
       ],
@@ -102681,13 +102681,13 @@
         "page-0053",
         "page-0062",
         "page-0197",
-        "page-0200",
-        "page-0206",
+        "page-0198",
+        "page-0202",
         "page-0498",
         "page-0499",
         "page-0500",
-        "page-0503",
-        "page-0506",
+        "page-0501",
+        "page-0504",
         "page-0508",
         "page-0509",
         "page-0510",
@@ -102730,7 +102730,7 @@
       ],
       "apis": [
         "page-0045",
-        "page-0203",
+        "page-0201",
         "page-1030",
         "page-1031",
         "page-1032"
@@ -102780,7 +102780,7 @@
         "page-0050",
         "page-0102",
         "page-0107",
-        "page-0199",
+        "page-0200",
         "page-1173",
         "page-1207",
         "page-1208",
@@ -102837,7 +102837,7 @@
       "writing": [
         "page-0051",
         "page-0101",
-        "page-0204",
+        "page-0205",
         "page-1164",
         "page-1258"
       ],
@@ -102888,8 +102888,8 @@
         "page-0051",
         "page-0143",
         "page-0490",
-        "page-0499",
         "page-0500",
+        "page-0501",
         "page-0529",
         "page-0533",
         "page-0563",
@@ -103072,7 +103072,7 @@
         "page-0492",
         "page-0494",
         "page-0496",
-        "page-0504",
+        "page-0505",
         "page-0511",
         "page-0517",
         "page-0522",
@@ -103796,7 +103796,7 @@
       ],
       "(node": [
         "page-0060",
-        "page-0204"
+        "page-0205"
       ],
       "name)": [
         "page-0060"
@@ -103839,7 +103839,7 @@
       ],
       "returns": [
         "page-0060",
-        "page-0204"
+        "page-0205"
       ],
       "given": [
         "page-0060"
@@ -103850,7 +103850,7 @@
         "page-0107",
         "page-0133",
         "page-0165",
-        "page-0199",
+        "page-0200",
         "page-0651",
         "page-0688",
         "page-0713",
@@ -103874,7 +103874,7 @@
       ],
       "recent": [
         "page-0060",
-        "page-0505"
+        "page-0506"
       ],
       "run)": [
         "page-0060"
@@ -103887,7 +103887,7 @@
       ],
       "first": [
         "page-0060",
-        "page-0203",
+        "page-0201",
         "page-1222"
       ],
       "item": [
@@ -103921,7 +103921,7 @@
       ],
       "single": [
         "page-0061",
-        "page-0204",
+        "page-0205",
         "page-0209",
         "page-0217",
         "page-0226",
@@ -103993,8 +103993,8 @@
         "page-0071",
         "page-0086",
         "page-0096",
-        "page-0204",
-        "page-0505",
+        "page-0205",
+        "page-0506",
         "page-1030",
         "page-1031",
         "page-1248",
@@ -104012,7 +104012,7 @@
       ],
       "vars": [
         "page-0063",
-        "page-0203"
+        "page-0201"
       ],
       "`vars`": [
         "page-0063"
@@ -104025,8 +104025,8 @@
       ],
       "console": [
         "page-0065",
-        "page-0204",
         "page-0205",
+        "page-0206",
         "page-1030",
         "page-1031",
         "page-1032"
@@ -104069,7 +104069,7 @@
         "page-0113",
         "page-0125",
         "page-0165",
-        "page-0205",
+        "page-0206",
         "page-0213",
         "page-0519",
         "page-0590",
@@ -104125,8 +104125,8 @@
       "navigate": [
         "page-0069",
         "page-0193",
-        "page-0198",
-        "page-0202"
+        "page-0199",
+        "page-0204"
       ],
       "through": [
         "page-0069",
@@ -104142,7 +104142,7 @@
       ],
       "size": [
         "page-0069",
-        "page-0205",
+        "page-0206",
         "page-0688"
       ],
       "query": [
@@ -104238,8 +104238,8 @@
       ],
       "save": [
         "page-0073",
-        "page-0204",
         "page-0205",
+        "page-0206",
         "page-0213",
         "page-0660",
         "page-1247",
@@ -104356,7 +104356,7 @@
       ],
       "scheduling": [
         "page-0084",
-        "page-0199",
+        "page-0200",
         "page-0725",
         "page-1043"
       ],
@@ -104511,9 +104511,9 @@
         "page-0092",
         "page-0193",
         "page-0197",
-        "page-0200",
-        "page-0204",
-        "page-0206",
+        "page-0198",
+        "page-0202",
+        "page-0205",
         "page-0210",
         "page-0223",
         "page-0549",
@@ -105778,7 +105778,7 @@
         "page-0133",
         "page-0166",
         "page-0189",
-        "page-0199",
+        "page-0200",
         "page-0716",
         "page-1201",
         "page-1248"
@@ -105829,7 +105829,7 @@
       ],
       "standard": [
         "page-0133",
-        "page-0204",
+        "page-0205",
         "page-1179"
       ],
       "format:": [
@@ -105858,8 +105858,8 @@
         "page-0498",
         "page-0499",
         "page-0500",
-        "page-0503",
-        "page-0506",
+        "page-0501",
+        "page-0504",
         "page-0510",
         "page-0535",
         "page-0549",
@@ -105897,10 +105897,10 @@
       ],
       "error": [
         "page-0135",
-        "page-0204",
+        "page-0205",
         "page-0368",
         "page-0497",
-        "page-0505",
+        "page-0506",
         "page-0543",
         "page-0562",
         "page-0570",
@@ -105928,9 +105928,9 @@
       "stop": [
         "page-0135",
         "page-0193",
-        "page-0198",
-        "page-0202",
+        "page-0199",
         "page-0204",
+        "page-0205",
         "page-0594",
         "page-0601",
         "page-0692"
@@ -105938,7 +105938,7 @@
       "multi": [
         "page-0136",
         "page-0184",
-        "page-0204",
+        "page-0205",
         "page-0217",
         "page-0218",
         "page-0653",
@@ -105993,7 +105993,7 @@
       ],
       "again": [
         "page-0138",
-        "page-0204"
+        "page-0205"
       ],
       "conditionals": [
         "page-0139"
@@ -106054,7 +106054,7 @@
       ],
       "email": [
         "page-0143",
-        "page-0199",
+        "page-0200",
         "page-0223",
         "page-0654",
         "page-0685",
@@ -106081,7 +106081,7 @@
       ],
       "running": [
         "page-0145",
-        "page-0204",
+        "page-0205",
         "page-0218",
         "page-0516",
         "page-0523",
@@ -106099,7 +106099,7 @@
       ],
       "export": [
         "page-0145",
-        "page-0204",
+        "page-0205",
         "page-1207",
         "page-1245"
       ],
@@ -106138,7 +106138,7 @@
       ],
       "enterprise": [
         "page-0146",
-        "page-0204",
+        "page-0205",
         "page-1196",
         "page-1208"
       ],
@@ -106192,7 +106192,7 @@
       ],
       "event": [
         "page-0147",
-        "page-0503",
+        "page-0504",
         "page-1145",
         "page-1147"
       ],
@@ -106242,7 +106242,7 @@
       ],
       "line": [
         "page-0149",
-        "page-0204",
+        "page-0205",
         "page-0354",
         "page-0664",
         "page-0705",
@@ -106255,9 +106255,9 @@
         "page-0157",
         "page-0163",
         "page-0193",
-        "page-0198",
         "page-0199",
-        "page-0202",
+        "page-0200",
+        "page-0204",
         "page-0213"
       ],
       "keeping": [
@@ -106265,7 +106265,7 @@
       ],
       "sensitive": [
         "page-0149",
-        "page-0203"
+        "page-0201"
       ],
       "overwrites": [
         "page-0150"
@@ -106321,15 +106321,15 @@
       "optional:": [
         "page-0152",
         "page-0197",
-        "page-0199",
+        "page-0198",
         "page-0200",
-        "page-0206",
+        "page-0202",
         "page-0801",
         "page-1210"
       ],
       "required": [
         "page-0152",
-        "page-0204",
+        "page-0205",
         "page-0443",
         "page-0738",
         "page-0834",
@@ -106356,7 +106356,7 @@
       ],
       "configuring": [
         "page-0153",
-        "page-0201",
+        "page-0203",
         "page-0218",
         "page-0702",
         "page-0747",
@@ -106366,8 +106366,8 @@
       "container": [
         "page-0153",
         "page-0193",
-        "page-0198",
-        "page-0202",
+        "page-0199",
+        "page-0204",
         "page-0516",
         "page-0634",
         "page-0638"
@@ -106382,7 +106382,7 @@
       ],
       "dependencies": [
         "page-0153",
-        "page-0204",
+        "page-0205",
         "page-1174"
       ],
       "extend": [
@@ -106436,11 +106436,11 @@
       ],
       "front": [
         "page-0156",
-        "page-0205"
+        "page-0206"
       ],
       "certificate": [
         "page-0157",
-        "page-0199",
+        "page-0200",
         "page-0245",
         "page-0833",
         "page-1130",
@@ -106465,7 +106465,7 @@
       ],
       "location": [
         "page-0158",
-        "page-0205",
+        "page-0206",
         "page-0529"
       ],
       "library": [
@@ -106543,17 +106543,17 @@
       "kubernetes": [
         "page-0163",
         "page-0197",
-        "page-0200",
-        "page-0204",
-        "page-0206"
+        "page-0198",
+        "page-0202",
+        "page-0205"
       ],
       "plain": [
         "page-0163"
       ],
       "secret": [
         "page-0163",
-        "page-0203",
-        "page-0204",
+        "page-0201",
+        "page-0205",
         "page-0736",
         "page-0741",
         "page-0742",
@@ -106586,7 +106586,7 @@
       ],
       "grant": [
         "page-0163",
-        "page-0204",
+        "page-0205",
         "page-0833",
         "page-0879"
       ],
@@ -106611,9 +106611,9 @@
         "page-0163",
         "page-0193",
         "page-0194",
-        "page-0203",
-        "page-0204",
-        "page-0206",
+        "page-0198",
+        "page-0201",
+        "page-0205",
         "page-0493",
         "page-0535",
         "page-0635",
@@ -106633,9 +106633,9 @@
       "install": [
         "page-0163",
         "page-0194",
-        "page-0199",
-        "page-0202",
+        "page-0200",
         "page-0204",
+        "page-0205",
         "page-1153",
         "page-1154",
         "page-1155",
@@ -106648,7 +106648,7 @@
       ],
       "allows": [
         "page-0164",
-        "page-0204"
+        "page-0205"
       ],
       "builtin": [
         "page-0164"
@@ -106656,7 +106656,7 @@
       "only": [
         "page-0164",
         "page-0193",
-        "page-0204",
+        "page-0205",
         "page-0221",
         "page-0230",
         "page-0516",
@@ -106703,7 +106703,7 @@
       ],
       "workers": [
         "page-0165",
-        "page-0204",
+        "page-0205",
         "page-0218",
         "page-1208"
       ],
@@ -106753,21 +106753,21 @@
       "postgresql": [
         "page-0173",
         "page-0193",
-        "page-0204"
+        "page-0205"
       ],
       "deployment": [
         "page-0174",
-        "page-0201",
-        "page-0204",
+        "page-0203",
+        "page-0205",
         "page-0208",
         "page-0210"
       ],
       "storage": [
         "page-0177",
         "page-0197",
-        "page-0200",
-        "page-0204",
-        "page-0206",
+        "page-0198",
+        "page-0202",
+        "page-0205",
         "page-0214",
         "page-0260",
         "page-0322",
@@ -106777,8 +106777,8 @@
       ],
       "logs": [
         "page-0182",
-        "page-0204",
         "page-0205",
+        "page-0206",
         "page-1208"
       ],
       "control": [
@@ -106819,8 +106819,8 @@
       ],
       "latest": [
         "page-0193",
-        "page-0198",
-        "page-0202",
+        "page-0199",
+        "page-0204",
         "page-1154",
         "page-1155"
       ],
@@ -106838,13 +106838,13 @@
       ],
       "containing": [
         "page-0193",
-        "page-0198",
-        "page-0202"
+        "page-0199",
+        "page-0204"
       ],
       "older": [
         "page-0193",
-        "page-0198",
-        "page-0202"
+        "page-0199",
+        "page-0204"
       ],
       "stack": [
         "page-0193"
@@ -106852,7 +106852,7 @@
       "terminal": [
         "page-0193",
         "page-0194",
-        "page-0204"
+        "page-0205"
       ],
       "cloudflared": [
         "page-0193",
@@ -106882,16 +106882,16 @@
       ],
       "options": [
         "page-0197",
-        "page-0206",
+        "page-0198",
         "page-0352",
         "page-0374",
         "page-0385",
         "page-0498",
         "page-0499",
         "page-0500",
-        "page-0502",
+        "page-0501",
         "page-0503",
-        "page-0506",
+        "page-0504",
         "page-0507",
         "page-0508",
         "page-0509",
@@ -107011,26 +107011,26 @@
       "clone": [
         "page-0197",
         "page-0198",
-        "page-0200",
+        "page-0199",
         "page-0202",
-        "page-0206",
+        "page-0204",
         "page-0666"
       ],
       "repository": [
         "page-0197",
         "page-0198",
-        "page-0200",
+        "page-0199",
         "page-0202",
-        "page-0206",
+        "page-0204",
         "page-1207",
         "page-1210",
         "page-1211"
       ],
       "postgres": [
         "page-0197",
-        "page-0200",
-        "page-0203",
-        "page-0206",
+        "page-0198",
+        "page-0201",
+        "page-0202",
         "page-0520",
         "page-0521",
         "page-0523",
@@ -107041,27 +107041,27 @@
       ],
       "volume": [
         "page-0197",
-        "page-0200",
+        "page-0198",
         "page-0202",
-        "page-0206"
+        "page-0204"
       ],
       "persistent": [
         "page-0197",
-        "page-0200",
-        "page-0206",
+        "page-0198",
+        "page-0202",
         "page-0551"
       ],
       "deployments": [
         "page-0197",
-        "page-0200",
-        "page-0206"
+        "page-0198",
+        "page-0202"
       ],
       "send": [
         "page-0197",
-        "page-0200",
-        "page-0206",
+        "page-0198",
+        "page-0202",
         "page-0415",
-        "page-0499",
+        "page-0500",
         "page-0527",
         "page-0529",
         "page-0685",
@@ -107074,70 +107074,74 @@
         "page-1218",
         "page-1219"
       ],
+      "kubectl": [
+        "page-0198",
+        "page-0202"
+      ],
       "digital": [
-        "page-0198"
+        "page-0199"
       ],
       "ocean": [
-        "page-0198"
+        "page-0199"
       ],
       "digitalocean": [
-        "page-0198",
+        "page-0199",
         "page-0945"
       ],
       "droplet": [
-        "page-0198"
+        "page-0199"
       ],
       "ports": [
-        "page-0198",
-        "page-0201",
-        "page-0202"
+        "page-0199",
+        "page-0203",
+        "page-0204"
       ],
       "caddy": [
-        "page-0198",
-        "page-0202"
+        "page-0199",
+        "page-0204"
       ],
       "register": [
-        "page-0199",
+        "page-0200",
         "page-0741",
         "page-0742",
         "page-0876",
         "page-0879"
       ],
       "`docker`": [
-        "page-0199"
+        "page-0200"
       ],
       "group": [
-        "page-0199",
+        "page-0200",
         "page-0529",
         "page-0693",
         "page-1131"
       ],
       "membership": [
-        "page-0199"
+        "page-0200"
       ],
       "session": [
-        "page-0199",
+        "page-0200",
         "page-0240",
         "page-0640",
         "page-0720"
       ],
       "without": [
-        "page-0199",
+        "page-0200",
         "page-0693",
         "page-1160"
       ],
       "primary": [
-        "page-0199"
+        "page-0200"
       ],
       "env`": [
-        "page-0199"
+        "page-0200"
       ],
       "domain": [
-        "page-0199",
+        "page-0200",
         "page-1032"
       ],
       "name": [
-        "page-0199",
+        "page-0200",
         "page-0558",
         "page-0559",
         "page-0654",
@@ -107148,31 +107152,31 @@
         "page-1208"
       ],
       "subdomain": [
-        "page-0199",
+        "page-0200",
         "page-0798"
       ],
       "together": [
-        "page-0199"
+        "page-0200"
       ],
       "determine": [
-        "page-0199"
+        "page-0200"
       ],
       "reachable": [
-        "page-0199"
+        "page-0200"
       ],
       "serve": [
-        "page-0199"
+        "page-0200"
       ],
       "above": [
-        "page-0199",
-        "page-0204"
+        "page-0200",
+        "page-0205"
       ],
       "https://n8n": [
-        "page-0199",
-        "page-0203"
+        "page-0200",
+        "page-0201"
       ],
       "optional": [
-        "page-0199",
+        "page-0200",
         "page-0738",
         "page-1159",
         "page-1162",
@@ -107180,31 +107184,31 @@
         "page-1208"
       ],
       "gets": [
-        "page-0199",
+        "page-0200",
         "page-1219"
       ],
       "used": [
-        "page-0199"
+        "page-0200"
       ],
       "cron": [
-        "page-0199",
+        "page-0200",
         "page-0684",
         "page-0715",
         "page-0716",
         "page-1141"
       ],
       "york": [
-        "page-0199"
+        "page-0200"
       ],
       "tls/ssl": [
-        "page-0199"
+        "page-0200"
       ],
       "creation": [
-        "page-0199"
+        "page-0200"
       ],
       "local": [
-        "page-0199",
-        "page-0204",
+        "page-0200",
+        "page-0205",
         "page-0516",
         "page-0523",
         "page-0634",
@@ -107215,102 +107219,98 @@
         "page-1214"
       ],
       "done": [
-        "page-0199"
-      ],
-      "engine": [
         "page-0200"
       ],
-      "kubectl": [
-        "page-0200",
-        "page-0206"
-      ],
-      "heroku": [
+      "begin:": [
         "page-0201"
+      ],
+      "easy": [
+        "page-0201"
+      ],
+      "durable": [
+        "page-0201"
+      ],
+      "login": [
+        "page-0201",
+        "page-0800"
       ],
       "deploy": [
         "page-0201",
         "page-0203",
-        "page-0204",
+        "page-0205",
         "page-1181",
         "page-1210",
         "page-1211"
       ],
-      "dockerfile": [
-        "page-0201"
-      ],
-      "hetzner": [
-        "page-0202"
-      ],
-      "begin:": [
-        "page-0203"
-      ],
-      "easy": [
-        "page-0203"
-      ],
-      "durable": [
-        "page-0203"
-      ],
-      "login": [
-        "page-0203",
-        "page-0800"
-      ],
       "(optional)": [
-        "page-0203",
+        "page-0201",
         "page-0218"
       ],
       "workspace": [
-        "page-0203",
+        "page-0201",
         "page-0333"
       ],
       "whichever": [
-        "page-0203"
+        "page-0201"
       ],
       "note:": [
-        "page-0203"
+        "page-0201"
       ],
       "sheets/docs,": [
-        "page-0203"
+        "page-0201"
       ],
       "it's": [
-        "page-0203",
+        "page-0201",
         "page-1191"
       ],
       "enough": [
-        "page-0203"
+        "page-0201"
       ],
       "just": [
-        "page-0203"
+        "page-0201"
       ],
       "drive;": [
-        "page-0203"
+        "page-0201"
       ],
       "these": [
-        "page-0203"
+        "page-0201"
       ],
       "each": [
-        "page-0203",
-        "page-0205",
+        "page-0201",
+        "page-0206",
         "page-0213",
         "page-1195",
         "page-1217"
       ],
       "their": [
-        "page-0203"
+        "page-0201"
       ],
       "west1": [
+        "page-0201"
+      ],
+      "engine": [
+        "page-0202"
+      ],
+      "heroku": [
         "page-0203"
       ],
-      "openshift": [
+      "dockerfile": [
+        "page-0203"
+      ],
+      "hetzner": [
         "page-0204"
+      ],
+      "openshift": [
+        "page-0205"
       ],
       "(crc)": [
-        "page-0204"
+        "page-0205"
       ],
       "ubuntu": [
-        "page-0204"
+        "page-0205"
       ],
       "check": [
-        "page-0204",
+        "page-0205",
         "page-0493",
         "page-0497",
         "page-0531",
@@ -107322,151 +107322,151 @@
         "page-0712"
       ],
       "virtualization": [
-        "page-0204"
+        "page-0205"
       ],
       "libvirt": [
-        "page-0204"
+        "page-0205"
       ],
       "groups": [
-        "page-0204",
+        "page-0205",
         "page-0521"
       ],
       "networkmanager": [
-        "page-0204"
+        "page-0205"
       ],
       "helm": [
-        "page-0204"
+        "page-0205"
       ],
       "file,": [
-        "page-0204"
+        "page-0205"
       ],
       "paste": [
-        "page-0204",
+        "page-0205",
         "page-1245"
       ],
       "(from": [
-        "page-0204"
+        "page-0205"
       ],
       "earlier),": [
-        "page-0204"
+        "page-0205"
       ],
       "then": [
-        "page-0204"
+        "page-0205"
       ],
       "ctrl+o": [
-        "page-0204"
+        "page-0205"
       ],
       "save,": [
-        "page-0204"
+        "page-0205"
       ],
       "ctrl+x": [
-        "page-0204"
+        "page-0205"
       ],
       "exit": [
-        "page-0204"
+        "page-0205"
       ],
       "resolution": [
-        "page-0204"
+        "page-0205"
       ],
       "shell": [
-        "page-0204"
+        "page-0205"
       ],
       "standalone": [
-        "page-0204"
+        "page-0205"
       ],
       "yaml": [
-        "page-0204"
+        "page-0205"
       ],
       "pod,": [
-        "page-0204"
+        "page-0205"
       ],
       "database,": [
-        "page-0204"
+        "page-0205"
       ],
       "openshift:": [
-        "page-0204"
+        "page-0205"
       ],
       "securitycontext": [
-        "page-0204"
+        "page-0205"
       ],
       "must": [
-        "page-0204",
+        "page-0205",
         "page-0213",
         "page-0562",
         "page-0570",
         "page-1147"
       ],
       "enabled": [
-        "page-0204"
+        "page-0205"
       ],
       "runs": [
-        "page-0204"
+        "page-0205"
       ],
       "user)": [
-        "page-0204"
+        "page-0205"
       ],
       "fsgroup": [
-        "page-0204"
+        "page-0205"
       ],
       "writable)": [
-        "page-0204"
+        "page-0205"
       ],
       "anyuid": [
-        "page-0204"
+        "page-0205"
       ],
       "granted": [
-        "page-0204"
+        "page-0205"
       ],
       "seccompprofile": [
-        "page-0204"
+        "page-0205"
       ],
       "chart": [
-        "page-0204"
+        "page-0205"
       ],
       "\"deploy": [
-        "page-0204"
+        "page-0205"
       ],
       "n8n\"": [
-        "page-0204"
+        "page-0205"
       ],
       "because": [
-        "page-0204"
+        "page-0205"
       ],
       "rejects": [
-        "page-0204"
+        "page-0205"
       ],
       "even": [
-        "page-0204"
+        "page-0205"
       ],
       "confirm": [
-        "page-0204"
+        "page-0205"
       ],
       "lines": [
-        "page-0204"
+        "page-0205"
       ],
       "gone": [
-        "page-0204"
+        "page-0205"
       ],
       "(should": [
-        "page-0204"
+        "page-0205"
       ],
       "output)": [
-        "page-0204"
+        "page-0205"
       ],
       "port": [
-        "page-0204"
+        "page-0205"
       ],
       "forward": [
-        "page-0204"
+        "page-0205"
       ],
       "bitnami": [
-        "page-0204"
+        "page-0205"
       ],
       "repo": [
-        "page-0204"
+        "page-0205"
       ],
       "redis": [
-        "page-0204",
+        "page-0205",
         "page-0218",
         "page-0428",
         "page-0557",
@@ -107476,26 +107476,26 @@
         "page-1207"
       ],
       "minio": [
-        "page-0204"
+        "page-0205"
       ],
       "compatible": [
-        "page-0204",
+        "page-0205",
         "page-1029"
       ],
       "storage)": [
-        "page-0204"
+        "page-0205"
       ],
       "bucket": [
-        "page-0204"
+        "page-0205"
       ],
       "core": [
-        "page-0204",
+        "page-0205",
         "page-0232",
         "page-0643",
         "page-1207"
       ],
       "password": [
-        "page-0204",
+        "page-0205",
         "page-0903",
         "page-0963",
         "page-0964",
@@ -107505,92 +107505,92 @@
         "page-1038"
       ],
       "(must": [
-        "page-0204"
+        "page-0205"
       ],
       "match": [
-        "page-0204"
+        "page-0205"
       ],
       "postgresql)": [
-        "page-0204"
+        "page-0205"
       ],
       "multimain": [
-        "page-0204"
+        "page-0205"
       ],
       "uses": [
-        "page-0204",
+        "page-0205",
         "page-1205"
       ],
       "postgresql,": [
-        "page-0204"
+        "page-0205"
       ],
       "redis,": [
-        "page-0204"
+        "page-0205"
       ],
       "instead": [
-        "page-0204",
+        "page-0205",
         "page-0521"
       ],
       "requires": [
-        "page-0204",
+        "page-0205",
         "page-1238"
       ],
       "main:": [
-        "page-0204"
+        "page-0205"
       ],
       "replicas": [
-        "page-0204",
+        "page-0205",
         "page-0702"
       ],
       "(reduced": [
-        "page-0204"
+        "page-0205"
       ],
       "resources)": [
-        "page-0204"
+        "page-0205"
       ],
       "mode:": [
-        "page-0204"
+        "page-0205"
       ],
       "pods": [
-        "page-0204"
+        "page-0205"
       ],
       "processors": [
-        "page-0204",
+        "page-0205",
         "page-0218",
         "page-1205"
       ],
       "cluster)": [
-        "page-0204"
+        "page-0205"
       ],
       "cluster,": [
-        "page-0204"
+        "page-0205"
       ],
       "tls)": [
-        "page-0204"
+        "page-0205"
       ],
       "compatible,": [
-        "page-0204"
+        "page-0205"
       ],
       "namespace": [
-        "page-0204",
+        "page-0205",
         "page-0555"
       ],
       "(this": [
-        "page-0204"
+        "page-0205"
       ],
       "edits": [
-        "page-0204"
+        "page-0205"
       ],
       "automatically)": [
-        "page-0204"
+        "page-0205"
       ],
       "route": [
-        "page-0204"
+        "page-0205"
       ],
       "host": [
-        "page-0204"
+        "page-0205"
       ],
       "copy": [
-        "page-0204",
+        "page-0205",
         "page-0508",
         "page-1173",
         "page-1218",
@@ -107598,144 +107598,144 @@
         "page-1246"
       ],
       "patch": [
-        "page-0204"
+        "page-0205"
       ],
       "stopping": [
-        "page-0204"
+        "page-0205"
       ],
       "resuming": [
-        "page-0204"
+        "page-0205"
       ],
       "(saves": [
-        "page-0204"
+        "page-0205"
       ],
       "state)": [
-        "page-0204"
+        "page-0205"
       ],
       "later": [
-        "page-0204",
+        "page-0205",
         "page-0714"
       ],
       "`crc": [
-        "page-0204"
+        "page-0205"
       ],
       "setup`": [
-        "page-0204"
+        "page-0205"
       ],
       "fails": [
-        "page-0204",
+        "page-0205",
         "page-0374"
       ],
       "“libvirt": [
-        "page-0204"
+        "page-0205"
       ],
       "found”": [
-        "page-0204"
+        "page-0205"
       ],
       "start`": [
-        "page-0204"
+        "page-0205"
       ],
       "“insufficient": [
-        "page-0204"
+        "page-0205"
       ],
       "memory”": [
-        "page-0204"
+        "page-0205"
       ],
       "stuck": [
-        "page-0204",
+        "page-0205",
         "page-1145",
         "page-1147"
       ],
       "`pending`": [
-        "page-0204"
+        "page-0205"
       ],
       "never": [
-        "page-0204"
+        "page-0205"
       ],
       "created": [
-        "page-0204"
+        "page-0205"
       ],
       "they're": [
-        "page-0204"
+        "page-0205"
       ],
       "“application": [
-        "page-0204"
+        "page-0205"
       ],
       "available”": [
-        "page-0204"
+        "page-0205"
       ],
       "`insufficient": [
-        "page-0204"
+        "page-0205"
       ],
       "memory`": [
-        "page-0204"
+        "page-0205"
       ],
       "resolving": [
-        "page-0204",
+        "page-0205",
         "page-1263"
       ],
       "apps": [
-        "page-0204",
+        "page-0205",
         "page-0801"
       ],
       "testing`": [
-        "page-0204"
+        "page-0205"
       ],
       "`api": [
-        "page-0204"
+        "page-0205"
       ],
       "crashes": [
-        "page-0204"
+        "page-0205"
       ],
       "`eacces:": [
-        "page-0204"
+        "page-0205"
       ],
       "denied`": [
-        "page-0204"
+        "page-0205"
       ],
       "`/home/node/": [
-        "page-0204"
+        "page-0205"
       ],
       "n8n/`": [
-        "page-0204"
+        "page-0205"
       ],
       "quick": [
-        "page-0204",
+        "page-0205",
         "page-0422",
         "page-0935",
         "page-1221"
       ],
       "after": [
-        "page-0204",
+        "page-0205",
         "page-0512",
         "page-0696",
         "page-1199"
       ],
       "reopening": [
-        "page-0204"
+        "page-0205"
       ],
       "logging": [
-        "page-0205",
+        "page-0206",
         "page-1264"
       ],
       "'debug'": [
-        "page-0205"
+        "page-0206"
       ],
       "maximum": [
-        "page-0205",
+        "page-0206",
         "page-0590",
         "page-0597",
         "page-0598",
         "page-0635"
       ],
       "kept": [
-        "page-0205"
+        "page-0206"
       ],
       "levels": [
-        "page-0205"
+        "page-0206"
       ],
       "development": [
-        "page-0205",
+        "page-0206",
         "page-0717",
         "page-0719",
         "page-0958",
@@ -107743,7 +107743,7 @@
         "page-1210"
       ],
       "implementation": [
-        "page-0205"
+        "page-0206"
       ],
       "healthz": [
         "page-0207"
@@ -107923,7 +107923,7 @@
       ],
       "verified": [
         "page-0223",
-        "page-0505",
+        "page-0506",
         "page-1030",
         "page-1031",
         "page-1156",
@@ -108289,7 +108289,7 @@
         "page-0502",
         "page-0503",
         "page-0504",
-        "page-0506",
+        "page-0505",
         "page-0507",
         "page-0508",
         "page-0509",
@@ -108406,7 +108406,7 @@
       ],
       "wait": [
         "page-0233",
-        "page-0499",
+        "page-0500",
         "page-0529",
         "page-0696"
       ],
@@ -108580,7 +108580,7 @@
         "page-0492",
         "page-0494",
         "page-0496",
-        "page-0504",
+        "page-0505",
         "page-0511",
         "page-0517",
         "page-0522",
@@ -109812,7 +109812,7 @@
         "page-0498",
         "page-0499",
         "page-0500",
-        "page-0506",
+        "page-0501",
         "page-1033",
         "page-1034",
         "page-1037",
@@ -109834,14 +109834,14 @@
       ],
       "messages": [
         "page-0497",
-        "page-0499",
+        "page-0500",
         "page-0527",
         "page-0543",
         "page-0721"
       ],
       "unauthorized": [
         "page-0497",
-        "page-0505",
+        "page-0506",
         "page-1030",
         "page-1031",
         "page-1140",
@@ -109854,60 +109854,66 @@
         "page-0636",
         "page-0712"
       ],
+      "draft": [
+        "page-0498"
+      ],
+      "drafts": [
+        "page-0498"
+      ],
       "label": [
-        "page-0498",
         "page-0499",
         "page-0500",
+        "page-0501",
         "page-0986"
       ],
       "labels": [
-        "page-0498"
+        "page-0499"
       ],
       "filters": [
-        "page-0499",
         "page-0500",
+        "page-0501",
         "page-0549",
         "page-0559",
         "page-0677",
         "page-1139"
       ],
       "mark": [
-        "page-0499"
+        "page-0500"
       ],
       "unread": [
-        "page-0499"
+        "page-0500"
       ],
       "reply": [
-        "page-0499",
         "page-0500",
+        "page-0501",
         "page-0529",
         "page-0685"
       ],
       "thread": [
-        "page-0500"
+        "page-0501"
       ],
       "threads": [
-        "page-0500"
+        "page-0501"
       ],
       "trash": [
-        "page-0500"
+        "page-0501"
       ],
       "untrash": [
-        "page-0500"
+        "page-0501"
       ],
       "calendar": [
-        "page-0501",
         "page-0502",
         "page-0503",
+        "page-0504",
         "page-1074"
       ],
       "availability": [
-        "page-0502",
+        "page-0503",
         "page-1208"
       ],
       "drive": [
-        "page-0504",
         "page-0505",
+        "page-0506",
         "page-0507",
         "page-0508",
         "page-0509",
@@ -109917,20 +109923,14 @@
         "page-1143"
       ],
       "hasn't": [
-        "page-0505",
+        "page-0506",
         "page-1030",
         "page-1031"
       ],
       "becoming": [
-        "page-0505",
+        "page-0506",
         "page-1030",
         "page-1031"
-      ],
-      "draft": [
-        "page-0506"
-      ],
-      "drafts": [
-        "page-0506"
       ],
       "download": [
         "page-0508",
@@ -115083,16 +115083,16 @@
         "page-0498",
         "page-0499",
         "page-0500",
-        "page-0506"
+        "page-0501"
       ],
       "googlecalendar": [
-        "page-0501",
         "page-0502",
-        "page-0503"
+        "page-0503",
+        "page-0504"
       ],
       "googledrive": [
-        "page-0504",
         "page-0505",
+        "page-0506",
         "page-0507",
         "page-0508",
         "page-0509",
