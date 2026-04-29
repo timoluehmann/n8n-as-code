@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-04-28T06:19:35.611Z",
+  "generatedAt": "2026-04-29T06:13:20.794Z",
   "repository": "https://github.com/nusquama/n8nworkflows.xyz.git",
   "sourceRef": "main",
-  "sourceCommit": "679f59bca57425b82d96b3ecc1339ddc4919f678",
+  "sourceCommit": "be7386aee8150249f6f76a0e5ff3e859cedfe4a2",
   "refreshStrategy": "fresh-clone-per-build",
-  "totalWorkflows": 8659,
+  "totalWorkflows": 8671,
   "workflows": [
     {
       "id": 15300,
@@ -30,6 +30,65 @@
         "n8n-nodes-base.googleSheets",
         "@n8n/n8n-nodes-langchain.openAi",
         "n8n-nodes-base.respondToWebhook"
+      ]
+    },
+    {
+      "id": 15298,
+      "slug": "Manage email campaigns with MailerLite, Google Sheets and Claude via OpenRouter-15298",
+      "name": "Manage Email Campaigns With MailerLite, Google Sheets And Claude Via OpenRouter",
+      "tags": [
+        "Social Media",
+        "AI Chatbot"
+      ],
+      "author": "pankstr",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "manage_email_campaigns_with_mailerlite_google_sheets_and_claude_via_openrouter.json",
+      "workflowPath": "workflows/Manage email campaigns with MailerLite, Google Sheets and Claude via OpenRouter-15298/manage_email_campaigns_with_mailerlite_google_sheets_and_claude_via_openrouter.json",
+      "url": "https://n8nworkflows.xyz/workflows/manage-email-campaigns-with-mailerlite--google-sheets-and-claude-via-openrouter-15298\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.noOp",
+        "n8n-nodes-base.switch",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.googleSheets",
+        "@n8n/n8n-nodes-langchain.chat",
+        "@n8n/n8n-nodes-langchain.agent",
+        "@n8n/n8n-nodes-langchain.chatTrigger",
+        "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+        "@n8n/n8n-nodes-langchain.memoryPostgresChat"
+      ]
+    },
+    {
+      "id": 15297,
+      "slug": "Sync and score PLG leads between Segment, Attio, Intercom, Lemlist and ActiveCampaign with Claude and OpenAI-15297",
+      "name": "Sync And Score PLG Leads Between Segment, Attio, Intercom, Lemlist And ActiveCampaign With Claude And OpenAI",
+      "tags": [
+        "Lead Generation",
+        "AI Summarization"
+      ],
+      "author": "jovan",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "sync_and_score_plg_leads_between_segment_attio_intercom_lemlist_and_activecampaign_with_claude_and_openai.json",
+      "workflowPath": "workflows/Sync and score PLG leads between Segment, Attio, Intercom, Lemlist and ActiveCampaign with Claude and OpenAI-15297/sync_and_score_plg_leads_between_segment_attio_intercom_lemlist_and_activecampaign_with_claude_and_openai.json",
+      "url": "https://n8nworkflows.xyz/workflows/sync-and-score-plg-leads-between-segment--attio--intercom--lemlist-and-activecampaign-with-claude-and-openai-15297\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.switch",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.splitOut",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.scheduleTrigger",
+        "@n8n/n8n-nodes-langchain.openAi",
+        "n8n-nodes-base.respondToWebhook",
+        "@n8n/n8n-nodes-langchain.anthropic"
       ]
     },
     {
@@ -63,6 +122,99 @@
         "@n8n/n8n-nodes-langchain.chainLlm",
         "n8n-nodes-base.googleSheetsTrigger",
         "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+        "@n8n/n8n-nodes-langchain.outputParserStructured"
+      ]
+    },
+    {
+      "id": 15288,
+      "slug": "Generate comparative CV screening reports with OpenAI, Google Sheets and Telegram-15288",
+      "name": "Generate Comparative CV Screening Reports With OpenAI, Google Sheets And Telegram",
+      "tags": [
+        "HR",
+        "AI Summarization"
+      ],
+      "author": "neolith2018",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "generate_comparative_cv_screening_reports_with_openai_google_sheets_and_telegram.json",
+      "workflowPath": "workflows/Generate comparative CV screening reports with OpenAI, Google Sheets and Telegram-15288/generate_comparative_cv_screening_reports_with_openai_google_sheets_and_telegram.json",
+      "url": "https://n8nworkflows.xyz/workflows/generate-comparative-cv-screening-reports-with-openai--google-sheets-and-telegram-15288\n",
+      "nodeTypes": [
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.telegram",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.googleSheets",
+        "n8n-nodes-base.telegramTrigger",
+        "@n8n/n8n-nodes-langchain.openAi"
+      ]
+    },
+    {
+      "id": 15284,
+      "slug": "Create Instagram carousel posts using GPT-4.1 Nano and Gemini 2.5 Flash-15284",
+      "name": "Create Instagram Carousel Posts Using GPT 4.1 Nano And Gemini 2.5 Flash",
+      "tags": [
+        "Content Creation",
+        "Multimodal AI"
+      ],
+      "author": "jiteshdugar",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "create_instagram_carousel_posts_using_gpt-4.1_nano_and_gemini_2.5_flash.json",
+      "workflowPath": "workflows/Create Instagram carousel posts using GPT-4.1 Nano and Gemini 2.5 Flash-15284/create_instagram_carousel_posts_using_gpt-4.1_nano_and_gemini_2.5_flash.json",
+      "url": "https://n8nworkflows.xyz/workflows/create-instagram-carousel-posts-using-gpt-4-1-nano-and-gemini-2-5-flash-15284\n",
+      "nodeTypes": [
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.dataTable",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.splitInBatches",
+        "@n8n/n8n-nodes-langchain.agent",
+        "n8n-nodes-uploadtourl.uploadToUrl",
+        "@n8n/n8n-nodes-langchain.googleGemini",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "@mookielianhd/n8n-nodes-instagram.instagram"
+      ]
+    },
+    {
+      "id": 15280,
+      "slug": "Generate and publish SEO blog posts from Google Sheets to Webflow with OpenAI-15280",
+      "name": "Generate And Publish SEO Blog Posts From Google Sheets To Webflow With OpenAI",
+      "tags": [
+        "Content Creation",
+        "Multimodal AI"
+      ],
+      "author": "spagreen",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "generate_and_publish_seo_blog_posts_from_google_sheets_to_webflow_with_openai.json",
+      "workflowPath": "workflows/Generate and publish SEO blog posts from Google Sheets to Webflow with OpenAI-15280/generate_and_publish_seo_blog_posts_from_google_sheets_to_webflow_with_openai.json",
+      "url": "https://n8nworkflows.xyz/workflows/generate-and-publish-seo-blog-posts-from-google-sheets-to-webflow-with-openai-15280\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.noOp",
+        "n8n-nodes-base.wait",
+        "n8n-nodes-base.slack",
+        "n8n-nodes-base.discord",
+        "n8n-nodes-base.webflow",
+        "n8n-nodes-base.telegram",
+        "n8n-nodes-rapiwa.rapiwa",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.webflowTool",
+        "n8n-nodes-base.googleSheets",
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.microsoftTeams",
+        "n8n-nodes-base.splitInBatches",
+        "@n8n/n8n-nodes-langchain.agent",
+        "n8n-nodes-base.executeWorkflow",
+        "n8n-nodes-base.scheduleTrigger",
+        "@n8n/n8n-nodes-langchain.openAi",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "@n8n/n8n-nodes-langchain.outputParserAutofixing",
         "@n8n/n8n-nodes-langchain.outputParserStructured"
       ]
     },
@@ -530,6 +682,36 @@
         "n8n-nodes-base.stickyNote",
         "n8n-nodes-base.microsoftSql",
         "n8n-nodes-base.scheduleTrigger"
+      ]
+    },
+    {
+      "id": 15255,
+      "slug": "Generate tailored CV and cover letter from job links with Google Sheets, Docs and OpenRouter-15255",
+      "name": "Generate Tailored CV And Cover Letter From Job Links With Google Sheets, Docs And OpenRouter",
+      "tags": [
+        "HR",
+        "AI Summarization"
+      ],
+      "author": "dhv9545",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "generate_tailored_cv_and_cover_letter_from_job_links_with_google_sheets_docs_and_openrouter.json",
+      "workflowPath": "workflows/Generate tailored CV and cover letter from job links with Google Sheets, Docs and OpenRouter-15255/generate_tailored_cv_and_cover_letter_from_job_links_with_google_sheets_docs_and_openrouter.json",
+      "url": "https://n8nworkflows.xyz/workflows/generate-tailored-cv-and-cover-letter-from-job-links-with-google-sheets--docs-and-openrouter-15255\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.merge",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.googleDocs",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.googleSheets",
+        "n8n-nodes-base.readWriteFile",
+        "n8n-nodes-base.splitInBatches",
+        "@n8n/n8n-nodes-langchain.agent",
+        "n8n-nodes-base.extractFromFile",
+        "@n8n/n8n-nodes-langchain.lmChatOpenRouter"
       ]
     },
     {
@@ -1867,6 +2049,34 @@
       ]
     },
     {
+      "id": 15175,
+      "slug": "Generate AI YouTube comments and replies from a video URL using GPT-4 and Google Sheets-15175",
+      "name": "Generate AI YouTube Comments And Replies From A Video URL Using GPT 4 And Google Sheets",
+      "tags": [
+        "Social Media",
+        "Multimodal AI"
+      ],
+      "author": "kroll-elly",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "generate_ai_youtube_comments_and_replies_from_a_video_url_using_gpt-4_and_google_sheets.json",
+      "workflowPath": "workflows/Generate AI YouTube comments and replies from a video URL using GPT-4 and Google Sheets-15175/generate_ai_youtube_comments_and_replies_from_a_video_url_using_gpt-4_and_google_sheets.json",
+      "url": "https://n8nworkflows.xyz/workflows/generate-ai-youtube-comments-and-replies-from-a-video-url-using-gpt-4-and-google-sheets-15175\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.merge",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.formTrigger",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.googleSheets",
+        "@n8n/n8n-nodes-langchain.agent",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "@n8n/n8n-nodes-langchain.outputParserStructured"
+      ]
+    },
+    {
       "id": 15171,
       "slug": "Send daily Vedic hora muhurta timings to Telegram-15171",
       "name": "Send Daily Vedic Hora Muhurta Timings To Telegram",
@@ -2187,6 +2397,40 @@
       ]
     },
     {
+      "id": 15151,
+      "slug": "Generate addictive ASMR Veo 3 reels-15151",
+      "name": "Generate Addictive ASMR Veo 3 Reels",
+      "tags": [
+        "Content Creation",
+        "Multimodal AI"
+      ],
+      "author": "giannis",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "generate_addictive_asmr_veo_3_reels.json",
+      "workflowPath": "workflows/Generate addictive ASMR Veo 3 reels-15151/generate_addictive_asmr_veo_3_reels.json",
+      "url": "https://n8nworkflows.xyz/workflows/generate-addictive-asmr-veo-3-reels-15151\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.jwt",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.wait",
+        "n8n-nodes-base.switch",
+        "n8n-nodes-base.aggregate",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.googleSheets",
+        "n8n-nodes-base.convertToFile",
+        "n8n-nodes-base.manualTrigger",
+        "@n8n/n8n-nodes-langchain.agent",
+        "n8n-nodes-base.scheduleTrigger",
+        "n8n-nodes-base.googleCloudStorage",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "@n8n/n8n-nodes-langchain.outputParserStructured"
+      ]
+    },
+    {
       "id": 15150,
       "slug": "Generate 2-part local video commercials with Gemini 2.5 Pro, Veo 3 and Creatomate-15150",
       "name": "Generate 2 Part Local Video Commercials With Gemini 2.5 Pro, Veo 3 And Creatomate",
@@ -2210,6 +2454,39 @@
         "n8n-nodes-base.telegram",
         "n8n-nodes-base.stickyNote",
         "n8n-nodes-base.googleDrive",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.convertToFile",
+        "n8n-nodes-base.manualTrigger",
+        "@n8n/n8n-nodes-langchain.chainLlm",
+        "n8n-nodes-base.googleCloudStorage",
+        "@n8n/n8n-nodes-langchain.lmChatDeepSeek",
+        "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+        "@n8n/n8n-nodes-langchain.outputParserStructured"
+      ]
+    },
+    {
+      "id": 15149,
+      "slug": "Generate metaphor-based product video ads Veo 3-15149",
+      "name": "Generate Metaphor Based Product Video Ads Veo 3",
+      "tags": [
+        "Content Creation",
+        "Multimodal AI"
+      ],
+      "author": "giannis",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "generate_metaphor-based_product_video_ads_veo_3.json",
+      "workflowPath": "workflows/Generate metaphor-based product video ads Veo 3-15149/generate_metaphor-based_product_video_ads_veo_3.json",
+      "url": "https://n8nworkflows.xyz/workflows/generate-metaphor-based-product-video-ads-veo-3-15149\n",
+      "nodeTypes": [
+        "n8n-nodes-base.jwt",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.wait",
+        "n8n-nodes-base.switch",
+        "n8n-nodes-base.telegram",
+        "n8n-nodes-base.stickyNote",
         "n8n-nodes-base.httpRequest",
         "n8n-nodes-base.convertToFile",
         "n8n-nodes-base.manualTrigger",
@@ -2282,6 +2559,39 @@
       ]
     },
     {
+      "id": 15146,
+      "slug": "Generate AI B-roll clips from videos with Veo 3-15146",
+      "name": "Generate AI B Roll Clips From Videos With Veo 3",
+      "tags": [
+        "Content Creation",
+        "Multimodal AI"
+      ],
+      "author": "giannis",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "generate_ai_b-roll_clips_from_videos_with_veo_3.json",
+      "workflowPath": "workflows/Generate AI B-roll clips from videos with Veo 3-15146/generate_ai_b-roll_clips_from_videos_with_veo_3.json",
+      "url": "https://n8nworkflows.xyz/workflows/generate-ai-b-roll-clips-from-videos-with-veo-3-15146\n",
+      "nodeTypes": [
+        "n8n-nodes-base.jwt",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.wait",
+        "n8n-nodes-base.switch",
+        "n8n-nodes-base.telegram",
+        "n8n-nodes-base.aggregate",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.convertToFile",
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.splitInBatches",
+        "n8n-nodes-base.extractFromFile",
+        "@n8n/n8n-nodes-langchain.openAi",
+        "n8n-nodes-base.googleCloudStorage"
+      ]
+    },
+    {
       "id": 15145,
       "slug": "Generate 24s conspiracy doc reels from X with Grok-4, Gemini and Veo 3.0-15145",
       "name": "Generate 24s Conspiracy Doc Reels From X With Grok 4, Gemini And Veo 3.0",
@@ -2312,6 +2622,40 @@
         "@n8n/n8n-nodes-langchain.lmChatDeepSeek",
         "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
         "@n8n/n8n-nodes-langchain.outputParserStructured"
+      ]
+    },
+    {
+      "id": 15144,
+      "slug": "FB Ad Spy: AI-Powered Competitor Ad Intelligence & Auto-Video Remixer-15144",
+      "name": "FB Ad Spy: AI Powered Competitor Ad Intelligence & Auto Video Remixer",
+      "tags": [
+        "Market Research",
+        "Multimodal AI"
+      ],
+      "author": "giannis",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "fb_ad_spy_ai-powered_competitor_ad_intelligence_auto-video_remixer.json",
+      "workflowPath": "workflows/FB Ad Spy: AI-Powered Competitor Ad Intelligence & Auto-Video Remixer-15144/fb_ad_spy_ai-powered_competitor_ad_intelligence_auto-video_remixer.json",
+      "url": "https://n8nworkflows.xyz/workflows/fb-ad-spy--ai-powered-competitor-ad-intelligence---auto-video-remixer-15144\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.jwt",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.wait",
+        "n8n-nodes-base.filter",
+        "n8n-nodes-base.switch",
+        "n8n-nodes-base.splitOut",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.googleDrive",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.googleSheets",
+        "n8n-nodes-base.convertToFile",
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.splitInBatches",
+        "@n8n/n8n-nodes-langchain.openAi",
+        "n8n-nodes-base.googleCloudStorage"
       ]
     },
     {
@@ -2853,6 +3197,31 @@
         "n8n-nodes-base.stickyNote",
         "n8n-nodes-base.httpRequest",
         "n8n-nodes-base.googleSheets"
+      ]
+    },
+    {
+      "id": 15104,
+      "slug": "Triage HVAC issues and AI diagnosis with Gemini Vision, GoHighLevel and WhatsApp-15104",
+      "name": "Triage HVAC Issues And AI Diagnosis With Gemini Vision, GoHighLevel And WhatsApp",
+      "tags": [
+        "Ticket Management",
+        "AI Summarization"
+      ],
+      "author": "iamvaar",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "triage_hvac_issues_and_ai_diagnosis_with_gemini_vision_gohighlevel_and_whatsapp.json",
+      "workflowPath": "workflows/Triage HVAC issues and AI diagnosis with Gemini Vision, GoHighLevel and WhatsApp-15104/triage_hvac_issues_and_ai_diagnosis_with_gemini_vision_gohighlevel_and_whatsapp.json",
+      "url": "https://n8nworkflows.xyz/workflows/triage-hvac-issues-and-ai-diagnosis-with-gemini-vision--gohighlevel-and-whatsapp-15104\n",
+      "nodeTypes": [
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.whatsApp",
+        "n8n-nodes-base.highLevel",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.formTrigger",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.extractFromFile"
       ]
     },
     {
