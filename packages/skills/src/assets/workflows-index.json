@@ -1,11 +1,43 @@
 {
-  "generatedAt": "2026-04-29T06:13:20.794Z",
+  "generatedAt": "2026-05-04T06:27:04.808Z",
   "repository": "https://github.com/nusquama/n8nworkflows.xyz.git",
   "sourceRef": "main",
-  "sourceCommit": "be7386aee8150249f6f76a0e5ff3e859cedfe4a2",
+  "sourceCommit": "6f805c57640ded82fe6077f23db7ca263b515455",
   "refreshStrategy": "fresh-clone-per-build",
-  "totalWorkflows": 8671,
+  "totalWorkflows": 8678,
   "workflows": [
+    {
+      "id": 15412,
+      "slug": "AI Job Crawler with Suitability Scoring-15412",
+      "name": "AI Job Crawler With Suitability Scoring",
+      "tags": [],
+      "author": "tillman",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "ai_job_crawler_with_suitability_scoring.json",
+      "workflowPath": "workflows/AI Job Crawler with Suitability Scoring-15412/ai_job_crawler_with_suitability_scoring.json",
+      "url": "https://n8nworkflows.xyz/workflows/ai-job-crawler-with-suitability-scoring-15412\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.html",
+        "n8n-nodes-base.merge",
+        "n8n-nodes-base.filter",
+        "n8n-nodes-base.emailSend",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.splitInBatches",
+        "@n8n/n8n-nodes-langchain.agent",
+        "n8n-nodes-base.scheduleTrigger",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "@mendable/n8n-nodes-firecrawl.firecrawl",
+        "@mendable/n8n-nodes-firecrawl.firecrawlTool",
+        "@n8n/n8n-nodes-langchain.outputParserStructured"
+      ]
+    },
     {
       "id": 15300,
       "slug": "Handle Tamil real estate voice inquiries with OpenAI, Sarvam AI and Google Sheets-15300",
@@ -2021,6 +2053,55 @@
         "@n8n/n8n-nodes-langchain.agent",
         "@n8n/n8n-nodes-langchain.lmChatOpenAi",
         "@n8n/n8n-nodes-langchain.outputParserStructured"
+      ]
+    },
+    {
+      "id": 15181,
+      "slug": "Turn podcast videos into TikTok shorts using WayinVideo and PostPulse-15181",
+      "name": "Turn Podcast Videos Into TikTok Shorts Using WayinVideo And PostPulse",
+      "tags": [
+        "Content Creation",
+        "Multimodal AI"
+      ],
+      "author": "alex97po",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "turn_podcast_videos_into_tiktok_shorts_using_wayinvideo_and_postpulse.json",
+      "workflowPath": "workflows/Turn podcast videos into TikTok shorts using WayinVideo and PostPulse-15181/turn_podcast_videos_into_tiktok_shorts_using_wayinvideo_and_postpulse.json",
+      "url": "https://n8nworkflows.xyz/workflows/turn-podcast-videos-into-tiktok-shorts-using-wayinvideo-and-postpulse-15181\n",
+      "nodeTypes": [
+        "n8n-nodes-base.wait",
+        "n8n-nodes-base.splitOut",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.formTrigger",
+        "n8n-nodes-base.httpRequest",
+        "@postpulse/n8n-nodes-postpulse.postPulse"
+      ]
+    },
+    {
+      "id": 15177,
+      "slug": "Track AI agent token costs and store receipts with the n8n API and Data Tables-15177",
+      "name": "Track AI Agent Token Costs And Store Receipts With The N8n API And Data Tables",
+      "tags": [
+        "Engineering",
+        "AI Summarization"
+      ],
+      "author": "benvsteenbergen",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "track_ai_agent_token_costs_and_store_receipts_with_the_n8n_api_and_data_tables.json",
+      "workflowPath": "workflows/Track AI agent token costs and store receipts with the n8n API and Data Tables-15177/track_ai_agent_token_costs_and_store_receipts_with_the_n8n_api_and_data_tables.json",
+      "url": "https://n8nworkflows.xyz/workflows/track-ai-agent-token-costs-and-store-receipts-with-the-n8n-api-and-data-tables-15177\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.n8n",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.dataTable",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.splitInBatches",
+        "n8n-nodes-base.scheduleTrigger"
       ]
     },
     {
@@ -4104,6 +4185,34 @@
       ]
     },
     {
+      "id": 15048,
+      "slug": "Batch transcribe Google Drive videos to text files with Gemini-15048",
+      "name": "Batch Transcribe Google Drive Videos To Text Files With Gemini",
+      "tags": [
+        "Content Creation",
+        "Multimodal AI"
+      ],
+      "author": "zophiel",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "batch_transcribe_google_drive_videos_to_text_files_with_gemini.json",
+      "workflowPath": "workflows/Batch transcribe Google Drive videos to text files with Gemini-15048/batch_transcribe_google_drive_videos_to_text_files_with_gemini.json",
+      "url": "https://n8nworkflows.xyz/workflows/batch-transcribe-google-drive-videos-to-text-files-with-gemini-15048\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.wait",
+        "n8n-nodes-base.limit",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.googleDrive",
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.splitInBatches",
+        "@n8n/n8n-nodes-langchain.googleGemini"
+      ]
+    },
+    {
       "id": 15044,
       "slug": "Automate WhatsApp lead capture and replies with Whapi, Ollama and Sheets-15044",
       "name": "Automate WhatsApp Lead Capture And Replies With Whapi, Ollama And Sheets",
@@ -4360,6 +4469,28 @@
         "@n8n/n8n-nodes-langchain.lmChatOpenAi",
         "@mookielianhd/n8n-nodes-instagram.instagram",
         "@n8n/n8n-nodes-langchain.outputParserStructured"
+      ]
+    },
+    {
+      "id": 15032,
+      "slug": "Send Guesty new booking SMS confirmations and reminders with Aloware-15032",
+      "name": "Send Guesty New Booking SMS Confirmations And Reminders With Aloware",
+      "tags": [
+        "Lead Nurturing"
+      ],
+      "author": "dudnyk",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "send_guesty_new_booking_sms_confirmations_and_reminders_with_aloware.json",
+      "workflowPath": "workflows/Send Guesty new booking SMS confirmations and reminders with Aloware-15032/send_guesty_new_booking_sms_confirmations_and_reminders_with_aloware.json",
+      "url": "https://n8nworkflows.xyz/workflows/send-guesty-new-booking-sms-confirmations-and-reminders-with-aloware-15032\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.wait",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest"
       ]
     },
     {
@@ -5985,6 +6116,35 @@
       ]
     },
     {
+      "id": 14951,
+      "slug": "Detect KB gaps and auto-draft articles with GPT-4.1, Slack and Gmail-14951",
+      "name": "Detect KB Gaps And Auto Draft Articles With GPT 4.1, Slack And Gmail",
+      "tags": [
+        "Internal Wiki",
+        "AI RAG"
+      ],
+      "author": "logicfoxai",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "detect_kb_gaps_and_auto-draft_articles_with_gpt-4.1_slack_and_gmail.json",
+      "workflowPath": "workflows/Detect KB gaps and auto-draft articles with GPT-4.1, Slack and Gmail-14951/detect_kb_gaps_and_auto-draft_articles_with_gpt-4.1_slack_and_gmail.json",
+      "url": "https://n8nworkflows.xyz/workflows/detect-kb-gaps-and-auto-draft-articles-with-gpt-4-1--slack-and-gmail-14951\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.gmail",
+        "n8n-nodes-base.merge",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.errorTrigger",
+        "n8n-nodes-base.manualTrigger",
+        "@n8n/n8n-nodes-langchain.agent",
+        "n8n-nodes-base.scheduleTrigger",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi"
+      ]
+    },
+    {
       "id": 14935,
       "slug": "Sync Zoho CRM contacts with Beex Contact Center in real time-14935",
       "name": "Sync Zoho CRM Contacts With Beex Contact Center In Real Time",
@@ -7088,6 +7248,35 @@
         "@n8n/n8n-nodes-langchain.toolSerpApi",
         "@n8n/n8n-nodes-langchain.lmChatOpenAi",
         "@n8n/n8n-nodes-langchain.toolCalculator"
+      ]
+    },
+    {
+      "id": 14842,
+      "slug": "Generate and approve Twitter news tweets with Groq, Google Sheets and Telegram-14842",
+      "name": "Generate And Approve Twitter News Tweets With Groq, Google Sheets And Telegram",
+      "tags": [
+        "Social Media",
+        "Multimodal AI"
+      ],
+      "author": "shreya-bhingarkar",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "generate_and_approve_twitter_news_tweets_with_groq_google_sheets_and_telegram.json",
+      "workflowPath": "workflows/Generate and approve Twitter news tweets with Groq, Google Sheets and Telegram-14842/generate_and_approve_twitter_news_tweets_with_groq_google_sheets_and_telegram.json",
+      "url": "https://n8nworkflows.xyz/workflows/generate-and-approve-twitter-news-tweets-with-groq--google-sheets-and-telegram-14842\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.limit",
+        "n8n-nodes-base.telegram",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.googleSheets",
+        "@n8n/n8n-nodes-langchain.agent",
+        "n8n-nodes-base.scheduleTrigger",
+        "n8n-nodes-base.telegramTrigger",
+        "@n8n/n8n-nodes-langchain.lmChatGroq"
       ]
     },
     {
