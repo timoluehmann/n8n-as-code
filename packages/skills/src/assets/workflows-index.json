@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-05-04T06:27:04.808Z",
+  "generatedAt": "2026-05-05T05:56:14.435Z",
   "repository": "https://github.com/nusquama/n8nworkflows.xyz.git",
   "sourceRef": "main",
-  "sourceCommit": "6f805c57640ded82fe6077f23db7ca263b515455",
+  "sourceCommit": "2982e9444130b75b7cb0b6013d3b6b2e730f0a11",
   "refreshStrategy": "fresh-clone-per-build",
-  "totalWorkflows": 8678,
+  "totalWorkflows": 8690,
   "workflows": [
     {
       "id": 15412,
@@ -36,6 +36,352 @@
         "@mendable/n8n-nodes-firecrawl.firecrawl",
         "@mendable/n8n-nodes-firecrawl.firecrawlTool",
         "@n8n/n8n-nodes-langchain.outputParserStructured"
+      ]
+    },
+    {
+      "id": 15384,
+      "slug": "Send Jira high priority issue alerts to Slack, Google Chat and email-15384",
+      "name": "Send Jira High Priority Issue Alerts To Slack, Google Chat And Email",
+      "tags": [
+        "Ticket Management"
+      ],
+      "author": "anasks",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "send_jira_high_priority_issue_alerts_to_slack_google_chat_and_email.json",
+      "workflowPath": "workflows/Send Jira high priority issue alerts to Slack, Google Chat and email-15384/send_jira_high_priority_issue_alerts_to_slack_google_chat_and_email.json",
+      "url": "https://n8nworkflows.xyz/workflows/send-jira-high-priority-issue-alerts-to-slack--google-chat-and-email-15384\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.gmail",
+        "n8n-nodes-base.slack",
+        "n8n-nodes-base.googleChat",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.jiraTrigger"
+      ]
+    },
+    {
+      "id": 15377,
+      "slug": "Intelligent Support Triage & Auto-Response Engine with Jotform, Airtable, Gemini-15377",
+      "name": "Intelligent Support Triage & Auto Response Engine With Jotform, Airtable, Gemini",
+      "tags": [
+        "Ticket Management",
+        "AI RAG"
+      ],
+      "author": "zain",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "intelligent_support_triage_auto-response_engine_with_jotform_airtable_gemini.json",
+      "workflowPath": "workflows/Intelligent Support Triage & Auto-Response Engine with Jotform, Airtable, Gemini-15377/intelligent_support_triage_auto-response_engine_with_jotform_airtable_gemini.json",
+      "url": "https://n8nworkflows.xyz/workflows/intelligent-support-triage---auto-response-engine-with-jotform--airtable--gemini-15377\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.gmail",
+        "n8n-nodes-base.slack",
+        "n8n-nodes-base.filter",
+        "n8n-nodes-base.airtable",
+        "n8n-nodes-base.gmailTool",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.airtableTool",
+        "n8n-nodes-base.gmailTrigger",
+        "n8n-nodes-base.jotFormTrigger",
+        "@n8n/n8n-nodes-langchain.agent",
+        "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+        "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+        "@n8n/n8n-nodes-langchain.outputParserStructured",
+        "n8n-nodes-gemini-embedding-plus.embeddingsGoogleGeminiPlus"
+      ]
+    },
+    {
+      "id": 15374,
+      "slug": "Monitor Elastic Email subaccount credits and send low-balance alerts to Slack-15374",
+      "name": "Monitor Elastic Email Subaccount Credits And Send Low Balance Alerts To Slack",
+      "tags": [
+        "DevOps"
+      ],
+      "author": "lukaszpp",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "monitor_elastic_email_subaccount_credits_and_send_low-balance_alerts_to_slack.json",
+      "workflowPath": "workflows/Monitor Elastic Email subaccount credits and send low-balance alerts to Slack-15374/monitor_elastic_email_subaccount_credits_and_send_low-balance_alerts_to_slack.json",
+      "url": "https://n8nworkflows.xyz/workflows/monitor-elastic-email-subaccount-credits-and-send-low-balance-alerts-to-slack-15374\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.slack",
+        "n8n-nodes-base.filter",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.scheduleTrigger"
+      ]
+    },
+    {
+      "id": 15373,
+      "slug": "Clone NocoDB tables and data to another base-15373",
+      "name": "Clone NocoDB Tables And Data To Another Base",
+      "tags": [
+        "File Management"
+      ],
+      "author": "lukaszpp",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "clone_nocodb_tables_and_data_to_another_base.json",
+      "workflowPath": "workflows/Clone NocoDB tables and data to another base-15373/clone_nocodb_tables_and_data_to_another_base.json",
+      "url": "https://n8nworkflows.xyz/workflows/clone-nocodb-tables-and-data-to-another-base-15373\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.switch",
+        "n8n-nodes-base.splitOut",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.splitInBatches"
+      ]
+    },
+    {
+      "id": 15366,
+      "slug": "Route and prioritize support emails to Slack channels with easybits-15366",
+      "name": "Route And Prioritize Support Emails To Slack Channels With Easybits",
+      "tags": [
+        "Ticket Management",
+        "AI Summarization"
+      ],
+      "author": "easybits",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "route_and_prioritize_support_emails_to_slack_channels_with_easybits.json",
+      "workflowPath": "workflows/Route and prioritize support emails to Slack channels with easybits-15366/route_and_prioritize_support_emails_to_slack_channels_with_easybits.json",
+      "url": "https://n8nworkflows.xyz/workflows/route-and-prioritize-support-emails-to-slack-channels-with-easybits-15366\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.slack",
+        "n8n-nodes-base.switch",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.gmailTrigger",
+        "@easybits/n8n-nodes-extractor.easybitsExtractor"
+      ]
+    },
+    {
+      "id": 15363,
+      "slug": "Find high-mismatch local business leads with Firecrawl and Groq-15363",
+      "name": "Find High Mismatch Local Business Leads With Firecrawl And Groq",
+      "tags": [
+        "Lead Generation",
+        "AI Summarization"
+      ],
+      "author": "mychel-garzon",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "find_high-mismatch_local_business_leads_with_firecrawl_and_groq.json",
+      "workflowPath": "workflows/Find high-mismatch local business leads with Firecrawl and Groq-15363/find_high-mismatch_local_business_leads_with_firecrawl_and_groq.json",
+      "url": "https://n8nworkflows.xyz/workflows/find-high-mismatch-local-business-leads-with-firecrawl-and-groq-15363\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.wait",
+        "n8n-nodes-base.slack",
+        "n8n-nodes-base.aggregate",
+        "n8n-nodes-base.dataTable",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.splitInBatches",
+        "n8n-nodes-base.scheduleTrigger",
+        "@n8n/n8n-nodes-langchain.chainLlm",
+        "@n8n/n8n-nodes-langchain.lmChatGroq",
+        "@mendable/n8n-nodes-firecrawl.firecrawl"
+      ]
+    },
+    {
+      "id": 15357,
+      "slug": "Find customer insights from your website and Reddit with Claude-15357",
+      "name": "Find Customer Insights From Your Website And Reddit With Claude",
+      "tags": [
+        "Market Research",
+        "AI RAG"
+      ],
+      "author": "blumpo",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "find_customer_insights_from_your_website_and_reddit_with_claude.json",
+      "workflowPath": "workflows/Find customer insights from your website and Reddit with Claude-15357/find_customer_insights_from_your_website_and_reddit_with_claude.json",
+      "url": "https://n8nworkflows.xyz/workflows/find-customer-insights-from-your-website-and-reddit-with-claude-15357\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.html",
+        "n8n-nodes-base.limit",
+        "n8n-nodes-base.merge",
+        "n8n-nodes-base.filter",
+        "n8n-nodes-base.reddit",
+        "n8n-nodes-base.function",
+        "n8n-nodes-base.markdown",
+        "n8n-nodes-base.splitOut",
+        "n8n-nodes-base.aggregate",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.formTrigger",
+        "n8n-nodes-base.httpRequest",
+        "@n8n/n8n-nodes-langchain.agent",
+        "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+        "@n8n/n8n-nodes-langchain.outputParserStructured"
+      ]
+    },
+    {
+      "id": 15355,
+      "slug": "Summarize Zoom meetings with GPT-4o, Whisper, Supabase RAG and email reports-15355",
+      "name": "Summarize Zoom Meetings With GPT 4o, Whisper, Supabase RAG And Email Reports",
+      "tags": [
+        "Document Extraction",
+        "AI RAG"
+      ],
+      "author": "weblineindia",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "summarize_zoom_meetings_with_gpt-4o_whisper_supabase_rag_and_email_reports.json",
+      "workflowPath": "workflows/Summarize Zoom meetings with GPT-4o, Whisper, Supabase RAG and email reports-15355/summarize_zoom_meetings_with_gpt-4o_whisper_supabase_rag_and_email_reports.json",
+      "url": "https://n8nworkflows.xyz/workflows/summarize-zoom-meetings-with-gpt-4o--whisper--supabase-rag-and-email-reports-15355\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.gmail",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "@n8n/n8n-nodes-langchain.agent",
+        "@n8n/n8n-nodes-langchain.openAi",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+        "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+        "@n8n/n8n-nodes-langchain.outputParserStructured",
+        "@n8n/n8n-nodes-langchain.documentDefaultDataLoader"
+      ]
+    },
+    {
+      "id": 15339,
+      "slug": "Send a daily Nifty 50 market brief using Gemini AI, Nifty 50 API and Gmail-15339",
+      "name": "Send A Daily Nifty 50 Market Brief Using Gemini AI, Nifty 50 API And Gmail",
+      "tags": [
+        "Crypto Trading",
+        "AI Summarization"
+      ],
+      "author": "weblineindia",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "send_a_daily_nifty_50_market_brief_using_gemini_ai_nifty_50_api_and_gmail.json",
+      "workflowPath": "workflows/Send a daily Nifty 50 market brief using Gemini AI, Nifty 50 API and Gmail-15339/send_a_daily_nifty_50_market_brief_using_gemini_ai_nifty_50_api_and_gmail.json",
+      "url": "https://n8nworkflows.xyz/workflows/send-a-daily-nifty-50-market-brief-using-gemini-ai--nifty-50-api-and-gmail-15339\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.gmail",
+        "n8n-nodes-base.merge",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.scheduleTrigger",
+        "@n8n/n8n-nodes-langchain.googleGemini"
+      ]
+    },
+    {
+      "id": 15337,
+      "slug": "Generate weekly content drafts from Google Sheets with Groq AI and Slack-15337",
+      "name": "Generate Weekly Content Drafts From Google Sheets With Groq AI And Slack",
+      "tags": [
+        "Content Creation",
+        "Multimodal AI"
+      ],
+      "author": "weblineindia",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "generate_weekly_content_drafts_from_google_sheets_with_groq_ai_and_slack.json",
+      "workflowPath": "workflows/Generate weekly content drafts from Google Sheets with Groq AI and Slack-15337/generate_weekly_content_drafts_from_google_sheets_with_groq_ai_and_slack.json",
+      "url": "https://n8nworkflows.xyz/workflows/generate-weekly-content-drafts-from-google-sheets-with-groq-ai-and-slack-15337\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.sort",
+        "n8n-nodes-base.merge",
+        "n8n-nodes-base.slack",
+        "n8n-nodes-base.switch",
+        "n8n-nodes-base.splitOut",
+        "n8n-nodes-base.aggregate",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.googleSheets",
+        "@n8n/n8n-nodes-langchain.agent",
+        "n8n-nodes-base.scheduleTrigger",
+        "@n8n/n8n-nodes-langchain.lmChatGroq"
+      ]
+    },
+    {
+      "id": 15314,
+      "slug": "Detect and remediate leaked secrets from Git repos with GitHub, AWS, Jira, Slack and Claude-15314",
+      "name": "Detect And Remediate Leaked Secrets From Git Repos With GitHub, AWS, Jira, Slack And Claude",
+      "tags": [
+        "SecOps",
+        "AI Summarization"
+      ],
+      "author": "taiwo",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "detect_and_remediate_leaked_secrets_from_git_repos_with_github_aws_jira_slack_and_claude.json",
+      "workflowPath": "workflows/Detect and remediate leaked secrets from Git repos with GitHub, AWS, Jira, Slack and Claude-15314/detect_and_remediate_leaked_secrets_from_git_repos_with_github_aws_jira_slack_and_claude.json",
+      "url": "https://n8nworkflows.xyz/workflows/detect-and-remediate-leaked-secrets-from-git-repos-with-github--aws--jira--slack-and-claude-15314\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.jira",
+        "n8n-nodes-base.slack",
+        "n8n-nodes-base.switch",
+        "n8n-nodes-base.aggregate",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.githubTrigger",
+        "@n8n/n8n-nodes-langchain.agent",
+        "@n8n/n8n-nodes-langchain.lmChatOpenRouter"
+      ]
+    },
+    {
+      "id": 15307,
+      "slug": "Analyze legal contract risk with Google Gemini hybrid RAG and Supabase-15307",
+      "name": "Analyze Legal Contract Risk With Google Gemini Hybrid RAG And Supabase",
+      "tags": [
+        "Document Extraction",
+        "AI RAG"
+      ],
+      "author": "divyanshugupta",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "analyze_legal_contract_risk_with_google_gemini_hybrid_rag_and_supabase.json",
+      "workflowPath": "workflows/Analyze legal contract risk with Google Gemini hybrid RAG and Supabase-15307/analyze_legal_contract_risk_with_google_gemini_hybrid_rag_and_supabase.json",
+      "url": "https://n8nworkflows.xyz/workflows/analyze-legal-contract-risk-with-google-gemini-hybrid-rag-and-supabase-15307\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.wait",
+        "n8n-nodes-base.merge",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.supabase",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "@n8n/n8n-nodes-langchain.agent",
+        "n8n-nodes-base.extractFromFile",
+        "@n8n/n8n-nodes-langchain.googleGemini",
+        "@n8n/n8n-nodes-langchain.lmChatGoogleGemini"
       ]
     },
     {
