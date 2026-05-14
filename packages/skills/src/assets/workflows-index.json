@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-05-13T06:40:24.072Z",
+  "generatedAt": "2026-05-14T06:37:16.608Z",
   "repository": "https://github.com/nusquama/n8nworkflows.xyz.git",
   "sourceRef": "main",
-  "sourceCommit": "cd1059aa41da72d7b6050011d27175c2fdfadbbb",
+  "sourceCommit": "c35747df96c91deb8a20e6ecd5dceb0f816cd261",
   "refreshStrategy": "fresh-clone-per-build",
-  "totalWorkflows": 8784,
+  "totalWorkflows": 8791,
   "workflows": [
     {
       "id": 15525,
@@ -1321,6 +1321,34 @@
       ]
     },
     {
+      "id": 15382,
+      "slug": "Turn meeting recordings into Slack summaries using WayinVideo and GPT-4o-mini-15382",
+      "name": "Turn Meeting Recordings Into Slack Summaries Using WayinVideo And GPT 4o Mini",
+      "tags": [
+        "Document Extraction",
+        "AI Summarization"
+      ],
+      "author": "incrementors",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "turn_meeting_recordings_into_slack_summaries_using_wayinvideo_and_gpt-4o-mini.json",
+      "workflowPath": "workflows/Turn meeting recordings into Slack summaries using WayinVideo and GPT-4o-mini-15382/turn_meeting_recordings_into_slack_summaries_using_wayinvideo_and_gpt-4o-mini.json",
+      "url": "https://n8nworkflows.xyz/workflows/turn-meeting-recordings-into-slack-summaries-using-wayinvideo-and-gpt-4o-mini-15382\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.wait",
+        "n8n-nodes-base.slack",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.formTrigger",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.googleSheets",
+        "@n8n/n8n-nodes-langchain.agent",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi"
+      ]
+    },
+    {
       "id": 15378,
       "slug": "Scrape LinkedIn hiring posts with Apify and save qualified leads to Google Sheets-15378",
       "name": "Scrape LinkedIn Hiring Posts With Apify And Save Qualified Leads To Google Sheets",
@@ -1864,6 +1892,33 @@
         "n8n-nodes-base.stickyNote",
         "n8n-nodes-base.httpRequest",
         "n8n-nodes-base.respondToWebhook"
+      ]
+    },
+    {
+      "id": 15352,
+      "slug": "Convert podcasts to LinkedIn articles with WayinVideo and GPT-4o-mini-15352",
+      "name": "Convert Podcasts To LinkedIn Articles With WayinVideo And GPT 4o Mini",
+      "tags": [
+        "Content Creation",
+        "Multimodal AI"
+      ],
+      "author": "isawow",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "convert_podcasts_to_linkedin_articles_with_wayinvideo_and_gpt-4o-mini.json",
+      "workflowPath": "workflows/Convert podcasts to LinkedIn articles with WayinVideo and GPT-4o-mini-15352/convert_podcasts_to_linkedin_articles_with_wayinvideo_and_gpt-4o-mini.json",
+      "url": "https://n8nworkflows.xyz/workflows/convert-podcasts-to-linkedin-articles-with-wayinvideo-and-gpt-4o-mini-15352\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.wait",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.formTrigger",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.googleSheets",
+        "@n8n/n8n-nodes-langchain.agent",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi"
       ]
     },
     {
@@ -3655,6 +3710,31 @@
         "@n8n/n8n-nodes-langchain.chainLlm",
         "@n8n/n8n-nodes-langchain.lmChatGoogleVertex",
         "@n8n/n8n-nodes-langchain.informationExtractor"
+      ]
+    },
+    {
+      "id": 15243,
+      "slug": "Generate a Google Ads keyword plan from seed keywords with Keyword Planner and OpenAI-15243",
+      "name": "Generate A Google Ads Keyword Plan From Seed Keywords With Keyword Planner And OpenAI",
+      "tags": [
+        "Market Research",
+        "AI Summarization"
+      ],
+      "author": "zepix",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "generate_a_google_ads_keyword_plan_from_seed_keywords_with_keyword_planner_and_openai.json",
+      "workflowPath": "workflows/Generate a Google Ads keyword plan from seed keywords with Keyword Planner and OpenAI-15243/generate_a_google_ads_keyword_plan_from_seed_keywords_with_keyword_planner_and_openai.json",
+      "url": "https://n8nworkflows.xyz/workflows/generate-a-google-ads-keyword-plan-from-seed-keywords-with-keyword-planner-and-openai-15243\n",
+      "nodeTypes": [
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.formTrigger",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.googleSheets",
+        "@n8n/n8n-nodes-langchain.chainLlm",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi"
       ]
     },
     {
@@ -5676,6 +5756,32 @@
       ]
     },
     {
+      "id": 15133,
+      "slug": "Evaluate a support ticket classifier with OpenAI GPT-4o-mini and n8n evaluations-15133",
+      "name": "Evaluate A Support Ticket Classifier With OpenAI GPT 4o Mini And N8n Evaluations",
+      "tags": [
+        "Engineering",
+        "AI Summarization"
+      ],
+      "author": "elvissaravia",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "evaluate_a_support_ticket_classifier_with_openai_gpt-4o-mini_and_n8n_evaluations.json",
+      "workflowPath": "workflows/Evaluate a support ticket classifier with OpenAI GPT-4o-mini and n8n evaluations-15133/evaluate_a_support_ticket_classifier_with_openai_gpt-4o-mini_and_n8n_evaluations.json",
+      "url": "https://n8nworkflows.xyz/workflows/evaluate-a-support-ticket-classifier-with-openai-gpt-4o-mini-and-n8n-evaluations-15133\n",
+      "nodeTypes": [
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.evaluation",
+        "n8n-nodes-base.stickyNote",
+        "@n8n/n8n-nodes-langchain.agent",
+        "n8n-nodes-base.respondToWebhook",
+        "n8n-nodes-base.evaluationTrigger",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi"
+      ]
+    },
+    {
       "id": 15132,
       "slug": "Turn long videos into social shorts with RenderIO and OpenAI-15132",
       "name": "Turn Long Videos Into Social Shorts With RenderIO And OpenAI",
@@ -5788,6 +5894,33 @@
         "@n8n/n8n-nodes-langchain.agent",
         "@n8n/n8n-nodes-langchain.lmChatOpenAi",
         "@n8n/n8n-nodes-langchain.outputParserStructured"
+      ]
+    },
+    {
+      "id": 15124,
+      "slug": "Block daily salah windows in Google Calendar with Telegram and IslamicAPI-15124",
+      "name": "Block Daily Salah Windows In Google Calendar With Telegram And IslamicAPI",
+      "tags": [
+        "Personal Productivity"
+      ],
+      "author": "abdosman06",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "block_daily_salah_windows_in_google_calendar_with_telegram_and_islamicapi.json",
+      "workflowPath": "workflows/Block daily salah windows in Google Calendar with Telegram and IslamicAPI-15124/block_daily_salah_windows_in_google_calendar_with_telegram_and_islamicapi.json",
+      "url": "https://n8nworkflows.xyz/workflows/block-daily-salah-windows-in-google-calendar-with-telegram-and-islamicapi-15124\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.telegram",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.errorTrigger",
+        "n8n-nodes-base.googleSheets",
+        "n8n-nodes-base.googleCalendar",
+        "n8n-nodes-base.telegramTrigger"
       ]
     },
     {
@@ -6046,6 +6179,29 @@
       ]
     },
     {
+      "id": 15107,
+      "slug": "Pull bulk domain backlink profiles into Google Sheets with DataForSEO-15107",
+      "name": "Pull Bulk Domain Backlink Profiles Into Google Sheets With DataForSEO",
+      "tags": [
+        "Market Research"
+      ],
+      "author": "dataforseo",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "pull_bulk_domain_backlink_profiles_into_google_sheets_with_dataforseo.json",
+      "workflowPath": "workflows/Pull bulk domain backlink profiles into Google Sheets with DataForSEO-15107/pull_bulk_domain_backlink_profiles_into_google_sheets_with_dataforseo.json",
+      "url": "https://n8nworkflows.xyz/workflows/pull-bulk-domain-backlink-profiles-into-google-sheets-with-dataforseo-15107\n",
+      "nodeTypes": [
+        "n8n-nodes-base.splitOut",
+        "n8n-nodes-base.aggregate",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.googleSheets",
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-dataforseo.dataForSeoBacklinksApi"
+      ]
+    },
+    {
       "id": 15106,
       "slug": "Extract sales training clips from Fireflies calls using WayinVideo, Sheets and Slack-15106",
       "name": "Extract Sales Training Clips From Fireflies Calls Using WayinVideo, Sheets And Slack",
@@ -6179,6 +6335,29 @@
         "n8n-nodes-base.httpRequest",
         "n8n-nodes-base.googleCalendar",
         "n8n-nodes-base.scheduleTrigger"
+      ]
+    },
+    {
+      "id": 15100,
+      "slug": "Generate AI images with Gemini and upload them to WordPress (sub-workflow)-15100",
+      "name": "Generate AI Images With Gemini And Upload Them To WordPress (Sub Workflow)",
+      "tags": [
+        "Content Creation",
+        "Multimodal AI"
+      ],
+      "author": "legalgpts",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "generate_ai_images_with_gemini_and_upload_them_to_wordpress_sub-workflow_.json",
+      "workflowPath": "workflows/Generate AI images with Gemini and upload them to WordPress (sub-workflow)-15100/generate_ai_images_with_gemini_and_upload_them_to_wordpress_sub-workflow_.json",
+      "url": "https://n8nworkflows.xyz/workflows/generate-ai-images-with-gemini-and-upload-them-to-wordpress--sub-workflow--15100\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "@n8n/n8n-nodes-langchain.googleGemini",
+        "n8n-nodes-base.executeWorkflowTrigger"
       ]
     },
     {
