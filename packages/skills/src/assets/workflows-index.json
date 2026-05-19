@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-05-16T06:12:49.491Z",
+  "generatedAt": "2026-05-19T07:02:29.903Z",
   "repository": "https://github.com/nusquama/n8nworkflows.xyz.git",
   "sourceRef": "main",
-  "sourceCommit": "f29c681c5b540eab6ba6ff5fe1bbb72cfbb0b39b",
+  "sourceCommit": "df1efebdaa23d233df5c9fc0191dd3043ad43e8c",
   "refreshStrategy": "fresh-clone-per-build",
-  "totalWorkflows": 8803,
+  "totalWorkflows": 8815,
   "workflows": [
     {
       "id": 15691,
@@ -29,6 +29,304 @@
         "n8n-nodes-base.scheduleTrigger",
         "@n8n/n8n-nodes-langchain.mcpClient",
         "@n8n/n8n-nodes-langchain.lmChatOpenAi"
+      ]
+    },
+    {
+      "id": 15663,
+      "slug": "Scrape LinkedIn job listings with Apify and save them to Airtable-15663",
+      "name": "Scrape LinkedIn Job Listings With Apify And Save Them To Airtable",
+      "tags": [
+        "HR"
+      ],
+      "author": "growthai",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "scrape_linkedin_job_listings_with_apify_and_save_them_to_airtable.json",
+      "workflowPath": "workflows/Scrape LinkedIn job listings with Apify and save them to Airtable-15663/scrape_linkedin_job_listings_with_apify_and_save_them_to_airtable.json",
+      "url": "https://n8nworkflows.xyz/workflows/scrape-linkedin-job-listings-with-apify-and-save-them-to-airtable-15663\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.airtable",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.scheduleTrigger"
+      ]
+    },
+    {
+      "id": 15661,
+      "slug": "Enrich LinkedIn profiles in Airtable using Apify-15661",
+      "name": "Enrich LinkedIn Profiles In Airtable Using Apify",
+      "tags": [
+        "Lead Generation"
+      ],
+      "author": "growthai",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "enrich_linkedin_profiles_in_airtable_using_apify.json",
+      "workflowPath": "workflows/Enrich LinkedIn profiles in Airtable using Apify-15661/enrich_linkedin_profiles_in_airtable_using_apify.json",
+      "url": "https://n8nworkflows.xyz/workflows/enrich-linkedin-profiles-in-airtable-using-apify-15661\n",
+      "nodeTypes": [
+        "n8n-nodes-base.airtable",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.splitInBatches"
+      ]
+    },
+    {
+      "id": 15650,
+      "slug": "Enrich Airtable company phones from website, LinkedIn, Google Maps, and Claude-15650",
+      "name": "Enrich Airtable Company Phones From Website, LinkedIn, Google Maps, And Claude",
+      "tags": [
+        "Lead Generation",
+        "AI Summarization"
+      ],
+      "author": "growthai",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "enrich_airtable_company_phones_from_website_linkedin_google_maps_and_claude.json",
+      "workflowPath": "workflows/Enrich Airtable company phones from website, LinkedIn, Google Maps, and Claude-15650/enrich_airtable_company_phones_from_website_linkedin_google_maps_and_claude.json",
+      "url": "https://n8nworkflows.xyz/workflows/enrich-airtable-company-phones-from-website--linkedin--google-maps--and-claude-15650\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.airtable",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.splitInBatches",
+        "@n8n/n8n-nodes-langchain.agent",
+        "@mendable/n8n-nodes-firecrawl.firecrawl",
+        "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+        "@n8n/n8n-nodes-langchain.outputParserStructured"
+      ]
+    },
+    {
+      "id": 15629,
+      "slug": "Answer infrastructure questions in Mattermost with OpenRouter and Qdrant-15629",
+      "name": "Answer Infrastructure Questions In Mattermost With OpenRouter And Qdrant",
+      "tags": [
+        "Internal Wiki",
+        "AI RAG"
+      ],
+      "author": "javdet",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "answer_infrastructure_questions_in_mattermost_with_openrouter_and_qdrant.json",
+      "workflowPath": "workflows/Answer infrastructure questions in Mattermost with OpenRouter and Qdrant-15629/answer_infrastructure_questions_in_mattermost_with_openrouter_and_qdrant.json",
+      "url": "https://n8nworkflows.xyz/workflows/answer-infrastructure-questions-in-mattermost-with-openrouter-and-qdrant-15629\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.merge",
+        "n8n-nodes-base.mattermost",
+        "n8n-nodes-base.stickyNote",
+        "@n8n/n8n-nodes-langchain.agent",
+        "n8n-nodes-base.executeWorkflow",
+        "n8n-nodes-base.httpRequestTool",
+        "n8n-nodes-base.executeWorkflowTrigger",
+        "@n8n/n8n-nodes-langchain.mcpClientTool",
+        "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+        "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+        "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini"
+      ]
+    },
+    {
+      "id": 15621,
+      "slug": "Qualify WhatsApp leads and book sales calls with GPT‑4.1 and Google Sheets-15621",
+      "name": "Qualify WhatsApp Leads And Book Sales Calls With GPT‑4.1 And Google Sheets",
+      "tags": [
+        "Lead Nurturing",
+        "AI Chatbot"
+      ],
+      "author": "oneclick-ai",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "qualify_whatsapp_leads_and_book_sales_calls_with_gpt_4.1_and_google_sheets.json",
+      "workflowPath": "workflows/Qualify WhatsApp leads and book sales calls with GPT‑4.1 and Google Sheets-15621/qualify_whatsapp_leads_and_book_sales_calls_with_gpt_4.1_and_google_sheets.json",
+      "url": "https://n8nworkflows.xyz/workflows/qualify-whatsapp-leads-and-book-sales-calls-with-gpt-4-1-and-google-sheets-15621\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.wait",
+        "n8n-nodes-base.filter",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "@n8n/n8n-nodes-langchain.agent",
+        "n8n-nodes-base.respondToWebhook",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi"
+      ]
+    },
+    {
+      "id": 15620,
+      "slug": "Screen and schedule recruitment interviews on WhatsApp with OpenAI-15620",
+      "name": "Screen And Schedule Recruitment Interviews On WhatsApp With OpenAI",
+      "tags": [
+        "HR",
+        "AI Chatbot"
+      ],
+      "author": "oneclick-ai",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "screen_and_schedule_recruitment_interviews_on_whatsapp_with_openai.json",
+      "workflowPath": "workflows/Screen and schedule recruitment interviews on WhatsApp with OpenAI-15620/screen_and_schedule_recruitment_interviews_on_whatsapp_with_openai.json",
+      "url": "https://n8nworkflows.xyz/workflows/screen-and-schedule-recruitment-interviews-on-whatsapp-with-openai-15620\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.wait",
+        "n8n-nodes-base.filter",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "@n8n/n8n-nodes-langchain.agent",
+        "n8n-nodes-base.scheduleTrigger",
+        "n8n-nodes-base.respondToWebhook",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi"
+      ]
+    },
+    {
+      "id": 15617,
+      "slug": "Handle e-commerce WhatsApp support with Whapi, WooCommerce, RAG and Gmail escalation-15617",
+      "name": "Handle E Commerce WhatsApp Support With Whapi, WooCommerce, RAG And Gmail Escalation",
+      "tags": [
+        "Support Chatbot",
+        "AI Chatbot"
+      ],
+      "author": "n3witalia",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "handle_e-commerce_whatsapp_support_with_whapi_woocommerce_rag_and_gmail_escalation.json",
+      "workflowPath": "workflows/Handle e-commerce WhatsApp support with Whapi, WooCommerce, RAG and Gmail escalation-15617/handle_e-commerce_whatsapp_support_with_whapi_woocommerce_rag_and_gmail_escalation.json",
+      "url": "https://n8nworkflows.xyz/workflows/handle-e-commerce-whatsapp-support-with-whapi--woocommerce--rag-and-gmail-escalation-15617\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.gmailTool",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.googleDrive",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.manualTrigger",
+        "@n8n/n8n-nodes-langchain.agent",
+        "n8n-nodes-base.wooCommerceTool",
+        "@n8n/n8n-nodes-langchain.guardrails",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "@n8n/n8n-nodes-langchain.toolCalculator",
+        "@n8n/n8n-nodes-langchain.toolVectorStore",
+        "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+        "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+        "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+        "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+        "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+        "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter"
+      ]
+    },
+    {
+      "id": 15614,
+      "slug": "Convert DevOps Mattermost requests into Jira tasks with an AI sub-workflow-15614",
+      "name": "Convert DevOps Mattermost Requests Into Jira Tasks With An AI Sub Workflow",
+      "tags": [
+        "DevOps",
+        "AI RAG"
+      ],
+      "author": "javdet",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "convert_devops_mattermost_requests_into_jira_tasks_with_an_ai_sub-workflow.json",
+      "workflowPath": "workflows/Convert DevOps Mattermost requests into Jira tasks with an AI sub-workflow-15614/convert_devops_mattermost_requests_into_jira_tasks_with_an_ai_sub-workflow.json",
+      "url": "https://n8nworkflows.xyz/workflows/convert-devops-mattermost-requests-into-jira-tasks-with-an-ai-sub-workflow-15614\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.jira",
+        "n8n-nodes-base.merge",
+        "n8n-nodes-base.mattermost",
+        "n8n-nodes-base.stickyNote",
+        "@n8n/n8n-nodes-langchain.agent",
+        "n8n-nodes-base.executeWorkflow",
+        "n8n-nodes-base.httpRequestTool",
+        "n8n-nodes-base.executeWorkflowTrigger",
+        "@n8n/n8n-nodes-langchain.mcpClientTool",
+        "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+        "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+        "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini"
+      ]
+    },
+    {
+      "id": 15574,
+      "slug": "Send AI-written cold outreach and follow-up drafts with Gmail and Google Sheets using Firecrawl, Groq, and Gemini-15574",
+      "name": "Send AI Written Cold Outreach And Follow Up Drafts With Gmail And Google Sheets Using Firecrawl, Groq, And Gemini",
+      "tags": [
+        "Lead Nurturing",
+        "AI Summarization"
+      ],
+      "author": "wizard",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "send_ai-written_cold_outreach_and_follow-up_drafts_with_gmail_and_google_sheets_using_firecrawl_groq_and_gemini.json",
+      "workflowPath": "workflows/Send AI-written cold outreach and follow-up drafts with Gmail and Google Sheets using Firecrawl, Groq, and Gemini-15574/send_ai-written_cold_outreach_and_follow-up_drafts_with_gmail_and_google_sheets_using_firecrawl_groq_and_gemini.json",
+      "url": "https://n8nworkflows.xyz/workflows/send-ai-written-cold-outreach-and-follow-up-drafts-with-gmail-and-google-sheets-using-firecrawl--groq--and-gemini-15574\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.wait",
+        "n8n-nodes-base.gmail",
+        "n8n-nodes-base.filter",
+        "n8n-nodes-base.aggregate",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-do-while.doWhile",
+        "n8n-nodes-base.googleSheets",
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.splitInBatches",
+        "@n8n/n8n-nodes-langchain.agent",
+        "@n8n/n8n-nodes-langchain.chainLlm",
+        "n8n-nodes-verifiemail.verifiEmail",
+        "@n8n/n8n-nodes-langchain.lmChatGroq",
+        "@mendable/n8n-nodes-firecrawl.firecrawl",
+        "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+        "@n8n/n8n-nodes-langchain.memoryBufferWindow"
+      ]
+    },
+    {
+      "id": 15540,
+      "slug": "Enrich and deduplicate Slack-uploaded companies in HubSpot with Coresignal-15540",
+      "name": "Enrich And Deduplicate Slack Uploaded Companies In HubSpot With Coresignal",
+      "tags": [
+        "Lead Generation",
+        "AI Summarization"
+      ],
+      "author": "amulagalijev",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "enrich_and_deduplicate_slack-uploaded_companies_in_hubspot_with_coresignal.json",
+      "workflowPath": "workflows/Enrich and deduplicate Slack-uploaded companies in HubSpot with Coresignal-15540/enrich_and_deduplicate_slack-uploaded_companies_in_hubspot_with_coresignal.json",
+      "url": "https://n8nworkflows.xyz/workflows/enrich-and-deduplicate-slack-uploaded-companies-in-hubspot-with-coresignal-15540\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.merge",
+        "n8n-nodes-base.slack",
+        "n8n-nodes-base.hubspot",
+        "n8n-nodes-base.dataTable",
+        "n8n-nodes-base.summarize",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.slackTrigger",
+        "n8n-nodes-base.extractFromFile",
+        "n8n-nodes-coresignal-api.coresignal"
       ]
     },
     {
@@ -255,6 +553,28 @@
         "@n8n/n8n-nodes-langchain.agent",
         "n8n-nodes-base.scheduleTrigger",
         "@n8n/n8n-nodes-langchain.lmChatOpenRouter"
+      ]
+    },
+    {
+      "id": 15505,
+      "slug": "Get Xiaohongshu note details from a keyword with JustOneAPI-15505",
+      "name": "Get Xiaohongshu Note Details From A Keyword With JustOneAPI",
+      "tags": [
+        "Market Research"
+      ],
+      "author": "apisub001",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "get_xiaohongshu_note_details_from_a_keyword_with_justoneapi.json",
+      "workflowPath": "workflows/Get Xiaohongshu note details from a keyword with JustOneAPI-15505/get_xiaohongshu_note_details_from_a_keyword_with_justoneapi.json",
+      "url": "https://n8nworkflows.xyz/workflows/get-xiaohongshu-note-details-from-a-keyword-with-justoneapi-15505\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.manualTrigger"
       ]
     },
     {
@@ -692,6 +1012,39 @@
         "n8n-nodes-base.manualTrigger",
         "n8n-nodes-base.splitInBatches",
         "n8n-nodes-mrscraper.mrscraper"
+      ]
+    },
+    {
+      "id": 15450,
+      "slug": "Create AI news digests from RSS feeds with Groq and send via Gmail-15450",
+      "name": "Create AI News Digests From RSS Feeds With Groq And Send Via Gmail",
+      "tags": [
+        "Social Media",
+        "AI Summarization"
+      ],
+      "author": "redowanfarhan",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "create_ai_news_digests_from_rss_feeds_with_groq_and_send_via_gmail.json",
+      "workflowPath": "workflows/Create AI news digests from RSS feeds with Groq and send via Gmail-15450/create_ai_news_digests_from_rss_feeds_with_groq_and_send_via_gmail.json",
+      "url": "https://n8nworkflows.xyz/workflows/create-ai-news-digests-from-rss-feeds-with-groq-and-send-via-gmail-15450\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.noOp",
+        "n8n-nodes-base.sort",
+        "n8n-nodes-base.gmail",
+        "n8n-nodes-base.limit",
+        "n8n-nodes-base.merge",
+        "n8n-nodes-base.markdown",
+        "n8n-nodes-base.splitOut",
+        "n8n-nodes-base.aggregate",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.rssFeedRead",
+        "n8n-nodes-base.splitInBatches",
+        "@n8n/n8n-nodes-langchain.agent",
+        "@n8n/n8n-nodes-langchain.lmChatGroq"
       ]
     },
     {
