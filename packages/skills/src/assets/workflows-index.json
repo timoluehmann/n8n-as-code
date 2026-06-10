@@ -1,11 +1,44 @@
 {
-  "generatedAt": "2026-06-06T06:42:21.786Z",
+  "generatedAt": "2026-06-10T07:22:30.665Z",
   "repository": "https://github.com/nusquama/n8nworkflows.xyz.git",
   "sourceRef": "main",
-  "sourceCommit": "2976564815491a0a503d96e3ba59ad649ea9b825",
+  "sourceCommit": "55afc632e839c21a464d968cf617985c1ffcb9e0",
   "refreshStrategy": "fresh-clone-per-build",
-  "totalWorkflows": 9164,
+  "totalWorkflows": 9167,
   "workflows": [
+    {
+      "id": 16173,
+      "slug": "Score leads and send WhatsApp proposals with Gemini, HighLevel and Apify-16173",
+      "name": "Score Leads And Send WhatsApp Proposals With Gemini, HighLevel And Apify",
+      "tags": [
+        "Lead Generation",
+        "AI Chatbot"
+      ],
+      "author": "iamvaar",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "score_leads_and_send_whatsapp_proposals_with_gemini_highlevel_and_apify.json",
+      "workflowPath": "workflows/Score leads and send WhatsApp proposals with Gemini, HighLevel and Apify-16173/score_leads_and_send_whatsapp_proposals_with_gemini_highlevel_and_apify.json",
+      "url": "https://n8nworkflows.xyz/workflows/score-leads-and-send-whatsapp-proposals-with-gemini--highlevel-and-apify-16173\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.switch",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.whatsApp",
+        "n8n-nodes-base.highLevel",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.telegramTool",
+        "@apify/n8n-nodes-apify.apify",
+        "n8n-nodes-base.highLevelTool",
+        "@n8n/n8n-nodes-langchain.agent",
+        "n8n-nodes-base.whatsAppTrigger",
+        "@n8n/n8n-nodes-langchain.memoryRedisChat",
+        "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+        "@n8n/n8n-nodes-langchain.outputParserStructured"
+      ]
+    },
     {
       "id": 16068,
       "slug": "Send daily stale PR review digest with GitHub and Slack-16068",
@@ -10891,6 +10924,31 @@
       ]
     },
     {
+      "id": 15389,
+      "slug": "Auto-Update job application status from Gmail to Google Sheets-15389",
+      "name": "Auto Update Job Application Status From Gmail To Google Sheets",
+      "tags": [
+        "HR",
+        "AI Summarization"
+      ],
+      "author": "dhv9545",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "auto-update_job_application_status_from_gmail_to_google_sheets.json",
+      "workflowPath": "workflows/Auto-Update job application status from Gmail to Google Sheets-15389/auto-update_job_application_status_from_gmail_to_google_sheets.json",
+      "url": "https://n8nworkflows.xyz/workflows/auto-update-job-application-status-from-gmail-to-google-sheets-15389\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.gmailTrigger",
+        "n8n-nodes-base.googleSheets",
+        "@n8n/n8n-nodes-langchain.agent",
+        "@n8n/n8n-nodes-langchain.lmChatOpenRouter"
+      ]
+    },
+    {
       "id": 15388,
       "slug": "Sell products in Telegram with Paystack and Google Sheets-15388",
       "name": "Sell Products In Telegram With Paystack And Google Sheets",
@@ -16003,6 +16061,30 @@
         "n8n-nodes-base.googleSheets",
         "n8n-nodes-base.googleCalendar",
         "n8n-nodes-base.telegramTrigger"
+      ]
+    },
+    {
+      "id": 15123,
+      "slug": "Refresh API mocks and send OpenAPI diff alerts with GitHub and Postman-15123",
+      "name": "Refresh API Mocks And Send OpenAPI Diff Alerts With GitHub And Postman",
+      "tags": [
+        "DevOps"
+      ],
+      "author": "weblineindia",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "refresh_api_mocks_and_send_openapi_diff_alerts_with_github_and_postman.json",
+      "workflowPath": "workflows/Refresh API mocks and send OpenAPI diff alerts with GitHub and Postman-15123/refresh_api_mocks_and_send_openapi_diff_alerts_with_github_and_postman.json",
+      "url": "https://n8nworkflows.xyz/workflows/refresh-api-mocks-and-send-openapi-diff-alerts-with-github-and-postman-15123\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.gmail",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.stopAndError"
       ]
     },
     {
