@@ -1,11 +1,68 @@
 {
-  "generatedAt": "2026-06-20T07:13:04.378Z",
+  "generatedAt": "2026-06-23T07:04:20.143Z",
   "repository": "https://github.com/nusquama/n8nworkflows.xyz.git",
   "sourceRef": "main",
-  "sourceCommit": "885f94cef7404f3f8cd24e48abc67d5660524688",
+  "sourceCommit": "5dea05105375725fb886be8c71c46fd7f2d4aae9",
   "refreshStrategy": "fresh-clone-per-build",
-  "totalWorkflows": 9425,
+  "totalWorkflows": 9435,
   "workflows": [
+    {
+      "id": 16440,
+      "slug": "Manage Google Calendar events with Zalo Bot, OpenAI and Gemini-16440",
+      "name": "Manage Google Calendar Events With Zalo Bot, OpenAI And Gemini",
+      "tags": [
+        "Personal Productivity",
+        "AI Chatbot"
+      ],
+      "author": "nguyenthieutoan",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "manage_google_calendar_events_with_zalo_bot_openai_and_gemini.json",
+      "workflowPath": "workflows/Manage Google Calendar events with Zalo Bot, OpenAI and Gemini-16440/manage_google_calendar_events_with_zalo_bot_openai_and_gemini.json",
+      "url": "https://n8nworkflows.xyz/workflows/manage-google-calendar-events-with-zalo-bot--openai-and-gemini-16440\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.stickyNote",
+        "@n8n/n8n-nodes-langchain.agent",
+        "n8n-nodes-base.googleCalendarTool",
+        "n8n-nodes-zalo-bot-official.zaloBot",
+        "@n8n/n8n-nodes-langchain.googleGemini",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "n8n-nodes-zalo-bot-official.zaloBotTrigger"
+      ]
+    },
+    {
+      "id": 16439,
+      "slug": "Generate and publish AI home cam Shorts with OpenAI, kie.ai and YouTube-16439",
+      "name": "Generate And Publish AI Home Cam Shorts With OpenAI, Kie.Ai And YouTube",
+      "tags": [],
+      "author": "flowgramming101",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "generate_and_publish_ai_home_cam_shorts_with_openai_kie.ai_and_youtube.json",
+      "workflowPath": "workflows/Generate and publish AI home cam Shorts with OpenAI, kie.ai and YouTube-16439/generate_and_publish_ai_home_cam_shorts_with_openai_kie.ai_and_youtube.json",
+      "url": "https://n8nworkflows.xyz/workflows/generate-and-publish-ai-home-cam-shorts-with-openai--kie-ai-and-youtube-16439\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.wait",
+        "n8n-nodes-base.gmail",
+        "n8n-nodes-base.youTube",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.googleDrive",
+        "n8n-nodes-base.httpRequest",
+        "@n8n/n8n-nodes-langchain.agent",
+        "n8n-nodes-base.scheduleTrigger",
+        "@n8n/n8n-nodes-langchain.toolThink",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+        "@n8n/n8n-nodes-langchain.outputParserStructured"
+      ]
+    },
     {
       "id": 16438,
       "slug": "Score company ad spend from Meta, Google and LinkedIn Ads with Google Sheets-16438",
@@ -406,6 +463,60 @@
         "n8n-nodes-base.httpRequest",
         "n8n-nodes-base.manualTrigger",
         "n8n-nodes-base.scheduleTrigger"
+      ]
+    },
+    {
+      "id": 16416,
+      "slug": "Power Placetel voice answers from OneDrive docs with OpenAI and Groq-16416",
+      "name": "Power Placetel Voice Answers From OneDrive Docs With OpenAI And Groq",
+      "tags": [],
+      "author": "placetel",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "power_placetel_voice_answers_from_onedrive_docs_with_openai_and_groq.json",
+      "workflowPath": "workflows/Power Placetel voice answers from OneDrive docs with OpenAI and Groq-16416/power_placetel_voice_answers_from_onedrive_docs_with_openai_and_groq.json",
+      "url": "https://n8nworkflows.xyz/workflows/power-placetel-voice-answers-from-onedrive-docs-with-openai-and-groq-16416\n",
+      "nodeTypes": [
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.splitInBatches",
+        "n8n-nodes-base.scheduleTrigger",
+        "n8n-nodes-base.respondToWebhook",
+        "n8n-nodes-base.microsoftOneDrive",
+        "@n8n/n8n-nodes-langchain.lmChatGroq",
+        "@n8n/n8n-nodes-langchain.chainRetrievalQa",
+        "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+        "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+        "@n8n/n8n-nodes-langchain.retrieverVectorStore",
+        "@n8n/n8n-nodes-langchain.documentDefaultDataLoader"
+      ]
+    },
+    {
+      "id": 16415,
+      "slug": "Identify company decision makers with Coresignal and Google Sheets-16415",
+      "name": "Identify Company Decision Makers With Coresignal And Google Sheets",
+      "tags": [
+        "Lead Generation"
+      ],
+      "author": "amulagalijev",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "identify_company_decision_makers_with_coresignal_and_google_sheets.json",
+      "workflowPath": "workflows/Identify company decision makers with Coresignal and Google Sheets-16415/identify_company_decision_makers_with_coresignal_and_google_sheets.json",
+      "url": "https://n8nworkflows.xyz/workflows/identify-company-decision-makers-with-coresignal-and-google-sheets-16415\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.googleSheets",
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.splitInBatches",
+        "n8n-nodes-coresignal-api.coresignal"
       ]
     },
     {
@@ -833,6 +944,40 @@
       ]
     },
     {
+      "id": 16383,
+      "slug": "Scrape SEEK.com.au jobs daily with Apify to Sheets, Airtable, Slack, Telegram and Discord-16383",
+      "name": "Scrape SEEK.Com.Au Jobs Daily With Apify To Sheets, Airtable, Slack, Telegram And Discord",
+      "tags": [
+        "Market Research"
+      ],
+      "author": "unfencedgroup",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "scrape_seek.com.au_jobs_daily_with_apify_to_sheets_airtable_slack_telegram_and_discord.json",
+      "workflowPath": "workflows/Scrape SEEK.com.au jobs daily with Apify to Sheets, Airtable, Slack, Telegram and Discord-16383/scrape_seek.com.au_jobs_daily_with_apify_to_sheets_airtable_slack_telegram_and_discord.json",
+      "url": "https://n8nworkflows.xyz/workflows/scrape-seek-com-au-jobs-daily-with-apify-to-sheets--airtable--slack--telegram-and-discord-16383\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.gmail",
+        "n8n-nodes-base.merge",
+        "n8n-nodes-base.slack",
+        "n8n-nodes-base.airtable",
+        "n8n-nodes-base.splitOut",
+        "n8n-nodes-base.telegram",
+        "n8n-nodes-base.aggregate",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.formTrigger",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.googleSheets",
+        "@apify/n8n-nodes-apify.apify",
+        "n8n-nodes-base.scheduleTrigger",
+        "n8n-nodes-base.removeDuplicates"
+      ]
+    },
+    {
       "id": 16381,
       "slug": "Generate blog content ideas with Google Sheets, RSS feeds and OpenAI-16381",
       "name": "Generate Blog Content Ideas With Google Sheets, RSS Feeds And OpenAI",
@@ -1141,6 +1286,34 @@
         "n8n-nodes-base.stickyNote",
         "n8n-nodes-base.httpRequest",
         "n8n-nodes-base.respondToWebhook"
+      ]
+    },
+    {
+      "id": 16367,
+      "slug": "Analyze commodity portfolio diversification with Sheets, Gemini, and Gmail-16367",
+      "name": "Analyze Commodity Portfolio Diversification With Sheets, Gemini, And Gmail",
+      "tags": [
+        "Crypto Trading",
+        "AI Summarization"
+      ],
+      "author": "weblineindia",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "analyze_commodity_portfolio_diversification_with_sheets_gemini_and_gmail.json",
+      "workflowPath": "workflows/Analyze commodity portfolio diversification with Sheets, Gemini, and Gmail-16367/analyze_commodity_portfolio_diversification_with_sheets_gemini_and_gmail.json",
+      "url": "https://n8nworkflows.xyz/workflows/analyze-commodity-portfolio-diversification-with-sheets--gemini--and-gmail-16367\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.gmail",
+        "n8n-nodes-base.merge",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.googleSheets",
+        "n8n-nodes-base.manualTrigger",
+        "@n8n/n8n-nodes-langchain.googleGemini"
       ]
     },
     {
@@ -1933,6 +2106,65 @@
       ]
     },
     {
+      "id": 16334,
+      "slug": "Prepare daily AI meeting briefs from Google Calendar with GPT-4o and email-16334",
+      "name": "Prepare Daily AI Meeting Briefs From Google Calendar With GPT 4o And Email",
+      "tags": [
+        "Personal Productivity",
+        "AI Summarization"
+      ],
+      "author": "takato-door",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "prepare_daily_ai_meeting_briefs_from_google_calendar_with_gpt-4o_and_email.json",
+      "workflowPath": "workflows/Prepare daily AI meeting briefs from Google Calendar with GPT-4o and email-16334/prepare_daily_ai_meeting_briefs_from_google_calendar_with_gpt-4o_and_email.json",
+      "url": "https://n8nworkflows.xyz/workflows/prepare-daily-ai-meeting-briefs-from-google-calendar-with-gpt-4o-and-email-16334\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.noOp",
+        "n8n-nodes-base.gmail",
+        "n8n-nodes-base.slack",
+        "n8n-nodes-base.aggregate",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.googleCalendar",
+        "n8n-nodes-base.scheduleTrigger",
+        "@n8n/n8n-nodes-langchain.chainLlm",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "@n8n/n8n-nodes-langchain.outputParserStructured"
+      ]
+    },
+    {
+      "id": 16333,
+      "slug": "Recover failed Stripe payments with GPT-4o, Gmail, Sheets, and Slack-16333",
+      "name": "Recover Failed Stripe Payments With GPT 4o, Gmail, Sheets, And Slack",
+      "tags": [
+        "Lead Nurturing",
+        "AI Summarization"
+      ],
+      "author": "takato-door",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "recover_failed_stripe_payments_with_gpt-4o_gmail_sheets_and_slack.json",
+      "workflowPath": "workflows/Recover failed Stripe payments with GPT-4o, Gmail, Sheets, and Slack-16333/recover_failed_stripe_payments_with_gpt-4o_gmail_sheets_and_slack.json",
+      "url": "https://n8nworkflows.xyz/workflows/recover-failed-stripe-payments-with-gpt-4o--gmail--sheets--and-slack-16333\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.noOp",
+        "n8n-nodes-base.gmail",
+        "n8n-nodes-base.slack",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.googleSheets",
+        "n8n-nodes-base.scheduleTrigger",
+        "@n8n/n8n-nodes-langchain.chainLlm",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "@n8n/n8n-nodes-langchain.outputParserStructured"
+      ]
+    },
+    {
       "id": 16331,
       "slug": "Extract invoice data from Gmail PDFs to Google Sheets with OpenAI and Slack-16331",
       "name": "Extract Invoice Data From Gmail PDFs To Google Sheets With OpenAI And Slack",
@@ -2356,6 +2588,31 @@
       ]
     },
     {
+      "id": 16306,
+      "slug": "Predict competitor ad launch cycles with Adyntel, OpenAI, and Google Sheets-16306",
+      "name": "Predict Competitor Ad Launch Cycles With Adyntel, OpenAI, And Google Sheets",
+      "tags": [
+        "Market Research",
+        "AI Summarization"
+      ],
+      "author": "zain",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "predict_competitor_ad_launch_cycles_with_adyntel_openai_and_google_sheets.json",
+      "workflowPath": "workflows/Predict competitor ad launch cycles with Adyntel, OpenAI, and Google Sheets-16306/predict_competitor_ad_launch_cycles_with_adyntel_openai_and_google_sheets.json",
+      "url": "https://n8nworkflows.xyz/workflows/predict-competitor-ad-launch-cycles-with-adyntel--openai--and-google-sheets-16306\n",
+      "nodeTypes": [
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.merge",
+        "n8n-nodes-adyntel.adyntel",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.googleSheets",
+        "n8n-nodes-base.splitInBatches",
+        "n8n-nodes-base.scheduleTrigger"
+      ]
+    },
+    {
       "id": 16305,
       "slug": "Sort customer feedback by rating with Google Sheets and Slack-16305",
       "name": "Sort Customer Feedback By Rating With Google Sheets And Slack",
@@ -2539,6 +2796,31 @@
         "n8n-nodes-base.stickyNote",
         "n8n-nodes-base.rssFeedRead",
         "n8n-nodes-base.scheduleTrigger"
+      ]
+    },
+    {
+      "id": 16294,
+      "slug": "Handle order status webhooks with Microsoft SQL Server and email-16294",
+      "name": "Handle Order Status Webhooks With Microsoft SQL Server And Email",
+      "tags": [
+        "CRM"
+      ],
+      "author": "prakashsoftware",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "handle_order_status_webhooks_with_microsoft_sql_server_and_email.json",
+      "workflowPath": "workflows/Handle order status webhooks with Microsoft SQL Server and email-16294/handle_order_status_webhooks_with_microsoft_sql_server_and_email.json",
+      "url": "https://n8nworkflows.xyz/workflows/handle-order-status-webhooks-with-microsoft-sql-server-and-email-16294\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.switch",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.emailSend",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.microsoftSql",
+        "n8n-nodes-base.respondToWebhook"
       ]
     },
     {
