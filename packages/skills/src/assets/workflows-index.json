@@ -1,11 +1,36 @@
 {
-  "generatedAt": "2026-06-24T07:02:13.146Z",
+  "generatedAt": "2026-06-25T06:59:34.410Z",
   "repository": "https://github.com/nusquama/n8nworkflows.xyz.git",
   "sourceRef": "main",
-  "sourceCommit": "2d5c14adf0381ebe6cee36048c093c996b4a0186",
+  "sourceCommit": "51ae12ef6f0074afecb977c606a6bd42f6873c0d",
   "refreshStrategy": "fresh-clone-per-build",
-  "totalWorkflows": 9435,
+  "totalWorkflows": 9436,
   "workflows": [
+    {
+      "id": 16513,
+      "slug": "Validate startup ideas with Google Gemini, Groq, and Gmail-16513",
+      "name": "Validate Startup Ideas With Google Gemini, Groq, And Gmail",
+      "tags": [
+        "Market Research",
+        "AI Summarization"
+      ],
+      "author": "kanishka-shrivastava",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "validate_startup_ideas_with_google_gemini_groq_and_gmail.json",
+      "workflowPath": "workflows/Validate startup ideas with Google Gemini, Groq, and Gmail-16513/validate_startup_ideas_with_google_gemini_groq_and_gmail.json",
+      "url": "https://n8nworkflows.xyz/workflows/validate-startup-ideas-with-google-gemini--groq--and-gmail-16513\n",
+      "nodeTypes": [
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.gmail",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.formTrigger",
+        "@n8n/n8n-nodes-langchain.agent",
+        "@n8n/n8n-nodes-langchain.lmChatGroq",
+        "@n8n/n8n-nodes-langchain.lmChatGoogleGemini"
+      ]
+    },
     {
       "id": 16440,
       "slug": "Manage Google Calendar events with Zalo Bot, OpenAI and Gemini-16440",
