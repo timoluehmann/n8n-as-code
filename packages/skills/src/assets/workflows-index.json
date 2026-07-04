@@ -1,11 +1,36 @@
 {
-  "generatedAt": "2026-07-03T06:43:51.058Z",
+  "generatedAt": "2026-07-04T06:32:35.369Z",
   "repository": "https://github.com/nusquama/n8nworkflows.xyz.git",
   "sourceRef": "main",
-  "sourceCommit": "36e9fd8f7076913b4a441c72fa7330f909f133a8",
+  "sourceCommit": "5bf0874d840873069ec840e9a1ad7150664a662a",
   "refreshStrategy": "fresh-clone-per-build",
-  "totalWorkflows": 9577,
+  "totalWorkflows": 9579,
   "workflows": [
+    {
+      "id": 16701,
+      "slug": "Audit Google Drive backup freshness with Google Sheets and Slack-16701",
+      "name": "Audit Google Drive Backup Freshness With Google Sheets And Slack",
+      "tags": [
+        "DevOps",
+        "AI Summarization"
+      ],
+      "author": "exekyute",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "audit_google_drive_backup_freshness_with_google_sheets_and_slack.json",
+      "workflowPath": "workflows/Audit Google Drive backup freshness with Google Sheets and Slack-16701/audit_google_drive_backup_freshness_with_google_sheets_and_slack.json",
+      "url": "https://n8nworkflows.xyz/workflows/audit-google-drive-backup-freshness-with-google-sheets-and-slack-16701\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.slack",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.googleDrive",
+        "n8n-nodes-base.googleSheets",
+        "n8n-nodes-base.scheduleTrigger"
+      ]
+    },
     {
       "id": 16693,
       "slug": "Review Jira ticket quality with OpenRouter GPT and coaching comments-16693",
@@ -5027,6 +5052,29 @@
         "n8n-nodes-base.splitInBatches",
         "n8n-nodes-base.scheduleTrigger",
         "@periodix/n8n-nodes-actions.linkedInSearch"
+      ]
+    },
+    {
+      "id": 16371,
+      "slug": "Detect competitor product launch signals from ads with OpenAI and Google Sheets-16371",
+      "name": "Detect Competitor Product Launch Signals From Ads With OpenAI And Google Sheets",
+      "tags": [
+        "Lead Generation"
+      ],
+      "author": "zain",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "detect_competitor_product_launch_signals_from_ads_with_openai_and_google_sheets.json",
+      "workflowPath": "workflows/Detect competitor product launch signals from ads with OpenAI and Google Sheets-16371/detect_competitor_product_launch_signals_from_ads_with_openai_and_google_sheets.json",
+      "url": "https://n8nworkflows.xyz/workflows/detect-competitor-product-launch-signals-from-ads-with-openai-and-google-sheets-16371\n",
+      "nodeTypes": [
+        "n8n-nodes-base.code",
+        "n8n-nodes-tomba.tomba",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.googleSheets",
+        "n8n-nodes-base.splitInBatches",
+        "n8n-nodes-base.scheduleTrigger"
       ]
     },
     {
