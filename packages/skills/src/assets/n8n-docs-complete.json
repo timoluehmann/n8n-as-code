@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-04T06:31:39.221Z",
+  "generatedAt": "2026-07-07T06:57:20.523Z",
   "version": "1.0.0",
   "sourceUrl": "https://docs.n8n.io/llms.txt",
   "totalPages": 158,
@@ -238,140 +238,6 @@
     },
     {
       "id": "page-0002",
-      "title": "Use n8n Cloud",
-      "url": "https://docs.n8n.io/deploy/use-n8n-cloud.md",
-      "urlPath": "deploy/use-n8n-cloud.md",
-      "category": "other",
-      "subcategory": null,
-      "nodeName": null,
-      "nodeType": null,
-      "content": {
-        "markdown": "> For the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.n8n.io/deploy/use-n8n-cloud.md).\n\n# Use n8n Cloud\n\n{% content-ref url=\"/pages/ziS002yiEqmQSjXZALLO\" %}\n[Start your free trial](/deploy/use-n8n-cloud/start-your-free-trial.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/mHEBRlhziSCHqhGnNTXi\" %}\n[Use the admin dashboard](/deploy/use-n8n-cloud/use-the-admin-dashboard.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/CTls7DnN9awcFDKo7wiF\" %}\n[Update your version](/deploy/use-n8n-cloud/update-your-version.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/gkVnVHykpSXYXwX6ZqyT\" %}\n[Configure Cloud](/deploy/use-n8n-cloud/configure-cloud.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/9EfpVVUfKqLf574RAV8G\" %}\n[Understand concurrency](/deploy/use-n8n-cloud/understand-concurrency.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/x5mIP3TcjJQuKqSsEY4V\" %}\n[Download workflows](/deploy/use-n8n-cloud/download-workflows.md)\n{% endcontent-ref %}\n",
-        "excerpt": "> For the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.n8n.io/deploy/use-n8n-cloud.md).  # Use n8n Cloud  {% content-ref url=\"/pages/ziS002yiEqmQSjXZALLO\" %} [Start your free trial](/deploy/use-n8n-cloud/start-your-free-trial.md) {% endcontent-ref %}  {% content-ref url=\"/pages/mHEBRlhziSCHqhGnNTXi\" %} [Use the admin dashboard](/...",
-        "sections": [
-          {
-            "title": "Use n8n Cloud",
-            "level": 1,
-            "content": "{% content-ref url=\"/pages/ziS002yiEqmQSjXZALLO\" %}\n[Start your free trial](/deploy/use-n8n-cloud/start-your-free-trial.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/mHEBRlhziSCHqhGnNTXi\" %}\n[Use the admin dashboard](/deploy/use-n8n-cloud/use-the-admin-dashboard.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/CTls7DnN9awcFDKo7wiF\" %}\n[Update your version](/deploy/use-n8n-cloud/update-your-version.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/gkVnVHykpSXYXwX6ZqyT\" %}\n[Configure Cloud](/deploy/use-n8n-cloud/configure-cloud.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/9EfpVVUfKqLf574RAV8G\" %}\n[Understand concurrency](/deploy/use-n8n-cloud/understand-concurrency.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/x5mIP3TcjJQuKqSsEY4V\" %}\n[Download workflows](/deploy/use-n8n-cloud/download-workflows.md)\n{% endcontent-ref %}"
-          }
-        ]
-      },
-      "metadata": {
-        "keywords": [
-          "cloud"
-        ],
-        "useCases": [],
-        "operations": [],
-        "codeExamples": 0,
-        "complexity": "beginner",
-        "readingTime": "1 min",
-        "contentLength": 1134,
-        "relatedPages": []
-      },
-      "searchIndex": {
-        "fullText": "use n8n cloud > for the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). markdown versions of documentation pages are available by appending `.md` to page urls; this page is available as [markdown](https://docs.n8n.io/deploy/use-n8n-cloud.md).\n\n# use n8n cloud\n\n{% content-ref url=\"/pages/zis002yieqmqsjxzallo\" %}\n[start your free trial](/deploy/use-n8n-cloud/start-your-free-trial.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/mhebrlhzischqhgnntxi\" %}\n[use the admin dashboard](/deploy/use-n8n-cloud/use-the-admin-dashboard.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/ctls7dnn9awcfdko7wif\" %}\n[update your version](/deploy/use-n8n-cloud/update-your-version.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/gkvnvhykpsxyxwx6zqyt\" %}\n[configure cloud](/deploy/use-n8n-cloud/configure-cloud.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/9efpvvufkqlf574rav8g\" %}\n[understand concurrency](/deploy/use-n8n-cloud/understand-concurrency.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/x5mip3tcjjqukqssey4v\" %}\n[download workflows](/deploy/use-n8n-cloud/download-workflows.md)\n{% endcontent-ref %}\n use n8n cloud",
-        "importantTerms": [
-          "cloud",
-          "pages",
-          "deploy",
-          "content",
-          "endcontent",
-          "your"
-        ]
-      }
-    },
-    {
-      "id": "page-0003",
-      "title": "Configure Cloud",
-      "url": "https://docs.n8n.io/deploy/use-n8n-cloud/configure-cloud.md",
-      "urlPath": "deploy/use-n8n-cloud/configure-cloud.md",
-      "category": "other",
-      "subcategory": null,
-      "nodeName": null,
-      "nodeType": null,
-      "content": {
-        "markdown": "> For the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.n8n.io/deploy/use-n8n-cloud/configure-cloud.md).\n\n# Configure Cloud\n\n{% content-ref url=\"/pages/qexcPsKoWp0PmphCtIOv\" %}\n[Set your timezone](/deploy/use-n8n-cloud/configure-cloud/set-your-timezone.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/NZmg6WYBQuBaNYov8oZ2\" %}\n[Find your IP addresses](/deploy/use-n8n-cloud/configure-cloud/find-your-ip-addresses.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/NaSVSCb9naTK5SHxccJp\" %}\n[Manage your data](/deploy/use-n8n-cloud/configure-cloud/manage-your-data.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/N5MQTEz4LEwFO0gQ0C94\" %}\n[Change instance ownership or username](/deploy/use-n8n-cloud/configure-cloud/change-instance-ownership-or-username.md)\n{% endcontent-ref %}\n",
-        "excerpt": "> For the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.n8n.io/deploy/use-n8n-cloud/configure-cloud.md).  # Configure Cloud  {% content-ref url=\"/pages/qexcPsKoWp0PmphCtIOv\" %} [Set your timezone](/deploy/use-n8n-cloud/configure-cloud/set-your-timezone.md) {% endcontent-ref %}  {% content-ref url=\"/pages/NZmg6WYBQuBaNYov8oZ2\" %} [...",
-        "sections": [
-          {
-            "title": "Configure Cloud",
-            "level": 1,
-            "content": "{% content-ref url=\"/pages/qexcPsKoWp0PmphCtIOv\" %}\n[Set your timezone](/deploy/use-n8n-cloud/configure-cloud/set-your-timezone.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/NZmg6WYBQuBaNYov8oZ2\" %}\n[Find your IP addresses](/deploy/use-n8n-cloud/configure-cloud/find-your-ip-addresses.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/NaSVSCb9naTK5SHxccJp\" %}\n[Manage your data](/deploy/use-n8n-cloud/configure-cloud/manage-your-data.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/N5MQTEz4LEwFO0gQ0C94\" %}\n[Change instance ownership or username](/deploy/use-n8n-cloud/configure-cloud/change-instance-ownership-or-username.md)\n{% endcontent-ref %}"
-          }
-        ]
-      },
-      "metadata": {
-        "keywords": [
-          "configure",
-          "cloud"
-        ],
-        "useCases": [],
-        "operations": [],
-        "codeExamples": 0,
-        "complexity": "beginner",
-        "readingTime": "1 min",
-        "contentLength": 956,
-        "relatedPages": []
-      },
-      "searchIndex": {
-        "fullText": "configure cloud > for the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). markdown versions of documentation pages are available by appending `.md` to page urls; this page is available as [markdown](https://docs.n8n.io/deploy/use-n8n-cloud/configure-cloud.md).\n\n# configure cloud\n\n{% content-ref url=\"/pages/qexcpskowp0pmphctiov\" %}\n[set your timezone](/deploy/use-n8n-cloud/configure-cloud/set-your-timezone.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/nzmg6wybqubanyov8oz2\" %}\n[find your ip addresses](/deploy/use-n8n-cloud/configure-cloud/find-your-ip-addresses.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/nasvscb9natk5shxccjp\" %}\n[manage your data](/deploy/use-n8n-cloud/configure-cloud/manage-your-data.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/n5mqtez4lewfo0gq0c94\" %}\n[change instance ownership or username](/deploy/use-n8n-cloud/configure-cloud/change-instance-ownership-or-username.md)\n{% endcontent-ref %}\n configure cloud",
-        "importantTerms": [
-          "cloud",
-          "configure",
-          "your",
-          "pages",
-          "deploy",
-          "content",
-          "endcontent"
-        ]
-      }
-    },
-    {
-      "id": "page-0004",
-      "title": "Find your IP addresses",
-      "url": "https://docs.n8n.io/deploy/use-n8n-cloud/configure-cloud/find-your-ip-addresses.md",
-      "urlPath": "deploy/use-n8n-cloud/configure-cloud/find-your-ip-addresses.md",
-      "category": "other",
-      "subcategory": null,
-      "nodeName": null,
-      "nodeType": null,
-      "content": {
-        "markdown": "> For the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.n8n.io/deploy/use-n8n-cloud/configure-cloud/find-your-ip-addresses.md).\n\n# Find your IP addresses\n\n{% hint style=\"warning\" %}\n**Cloud IP addresses change without warning**\n\nn8n can't guarantee static source IPs, as Cloud operates in a dynamic cloud provider environment and scales its infrastructure to meet demand. You should use strong authentication and secure transport protocols when connecting into and out of n8n.\n{% endhint %}\n\nOutbound traffic may appear to originate from any of:\n\n* 20.79.227.226/32\n* 20.113.47.122/32\n* 20.218.202.73/32\n* 98.67.233.91/32\n* 4.182.111.50/32\n* 4.182.129.20/32\n* 4.182.88.118/32\n* 4.182.212.136/32\n* 98.67.244.108/32\n* 72.144.128.145/32\n* 72.144.83.147/32\n* 72.144.69.38/32\n* 72.144.111.50/32\n* 4.182.128.108/32\n* 4.182.190.144/32\n* 4.182.191.184/32\n* 98.67.233.200/32\n* 20.52.126.0/28\n* 20.218.238.112/28\n* 4.182.64.64/28\n* 20.218.174.0/28\n* 4.184.78.240/28\n* 20.79.32.32/28\n* 51.116.119.64/28\n* 51.107.180.112/28\n* 4.165.103.112/28\n* 9.223.34.48/28\n* 20.240.204.176/28\n* 20.240.52.208/28\n",
-        "excerpt": "> For the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.n8n.io/deploy/use-n8n-cloud/configure-cloud/find-your-ip-addresses.md).  # Find your IP addresses  {% hint style=\"warning\" %} **Cloud IP addresses change without warning**  n8n can't guarantee static source IPs, as Cloud operates in a dynamic cloud provider environment and sc...",
-        "sections": [
-          {
-            "title": "Find your IP addresses",
-            "level": 1,
-            "content": "{% hint style=\"warning\" %}\n**Cloud IP addresses change without warning**\n\nn8n can't guarantee static source IPs, as Cloud operates in a dynamic cloud provider environment and scales its infrastructure to meet demand. You should use strong authentication and secure transport protocols when connecting into and out of n8n.\n{% endhint %}\n\nOutbound traffic may appear to originate from any of:\n\n* 20.79.227.226/32\n* 20.113.47.122/32\n* 20.218.202.73/32\n* 98.67.233.91/32\n* 4.182.111.50/32\n* 4.182.129.20/32\n* 4.182.88.118/32\n* 4.182.212.136/32\n* 98.67.244.108/32\n* 72.144.128.145/32\n* 72.144.83.147/32\n* 72.144.69.38/32\n* 72.144.111.50/32\n* 4.182.128.108/32\n* 4.182.190.144/32\n* 4.182.191.184/32\n* 98.67.233.200/32\n* 20.52.126.0/28\n* 20.218.238.112/28\n* 4.182.64.64/28\n* 20.218.174.0/28\n* 4.184.78.240/28\n* 20.79.32.32/28\n* 51.116.119.64/28\n* 51.107.180.112/28\n* 4.165.103.112/28\n* 9.223.34.48/28\n* 20.240.204.176/28\n* 20.240.52.208/28"
-          }
-        ]
-      },
-      "metadata": {
-        "keywords": [
-          "find",
-          "your",
-          "addresses"
-        ],
-        "useCases": [],
-        "operations": [],
-        "codeExamples": 0,
-        "complexity": "beginner",
-        "readingTime": "1 min",
-        "contentLength": 1255,
-        "relatedPages": []
-      },
-      "searchIndex": {
-        "fullText": "find your ip addresses > for the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). markdown versions of documentation pages are available by appending `.md` to page urls; this page is available as [markdown](https://docs.n8n.io/deploy/use-n8n-cloud/configure-cloud/find-your-ip-addresses.md).\n\n# find your ip addresses\n\n{% hint style=\"warning\" %}\n**cloud ip addresses change without warning**\n\nn8n can't guarantee static source ips, as cloud operates in a dynamic cloud provider environment and scales its infrastructure to meet demand. you should use strong authentication and secure transport protocols when connecting into and out of n8n.\n{% endhint %}\n\noutbound traffic may appear to originate from any of:\n\n* 20.79.227.226/32\n* 20.113.47.122/32\n* 20.218.202.73/32\n* 98.67.233.91/32\n* 4.182.111.50/32\n* 4.182.129.20/32\n* 4.182.88.118/32\n* 4.182.212.136/32\n* 98.67.244.108/32\n* 72.144.128.145/32\n* 72.144.83.147/32\n* 72.144.69.38/32\n* 72.144.111.50/32\n* 4.182.128.108/32\n* 4.182.190.144/32\n* 4.182.191.184/32\n* 98.67.233.200/32\n* 20.52.126.0/28\n* 20.218.238.112/28\n* 4.182.64.64/28\n* 20.218.174.0/28\n* 4.184.78.240/28\n* 20.79.32.32/28\n* 51.116.119.64/28\n* 51.107.180.112/28\n* 4.165.103.112/28\n* 9.223.34.48/28\n* 20.240.204.176/28\n* 20.240.52.208/28\n find your ip addresses",
-        "importantTerms": [
-          "addresses",
-          "cloud",
-          "find",
-          "your"
-        ]
-      }
-    },
-    {
-      "id": "page-0005",
       "title": "Deploy",
       "url": "https://docs.n8n.io/deploy/readme.md",
       "urlPath": "deploy/readme.md",
@@ -437,6 +303,140 @@
           "hosted",
           "infrastructure",
           "option"
+        ]
+      }
+    },
+    {
+      "id": "page-0003",
+      "title": "Use n8n Cloud",
+      "url": "https://docs.n8n.io/deploy/use-n8n-cloud.md",
+      "urlPath": "deploy/use-n8n-cloud.md",
+      "category": "other",
+      "subcategory": null,
+      "nodeName": null,
+      "nodeType": null,
+      "content": {
+        "markdown": "> For the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.n8n.io/deploy/use-n8n-cloud.md).\n\n# Use n8n Cloud\n\n{% content-ref url=\"/pages/ziS002yiEqmQSjXZALLO\" %}\n[Start your free trial](/deploy/use-n8n-cloud/start-your-free-trial.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/mHEBRlhziSCHqhGnNTXi\" %}\n[Use the admin dashboard](/deploy/use-n8n-cloud/use-the-admin-dashboard.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/CTls7DnN9awcFDKo7wiF\" %}\n[Update your version](/deploy/use-n8n-cloud/update-your-version.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/gkVnVHykpSXYXwX6ZqyT\" %}\n[Configure Cloud](/deploy/use-n8n-cloud/configure-cloud.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/9EfpVVUfKqLf574RAV8G\" %}\n[Understand concurrency](/deploy/use-n8n-cloud/understand-concurrency.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/x5mIP3TcjJQuKqSsEY4V\" %}\n[Download workflows](/deploy/use-n8n-cloud/download-workflows.md)\n{% endcontent-ref %}\n",
+        "excerpt": "> For the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.n8n.io/deploy/use-n8n-cloud.md).  # Use n8n Cloud  {% content-ref url=\"/pages/ziS002yiEqmQSjXZALLO\" %} [Start your free trial](/deploy/use-n8n-cloud/start-your-free-trial.md) {% endcontent-ref %}  {% content-ref url=\"/pages/mHEBRlhziSCHqhGnNTXi\" %} [Use the admin dashboard](/...",
+        "sections": [
+          {
+            "title": "Use n8n Cloud",
+            "level": 1,
+            "content": "{% content-ref url=\"/pages/ziS002yiEqmQSjXZALLO\" %}\n[Start your free trial](/deploy/use-n8n-cloud/start-your-free-trial.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/mHEBRlhziSCHqhGnNTXi\" %}\n[Use the admin dashboard](/deploy/use-n8n-cloud/use-the-admin-dashboard.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/CTls7DnN9awcFDKo7wiF\" %}\n[Update your version](/deploy/use-n8n-cloud/update-your-version.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/gkVnVHykpSXYXwX6ZqyT\" %}\n[Configure Cloud](/deploy/use-n8n-cloud/configure-cloud.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/9EfpVVUfKqLf574RAV8G\" %}\n[Understand concurrency](/deploy/use-n8n-cloud/understand-concurrency.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/x5mIP3TcjJQuKqSsEY4V\" %}\n[Download workflows](/deploy/use-n8n-cloud/download-workflows.md)\n{% endcontent-ref %}"
+          }
+        ]
+      },
+      "metadata": {
+        "keywords": [
+          "cloud"
+        ],
+        "useCases": [],
+        "operations": [],
+        "codeExamples": 0,
+        "complexity": "beginner",
+        "readingTime": "1 min",
+        "contentLength": 1134,
+        "relatedPages": []
+      },
+      "searchIndex": {
+        "fullText": "use n8n cloud > for the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). markdown versions of documentation pages are available by appending `.md` to page urls; this page is available as [markdown](https://docs.n8n.io/deploy/use-n8n-cloud.md).\n\n# use n8n cloud\n\n{% content-ref url=\"/pages/zis002yieqmqsjxzallo\" %}\n[start your free trial](/deploy/use-n8n-cloud/start-your-free-trial.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/mhebrlhzischqhgnntxi\" %}\n[use the admin dashboard](/deploy/use-n8n-cloud/use-the-admin-dashboard.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/ctls7dnn9awcfdko7wif\" %}\n[update your version](/deploy/use-n8n-cloud/update-your-version.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/gkvnvhykpsxyxwx6zqyt\" %}\n[configure cloud](/deploy/use-n8n-cloud/configure-cloud.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/9efpvvufkqlf574rav8g\" %}\n[understand concurrency](/deploy/use-n8n-cloud/understand-concurrency.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/x5mip3tcjjqukqssey4v\" %}\n[download workflows](/deploy/use-n8n-cloud/download-workflows.md)\n{% endcontent-ref %}\n use n8n cloud",
+        "importantTerms": [
+          "cloud",
+          "pages",
+          "deploy",
+          "content",
+          "endcontent",
+          "your"
+        ]
+      }
+    },
+    {
+      "id": "page-0004",
+      "title": "Configure Cloud",
+      "url": "https://docs.n8n.io/deploy/use-n8n-cloud/configure-cloud.md",
+      "urlPath": "deploy/use-n8n-cloud/configure-cloud.md",
+      "category": "other",
+      "subcategory": null,
+      "nodeName": null,
+      "nodeType": null,
+      "content": {
+        "markdown": "> For the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.n8n.io/deploy/use-n8n-cloud/configure-cloud.md).\n\n# Configure Cloud\n\n{% content-ref url=\"/pages/qexcPsKoWp0PmphCtIOv\" %}\n[Set your timezone](/deploy/use-n8n-cloud/configure-cloud/set-your-timezone.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/NZmg6WYBQuBaNYov8oZ2\" %}\n[Find your IP addresses](/deploy/use-n8n-cloud/configure-cloud/find-your-ip-addresses.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/NaSVSCb9naTK5SHxccJp\" %}\n[Manage your data](/deploy/use-n8n-cloud/configure-cloud/manage-your-data.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/N5MQTEz4LEwFO0gQ0C94\" %}\n[Change instance ownership or username](/deploy/use-n8n-cloud/configure-cloud/change-instance-ownership-or-username.md)\n{% endcontent-ref %}\n",
+        "excerpt": "> For the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.n8n.io/deploy/use-n8n-cloud/configure-cloud.md).  # Configure Cloud  {% content-ref url=\"/pages/qexcPsKoWp0PmphCtIOv\" %} [Set your timezone](/deploy/use-n8n-cloud/configure-cloud/set-your-timezone.md) {% endcontent-ref %}  {% content-ref url=\"/pages/NZmg6WYBQuBaNYov8oZ2\" %} [...",
+        "sections": [
+          {
+            "title": "Configure Cloud",
+            "level": 1,
+            "content": "{% content-ref url=\"/pages/qexcPsKoWp0PmphCtIOv\" %}\n[Set your timezone](/deploy/use-n8n-cloud/configure-cloud/set-your-timezone.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/NZmg6WYBQuBaNYov8oZ2\" %}\n[Find your IP addresses](/deploy/use-n8n-cloud/configure-cloud/find-your-ip-addresses.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/NaSVSCb9naTK5SHxccJp\" %}\n[Manage your data](/deploy/use-n8n-cloud/configure-cloud/manage-your-data.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/N5MQTEz4LEwFO0gQ0C94\" %}\n[Change instance ownership or username](/deploy/use-n8n-cloud/configure-cloud/change-instance-ownership-or-username.md)\n{% endcontent-ref %}"
+          }
+        ]
+      },
+      "metadata": {
+        "keywords": [
+          "configure",
+          "cloud"
+        ],
+        "useCases": [],
+        "operations": [],
+        "codeExamples": 0,
+        "complexity": "beginner",
+        "readingTime": "1 min",
+        "contentLength": 956,
+        "relatedPages": []
+      },
+      "searchIndex": {
+        "fullText": "configure cloud > for the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). markdown versions of documentation pages are available by appending `.md` to page urls; this page is available as [markdown](https://docs.n8n.io/deploy/use-n8n-cloud/configure-cloud.md).\n\n# configure cloud\n\n{% content-ref url=\"/pages/qexcpskowp0pmphctiov\" %}\n[set your timezone](/deploy/use-n8n-cloud/configure-cloud/set-your-timezone.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/nzmg6wybqubanyov8oz2\" %}\n[find your ip addresses](/deploy/use-n8n-cloud/configure-cloud/find-your-ip-addresses.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/nasvscb9natk5shxccjp\" %}\n[manage your data](/deploy/use-n8n-cloud/configure-cloud/manage-your-data.md)\n{% endcontent-ref %}\n\n{% content-ref url=\"/pages/n5mqtez4lewfo0gq0c94\" %}\n[change instance ownership or username](/deploy/use-n8n-cloud/configure-cloud/change-instance-ownership-or-username.md)\n{% endcontent-ref %}\n configure cloud",
+        "importantTerms": [
+          "cloud",
+          "configure",
+          "your",
+          "pages",
+          "deploy",
+          "content",
+          "endcontent"
+        ]
+      }
+    },
+    {
+      "id": "page-0005",
+      "title": "Find your IP addresses",
+      "url": "https://docs.n8n.io/deploy/use-n8n-cloud/configure-cloud/find-your-ip-addresses.md",
+      "urlPath": "deploy/use-n8n-cloud/configure-cloud/find-your-ip-addresses.md",
+      "category": "other",
+      "subcategory": null,
+      "nodeName": null,
+      "nodeType": null,
+      "content": {
+        "markdown": "> For the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.n8n.io/deploy/use-n8n-cloud/configure-cloud/find-your-ip-addresses.md).\n\n# Find your IP addresses\n\n{% hint style=\"warning\" %}\n**Cloud IP addresses change without warning**\n\nn8n can't guarantee static source IPs, as Cloud operates in a dynamic cloud provider environment and scales its infrastructure to meet demand. You should use strong authentication and secure transport protocols when connecting into and out of n8n.\n{% endhint %}\n\nOutbound traffic may appear to originate from any of:\n\n* 20.79.227.226/32\n* 20.113.47.122/32\n* 20.218.202.73/32\n* 98.67.233.91/32\n* 4.182.111.50/32\n* 4.182.129.20/32\n* 4.182.88.118/32\n* 4.182.212.136/32\n* 98.67.244.108/32\n* 72.144.128.145/32\n* 72.144.83.147/32\n* 72.144.69.38/32\n* 72.144.111.50/32\n* 4.182.128.108/32\n* 4.182.190.144/32\n* 4.182.191.184/32\n* 98.67.233.200/32\n* 20.52.126.0/28\n* 20.218.238.112/28\n* 4.182.64.64/28\n* 20.218.174.0/28\n* 4.184.78.240/28\n* 20.79.32.32/28\n* 51.116.119.64/28\n* 51.107.180.112/28\n* 4.165.103.112/28\n* 9.223.34.48/28\n* 20.240.204.176/28\n* 20.240.52.208/28\n",
+        "excerpt": "> For the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.n8n.io/deploy/use-n8n-cloud/configure-cloud/find-your-ip-addresses.md).  # Find your IP addresses  {% hint style=\"warning\" %} **Cloud IP addresses change without warning**  n8n can't guarantee static source IPs, as Cloud operates in a dynamic cloud provider environment and sc...",
+        "sections": [
+          {
+            "title": "Find your IP addresses",
+            "level": 1,
+            "content": "{% hint style=\"warning\" %}\n**Cloud IP addresses change without warning**\n\nn8n can't guarantee static source IPs, as Cloud operates in a dynamic cloud provider environment and scales its infrastructure to meet demand. You should use strong authentication and secure transport protocols when connecting into and out of n8n.\n{% endhint %}\n\nOutbound traffic may appear to originate from any of:\n\n* 20.79.227.226/32\n* 20.113.47.122/32\n* 20.218.202.73/32\n* 98.67.233.91/32\n* 4.182.111.50/32\n* 4.182.129.20/32\n* 4.182.88.118/32\n* 4.182.212.136/32\n* 98.67.244.108/32\n* 72.144.128.145/32\n* 72.144.83.147/32\n* 72.144.69.38/32\n* 72.144.111.50/32\n* 4.182.128.108/32\n* 4.182.190.144/32\n* 4.182.191.184/32\n* 98.67.233.200/32\n* 20.52.126.0/28\n* 20.218.238.112/28\n* 4.182.64.64/28\n* 20.218.174.0/28\n* 4.184.78.240/28\n* 20.79.32.32/28\n* 51.116.119.64/28\n* 51.107.180.112/28\n* 4.165.103.112/28\n* 9.223.34.48/28\n* 20.240.204.176/28\n* 20.240.52.208/28"
+          }
+        ]
+      },
+      "metadata": {
+        "keywords": [
+          "find",
+          "your",
+          "addresses"
+        ],
+        "useCases": [],
+        "operations": [],
+        "codeExamples": 0,
+        "complexity": "beginner",
+        "readingTime": "1 min",
+        "contentLength": 1255,
+        "relatedPages": []
+      },
+      "searchIndex": {
+        "fullText": "find your ip addresses > for the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). markdown versions of documentation pages are available by appending `.md` to page urls; this page is available as [markdown](https://docs.n8n.io/deploy/use-n8n-cloud/configure-cloud/find-your-ip-addresses.md).\n\n# find your ip addresses\n\n{% hint style=\"warning\" %}\n**cloud ip addresses change without warning**\n\nn8n can't guarantee static source ips, as cloud operates in a dynamic cloud provider environment and scales its infrastructure to meet demand. you should use strong authentication and secure transport protocols when connecting into and out of n8n.\n{% endhint %}\n\noutbound traffic may appear to originate from any of:\n\n* 20.79.227.226/32\n* 20.113.47.122/32\n* 20.218.202.73/32\n* 98.67.233.91/32\n* 4.182.111.50/32\n* 4.182.129.20/32\n* 4.182.88.118/32\n* 4.182.212.136/32\n* 98.67.244.108/32\n* 72.144.128.145/32\n* 72.144.83.147/32\n* 72.144.69.38/32\n* 72.144.111.50/32\n* 4.182.128.108/32\n* 4.182.190.144/32\n* 4.182.191.184/32\n* 98.67.233.200/32\n* 20.52.126.0/28\n* 20.218.238.112/28\n* 4.182.64.64/28\n* 20.218.174.0/28\n* 4.184.78.240/28\n* 20.79.32.32/28\n* 51.116.119.64/28\n* 51.107.180.112/28\n* 4.165.103.112/28\n* 9.223.34.48/28\n* 20.240.204.176/28\n* 20.240.52.208/28\n find your ip addresses",
+        "importantTerms": [
+          "addresses",
+          "cloud",
+          "find",
+          "your"
         ]
       }
     },
@@ -6369,6 +6369,51 @@
     },
     {
       "id": "page-0056",
+      "title": "Date",
+      "url": "https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/date.md",
+      "urlPath": "build/work-with-data/transform-data/expression-reference/date.md",
+      "category": "other",
+      "subcategory": null,
+      "nodeName": null,
+      "nodeType": null,
+      "content": {
+        "markdown": "> For the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/date.md).\n\n# Date\n\n## *`Date`*.**`toDateTime()`** <a href=\"#datetodatetime\" id=\"datetodatetime\"></a>\n\n**Description:** Converts a JavaScript Date to a Luxon DateTime. The DateTime contains the same information, but is easier to manipulate.\n\n**Syntax:** *`Date`*.toDateTime()\n\n**Returns:** DateTime\n\n**Source:** Custom n8n functionality\n\n**Examples:**\n\n```javascript\n// date = new Date(\"2024-03-30T18:49\")\ndate.toDateTime().plus(5, 'days') //=> 2024-04-04T18:49\n```\n",
+        "excerpt": "> For the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/date.md).  # Date  ## *`Date`*.**`toDateTime()`** <a href=\"#datetodatetime\" id=\"datetodatetime\"></a>  **Description:** Converts a JavaScript Date to a Luxon DateTime. The DateTime contains the same information, b...",
+        "sections": [
+          {
+            "title": "Date",
+            "level": 1,
+            "content": ""
+          }
+        ]
+      },
+      "metadata": {
+        "keywords": [
+          "date",
+          "*`date`*",
+          "**`todatetime()`**",
+          "href=\"#datetodatetime\"",
+          "id=\"datetodatetime\"></a>"
+        ],
+        "useCases": [],
+        "operations": [],
+        "codeExamples": 1,
+        "complexity": "beginner",
+        "readingTime": "1 min",
+        "contentLength": 753,
+        "relatedPages": []
+      },
+      "searchIndex": {
+        "fullText": "date > for the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). markdown versions of documentation pages are available by appending `.md` to page urls; this page is available as [markdown](https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/date.md).\n\n# date\n\n## *`date`*.**`todatetime()`** <a href=\"#datetodatetime\" id=\"datetodatetime\"></a>\n\n**description:** converts a javascript date to a luxon datetime. the datetime contains the same information, but is easier to manipulate.\n\n**syntax:** *`date`*.todatetime()\n\n**returns:** datetime\n\n**source:** custom n8n functionality\n\n**examples:**\n\n```javascript\n// date = new date(\"2024-03-30t18:49\")\ndate.todatetime().plus(5, 'days') //=> 2024-04-04t18:49\n```\n date",
+        "importantTerms": [
+          "date",
+          "todatetime",
+          "datetime"
+        ]
+      }
+    },
+    {
+      "id": "page-0057",
       "title": "Customdata",
       "url": "https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/customdata.md",
       "urlPath": "build/work-with-data/transform-data/expression-reference/customdata.md",
@@ -6452,51 +6497,6 @@
           "object",
           "easily",
           "setall"
-        ]
-      }
-    },
-    {
-      "id": "page-0057",
-      "title": "Date",
-      "url": "https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/date.md",
-      "urlPath": "build/work-with-data/transform-data/expression-reference/date.md",
-      "category": "other",
-      "subcategory": null,
-      "nodeName": null,
-      "nodeType": null,
-      "content": {
-        "markdown": "> For the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/date.md).\n\n# Date\n\n## *`Date`*.**`toDateTime()`** <a href=\"#datetodatetime\" id=\"datetodatetime\"></a>\n\n**Description:** Converts a JavaScript Date to a Luxon DateTime. The DateTime contains the same information, but is easier to manipulate.\n\n**Syntax:** *`Date`*.toDateTime()\n\n**Returns:** DateTime\n\n**Source:** Custom n8n functionality\n\n**Examples:**\n\n```javascript\n// date = new Date(\"2024-03-30T18:49\")\ndate.toDateTime().plus(5, 'days') //=> 2024-04-04T18:49\n```\n",
-        "excerpt": "> For the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/date.md).  # Date  ## *`Date`*.**`toDateTime()`** <a href=\"#datetodatetime\" id=\"datetodatetime\"></a>  **Description:** Converts a JavaScript Date to a Luxon DateTime. The DateTime contains the same information, b...",
-        "sections": [
-          {
-            "title": "Date",
-            "level": 1,
-            "content": ""
-          }
-        ]
-      },
-      "metadata": {
-        "keywords": [
-          "date",
-          "*`date`*",
-          "**`todatetime()`**",
-          "href=\"#datetodatetime\"",
-          "id=\"datetodatetime\"></a>"
-        ],
-        "useCases": [],
-        "operations": [],
-        "codeExamples": 1,
-        "complexity": "beginner",
-        "readingTime": "1 min",
-        "contentLength": 753,
-        "relatedPages": []
-      },
-      "searchIndex": {
-        "fullText": "date > for the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). markdown versions of documentation pages are available by appending `.md` to page urls; this page is available as [markdown](https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/date.md).\n\n# date\n\n## *`date`*.**`todatetime()`** <a href=\"#datetodatetime\" id=\"datetodatetime\"></a>\n\n**description:** converts a javascript date to a luxon datetime. the datetime contains the same information, but is easier to manipulate.\n\n**syntax:** *`date`*.todatetime()\n\n**returns:** datetime\n\n**source:** custom n8n functionality\n\n**examples:**\n\n```javascript\n// date = new date(\"2024-03-30t18:49\")\ndate.todatetime().plus(5, 'days') //=> 2024-04-04t18:49\n```\n date",
-        "importantTerms": [
-          "date",
-          "todatetime",
-          "datetime"
         ]
       }
     },
@@ -10260,59 +10260,6 @@
     },
     {
       "id": "page-0104",
-      "title": "Audit",
-      "url": "https://docs.n8n.io/connect/n8n-api/audit.md",
-      "urlPath": "connect/n8n-api/audit.md",
-      "category": "other",
-      "subcategory": null,
-      "nodeName": null,
-      "nodeType": null,
-      "content": {
-        "markdown": "> For the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.n8n.io/connect/n8n-api/audit.md).\n\n# Audit\n\nOperations about security audit\n\n## Generate an audit\n\n> Generate a security audit for your n8n instance.\n\n```json\n{\"openapi\":\"3.0.0\",\"info\":{\"title\":\"n8n Public API\",\"version\":\"1.1.1\"},\"tags\":[{\"name\":\"Audit\",\"description\":\"Operations about security audit\"}],\"servers\":[{\"url\":\"/api/v1\"}],\"security\":[{\"ApiKeyAuth\":[]},{\"BearerAuth\":[]}],\"components\":{\"securitySchemes\":{\"ApiKeyAuth\":{\"type\":\"apiKey\",\"in\":\"header\",\"name\":\"X-N8N-API-KEY\"},\"BearerAuth\":{\"type\":\"http\",\"scheme\":\"bearer\",\"bearerFormat\":\"JWT\"}},\"schemas\":{\"audit\":{\"type\":\"object\",\"properties\":{\"Credentials Risk Report\":{\"type\":\"object\"},\"Database Risk Report\":{\"type\":\"object\"},\"Filesystem Risk Report\":{\"type\":\"object\"},\"Nodes Risk Report\":{\"type\":\"object\"},\"Instance Risk Report\":{\"type\":\"object\"}}}},\"responses\":{\"unauthorized\":{\"description\":\"Unauthorized\"}}},\"paths\":{\"/audit\":{\"post\":{\"tags\":[\"Audit\"],\"summary\":\"Generate an audit\",\"description\":\"Generate a security audit for your n8n instance.\",\"requestBody\":{\"required\":false,\"content\":{\"application/json\":{\"schema\":{\"type\":\"object\",\"properties\":{\"additionalOptions\":{\"type\":\"object\",\"properties\":{\"daysAbandonedWorkflow\":{\"type\":\"integer\",\"description\":\"Days for a workflow to be considered abandoned if not executed\"},\"categories\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"credentials\",\"database\",\"nodes\",\"filesystem\",\"instance\"]}}}}}}}}},\"responses\":{\"200\":{\"description\":\"Operation successful.\",\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/audit\"}}}},\"401\":{\"$ref\":\"#/components/responses/unauthorized\"},\"500\":{\"description\":\"Internal server error.\"}}}}}}\n```\n",
-        "excerpt": "> For the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.n8n.io/connect/n8n-api/audit.md).  # Audit  Operations about security audit  ## Generate an audit  > Generate a security audit for your n8n instance.  ```json {\"openapi\":\"3.0.0\",\"info\":{\"title\":\"n8n Public API\",\"version\":\"1.1.1\"},\"tags\":[{\"name\":\"Audit\",\"description\":\"Operati...",
-        "sections": [
-          {
-            "title": "Audit",
-            "level": 1,
-            "content": "Operations about security audit"
-          }
-        ]
-      },
-      "metadata": {
-        "keywords": [
-          "audit",
-          "generate"
-        ],
-        "useCases": [],
-        "operations": [],
-        "codeExamples": 1,
-        "complexity": "beginner",
-        "readingTime": "1 min",
-        "contentLength": 1890,
-        "relatedPages": []
-      },
-      "searchIndex": {
-        "fullText": "audit > for the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). markdown versions of documentation pages are available by appending `.md` to page urls; this page is available as [markdown](https://docs.n8n.io/connect/n8n-api/audit.md).\n\n# audit\n\noperations about security audit\n\n## generate an audit\n\n> generate a security audit for your n8n instance.\n\n```json\n{\"openapi\":\"3.0.0\",\"info\":{\"title\":\"n8n public api\",\"version\":\"1.1.1\"},\"tags\":[{\"name\":\"audit\",\"description\":\"operations about security audit\"}],\"servers\":[{\"url\":\"/api/v1\"}],\"security\":[{\"apikeyauth\":[]},{\"bearerauth\":[]}],\"components\":{\"securityschemes\":{\"apikeyauth\":{\"type\":\"apikey\",\"in\":\"header\",\"name\":\"x-n8n-api-key\"},\"bearerauth\":{\"type\":\"http\",\"scheme\":\"bearer\",\"bearerformat\":\"jwt\"}},\"schemas\":{\"audit\":{\"type\":\"object\",\"properties\":{\"credentials risk report\":{\"type\":\"object\"},\"database risk report\":{\"type\":\"object\"},\"filesystem risk report\":{\"type\":\"object\"},\"nodes risk report\":{\"type\":\"object\"},\"instance risk report\":{\"type\":\"object\"}}}},\"responses\":{\"unauthorized\":{\"description\":\"unauthorized\"}}},\"paths\":{\"/audit\":{\"post\":{\"tags\":[\"audit\"],\"summary\":\"generate an audit\",\"description\":\"generate a security audit for your n8n instance.\",\"requestbody\":{\"required\":false,\"content\":{\"application/json\":{\"schema\":{\"type\":\"object\",\"properties\":{\"additionaloptions\":{\"type\":\"object\",\"properties\":{\"daysabandonedworkflow\":{\"type\":\"integer\",\"description\":\"days for a workflow to be considered abandoned if not executed\"},\"categories\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"credentials\",\"database\",\"nodes\",\"filesystem\",\"instance\"]}}}}}}}}},\"responses\":{\"200\":{\"description\":\"operation successful.\",\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/audit\"}}}},\"401\":{\"$ref\":\"#/components/responses/unauthorized\"},\"500\":{\"description\":\"internal server error.\"}}}}}}\n```\n audit",
-        "importantTerms": [
-          "audit",
-          "type",
-          "object",
-          "description",
-          "security",
-          "risk",
-          "report",
-          "generate",
-          "instance",
-          "json",
-          "components",
-          "properties",
-          "responses",
-          "unauthorized"
-        ]
-      }
-    },
-    {
-      "id": "page-0105",
       "title": "Execution",
       "url": "https://docs.n8n.io/connect/n8n-api/execution.md",
       "urlPath": "connect/n8n-api/execution.md",
@@ -10408,7 +10355,7 @@
       }
     },
     {
-      "id": "page-0106",
+      "id": "page-0105",
       "title": "Workflow",
       "url": "https://docs.n8n.io/connect/n8n-api/workflow.md",
       "urlPath": "connect/n8n-api/workflow.md",
@@ -10508,6 +10455,59 @@
           "project",
           "connections",
           "json"
+        ]
+      }
+    },
+    {
+      "id": "page-0106",
+      "title": "Audit",
+      "url": "https://docs.n8n.io/connect/n8n-api/audit.md",
+      "urlPath": "connect/n8n-api/audit.md",
+      "category": "other",
+      "subcategory": null,
+      "nodeName": null,
+      "nodeType": null,
+      "content": {
+        "markdown": "> For the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.n8n.io/connect/n8n-api/audit.md).\n\n# Audit\n\nOperations about security audit\n\n## Generate an audit\n\n> Generate a security audit for your n8n instance.\n\n```json\n{\"openapi\":\"3.0.0\",\"info\":{\"title\":\"n8n Public API\",\"version\":\"1.1.1\"},\"tags\":[{\"name\":\"Audit\",\"description\":\"Operations about security audit\"}],\"servers\":[{\"url\":\"/api/v1\"}],\"security\":[{\"ApiKeyAuth\":[]},{\"BearerAuth\":[]}],\"components\":{\"securitySchemes\":{\"ApiKeyAuth\":{\"type\":\"apiKey\",\"in\":\"header\",\"name\":\"X-N8N-API-KEY\"},\"BearerAuth\":{\"type\":\"http\",\"scheme\":\"bearer\",\"bearerFormat\":\"JWT\"}},\"schemas\":{\"audit\":{\"type\":\"object\",\"properties\":{\"Credentials Risk Report\":{\"type\":\"object\"},\"Database Risk Report\":{\"type\":\"object\"},\"Filesystem Risk Report\":{\"type\":\"object\"},\"Nodes Risk Report\":{\"type\":\"object\"},\"Instance Risk Report\":{\"type\":\"object\"}}}},\"responses\":{\"unauthorized\":{\"description\":\"Unauthorized\"}}},\"paths\":{\"/audit\":{\"post\":{\"tags\":[\"Audit\"],\"summary\":\"Generate an audit\",\"description\":\"Generate a security audit for your n8n instance.\",\"requestBody\":{\"required\":false,\"content\":{\"application/json\":{\"schema\":{\"type\":\"object\",\"properties\":{\"additionalOptions\":{\"type\":\"object\",\"properties\":{\"daysAbandonedWorkflow\":{\"type\":\"integer\",\"description\":\"Days for a workflow to be considered abandoned if not executed\"},\"categories\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"credentials\",\"database\",\"nodes\",\"filesystem\",\"instance\"]}}}}}}}}},\"responses\":{\"200\":{\"description\":\"Operation successful.\",\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/audit\"}}}},\"401\":{\"$ref\":\"#/components/responses/unauthorized\"},\"500\":{\"description\":\"Internal server error.\"}}}}}}\n```\n",
+        "excerpt": "> For the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.n8n.io/connect/n8n-api/audit.md).  # Audit  Operations about security audit  ## Generate an audit  > Generate a security audit for your n8n instance.  ```json {\"openapi\":\"3.0.0\",\"info\":{\"title\":\"n8n Public API\",\"version\":\"1.1.1\"},\"tags\":[{\"name\":\"Audit\",\"description\":\"Operati...",
+        "sections": [
+          {
+            "title": "Audit",
+            "level": 1,
+            "content": "Operations about security audit"
+          }
+        ]
+      },
+      "metadata": {
+        "keywords": [
+          "audit",
+          "generate"
+        ],
+        "useCases": [],
+        "operations": [],
+        "codeExamples": 1,
+        "complexity": "beginner",
+        "readingTime": "1 min",
+        "contentLength": 1890,
+        "relatedPages": []
+      },
+      "searchIndex": {
+        "fullText": "audit > for the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). markdown versions of documentation pages are available by appending `.md` to page urls; this page is available as [markdown](https://docs.n8n.io/connect/n8n-api/audit.md).\n\n# audit\n\noperations about security audit\n\n## generate an audit\n\n> generate a security audit for your n8n instance.\n\n```json\n{\"openapi\":\"3.0.0\",\"info\":{\"title\":\"n8n public api\",\"version\":\"1.1.1\"},\"tags\":[{\"name\":\"audit\",\"description\":\"operations about security audit\"}],\"servers\":[{\"url\":\"/api/v1\"}],\"security\":[{\"apikeyauth\":[]},{\"bearerauth\":[]}],\"components\":{\"securityschemes\":{\"apikeyauth\":{\"type\":\"apikey\",\"in\":\"header\",\"name\":\"x-n8n-api-key\"},\"bearerauth\":{\"type\":\"http\",\"scheme\":\"bearer\",\"bearerformat\":\"jwt\"}},\"schemas\":{\"audit\":{\"type\":\"object\",\"properties\":{\"credentials risk report\":{\"type\":\"object\"},\"database risk report\":{\"type\":\"object\"},\"filesystem risk report\":{\"type\":\"object\"},\"nodes risk report\":{\"type\":\"object\"},\"instance risk report\":{\"type\":\"object\"}}}},\"responses\":{\"unauthorized\":{\"description\":\"unauthorized\"}}},\"paths\":{\"/audit\":{\"post\":{\"tags\":[\"audit\"],\"summary\":\"generate an audit\",\"description\":\"generate a security audit for your n8n instance.\",\"requestbody\":{\"required\":false,\"content\":{\"application/json\":{\"schema\":{\"type\":\"object\",\"properties\":{\"additionaloptions\":{\"type\":\"object\",\"properties\":{\"daysabandonedworkflow\":{\"type\":\"integer\",\"description\":\"days for a workflow to be considered abandoned if not executed\"},\"categories\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"credentials\",\"database\",\"nodes\",\"filesystem\",\"instance\"]}}}}}}}}},\"responses\":{\"200\":{\"description\":\"operation successful.\",\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/audit\"}}}},\"401\":{\"$ref\":\"#/components/responses/unauthorized\"},\"500\":{\"description\":\"internal server error.\"}}}}}}\n```\n audit",
+        "importantTerms": [
+          "audit",
+          "type",
+          "object",
+          "description",
+          "security",
+          "risk",
+          "report",
+          "generate",
+          "instance",
+          "json",
+          "components",
+          "properties",
+          "responses",
+          "unauthorized"
         ]
       }
     },
@@ -15442,7 +15442,7 @@
       "nodeName": null,
       "nodeType": null,
       "content": {
-        "markdown": "> For the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.n8n.io/changelog/changelog.md).\n\n# Changelog\n\nEvery n8n release moves the platform forward. The changelog is where we call out the changes that matter most to the technical teams who build on n8n: new capabilities, more control over how your workflows run, and clearer visibility into what they're actually doing. Each entry is tied to the version it shipped in, newest first, and written to stand on its own, so it's easy to share the one update your team has been waiting for.\n\n{% hint style=\"info\" %}\nFor complete, version-by-version detail on every release, see the [Releases page](https://github.com/n8n-io/n8n/releases) on GitHub. This changelog covers stable n8n 2.x releases onward; release notes for [1.x](/changelog/release-notes-1.x.md) and [0.x](/changelog/release-notes-0.x.md) remain archived.\n{% endhint %}\n\n{% hint style=\"info\" %}\n**Stable and Beta versions**\n\nn8n releases a new minor version most weeks. The `stable` version is for production use. `beta` is the most recent release. The `beta` version may be unstable. To report issues, use the [forum](https://community.n8n.io/c/questions/12).\n\nCurrent `stable`: 2.28.5 Current `beta`: 2.29.3\n{% endhint %}\n\n### n8n 2.22 — Connect to MCP servers with less setup\n\n**Released:** 2026-05-19\n\nConnect your agent to select MCP servers without setting up an [MCP Client node](/integrations/builtin/core-nodes/n8n-nodes-langchain.mcpclient.md) and credential by hand. Pick a server from the nodes panel, sign in, and it's available to your agent.\n\nInitial coverage includes some of the most-used services in the official MCP registry — Apify, Linear, monday.com, Notion, and PostHog — and we'll expand the list to cover more services soon.\n\nIf you need to connect to an MCP server that isn't in the list, you can still use the [MCP Client node](/integrations/builtin/core-nodes/n8n-nodes-langchain.mcpclient.md) with manual configuration.\n\n{% embed url=\"<https://youtu.be/RGhHFbLMXhQ>\" %}\nConnect to MCP servers with less setup\n{% endembed %}\n\n#### OpenTelemetry custom telemetry tags\n\nYou can now attach custom span attributes to OpenTelemetry traces at the node, workflow, and project level, letting you filter and group execution spans by tenant, environment, customer ID, or any other dimension. Attribute values support expressions, so they can pull live data from webhook payloads or API responses at runtime rather than relying on hardcoded values. Configure tags in node or workflow settings when tracing is enabled (`N8N_OTEL_ENABLED=true`).\n\nLearn more in the [documentation](https://docs.n8n.io/deploy/host-n8n/keep-n8n-running/trace-executions-with-opentelemetry#custom-span-attributes).\n\n{% hint style=\"info\" %}\n**Availability:** Enterprise.\n{% endhint %}\n\n### n8n 2.20 — Microsoft Agent 365 Trigger node\n\n**Released:** 2026-05-05\n\n#### Microsoft Agent 365 Trigger node\n\nThe [Microsoft Agent 365 Trigger node](/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.microsoftagent365trigger.md) lets you build n8n agents that show up as members of your team inside Microsoft 365 apps. Once deployed, your agent gets its own identity in your Microsoft tenant, with an email address you can @mention in Teams, send email to, or grant SharePoint permissions to — just like a teammate.\n\n<figure><img src=\"/files/qwoBDB1dcybIvDHL6jPB\" alt=\"A Microsoft Agent 365 Trigger node with a chat model, memory, and tools across Zendesk, Salesforce, PagerDuty, Datadog, and a sub-workflow.\"><figcaption><p>A Microsoft Agent 365 Trigger node with a chat model, memory, and tools across<br>Zendesk, Salesforce, PagerDuty, Datadog, and a sub-workflow.</p></figcaption></figure>\n\nYou build the agent in n8n using the trigger node: add a system prompt and give it access to tools, MCP servers, and your existing workflows using [sub-workflows as tools](/build/flow-logic/break-workflows-into-smaller-parts.md). You then set the agent up on the Microsoft side, which gives it an Entra ID identity with an email address. Microsoft handles identity, lifecycle, security, and compliance (via Entra ID, Purview, and Defender); n8n handles workflow-level governance like RBAC, credential management, and execution logs.\n\nIf you already use n8n with Microsoft services through individual nodes (Outlook, Teams, SharePoint, and so on), those workflows continue to work as before. Agent 365 is a new path for teams that want their agents to show up *inside* Microsoft apps and interact like a member of the team. The node requires a Microsoft 365 tenant.\n\nFor the full launch story, see the [n8n blog post](https://blog.n8n.io/deploy-n8n-agents-that-show-up-as-members-of-the-team-inside-microsoft-apps/).\n\n#### Insights data duration\n\nSelf-hosted instances can now retain insights data for up to 365 days by default, with a configurable maximum of 730 days. Retention is controlled by the new `N8N_INSIGHTS_MAX_AGE_DAYS` environment variable and is no longer tied to license logic. See the [insights docs](/administer/observe-and-log/track-usage-with-insights.md).\n\n### n8n 2.19 — IdP role mapping and instance bootstrapping (Enterprise)\n\n**Released:** 2026-04-28\n\n#### IdP role mapping inside n8n\n\nInstance admins can now define group-to-role mappings inside n8n instead of encoding n8n-specific role logic in the IdP. With JIT provisioning enabled, admins write expressions against SAML attributes or OIDC claims to assign instance and project roles automatically at login. The IdP only needs to send standard group membership data: n8n handles the mapping, and role assignments are re-evaluated on every login, so access stays in sync without IdP changes.\n\nOpen **Settings → SSO**, pick **Instance roles via SSO** or **Instance and project roles via SSO** under User role provisioning, switch the mapping card from \"Map rules on your IdP\" to \"Map rules inside n8n\", and add expressions using the `$claims` object to match users for each role. Expression-based matching handles non-standard group structures that plain string matching can't reach.\n\n{% hint style=\"info\" %}\n**Availability:** Enterprise and Business.\n{% endhint %}\n\n#### Instance bootstrapping\n\nn8n can now be fully configured at startup through environment variables. Owner accounts, SSO (OIDC and SAML), security policies, and log streaming destinations are all applied on first boot, with no manual UI interaction required. Fields managed this way are locked in the UI and re-applied on every restart.\n\nThis makes deployment configuration the single source of truth, so you can stand up a fully configured instance from a single Helm chart or Docker Compose file, including SSO and security policy, before any user logs in.\n\n{% hint style=\"info\" %}\n**Availability:** Enterprise.\n{% endhint %}\n\n### n8n 2.16 — Embedded access and execution data redaction (Enterprise)\n\n**Released:** 2026-04-07\n\n#### Token exchange authentication for embedded access\n\nn8n now supports OAuth 2.0 Token Exchange (RFC 8693) as a second authentication mechanism alongside API keys. Two scenarios are covered: seamless iframe embedding, where users see n8n inside another product without a separate login screen, and delegated API access, where a system acts on behalf of a user with full audit attribution.\n\nThe embedding system holds an asymmetric private key and signs short-lived JWTs with user identity claims. n8n verifies the signature using the configured public key, just-in-time provisions the user on first encounter, and issues a session cookie or scoped API token depending on the flow. Both subject and actor are preserved in the audit trail, so every action shows both who requested it and who performed it.\n\n{% hint style=\"info\" %}\n**Availability:** Enterprise. Requires an asymmetric key pair configured via `N8N_TOKEN_EXCHANGE_TRUSTED_KEYS`. Uses role-based scoping.\n{% endhint %}\n\n#### Execution data redaction\n\nInstance and project admins can now redact execution data. When enabled, sensitive data from production runs is never displayed in the UI, and isn't fetched from the database until a user with the reveal permission explicitly requests it. Manual executions can be left fully visible so developers can keep building and debugging without interruption. Every reveal is logged as an audit event.\n\nRedaction is configured per workflow under **Workflow settings**, and reveal access is granted via project or instance settings to specific users only. See the [execution data redaction docs](/deploy/host-n8n/configure-n8n/security/redact-execution-data.md).\n\n{% hint style=\"info\" %}\n**Availability:** Enterprise.\n{% endhint %}\n\n#### Public API improvements\n\n* **Community packages.** Install, list, update, and uninstall community packages programmatically through new endpoints under `/api/v1/community-packages`. Each operation requires an API key with the matching `communityPackage:*` scope.\n* **Insights scope.** A new `insights:read` API key scope, setting up the insights summary endpoint that ships in v2.17.\n\n### n8n 2.15 — OpenTelemetry support for workflows\n\n**Released:** 2026-03-30\n\nn8n now emits OpenTelemetry traces for workflow executions. Runs become traces in your existing OpenTelemetry backend, with no sidecars, custom exporters, or timing hacks. Teams already using Jaeger, Datadog, Grafana Tempo, Honeycomb, New Relic, or Splunk see n8n alongside everything else they observe.\n\nEach execution appears as a root trace span with workflow ID, name, execution ID, status, duration, node count, and project info as span attributes. Failed runs surface error details on the span, so you can search and alert on workflow failures from the same tools that watch the rest of your stack.\n\nEnable by pointing n8n at any OTLP-compatible collector. Minimum config is two environment variables:\n\n```\nN8N_OTEL_ENABLED=true\nN8N_OTEL_EXPORTER_OTLP_ENDPOINT=http://your-collector:4318\n```\n\nStandard OTel variables (`OTEL_EXPORTER_OTLP_ENDPOINT`, `OTEL_SERVICE_NAME`) are also respected.\n\nThis is the foundational T1 feature. It was extended across later releases: node-level spans (v2.16), workflow version IDs in spans and distributed trace context propagation (v2.18 to v2.19), and AI Agent telemetry (v2.20).\n\n{% hint style=\"info\" %}\n**Availability:** Free, Pro, and Enterprise.\n{% endhint %}\n\n### n8n 2.13 — Visual diff in version history\n\n**Released:** 2026-03-16\n\n#### Visual diff comes to version history\n\nOpen version history, click **Compare changes**, pick any two versions, and the canvas renders both side by side with changed nodes highlighted. A change count badge on each version helps you spot significant edits at a glance.\n\nVisual diff is available on Cloud Pro and above.\n\n#### Project-scoped external secrets: full team access (Enterprise)\n\nWhat's new:\n\n* Project admins manage their own vault connections from project settings.\n* Project editors can use project-scoped secrets in credentials once the instance admin enables access.\n* [Custom roles](/administer/manage-users-and-access/set-permissions-and-roles-rbac/create-custom-roles.md) now include five secrets scopes: list, read, create, update, and delete.\n* Instance admins/owners no longer need to be project members for secrets to resolve.\n\n**For instance admins:** go to **Settings > External Secrets** and enable the **System Roles** toggle, or use custom roles for more granular control.\n\n**For project admins:** go to **Project Settings > External Secrets** to create and manage project-level connections. Instance-level connections shared with you appear as read-only.\n\nRefer to [External secrets](/administer/manage-credentials/use-external-secret-stores.md) for more information.\n\n{% hint style=\"info\" %}\n**Availability:** Enterprise.\n{% endhint %}\n\n#### Folder-based filtering in the push and pull dialog (Enterprise)\n\nThe push and pull dialogs now include a **Folder** filter alongside Status and Owner. Selecting a folder scopes the list to workflows in that folder and its subfolders, shown as a hierarchical tree with folder-level checkboxes. Text search also matches folder names.\n\n{% hint style=\"info\" %}\n**Availability:** Enterprise. Requires [Environments](/administer/use-source-control-and-environments/set-up-source-control.md) configured.\n{% endhint %}\n\n### n8n 2.12 — 1Password as an external secrets provider (Enterprise)\n\n**Released:** 2026-03-09\n\nn8n now supports 1Password Connect Server as an [external secrets](/administer/manage-credentials/use-external-secret-stores.md) provider, alongside HashiCorp Vault, AWS Secrets Manager, Azure Key Vault, and GCP Secret Manager.\n\nSecrets are fetched at runtime and never stored in n8n: 1Password stays the single source of truth. Multi-field items are available as structured sub-paths: `$secrets.<vault>.<item>.<field>`.\n\n**How to connect:**\n\n1. Deploy a 1Password Connect Server and create an access token scoped to the vaults n8n should read.\n2. In n8n, go to **Settings > External Secrets**, select **1Password**, and enter your Connect Server URL and token.\n\nRequires a self-hosted 1Password Connect Server with read-only access.\n\n{% hint style=\"info\" %}\n**Availability:** Enterprise.\n{% endhint %}\n\n### n8n 2.11 — Easier credential setup on Cloud\n\n**Released:** 2026-03-02\n\n#### Easier credential setup on Cloud\n\nSetting up credentials on n8n Cloud is now much simpler. For supported services, just click the **Connect** button, authenticate with the service, and you're ready to go. Skip the manual setup for Slack, Firecrawl, HubSpot, GitHub, Google Calendar, PagerDuty, Apify, and more.\n\n<figure><img src=\"/files/FNUjzT02y09jLQ5IOIT3\" alt=\"Setting up Slack credentials with managed OAuth\"><figcaption><p>Setting up Slack credentials with managed OAuth</p></figcaption></figure>\n\nThings to keep in mind:\n\n* If you prefer to use your own OAuth configuration, you can still switch to manual setup from the auth mode dropdown at any time.\n* This feature is only available on n8n Cloud, where n8n manages the OAuth apps on your behalf.\n\n#### Custom roles: Assignments tab (Enterprise)\n\nInstance admins now have a dedicated **Assignments** tab on each [custom role](/administer/manage-users-and-access/set-permissions-and-roles-rbac/create-custom-roles.md) showing every user assigned to that role, which project they're in, and a direct link to manage them — no more navigating project by project.\n\n#### Project-scoped external secrets: instance admin setup (Enterprise)\n\nInstance admins can now create vault connections scoped to a specific project. Secrets from that connection appear only within that project's credentials, not across the instance. Instance-level connections are unaffected. Refer to [External secrets](/administer/manage-credentials/use-external-secret-stores.md) for more information.\n\n#### Workflow execute as a separate permission scope (Enterprise)\n\n`workflow:execute` is now a distinct scope in [custom project roles](/administer/manage-users-and-access/set-permissions-and-roles-rbac/create-custom-roles.md), separate from editing and publishing. Users can be granted run access without being able to modify the workflow, which is a common compliance requirement for sensitive workflows.\n\n{% hint style=\"info\" %}\n**Availability:** Custom roles and project-scoped external secrets are available on n8n Enterprise.\n{% endhint %}\n\n### n8n 2.8 — Personal space policies and finer-grained governance (Enterprise)\n\n**Released:** 2026-02-09 – 2026-02-13 (2.8.0–2.8.3)\n\n#### Personal space policies\n\n*Released in 2.8.3 (2026-02-13).*\n\nA new **Security & policies** settings section provides a central place for enforcing security requirements on your instance. In addition to the existing two-factor authentication enforcement, admins can now control what users can do in their personal spaces.\n\nAvailable policies include:\n\n* **Sharing**: control whether users can share workflows and credentials from their personal space.\n* **Workflow publishing**: control whether users can publish workflows from their personal space.\n\nThis release builds on recent updates to the permissions model, including [custom project roles](/administer/manage-users-and-access/set-permissions-and-roles-rbac/create-custom-roles.md), to better support policy-driven governance.\n\n<figure><img src=\"/files/UneTmkWDZKdwHrBMb0zt\" alt=\"The new Security &#x26; policies settings section\"><figcaption><p>The new Security &#x26; policies settings section</p></figcaption></figure>\n\n#### Custom roles: improved discoverability and permission visibility\n\n*Released in 2.8.3 (2026-02-13).*\n\nThe project role selector now separates built-in system roles and custom roles into distinct sections, making it easier to find and choose the right role. Hovering over a role shows a summary of its configured permissions, with an option to view the full permission details.\n\n<figure><img src=\"/files/rvrR31x9okcSoH6QNSoP\" alt=\"System roles and custom roles are now displayed in separate sections\"><figcaption><p>System roles and custom roles are now displayed in separate sections</p></figcaption></figure>\n\n#### Stronger external secrets validation\n\n*Released in 2.8.0 (2026-02-09).*\n\nn8n now verifies that the current user has access to the referenced vaults before allowing a credential that uses `$secrets...` expressions to be saved. If access is missing, the save operation fails. This prevents secret values from being exposed through guessed secret paths.\n\n#### Improved API auditability\n\n*Released in 2.8.0 (2026-02-09).*\n\nAPI endpoints have been expanded to provide clearer visibility into project membership and credentials:\n\n* `GET /projects/{projectId}/users` returns all members of a project including their assigned role.\n* `GET /credentials` returns a paginated list of all credentials across the instance, including the project they belong to.\n\nThis makes it easier to audit who has access to which projects and credentials without manually reviewing each one in the UI.\n\n#### More granular workflow permissions\n\n*Released in 2.8.0 (2026-02-09).*\n\nWorkflow publishing permissions for [custom roles](/administer/manage-users-and-access/set-permissions-and-roles-rbac/create-custom-roles.md) have been split into two separate scopes: `workflow:publish` and `workflow:unpublish`. This enables more precise access control in governance scenarios where unpublishing needs to be managed independently.\n\n{% hint style=\"info\" %}\n**Availability:** Personal space policies, custom roles, stronger external secrets validation, and improved API auditability are available on n8n Enterprise.\n{% endhint %}\n\n### n8n 2.6 — Human-in-the-loop for AI tool calls\n\n**Released:** 2026-01-26\n\nYou can now require explicit human approval before an AI Agent executes specific tools.\n\nHuman-in-the-loop (HITL) for AI tool calls enforces review directly at the tool level. A gated tool cannot execute unless a human explicitly approves the action, giving you deterministic control over high-impact operations like deleting records, writing to production systems, or sending high-impact emails. This removes the uncertainty of prompt-based safeguards and insulates you from probabilistic agent behavior.\n\nBecause the review step is implemented using standard n8n integrations, approvals are not limited to a single user or interface. Decisions can be routed across people and systems, enforcing approval from the right person using the channels they already work in.\n\n**What you can do:**\n\n* Require explicit human approval for any tool the agent can call, including the MCP Client tool or sub-workflows exposed as tools.\n* Apply approval selectively, so some tools execute autonomously while others require review.\n* Route approvals across users and channels (for example, send a Slack-initiated action for approval by another user via email).\n* Add safety checks for high-impact or potentially destructive operations without complex workflow patterns or brittle prompt logic.\n\n**How to use it:** on the connection from the AI Agent to the tool you want to gate, click the **+** icon and choose **Add human review step**. The Tools panel opens with nodes you can use to handle the review; select one and configure the approver, the message, and the available actions.\n\nGet precise control over where human judgment is required, without limiting what your agent can do. Learn more in the [human-in-the-loop tools docs](/build/integrate-ai/ai-examples/human-in-the-loop-for-tools.md).\n\n{% embed url=\"<https://youtu.be/B-_nIFI27VY>\" %}\nHuman in the loop for AI tool calls\n{% endembed %}\n\n### n8n 2.5 — Chat node: human-in-the-loop actions\n\n**Released:** 2026-01-20\n\nThe **Chat** node now includes two new actions for human-in-the-loop interactions in agentic workflows:\n\n* **Send a message**: send a message to the user and continue the workflow.\n* **Send a message and wait for response**: send a message and pause execution until the user replies. Users can respond with free text in the Chat or by clicking inline approval buttons, as defined in the node's configuration.\n\nThese actions can be used as deterministic workflow steps or as tools for an **AI Agent**, enabling multi-turn human interaction within a single execution when using the **Chat Trigger**.\n\nWhen used as an agent tool, the agent can ask for clarification before proceeding, helping it better interpret user intent and follow instructions. Agents can also send updates during long-running workflows using these actions.\n\n**How to:**\n\n1. Trigger your workflow with the **Chat Trigger** node. In the node parameters, add the *Response Mode* option and set it to *Using Response Nodes*.\n2. Add a **Chat** node later in the workflow, or add it as a tool for an **AI Agent**. Select one of the operations: *Send a message* or *Send a message and wait for response*.\n\nKeep in mind: if you want an AI Agent to choose between sending a message or waiting for input, add two **Chat** tool nodes, one for each action. For AI Agents triggered by the **Chat Trigger** node, adding **Send a message and wait for response** is recommended so the agent can request clarification when needed.\n\nLearn more in the [Chat node documentation](/integrations/builtin/core-nodes/n8n-nodes-langchain.chat.md#operation).\n\n{% embed url=\"<https://youtu.be/CpFqawY0RCc>\" %}\nHuman in the loop for the Chat node\n{% endembed %}\n\n### n8n 2.4 — TLS for Syslog log streaming and credential updates via API\n\n**Released:** 2026-01-12\n\n#### TLS support for Syslog log streaming\n\nThe Syslog log streaming destination now supports TLS over TCP for encrypted connections. This enables secure log streaming to enterprise SIEM and observability platforms that require encrypted transport. With this release, log streaming is now compatible with a broader range of enterprise SIEM platforms.\n\n#### Update credentials via API\n\nn8n's public API now supports updating existing credentials by ID via a new `PATCH /credentials/:id` endpoint. Previously, credentials could only be created through the API, so any changes required deleting and recreating the credential.\n\nWhen updating, you can either replace all credential data at once (useful for bulk updates) or set `isPartialData: true` to merge changes with existing data. Ideal for automated secret rotation or fixing individual values without losing your configuration.\n\n### n8n 2.2 — Finer-grained workflow permissions and richer audit events\n\n**Released:** 2025-12-22\n\n#### More granular workflow permissions within Custom Project Roles (Enterprise)\n\nCustom Project Roles allow you to define fine-grained permissions at the project level. With this release, workflow permissions have been further refined by separating workflow editing from workflow publishing.\n\nThis change makes it easier to align access controls with internal processes where building workflows and publishing them are handled by different users or teams.\n\n<figure><img src=\"/files/uzwyxZJ7vPHjtagwyeAf\" alt=\"Custom Project Roles\"><figcaption><p>Custom Project Roles</p></figcaption></figure>\n\n#### Log streaming: more audit events for improved observability\n\nLog streaming now includes additional audit events to improve visibility into operational and security-relevant changes.\n\nThis update adds events for manual workflow cancellations and workflow activation/deactivation (publish/unpublish), variable lifecycle events (create/update/delete), and user management actions (including enabling/disabling 2FA).\n\nWorkflow settings updates are also logged with the specific parameters that changed (for example, selecting a new error workflow), instead of a generic \"updated\" event.\n\n### n8n 2.1 — Time Saved node\n\n**Released:** 2025-12-16\n\nPreviously, teams could only track a single fixed time saved value for each workflow regardless of which path an execution takes. The new Time Saved node enables more precise time savings calculations where different execution paths save different amounts of time.\n\nWith this release you can now:\n\n* **Choose fixed value or dynamic time tracking**: use a fixed time saved value for simple workflows, or use one or many Time Saved nodes to calculate savings dynamically based on the actual execution path taken.\n* **Configure per-item calculations**: when using the Time Saved node, choose whether to calculate time saved once for all items or multiply by the number of items processed.\n\n<figure><img src=\"/files/BYuYuT7ZH061ZV8YcLmn\" alt=\"Time saved node in a workflow\"><figcaption><p>Time saved node in a workflow</p></figcaption></figure>\n\nn8n automatically totals the time from all Time Saved nodes executed during each workflow run and reports it within the insights dashboard.\n\n<figure><img src=\"/files/to4nkZFckragOLKnsQ5a\" alt=\"\"><figcaption><p>Total time saved calculation</p></figcaption></figure>\n",
+        "markdown": "> For the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.n8n.io/changelog/changelog.md).\n\n# Changelog\n\nEvery n8n release moves the platform forward. The changelog is where we call out the changes that matter most to the technical teams who build on n8n: new capabilities, more control over how your workflows run, and clearer visibility into what they're actually doing. Each entry is tied to the version it shipped in, newest first, and written to stand on its own, so it's easy to share the one update your team has been waiting for.\n\n{% hint style=\"info\" %}\nFor complete, version-by-version detail on every release, see the [Releases page](https://github.com/n8n-io/n8n/releases) on GitHub. This changelog covers stable n8n 2.x releases onward; release notes for [1.x](/changelog/release-notes-1.x.md) and [0.x](/changelog/release-notes-0.x.md) remain archived.\n{% endhint %}\n\n{% hint style=\"info\" %}\n**Stable and Beta versions**\n\nn8n releases a new minor version most weeks. The `stable` version is for production use. `beta` is the most recent release. The `beta` version may be unstable. To report issues, use the [forum](https://community.n8n.io/c/questions/12).\n\nCurrent `stable`: 2.28.5 Current `beta`: 2.29.3\n{% endhint %}\n\n### n8n 2.27 — Move workflows between instances as packages\n\n**Released:** 2026-06-16\n\nYou can now bundle workflows into a portable `.n8np` package and move them between n8n instances through the Public API or a matching set of CLI commands that wrap the same endpoints. Copying workflow JSON by hand always worked for one-off moves. Packages make it repeatable and automatable, carrying a set of workflows along with their credential stubs and a `manifest.json` describing their dependencies in a single file.\n\nImports are checked up front. If a conflict or an unresolved credential would block the import, n8n stops and lists the issues instead of leaving you half-migrated. For each import you choose whether to bring a workflow in as a new version, fail on the first conflict, or skip ones that already exist. Credentials are matched by ID and their secrets never travel in the package; n8n exports a stub you match on the target instance, or fills in empty placeholders for later.\n\nThis makes it easy to promote workflows from development to production, back up and restore an instance, hand a workflow to a teammate without sharing secrets, or migrate between instances.\n\n{% hint style=\"warning\" %}\nThis feature is in **beta**. The package format and APIs are still under development, and breaking changes may occur without a major version bump.\n{% endhint %}\n\nLearn more in the [n8n Packages documentation](https://docs.n8n.io/build/manage-workflows/n8n-packages).\n\n### n8n 2.22 — Connect to MCP servers with less setup\n\n**Released:** 2026-05-19\n\nConnect your agent to select MCP servers without setting up an [MCP Client node](/integrations/builtin/core-nodes/n8n-nodes-langchain.mcpclient.md) and credential by hand. Pick a server from the nodes panel, sign in, and it's available to your agent.\n\nInitial coverage includes some of the most-used services in the official MCP registry — Apify, Linear, monday.com, Notion, and PostHog — and we'll expand the list to cover more services soon.\n\nIf you need to connect to an MCP server that isn't in the list, you can still use the [MCP Client node](/integrations/builtin/core-nodes/n8n-nodes-langchain.mcpclient.md) with manual configuration.\n\n{% embed url=\"<https://youtu.be/RGhHFbLMXhQ>\" %}\nConnect to MCP servers with less setup\n{% endembed %}\n\n#### OpenTelemetry custom telemetry tags\n\nYou can now attach custom span attributes to OpenTelemetry traces at the node, workflow, and project level, letting you filter and group execution spans by tenant, environment, customer ID, or any other dimension. Attribute values support expressions, so they can pull live data from webhook payloads or API responses at runtime rather than relying on hardcoded values. Configure tags in node or workflow settings when tracing is enabled (`N8N_OTEL_ENABLED=true`).\n\nLearn more in the [documentation](https://docs.n8n.io/deploy/host-n8n/keep-n8n-running/trace-executions-with-opentelemetry#custom-span-attributes).\n\n{% hint style=\"info\" %}\n**Availability:** Enterprise.\n{% endhint %}\n\n### n8n 2.20 — Microsoft Agent 365 Trigger node\n\n**Released:** 2026-05-05\n\n#### Microsoft Agent 365 Trigger node\n\nThe [Microsoft Agent 365 Trigger node](/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.microsoftagent365trigger.md) lets you build n8n agents that show up as members of your team inside Microsoft 365 apps. Once deployed, your agent gets its own identity in your Microsoft tenant, with an email address you can @mention in Teams, send email to, or grant SharePoint permissions to — just like a teammate.\n\n<figure><img src=\"/files/qwoBDB1dcybIvDHL6jPB\" alt=\"A Microsoft Agent 365 Trigger node with a chat model, memory, and tools across Zendesk, Salesforce, PagerDuty, Datadog, and a sub-workflow.\"><figcaption><p>A Microsoft Agent 365 Trigger node with a chat model, memory, and tools across<br>Zendesk, Salesforce, PagerDuty, Datadog, and a sub-workflow.</p></figcaption></figure>\n\nYou build the agent in n8n using the trigger node: add a system prompt and give it access to tools, MCP servers, and your existing workflows using [sub-workflows as tools](/build/flow-logic/break-workflows-into-smaller-parts.md). You then set the agent up on the Microsoft side, which gives it an Entra ID identity with an email address. Microsoft handles identity, lifecycle, security, and compliance (via Entra ID, Purview, and Defender); n8n handles workflow-level governance like RBAC, credential management, and execution logs.\n\nIf you already use n8n with Microsoft services through individual nodes (Outlook, Teams, SharePoint, and so on), those workflows continue to work as before. Agent 365 is a new path for teams that want their agents to show up *inside* Microsoft apps and interact like a member of the team. The node requires a Microsoft 365 tenant.\n\nFor the full launch story, see the [n8n blog post](https://blog.n8n.io/deploy-n8n-agents-that-show-up-as-members-of-the-team-inside-microsoft-apps/).\n\n#### Insights data duration\n\nSelf-hosted instances can now retain insights data for up to 365 days by default, with a configurable maximum of 730 days. Retention is controlled by the new `N8N_INSIGHTS_MAX_AGE_DAYS` environment variable and is no longer tied to license logic. See the [insights docs](/administer/observe-and-log/track-usage-with-insights.md).\n\n### n8n 2.19 — IdP role mapping and instance bootstrapping (Enterprise)\n\n**Released:** 2026-04-28\n\n#### IdP role mapping inside n8n\n\nInstance admins can now define group-to-role mappings inside n8n instead of encoding n8n-specific role logic in the IdP. With JIT provisioning enabled, admins write expressions against SAML attributes or OIDC claims to assign instance and project roles automatically at login. The IdP only needs to send standard group membership data: n8n handles the mapping, and role assignments are re-evaluated on every login, so access stays in sync without IdP changes.\n\nOpen **Settings → SSO**, pick **Instance roles via SSO** or **Instance and project roles via SSO** under User role provisioning, switch the mapping card from \"Map rules on your IdP\" to \"Map rules inside n8n\", and add expressions using the `$claims` object to match users for each role. Expression-based matching handles non-standard group structures that plain string matching can't reach.\n\n{% hint style=\"info\" %}\n**Availability:** Enterprise and Business.\n{% endhint %}\n\n#### Instance bootstrapping\n\nn8n can now be fully configured at startup through environment variables. Owner accounts, SSO (OIDC and SAML), security policies, and log streaming destinations are all applied on first boot, with no manual UI interaction required. Fields managed this way are locked in the UI and re-applied on every restart.\n\nThis makes deployment configuration the single source of truth, so you can stand up a fully configured instance from a single Helm chart or Docker Compose file, including SSO and security policy, before any user logs in.\n\n{% hint style=\"info\" %}\n**Availability:** Enterprise.\n{% endhint %}\n\n### n8n 2.16 — Embedded access and execution data redaction (Enterprise)\n\n**Released:** 2026-04-07\n\n#### Token exchange authentication for embedded access\n\nn8n now supports OAuth 2.0 Token Exchange (RFC 8693) as a second authentication mechanism alongside API keys. Two scenarios are covered: seamless iframe embedding, where users see n8n inside another product without a separate login screen, and delegated API access, where a system acts on behalf of a user with full audit attribution.\n\nThe embedding system holds an asymmetric private key and signs short-lived JWTs with user identity claims. n8n verifies the signature using the configured public key, just-in-time provisions the user on first encounter, and issues a session cookie or scoped API token depending on the flow. Both subject and actor are preserved in the audit trail, so every action shows both who requested it and who performed it.\n\n{% hint style=\"info\" %}\n**Availability:** Enterprise. Requires an asymmetric key pair configured via `N8N_TOKEN_EXCHANGE_TRUSTED_KEYS`. Uses role-based scoping.\n{% endhint %}\n\n#### Execution data redaction\n\nInstance and project admins can now redact execution data. When enabled, sensitive data from production runs is never displayed in the UI, and isn't fetched from the database until a user with the reveal permission explicitly requests it. Manual executions can be left fully visible so developers can keep building and debugging without interruption. Every reveal is logged as an audit event.\n\nRedaction is configured per workflow under **Workflow settings**, and reveal access is granted via project or instance settings to specific users only. See the [execution data redaction docs](/deploy/host-n8n/configure-n8n/security/redact-execution-data.md).\n\n{% hint style=\"info\" %}\n**Availability:** Enterprise.\n{% endhint %}\n\n#### Public API improvements\n\n* **Community packages.** Install, list, update, and uninstall community packages programmatically through new endpoints under `/api/v1/community-packages`. Each operation requires an API key with the matching `communityPackage:*` scope.\n* **Insights scope.** A new `insights:read` API key scope, setting up the insights summary endpoint that ships in v2.17.\n\n### n8n 2.15 — OpenTelemetry support for workflows\n\n**Released:** 2026-03-30\n\nn8n now emits OpenTelemetry traces for workflow executions. Runs become traces in your existing OpenTelemetry backend, with no sidecars, custom exporters, or timing hacks. Teams already using Jaeger, Datadog, Grafana Tempo, Honeycomb, New Relic, or Splunk see n8n alongside everything else they observe.\n\nEach execution appears as a root trace span with workflow ID, name, execution ID, status, duration, node count, and project info as span attributes. Failed runs surface error details on the span, so you can search and alert on workflow failures from the same tools that watch the rest of your stack.\n\nEnable by pointing n8n at any OTLP-compatible collector. Minimum config is two environment variables:\n\n```\nN8N_OTEL_ENABLED=true\nN8N_OTEL_EXPORTER_OTLP_ENDPOINT=http://your-collector:4318\n```\n\nStandard OTel variables (`OTEL_EXPORTER_OTLP_ENDPOINT`, `OTEL_SERVICE_NAME`) are also respected.\n\nThis is the foundational T1 feature. It was extended across later releases: node-level spans (v2.16), workflow version IDs in spans and distributed trace context propagation (v2.18 to v2.19), and AI Agent telemetry (v2.20).\n\n{% hint style=\"info\" %}\n**Availability:** Free, Pro, and Enterprise.\n{% endhint %}\n\n### n8n 2.13 — Visual diff in version history\n\n**Released:** 2026-03-16\n\n#### Visual diff comes to version history\n\nOpen version history, click **Compare changes**, pick any two versions, and the canvas renders both side by side with changed nodes highlighted. A change count badge on each version helps you spot significant edits at a glance.\n\nVisual diff is available on Cloud Pro and above.\n\n#### Project-scoped external secrets: full team access (Enterprise)\n\nWhat's new:\n\n* Project admins manage their own vault connections from project settings.\n* Project editors can use project-scoped secrets in credentials once the instance admin enables access.\n* [Custom roles](/administer/manage-users-and-access/set-permissions-and-roles-rbac/create-custom-roles.md) now include five secrets scopes: list, read, create, update, and delete.\n* Instance admins/owners no longer need to be project members for secrets to resolve.\n\n**For instance admins:** go to **Settings > External Secrets** and enable the **System Roles** toggle, or use custom roles for more granular control.\n\n**For project admins:** go to **Project Settings > External Secrets** to create and manage project-level connections. Instance-level connections shared with you appear as read-only.\n\nRefer to [External secrets](/administer/manage-credentials/use-external-secret-stores.md) for more information.\n\n{% hint style=\"info\" %}\n**Availability:** Enterprise.\n{% endhint %}\n\n#### Folder-based filtering in the push and pull dialog (Enterprise)\n\nThe push and pull dialogs now include a **Folder** filter alongside Status and Owner. Selecting a folder scopes the list to workflows in that folder and its subfolders, shown as a hierarchical tree with folder-level checkboxes. Text search also matches folder names.\n\n{% hint style=\"info\" %}\n**Availability:** Enterprise. Requires [Environments](/administer/use-source-control-and-environments/set-up-source-control.md) configured.\n{% endhint %}\n\n### n8n 2.12 — 1Password as an external secrets provider (Enterprise)\n\n**Released:** 2026-03-09\n\nn8n now supports 1Password Connect Server as an [external secrets](/administer/manage-credentials/use-external-secret-stores.md) provider, alongside HashiCorp Vault, AWS Secrets Manager, Azure Key Vault, and GCP Secret Manager.\n\nSecrets are fetched at runtime and never stored in n8n: 1Password stays the single source of truth. Multi-field items are available as structured sub-paths: `$secrets.<vault>.<item>.<field>`.\n\n**How to connect:**\n\n1. Deploy a 1Password Connect Server and create an access token scoped to the vaults n8n should read.\n2. In n8n, go to **Settings > External Secrets**, select **1Password**, and enter your Connect Server URL and token.\n\nRequires a self-hosted 1Password Connect Server with read-only access.\n\n{% hint style=\"info\" %}\n**Availability:** Enterprise.\n{% endhint %}\n\n### n8n 2.11 — Easier credential setup on Cloud\n\n**Released:** 2026-03-02\n\n#### Easier credential setup on Cloud\n\nSetting up credentials on n8n Cloud is now much simpler. For supported services, just click the **Connect** button, authenticate with the service, and you're ready to go. Skip the manual setup for Slack, Firecrawl, HubSpot, GitHub, Google Calendar, PagerDuty, Apify, and more.\n\n<figure><img src=\"/files/FNUjzT02y09jLQ5IOIT3\" alt=\"Setting up Slack credentials with managed OAuth\"><figcaption><p>Setting up Slack credentials with managed OAuth</p></figcaption></figure>\n\nThings to keep in mind:\n\n* If you prefer to use your own OAuth configuration, you can still switch to manual setup from the auth mode dropdown at any time.\n* This feature is only available on n8n Cloud, where n8n manages the OAuth apps on your behalf.\n\n#### Custom roles: Assignments tab (Enterprise)\n\nInstance admins now have a dedicated **Assignments** tab on each [custom role](/administer/manage-users-and-access/set-permissions-and-roles-rbac/create-custom-roles.md) showing every user assigned to that role, which project they're in, and a direct link to manage them — no more navigating project by project.\n\n#### Project-scoped external secrets: instance admin setup (Enterprise)\n\nInstance admins can now create vault connections scoped to a specific project. Secrets from that connection appear only within that project's credentials, not across the instance. Instance-level connections are unaffected. Refer to [External secrets](/administer/manage-credentials/use-external-secret-stores.md) for more information.\n\n#### Workflow execute as a separate permission scope (Enterprise)\n\n`workflow:execute` is now a distinct scope in [custom project roles](/administer/manage-users-and-access/set-permissions-and-roles-rbac/create-custom-roles.md), separate from editing and publishing. Users can be granted run access without being able to modify the workflow, which is a common compliance requirement for sensitive workflows.\n\n{% hint style=\"info\" %}\n**Availability:** Custom roles and project-scoped external secrets are available on n8n Enterprise.\n{% endhint %}\n\n### n8n 2.8 — Personal space policies and finer-grained governance (Enterprise)\n\n**Released:** 2026-02-09 – 2026-02-13 (2.8.0–2.8.3)\n\n#### Personal space policies\n\n*Released in 2.8.3 (2026-02-13).*\n\nA new **Security & policies** settings section provides a central place for enforcing security requirements on your instance. In addition to the existing two-factor authentication enforcement, admins can now control what users can do in their personal spaces.\n\nAvailable policies include:\n\n* **Sharing**: control whether users can share workflows and credentials from their personal space.\n* **Workflow publishing**: control whether users can publish workflows from their personal space.\n\nThis release builds on recent updates to the permissions model, including [custom project roles](/administer/manage-users-and-access/set-permissions-and-roles-rbac/create-custom-roles.md), to better support policy-driven governance.\n\n<figure><img src=\"/files/UneTmkWDZKdwHrBMb0zt\" alt=\"The new Security &#x26; policies settings section\"><figcaption><p>The new Security &#x26; policies settings section</p></figcaption></figure>\n\n#### Custom roles: improved discoverability and permission visibility\n\n*Released in 2.8.3 (2026-02-13).*\n\nThe project role selector now separates built-in system roles and custom roles into distinct sections, making it easier to find and choose the right role. Hovering over a role shows a summary of its configured permissions, with an option to view the full permission details.\n\n<figure><img src=\"/files/rvrR31x9okcSoH6QNSoP\" alt=\"System roles and custom roles are now displayed in separate sections\"><figcaption><p>System roles and custom roles are now displayed in separate sections</p></figcaption></figure>\n\n#### Stronger external secrets validation\n\n*Released in 2.8.0 (2026-02-09).*\n\nn8n now verifies that the current user has access to the referenced vaults before allowing a credential that uses `$secrets...` expressions to be saved. If access is missing, the save operation fails. This prevents secret values from being exposed through guessed secret paths.\n\n#### Improved API auditability\n\n*Released in 2.8.0 (2026-02-09).*\n\nAPI endpoints have been expanded to provide clearer visibility into project membership and credentials:\n\n* `GET /projects/{projectId}/users` returns all members of a project including their assigned role.\n* `GET /credentials` returns a paginated list of all credentials across the instance, including the project they belong to.\n\nThis makes it easier to audit who has access to which projects and credentials without manually reviewing each one in the UI.\n\n#### More granular workflow permissions\n\n*Released in 2.8.0 (2026-02-09).*\n\nWorkflow publishing permissions for [custom roles](/administer/manage-users-and-access/set-permissions-and-roles-rbac/create-custom-roles.md) have been split into two separate scopes: `workflow:publish` and `workflow:unpublish`. This enables more precise access control in governance scenarios where unpublishing needs to be managed independently.\n\n{% hint style=\"info\" %}\n**Availability:** Personal space policies, custom roles, stronger external secrets validation, and improved API auditability are available on n8n Enterprise.\n{% endhint %}\n\n### n8n 2.6 — Human-in-the-loop for AI tool calls\n\n**Released:** 2026-01-26\n\nYou can now require explicit human approval before an AI Agent executes specific tools.\n\nHuman-in-the-loop (HITL) for AI tool calls enforces review directly at the tool level. A gated tool cannot execute unless a human explicitly approves the action, giving you deterministic control over high-impact operations like deleting records, writing to production systems, or sending high-impact emails. This removes the uncertainty of prompt-based safeguards and insulates you from probabilistic agent behavior.\n\nBecause the review step is implemented using standard n8n integrations, approvals are not limited to a single user or interface. Decisions can be routed across people and systems, enforcing approval from the right person using the channels they already work in.\n\n**What you can do:**\n\n* Require explicit human approval for any tool the agent can call, including the MCP Client tool or sub-workflows exposed as tools.\n* Apply approval selectively, so some tools execute autonomously while others require review.\n* Route approvals across users and channels (for example, send a Slack-initiated action for approval by another user via email).\n* Add safety checks for high-impact or potentially destructive operations without complex workflow patterns or brittle prompt logic.\n\n**How to use it:** on the connection from the AI Agent to the tool you want to gate, click the **+** icon and choose **Add human review step**. The Tools panel opens with nodes you can use to handle the review; select one and configure the approver, the message, and the available actions.\n\nGet precise control over where human judgment is required, without limiting what your agent can do. Learn more in the [human-in-the-loop tools docs](/build/integrate-ai/ai-examples/human-in-the-loop-for-tools.md).\n\n{% embed url=\"<https://youtu.be/B-_nIFI27VY>\" %}\nHuman in the loop for AI tool calls\n{% endembed %}\n\n### n8n 2.5 — Chat node: human-in-the-loop actions\n\n**Released:** 2026-01-20\n\nThe **Chat** node now includes two new actions for human-in-the-loop interactions in agentic workflows:\n\n* **Send a message**: send a message to the user and continue the workflow.\n* **Send a message and wait for response**: send a message and pause execution until the user replies. Users can respond with free text in the Chat or by clicking inline approval buttons, as defined in the node's configuration.\n\nThese actions can be used as deterministic workflow steps or as tools for an **AI Agent**, enabling multi-turn human interaction within a single execution when using the **Chat Trigger**.\n\nWhen used as an agent tool, the agent can ask for clarification before proceeding, helping it better interpret user intent and follow instructions. Agents can also send updates during long-running workflows using these actions.\n\n**How to:**\n\n1. Trigger your workflow with the **Chat Trigger** node. In the node parameters, add the *Response Mode* option and set it to *Using Response Nodes*.\n2. Add a **Chat** node later in the workflow, or add it as a tool for an **AI Agent**. Select one of the operations: *Send a message* or *Send a message and wait for response*.\n\nKeep in mind: if you want an AI Agent to choose between sending a message or waiting for input, add two **Chat** tool nodes, one for each action. For AI Agents triggered by the **Chat Trigger** node, adding **Send a message and wait for response** is recommended so the agent can request clarification when needed.\n\nLearn more in the [Chat node documentation](/integrations/builtin/core-nodes/n8n-nodes-langchain.chat.md#operation).\n\n{% embed url=\"<https://youtu.be/CpFqawY0RCc>\" %}\nHuman in the loop for the Chat node\n{% endembed %}\n\n### n8n 2.4 — TLS for Syslog log streaming and credential updates via API\n\n**Released:** 2026-01-12\n\n#### TLS support for Syslog log streaming\n\nThe Syslog log streaming destination now supports TLS over TCP for encrypted connections. This enables secure log streaming to enterprise SIEM and observability platforms that require encrypted transport. With this release, log streaming is now compatible with a broader range of enterprise SIEM platforms.\n\n#### Update credentials via API\n\nn8n's public API now supports updating existing credentials by ID via a new `PATCH /credentials/:id` endpoint. Previously, credentials could only be created through the API, so any changes required deleting and recreating the credential.\n\nWhen updating, you can either replace all credential data at once (useful for bulk updates) or set `isPartialData: true` to merge changes with existing data. Ideal for automated secret rotation or fixing individual values without losing your configuration.\n\n### n8n 2.2 — Finer-grained workflow permissions and richer audit events\n\n**Released:** 2025-12-22\n\n#### More granular workflow permissions within Custom Project Roles (Enterprise)\n\nCustom Project Roles allow you to define fine-grained permissions at the project level. With this release, workflow permissions have been further refined by separating workflow editing from workflow publishing.\n\nThis change makes it easier to align access controls with internal processes where building workflows and publishing them are handled by different users or teams.\n\n<figure><img src=\"/files/uzwyxZJ7vPHjtagwyeAf\" alt=\"Custom Project Roles\"><figcaption><p>Custom Project Roles</p></figcaption></figure>\n\n#### Log streaming: more audit events for improved observability\n\nLog streaming now includes additional audit events to improve visibility into operational and security-relevant changes.\n\nThis update adds events for manual workflow cancellations and workflow activation/deactivation (publish/unpublish), variable lifecycle events (create/update/delete), and user management actions (including enabling/disabling 2FA).\n\nWorkflow settings updates are also logged with the specific parameters that changed (for example, selecting a new error workflow), instead of a generic \"updated\" event.\n\n### n8n 2.1 — Time Saved node\n\n**Released:** 2025-12-16\n\nPreviously, teams could only track a single fixed time saved value for each workflow regardless of which path an execution takes. The new Time Saved node enables more precise time savings calculations where different execution paths save different amounts of time.\n\nWith this release you can now:\n\n* **Choose fixed value or dynamic time tracking**: use a fixed time saved value for simple workflows, or use one or many Time Saved nodes to calculate savings dynamically based on the actual execution path taken.\n* **Configure per-item calculations**: when using the Time Saved node, choose whether to calculate time saved once for all items or multiply by the number of items processed.\n\n<figure><img src=\"/files/BYuYuT7ZH061ZV8YcLmn\" alt=\"Time saved node in a workflow\"><figcaption><p>Time saved node in a workflow</p></figcaption></figure>\n\nn8n automatically totals the time from all Time Saved nodes executed during each workflow run and reports it within the insights dashboard.\n\n<figure><img src=\"/files/to4nkZFckragOLKnsQ5a\" alt=\"\"><figcaption><p>Total time saved calculation</p></figcaption></figure>\n",
         "excerpt": "> For the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.n8n.io/changelog/changelog.md).  # Changelog  Every n8n release moves the platform forward. The changelog is where we call out the changes that matter most to the technical teams who build on n8n: new capabilities, more control over how your workflows run, and clearer visibil...",
         "sections": [
           {
@@ -15455,6 +15455,11 @@
       "metadata": {
         "keywords": [
           "changelog",
+          "move",
+          "workflows",
+          "between",
+          "instances",
+          "packages",
           "connect",
           "servers",
           "with",
@@ -15487,7 +15492,6 @@
           "public",
           "improvements",
           "support",
-          "workflows",
           "visual",
           "diff",
           "version",
@@ -15566,37 +15570,40 @@
         ],
         "codeExamples": 1,
         "complexity": "intermediate",
-        "readingTime": "18 min",
-        "contentLength": 25881,
+        "readingTime": "19 min",
+        "contentLength": 27354,
         "relatedPages": []
       },
       "searchIndex": {
-        "fullText": "changelog > for the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). markdown versions of documentation pages are available by appending `.md` to page urls; this page is available as [markdown](https://docs.n8n.io/changelog/changelog.md).\n\n# changelog\n\nevery n8n release moves the platform forward. the changelog is where we call out the changes that matter most to the technical teams who build on n8n: new capabilities, more control over how your workflows run, and clearer visibility into what they're actually doing. each entry is tied to the version it shipped in, newest first, and written to stand on its own, so it's easy to share the one update your team has been waiting for.\n\n{% hint style=\"info\" %}\nfor complete, version-by-version detail on every release, see the [releases page](https://github.com/n8n-io/n8n/releases) on github. this changelog covers stable n8n 2.x releases onward; release notes for [1.x](/changelog/release-notes-1.x.md) and [0.x](/changelog/release-notes-0.x.md) remain archived.\n{% endhint %}\n\n{% hint style=\"info\" %}\n**stable and beta versions**\n\nn8n releases a new minor version most weeks. the `stable` version is for production use. `beta` is the most recent release. the `beta` version may be unstable. to report issues, use the [forum](https://community.n8n.io/c/questions/12).\n\ncurrent `stable`: 2.28.5 current `beta`: 2.29.3\n{% endhint %}\n\n### n8n 2.22 — connect to mcp servers with less setup\n\n**released:** 2026-05-19\n\nconnect your agent to select mcp servers without setting up an [mcp client node](/integrations/builtin/core-nodes/n8n-nodes-langchain.mcpclient.md) and credential by hand. pick a server from the nodes panel, sign in, and it's available to your agent.\n\ninitial coverage includes some of the most-used services in the official mcp registry — apify, linear, monday.com, notion, and posthog — and we'll expand the list to cover more services soon.\n\nif you need to connect to an mcp server that isn't in the list, you can still use the [mcp client node](/integrations/builtin/core-nodes/n8n-nodes-langchain.mcpclient.md) with manual configuration.\n\n{% embed url=\"<https://youtu.be/rghhfblmxhq>\" %}\nconnect to mcp servers with less setup\n{% endembed %}\n\n#### opentelemetry custom telemetry tags\n\nyou can now attach custom span attributes to opentelemetry traces at the node, workflow, and project level, letting you filter and group execution spans by tenant, environment, customer id, or any other dimension. attribute values support expressions, so they can pull live data from webhook payloads or api responses at runtime rather than relying on hardcoded values. configure tags in node or workflow settings when tracing is enabled (`n8n_otel_enabled=true`).\n\nlearn more in the [documentation](https://docs.n8n.io/deploy/host-n8n/keep-n8n-running/trace-executions-with-opentelemetry#custom-span-attributes).\n\n{% hint style=\"info\" %}\n**availability:** enterprise.\n{% endhint %}\n\n### n8n 2.20 — microsoft agent 365 trigger node\n\n**released:** 2026-05-05\n\n#### microsoft agent 365 trigger node\n\nthe [microsoft agent 365 trigger node](/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.microsoftagent365trigger.md) lets you build n8n agents that show up as members of your team inside microsoft 365 apps. once deployed, your agent gets its own identity in your microsoft tenant, with an email address you can @mention in teams, send email to, or grant sharepoint permissions to — just like a teammate.\n\n<figure><img src=\"/files/qwobdb1dcybivdhl6jpb\" alt=\"a microsoft agent 365 trigger node with a chat model, memory, and tools across zendesk, salesforce, pagerduty, datadog, and a sub-workflow.\"><figcaption><p>a microsoft agent 365 trigger node with a chat model, memory, and tools across<br>zendesk, salesforce, pagerduty, datadog, and a sub-workflow.</p></figcaption></figure>\n\nyou build the agent in n8n using the trigger node: add a system prompt and give it access to tools, mcp servers, and your existing workflows using [sub-workflows as tools](/build/flow-logic/break-workflows-into-smaller-parts.md). you then set the agent up on the microsoft side, which gives it an entra id identity with an email address. microsoft handles identity, lifecycle, security, and compliance (via entra id, purview, and defender); n8n handles workflow-level governance like rbac, credential management, and execution logs.\n\nif you already use n8n with microsoft services through individual nodes (outlook, teams, sharepoint, and so on), those workflows continue to work as before. agent 365 is a new path for teams that want their agents to show up *inside* microsoft apps and interact like a member of the team. the node requires a microsoft 365 tenant.\n\nfor the full launch story, see the [n8n blog post](https://blog.n8n.io/deploy-n8n-agents-that-show-up-as-members-of-the-team-inside-microsoft-apps/).\n\n#### insights data duration\n\nself-hosted instances can now retain insights data for up to 365 days by default, with a configurable maximum of 730 days. retention is controlled by the new `n8n_insights_max_age_days` environment variable and is no longer tied to license logic. see the [insights docs](/administer/observe-and-log/track-usage-with-insights.md).\n\n### n8n 2.19 — idp role mapping and instance bootstrapping (enterprise)\n\n**released:** 2026-04-28\n\n#### idp role mapping inside n8n\n\ninstance admins can now define group-to-role mappings inside n8n instead of encoding n8n-specific role logic in the idp. with jit provisioning enabled, admins write expressions against saml attributes or oidc claims to assign instance and project roles automatically at login. the idp only needs to send standard group membership data: n8n handles the mapping, and role assignments are re-evaluated on every login, so access stays in sync without idp changes.\n\nopen **settings → sso**, pick **instance roles via sso** or **instance and project roles via sso** under user role provisioning, switch the mapping card from \"map rules on your idp\" to \"map rules inside n8n\", and add expressions using the `$claims` object to match users for each role. expression-based matching handles non-standard group structures that plain string matching can't reach.\n\n{% hint style=\"info\" %}\n**availability:** enterprise and business.\n{% endhint %}\n\n#### instance bootstrapping\n\nn8n can now be fully configured at startup through environment variables. owner accounts, sso (oidc and saml), security policies, and log streaming destinations are all applied on first boot, with no manual ui interaction required. fields managed this way are locked in the ui and re-applied on every restart.\n\nthis makes deployment configuration the single source of truth, so you can stand up a fully configured instance from a single helm chart or docker compose file, including sso and security policy, before any user logs in.\n\n{% hint style=\"info\" %}\n**availability:** enterprise.\n{% endhint %}\n\n### n8n 2.16 — embedded access and execution data redaction (enterprise)\n\n**released:** 2026-04-07\n\n#### token exchange authentication for embedded access\n\nn8n now supports oauth 2.0 token exchange (rfc 8693) as a second authentication mechanism alongside api keys. two scenarios are covered: seamless iframe embedding, where users see n8n inside another product without a separate login screen, and delegated api access, where a system acts on behalf of a user with full audit attribution.\n\nthe embedding system holds an asymmetric private key and signs short-lived jwts with user identity claims. n8n verifies the signature using the configured public key, just-in-time provisions the user on first encounter, and issues a session cookie or scoped api token depending on the flow. both subject and actor are preserved in the audit trail, so every action shows both who requested it and who performed it.\n\n{% hint style=\"info\" %}\n**availability:** enterprise. requires an asymmetric key pair configured via `n8n_token_exchange_trusted_keys`. uses role-based scoping.\n{% endhint %}\n\n#### execution data redaction\n\ninstance and project admins can now redact execution data. when enabled, sensitive data from production runs is never displayed in the ui, and isn't fetched from the database until a user with the reveal permission explicitly requests it. manual executions can be left fully visible so developers can keep building and debugging without interruption. every reveal is logged as an audit event.\n\nredaction is configured per workflow under **workflow settings**, and reveal access is granted via project or instance settings to specific users only. see the [execution data redaction docs](/deploy/host-n8n/configure-n8n/security/redact-execution-data.md).\n\n{% hint style=\"info\" %}\n**availability:** enterprise.\n{% endhint %}\n\n#### public api improvements\n\n* **community packages.** install, list, update, and uninstall community packages programmatically through new endpoints under `/api/v1/community-packages`. each operation requires an api key with the matching `communitypackage:*` scope.\n* **insights scope.** a new `insights:read` api key scope, setting up the insights summary endpoint that ships in v2.17.\n\n### n8n 2.15 — opentelemetry support for workflows\n\n**released:** 2026-03-30\n\nn8n now emits opentelemetry traces for workflow executions. runs become traces in your existing opentelemetry backend, with no sidecars, custom exporters, or timing hacks. teams already using jaeger, datadog, grafana tempo, honeycomb, new relic, or splunk see n8n alongside everything else they observe.\n\neach execution appears as a root trace span with workflow id, name, execution id, status, duration, node count, and project info as span attributes. failed runs surface error details on the span, so you can search and alert on workflow failures from the same tools that watch the rest of your stack.\n\nenable by pointing n8n at any otlp-compatible collector. minimum config is two environment variables:\n\n```\nn8n_otel_enabled=true\nn8n_",
+        "fullText": "changelog > for the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). markdown versions of documentation pages are available by appending `.md` to page urls; this page is available as [markdown](https://docs.n8n.io/changelog/changelog.md).\n\n# changelog\n\nevery n8n release moves the platform forward. the changelog is where we call out the changes that matter most to the technical teams who build on n8n: new capabilities, more control over how your workflows run, and clearer visibility into what they're actually doing. each entry is tied to the version it shipped in, newest first, and written to stand on its own, so it's easy to share the one update your team has been waiting for.\n\n{% hint style=\"info\" %}\nfor complete, version-by-version detail on every release, see the [releases page](https://github.com/n8n-io/n8n/releases) on github. this changelog covers stable n8n 2.x releases onward; release notes for [1.x](/changelog/release-notes-1.x.md) and [0.x](/changelog/release-notes-0.x.md) remain archived.\n{% endhint %}\n\n{% hint style=\"info\" %}\n**stable and beta versions**\n\nn8n releases a new minor version most weeks. the `stable` version is for production use. `beta` is the most recent release. the `beta` version may be unstable. to report issues, use the [forum](https://community.n8n.io/c/questions/12).\n\ncurrent `stable`: 2.28.5 current `beta`: 2.29.3\n{% endhint %}\n\n### n8n 2.27 — move workflows between instances as packages\n\n**released:** 2026-06-16\n\nyou can now bundle workflows into a portable `.n8np` package and move them between n8n instances through the public api or a matching set of cli commands that wrap the same endpoints. copying workflow json by hand always worked for one-off moves. packages make it repeatable and automatable, carrying a set of workflows along with their credential stubs and a `manifest.json` describing their dependencies in a single file.\n\nimports are checked up front. if a conflict or an unresolved credential would block the import, n8n stops and lists the issues instead of leaving you half-migrated. for each import you choose whether to bring a workflow in as a new version, fail on the first conflict, or skip ones that already exist. credentials are matched by id and their secrets never travel in the package; n8n exports a stub you match on the target instance, or fills in empty placeholders for later.\n\nthis makes it easy to promote workflows from development to production, back up and restore an instance, hand a workflow to a teammate without sharing secrets, or migrate between instances.\n\n{% hint style=\"warning\" %}\nthis feature is in **beta**. the package format and apis are still under development, and breaking changes may occur without a major version bump.\n{% endhint %}\n\nlearn more in the [n8n packages documentation](https://docs.n8n.io/build/manage-workflows/n8n-packages).\n\n### n8n 2.22 — connect to mcp servers with less setup\n\n**released:** 2026-05-19\n\nconnect your agent to select mcp servers without setting up an [mcp client node](/integrations/builtin/core-nodes/n8n-nodes-langchain.mcpclient.md) and credential by hand. pick a server from the nodes panel, sign in, and it's available to your agent.\n\ninitial coverage includes some of the most-used services in the official mcp registry — apify, linear, monday.com, notion, and posthog — and we'll expand the list to cover more services soon.\n\nif you need to connect to an mcp server that isn't in the list, you can still use the [mcp client node](/integrations/builtin/core-nodes/n8n-nodes-langchain.mcpclient.md) with manual configuration.\n\n{% embed url=\"<https://youtu.be/rghhfblmxhq>\" %}\nconnect to mcp servers with less setup\n{% endembed %}\n\n#### opentelemetry custom telemetry tags\n\nyou can now attach custom span attributes to opentelemetry traces at the node, workflow, and project level, letting you filter and group execution spans by tenant, environment, customer id, or any other dimension. attribute values support expressions, so they can pull live data from webhook payloads or api responses at runtime rather than relying on hardcoded values. configure tags in node or workflow settings when tracing is enabled (`n8n_otel_enabled=true`).\n\nlearn more in the [documentation](https://docs.n8n.io/deploy/host-n8n/keep-n8n-running/trace-executions-with-opentelemetry#custom-span-attributes).\n\n{% hint style=\"info\" %}\n**availability:** enterprise.\n{% endhint %}\n\n### n8n 2.20 — microsoft agent 365 trigger node\n\n**released:** 2026-05-05\n\n#### microsoft agent 365 trigger node\n\nthe [microsoft agent 365 trigger node](/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.microsoftagent365trigger.md) lets you build n8n agents that show up as members of your team inside microsoft 365 apps. once deployed, your agent gets its own identity in your microsoft tenant, with an email address you can @mention in teams, send email to, or grant sharepoint permissions to — just like a teammate.\n\n<figure><img src=\"/files/qwobdb1dcybivdhl6jpb\" alt=\"a microsoft agent 365 trigger node with a chat model, memory, and tools across zendesk, salesforce, pagerduty, datadog, and a sub-workflow.\"><figcaption><p>a microsoft agent 365 trigger node with a chat model, memory, and tools across<br>zendesk, salesforce, pagerduty, datadog, and a sub-workflow.</p></figcaption></figure>\n\nyou build the agent in n8n using the trigger node: add a system prompt and give it access to tools, mcp servers, and your existing workflows using [sub-workflows as tools](/build/flow-logic/break-workflows-into-smaller-parts.md). you then set the agent up on the microsoft side, which gives it an entra id identity with an email address. microsoft handles identity, lifecycle, security, and compliance (via entra id, purview, and defender); n8n handles workflow-level governance like rbac, credential management, and execution logs.\n\nif you already use n8n with microsoft services through individual nodes (outlook, teams, sharepoint, and so on), those workflows continue to work as before. agent 365 is a new path for teams that want their agents to show up *inside* microsoft apps and interact like a member of the team. the node requires a microsoft 365 tenant.\n\nfor the full launch story, see the [n8n blog post](https://blog.n8n.io/deploy-n8n-agents-that-show-up-as-members-of-the-team-inside-microsoft-apps/).\n\n#### insights data duration\n\nself-hosted instances can now retain insights data for up to 365 days by default, with a configurable maximum of 730 days. retention is controlled by the new `n8n_insights_max_age_days` environment variable and is no longer tied to license logic. see the [insights docs](/administer/observe-and-log/track-usage-with-insights.md).\n\n### n8n 2.19 — idp role mapping and instance bootstrapping (enterprise)\n\n**released:** 2026-04-28\n\n#### idp role mapping inside n8n\n\ninstance admins can now define group-to-role mappings inside n8n instead of encoding n8n-specific role logic in the idp. with jit provisioning enabled, admins write expressions against saml attributes or oidc claims to assign instance and project roles automatically at login. the idp only needs to send standard group membership data: n8n handles the mapping, and role assignments are re-evaluated on every login, so access stays in sync without idp changes.\n\nopen **settings → sso**, pick **instance roles via sso** or **instance and project roles via sso** under user role provisioning, switch the mapping card from \"map rules on your idp\" to \"map rules inside n8n\", and add expressions using the `$claims` object to match users for each role. expression-based matching handles non-standard group structures that plain string matching can't reach.\n\n{% hint style=\"info\" %}\n**availability:** enterprise and business.\n{% endhint %}\n\n#### instance bootstrapping\n\nn8n can now be fully configured at startup through environment variables. owner accounts, sso (oidc and saml), security policies, and log streaming destinations are all applied on first boot, with no manual ui interaction required. fields managed this way are locked in the ui and re-applied on every restart.\n\nthis makes deployment configuration the single source of truth, so you can stand up a fully configured instance from a single helm chart or docker compose file, including sso and security policy, before any user logs in.\n\n{% hint style=\"info\" %}\n**availability:** enterprise.\n{% endhint %}\n\n### n8n 2.16 — embedded access and execution data redaction (enterprise)\n\n**released:** 2026-04-07\n\n#### token exchange authentication for embedded access\n\nn8n now supports oauth 2.0 token exchange (rfc 8693) as a second authentication mechanism alongside api keys. two scenarios are covered: seamless iframe embedding, where users see n8n inside another product without a separate login screen, and delegated api access, where a system acts on behalf of a user with full audit attribution.\n\nthe embedding system holds an asymmetric private key and signs short-lived jwts with user identity claims. n8n verifies the signature using the configured public key, just-in-time provisions the user on first encounter, and issues a session cookie or scoped api token depending on the flow. both subject and actor are preserved in the audit trail, so every action shows both who requested it and who performed it.\n\n{% hint style=\"info\" %}\n**availability:** enterprise. requires an asymmetric key pair configured via `n8n_token_exchange_trusted_keys`. uses role-based scoping.\n{% endhint %}\n\n#### execution data redaction\n\ninstance and project admins can now redact execution data. when enabled, sensitive data from production runs is never displayed in the ui, and isn't fetched from the database until a user with the reveal permission explicitly requests it. manual executions can be left fully visible so developers can keep building and debugging without interruption. every reveal is logged as an audit event.\n\nredaction is configured per workflow under **workflow settings*",
         "importantTerms": [
-          "with",
           "workflow",
+          "with",
           "project",
           "roles",
           "node",
           "custom",
           "agent",
           "enterprise",
-          "access",
-          "instance",
           "secrets",
-          "your",
+          "instance",
+          "access",
+          "workflows",
           "released",
           "from",
           "this",
+          "your",
+          "that",
+          "credentials",
           "nodes",
           "time",
-          "credentials",
-          "that",
-          "users",
           "more",
-          "workflows",
+          "users",
           "external",
+          "hint",
+          "style",
           "info",
+          "endhint",
           "execution",
           "permissions",
           "figure",
@@ -15604,25 +15611,22 @@
           "role",
           "user",
           "human",
-          "hint",
-          "style",
-          "endhint",
+          "version",
           "microsoft",
           "chat",
+          "manage",
           "data",
           "settings",
           "tools",
           "saved",
-          "version",
+          "each",
+          "without",
           "availability",
           "send",
           "using",
-          "manage",
           "tool",
-          "available",
-          "release",
-          "control",
-          "each"
+          "https",
+          "available"
         ]
       }
     }
@@ -15640,18 +15644,54 @@
         "page-0156",
         "page-0157"
       ],
+      "deploy": [
+        "page-0002",
+        "page-0012",
+        "page-0013",
+        "page-0014",
+        "page-0015",
+        "page-0016",
+        "page-0017",
+        "page-0018",
+        "page-0019",
+        "page-0147"
+      ],
+      "compare": [
+        "page-0002"
+      ],
+      "deployment": [
+        "page-0002",
+        "page-0013",
+        "page-0019"
+      ],
+      "options": [
+        "page-0002",
+        "page-0008",
+        "page-0015",
+        "page-0016",
+        "page-0132",
+        "page-0141"
+      ],
       "cloud": [
         "page-0002",
         "page-0003",
-        "page-0005",
+        "page-0004",
         "page-0011",
         "page-0017",
         "page-0021",
         "page-0101",
         "page-0158"
       ],
+      "self": [
+        "page-0002",
+        "page-0021"
+      ],
+      "host": [
+        "page-0002",
+        "page-0019"
+      ],
       "configure": [
-        "page-0003",
+        "page-0004",
         "page-0012",
         "page-0013",
         "page-0014",
@@ -15665,11 +15705,11 @@
         "page-0097"
       ],
       "find": [
-        "page-0004",
+        "page-0005",
         "page-0010"
       ],
       "your": [
-        "page-0004",
+        "page-0005",
         "page-0010",
         "page-0012",
         "page-0014",
@@ -15692,43 +15732,7 @@
         "page-0156"
       ],
       "addresses": [
-        "page-0004"
-      ],
-      "deploy": [
-        "page-0005",
-        "page-0012",
-        "page-0013",
-        "page-0014",
-        "page-0015",
-        "page-0016",
-        "page-0017",
-        "page-0018",
-        "page-0019",
-        "page-0147"
-      ],
-      "compare": [
         "page-0005"
-      ],
-      "deployment": [
-        "page-0005",
-        "page-0013",
-        "page-0019"
-      ],
-      "options": [
-        "page-0005",
-        "page-0008",
-        "page-0015",
-        "page-0016",
-        "page-0132",
-        "page-0141"
-      ],
-      "self": [
-        "page-0005",
-        "page-0021"
-      ],
-      "host": [
-        "page-0005",
-        "page-0019"
       ],
       "change": [
         "page-0006",
@@ -16280,7 +16284,7 @@
         "page-0019",
         "page-0095",
         "page-0096",
-        "page-0106",
+        "page-0105",
         "page-0158"
       ],
       "href=\"#pull": [
@@ -16319,7 +16323,7 @@
         "page-0075",
         "page-0095",
         "page-0096",
-        "page-0106"
+        "page-0105"
       ],
       "(unstable)": [
         "page-0010"
@@ -16346,7 +16350,7 @@
         "page-0012",
         "page-0014",
         "page-0019",
-        "page-0105"
+        "page-0104"
       ],
       "`<container": [
         "page-0010"
@@ -16577,7 +16581,7 @@
         "page-0018",
         "page-0019",
         "page-0103",
-        "page-0106",
+        "page-0105",
         "page-0107",
         "page-0108",
         "page-0110",
@@ -16919,7 +16923,7 @@
         "page-0017",
         "page-0018",
         "page-0019",
-        "page-0106",
+        "page-0105",
         "page-0107",
         "page-0112",
         "page-0117",
@@ -17284,8 +17288,8 @@
         "page-0018",
         "page-0076",
         "page-0103",
+        "page-0104",
         "page-0105",
-        "page-0106",
         "page-0107",
         "page-0108",
         "page-0110",
@@ -17675,8 +17679,8 @@
       "update": [
         "page-0019",
         "page-0076",
+        "page-0104",
         "page-0105",
-        "page-0106",
         "page-0107",
         "page-0108",
         "page-0110",
@@ -19166,7 +19170,7 @@
         "page-0024",
         "page-0026",
         "page-0070",
-        "page-0105"
+        "page-0104"
       ],
       "href=\"#worker": [
         "page-0024"
@@ -19289,7 +19293,7 @@
         "page-0026",
         "page-0070",
         "page-0075",
-        "page-0105",
+        "page-0104",
         "page-0118",
         "page-0158"
       ],
@@ -19767,7 +19771,7 @@
         "page-0070",
         "page-0076",
         "page-0100",
-        "page-0106",
+        "page-0105",
         "page-0118",
         "page-0158"
       ],
@@ -19829,7 +19833,7 @@
         "page-0036",
         "page-0045",
         "page-0083",
-        "page-0106",
+        "page-0105",
         "page-0117",
         "page-0157",
         "page-0158"
@@ -20458,7 +20462,7 @@
       "multiple": [
         "page-0047",
         "page-0103",
-        "page-0105"
+        "page-0104"
       ],
       "expression\"": [
         "page-0047",
@@ -20619,7 +20623,7 @@
       ],
       "customdata": [
         "page-0052",
-        "page-0056"
+        "page-0057"
       ],
       "href=\"#customdata\"": [
         "page-0052"
@@ -20629,7 +20633,7 @@
       ],
       "date": [
         "page-0052",
-        "page-0057"
+        "page-0056"
       ],
       "href=\"#date\"": [
         "page-0052"
@@ -21191,62 +21195,62 @@
       "id=\"booleantostring\"></a>": [
         "page-0055"
       ],
-      "`$execution": [
-        "page-0056"
-      ],
-      "customdata`": [
-        "page-0056",
-        "page-0075"
-      ],
-      "**`get()`**": [
-        "page-0056"
-      ],
-      "href=\"#dollarexecutioncustomdataget\"": [
-        "page-0056"
-      ],
-      "id=\"dollarexecutioncustomdataget\"></a>": [
-        "page-0056"
-      ],
-      "**`getall()`**": [
-        "page-0056"
-      ],
-      "href=\"#dollarexecutioncustomdatagetall\"": [
-        "page-0056"
-      ],
-      "id=\"dollarexecutioncustomdatagetall\"></a>": [
-        "page-0056"
-      ],
-      "**`set()`**": [
-        "page-0056",
-        "page-0058"
-      ],
-      "href=\"#dollarexecutioncustomdataset\"": [
-        "page-0056"
-      ],
-      "id=\"dollarexecutioncustomdataset\"></a>": [
-        "page-0056"
-      ],
-      "**`setall()`**": [
-        "page-0056"
-      ],
-      "href=\"#dollarexecutioncustomdatasetall\"": [
-        "page-0056"
-      ],
-      "id=\"dollarexecutioncustomdatasetall\"></a>": [
-        "page-0056"
-      ],
       "*`date`*": [
-        "page-0057"
+        "page-0056"
       ],
       "**`todatetime()`**": [
-        "page-0057",
+        "page-0056",
         "page-0064",
         "page-0068"
       ],
       "href=\"#datetodatetime\"": [
-        "page-0057"
+        "page-0056"
       ],
       "id=\"datetodatetime\"></a>": [
+        "page-0056"
+      ],
+      "`$execution": [
+        "page-0057"
+      ],
+      "customdata`": [
+        "page-0057",
+        "page-0075"
+      ],
+      "**`get()`**": [
+        "page-0057"
+      ],
+      "href=\"#dollarexecutioncustomdataget\"": [
+        "page-0057"
+      ],
+      "id=\"dollarexecutioncustomdataget\"></a>": [
+        "page-0057"
+      ],
+      "**`getall()`**": [
+        "page-0057"
+      ],
+      "href=\"#dollarexecutioncustomdatagetall\"": [
+        "page-0057"
+      ],
+      "id=\"dollarexecutioncustomdatagetall\"></a>": [
+        "page-0057"
+      ],
+      "**`set()`**": [
+        "page-0057",
+        "page-0058"
+      ],
+      "href=\"#dollarexecutioncustomdataset\"": [
+        "page-0057"
+      ],
+      "id=\"dollarexecutioncustomdataset\"></a>": [
+        "page-0057"
+      ],
+      "**`setall()`**": [
+        "page-0057"
+      ],
+      "href=\"#dollarexecutioncustomdatasetall\"": [
+        "page-0057"
+      ],
+      "id=\"dollarexecutioncustomdatasetall\"></a>": [
         "page-0057"
       ],
       "*`datetime`*": [
@@ -23221,7 +23225,8 @@
       "packages": [
         "page-0097",
         "page-0101",
-        "page-0113"
+        "page-0113",
+        "page-0158"
       ],
       "href=\"#manage": [
         "page-0097"
@@ -23397,8 +23402,8 @@
       ],
       "retrieve": [
         "page-0103",
+        "page-0104",
         "page-0105",
-        "page-0106",
         "page-0108",
         "page-0110",
         "page-0111",
@@ -23418,46 +23423,46 @@
         "page-0103",
         "page-0112"
       ],
-      "audit": [
-        "page-0104",
-        "page-0118",
-        "page-0158"
-      ],
-      "generate": [
+      "retry": [
         "page-0104"
       ],
-      "retry": [
-        "page-0105"
-      ],
       "tags": [
+        "page-0104",
         "page-0105",
-        "page-0106",
         "page-0108",
         "page-0158"
       ],
       "retrieves": [
-        "page-0106",
+        "page-0105",
         "page-0108"
       ],
       "publish": [
-        "page-0106"
+        "page-0105"
       ],
       "deactivate": [
-        "page-0106"
+        "page-0105"
       ],
       "archive": [
-        "page-0106"
+        "page-0105"
       ],
       "unarchive": [
-        "page-0106"
+        "page-0105"
       ],
       "transfer": [
-        "page-0106",
+        "page-0105",
         "page-0107"
       ],
       "another": [
-        "page-0106",
+        "page-0105",
         "page-0107"
+      ],
+      "audit": [
+        "page-0106",
+        "page-0118",
+        "page-0158"
+      ],
+      "generate": [
+        "page-0106"
       ],
       "list": [
         "page-0107",
@@ -25387,6 +25392,15 @@
         "page-0158"
       ],
       "changelog": [
+        "page-0158"
+      ],
+      "move": [
+        "page-0158"
+      ],
+      "between": [
+        "page-0158"
+      ],
+      "instances": [
         "page-0158"
       ],
       "connect": [

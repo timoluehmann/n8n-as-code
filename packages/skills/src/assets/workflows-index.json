@@ -1,11 +1,32 @@
 {
-  "generatedAt": "2026-07-04T06:32:35.369Z",
+  "generatedAt": "2026-07-07T06:58:05.611Z",
   "repository": "https://github.com/nusquama/n8nworkflows.xyz.git",
   "sourceRef": "main",
-  "sourceCommit": "5bf0874d840873069ec840e9a1ad7150664a662a",
+  "sourceCommit": "98523f2e501881804f623bf9bdaf3685a5f238d6",
   "refreshStrategy": "fresh-clone-per-build",
-  "totalWorkflows": 9579,
+  "totalWorkflows": 9584,
   "workflows": [
+    {
+      "id": 16802,
+      "slug": "Roll overdue Notion tasks forward and flag stale ones on a schedule-16802",
+      "name": "Roll Overdue Notion Tasks Forward And Flag Stale Ones On A Schedule",
+      "tags": [
+        "Personal Productivity"
+      ],
+      "author": "exekyute",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "roll_overdue_notion_tasks_forward_and_flag_stale_ones_on_a_schedule.json",
+      "workflowPath": "workflows/Roll overdue Notion tasks forward and flag stale ones on a schedule-16802/roll_overdue_notion_tasks_forward_and_flag_stale_ones_on_a_schedule.json",
+      "url": "https://n8nworkflows.xyz/workflows/roll-overdue-notion-tasks-forward-and-flag-stale-ones-on-a-schedule-16802\n",
+      "nodeTypes": [
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.notion",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.scheduleTrigger"
+      ]
+    },
     {
       "id": 16701,
       "slug": "Audit Google Drive backup freshness with Google Sheets and Slack-16701",
@@ -29,6 +50,54 @@
         "n8n-nodes-base.googleDrive",
         "n8n-nodes-base.googleSheets",
         "n8n-nodes-base.scheduleTrigger"
+      ]
+    },
+    {
+      "id": 16699,
+      "slug": "Alert on API contract drift using Data Tables and Slack-16699",
+      "name": "Alert On API Contract Drift Using Data Tables And Slack",
+      "tags": [
+        "DevOps",
+        "AI Summarization"
+      ],
+      "author": "exekyute",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "alert_on_api_contract_drift_using_data_tables_and_slack.json",
+      "workflowPath": "workflows/Alert on API contract drift using Data Tables and Slack-16699/alert_on_api_contract_drift_using_data_tables_and_slack.json",
+      "url": "https://n8nworkflows.xyz/workflows/alert-on-api-contract-drift-using-data-tables-and-slack-16699\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.noOp",
+        "n8n-nodes-base.slack",
+        "n8n-nodes-base.dataTable",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.scheduleTrigger"
+      ]
+    },
+    {
+      "id": 16697,
+      "slug": "Notify Slack about Figma library publishes, comments and deletions-16697",
+      "name": "Notify Slack About Figma Library Publishes, Comments And Deletions",
+      "tags": [
+        "Project Management"
+      ],
+      "author": "kristinker",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "notify_slack_about_figma_library_publishes_comments_and_deletions.json",
+      "workflowPath": "workflows/Notify Slack about Figma library publishes, comments and deletions-16697/notify_slack_about_figma_library_publishes_comments_and_deletions.json",
+      "url": "https://n8nworkflows.xyz/workflows/notify-slack-about-figma-library-publishes--comments-and-deletions-16697\n",
+      "nodeTypes": [
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.slack",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.figmaTrigger"
       ]
     },
     {
@@ -294,6 +363,36 @@
         "n8n-nodes-base.manualTrigger",
         "@n8n/n8n-nodes-langchain.chainLlm",
         "@n8n/n8n-nodes-langchain.lmChatOpenAi"
+      ]
+    },
+    {
+      "id": 16669,
+      "slug": "Back up and restore Docker workflows and credentials with Google Drive and SSH-16669",
+      "name": "Back Up And Restore Docker Workflows And Credentials With Google Drive And SSH",
+      "tags": [
+        "DevOps"
+      ],
+      "author": "hodinhhuy",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "back_up_and_restore_docker_workflows_and_credentials_with_google_drive_and_ssh.json",
+      "workflowPath": "workflows/Back up and restore Docker workflows and credentials with Google Drive and SSH-16669/back_up_and_restore_docker_workflows_and_credentials_with_google_drive_and_ssh.json",
+      "url": "https://n8nworkflows.xyz/workflows/back-up-and-restore-docker-workflows-and-credentials-with-google-drive-and-ssh-16669\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.ssh",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.merge",
+        "n8n-nodes-base.switch",
+        "n8n-nodes-base.splitOut",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.formTrigger",
+        "n8n-nodes-base.googleDrive",
+        "n8n-nodes-base.convertToFile",
+        "n8n-nodes-base.splitInBatches",
+        "n8n-nodes-base.extractFromFile",
+        "n8n-nodes-base.scheduleTrigger"
       ]
     },
     {
@@ -2154,6 +2253,34 @@
         "n8n-nodes-base.stickyNote",
         "@wizcut/n8n-nodes-wizcut.wizcut",
         "@wizcut/n8n-nodes-wizcut.wizcutTrigger"
+      ]
+    },
+    {
+      "id": 16554,
+      "slug": "Draft and review SEO WordPress articles with multi-agent LLMs and Slack-16554",
+      "name": "Draft And Review SEO WordPress Articles With Multi Agent LLMs And Slack",
+      "tags": [
+        "Content Creation",
+        "Multimodal AI"
+      ],
+      "author": "triple8labs",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "draft_and_review_seo_wordpress_articles_with_multi-agent_llms_and_slack.json",
+      "workflowPath": "workflows/Draft and review SEO WordPress articles with multi-agent LLMs and Slack-16554/draft_and_review_seo_wordpress_articles_with_multi-agent_llms_and_slack.json",
+      "url": "https://n8nworkflows.xyz/workflows/draft-and-review-seo-wordpress-articles-with-multi-agent-llms-and-slack-16554\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.merge",
+        "n8n-nodes-base.slack",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.executeWorkflow",
+        "n8n-nodes-base.respondToWebhook"
       ]
     },
     {
