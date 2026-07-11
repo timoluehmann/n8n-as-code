@@ -1,11 +1,38 @@
 {
-  "generatedAt": "2026-07-10T06:57:40.942Z",
+  "generatedAt": "2026-07-11T05:52:48.097Z",
   "repository": "https://github.com/nusquama/n8nworkflows.xyz.git",
   "sourceRef": "main",
-  "sourceCommit": "30b5ceae99b7300cf6beada2204da1a580e3bb6a",
+  "sourceCommit": "50151bb511c5dbb605e96d50f3d6827530dd6608",
   "refreshStrategy": "fresh-clone-per-build",
-  "totalWorkflows": 9637,
+  "totalWorkflows": 9639,
   "workflows": [
+    {
+      "id": 16939,
+      "slug": "Create talking avatar TikTok videos with Seedance, OpenAI and Blotato-16939",
+      "name": "Create Talking Avatar TikTok Videos With Seedance, OpenAI And Blotato",
+      "tags": [
+        "Content Creation",
+        "Multimodal AI"
+      ],
+      "author": "drfiras",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "create_talking_avatar_tiktok_videos_with_seedance_openai_and_blotato.json",
+      "workflowPath": "workflows/Create talking avatar TikTok videos with Seedance, OpenAI and Blotato-16939/create_talking_avatar_tiktok_videos_with_seedance_openai_and_blotato.json",
+      "url": "https://n8nworkflows.xyz/workflows/create-talking-avatar-tiktok-videos-with-seedance--openai-and-blotato-16939\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.wait",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.manualTrigger",
+        "@n8n/n8n-nodes-langchain.agent",
+        "@blotato/n8n-nodes-blotato.blotato",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi"
+      ]
+    },
     {
       "id": 16802,
       "slug": "Roll overdue Notion tasks forward and flag stale ones on a schedule-16802",
@@ -150,6 +177,29 @@
         "n8n-nodes-base.httpRequest",
         "@n8n/n8n-nodes-langchain.openAi",
         "n8n-nodes-base.respondToWebhook"
+      ]
+    },
+    {
+      "id": 16787,
+      "slug": "Draft bookkeeping entries from Trello cards with OpenRouter and Xero-16787",
+      "name": "Draft Bookkeeping Entries From Trello Cards With OpenRouter And Xero",
+      "tags": [
+        "Document Extraction",
+        "AI Summarization"
+      ],
+      "author": "kristian",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "draft_bookkeeping_entries_from_trello_cards_with_openrouter_and_xero.json",
+      "workflowPath": "workflows/Draft bookkeeping entries from Trello cards with OpenRouter and Xero-16787/draft_bookkeeping_entries_from_trello_cards_with_openrouter_and_xero.json",
+      "url": "https://n8nworkflows.xyz/workflows/draft-bookkeeping-entries-from-trello-cards-with-openrouter-and-xero-16787\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.trelloTrigger"
       ]
     },
     {
