@@ -1,11 +1,38 @@
 {
-  "generatedAt": "2026-07-11T05:52:48.097Z",
+  "generatedAt": "2026-07-15T05:44:35.335Z",
   "repository": "https://github.com/nusquama/n8nworkflows.xyz.git",
   "sourceRef": "main",
-  "sourceCommit": "50151bb511c5dbb605e96d50f3d6827530dd6608",
+  "sourceCommit": "44ecf11b8cc307a34972e206ade63c9ea629ba08",
   "refreshStrategy": "fresh-clone-per-build",
-  "totalWorkflows": 9639,
+  "totalWorkflows": 9659,
   "workflows": [
+    {
+      "id": 16980,
+      "slug": "Turn customer emails into FAQ drafts with Gmail, Gemini, Docs and Sheets-16980",
+      "name": "Turn Customer Emails Into FAQ Drafts With Gmail, Gemini, Docs And Sheets",
+      "tags": [
+        "Document Extraction",
+        "AI Summarization"
+      ],
+      "author": "uninc000",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "turn_customer_emails_into_faq_drafts_with_gmail_gemini_docs_and_sheets.json",
+      "workflowPath": "workflows/Turn customer emails into FAQ drafts with Gmail, Gemini, Docs and Sheets-16980/turn_customer_emails_into_faq_drafts_with_gmail_gemini_docs_and_sheets.json",
+      "url": "https://n8nworkflows.xyz/workflows/turn-customer-emails-into-faq-drafts-with-gmail--gemini--docs-and-sheets-16980\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.gmail",
+        "n8n-nodes-base.switch",
+        "n8n-nodes-base.googleDocs",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.gmailTrigger",
+        "n8n-nodes-base.googleSheets",
+        "@n8n/n8n-nodes-langchain.googleGemini"
+      ]
+    },
     {
       "id": 16939,
       "slug": "Create talking avatar TikTok videos with Seedance, OpenAI and Blotato-16939",
@@ -31,6 +58,411 @@
         "@n8n/n8n-nodes-langchain.agent",
         "@blotato/n8n-nodes-blotato.blotato",
         "@n8n/n8n-nodes-langchain.lmChatOpenAi"
+      ]
+    },
+    {
+      "id": 16926,
+      "slug": "Create Xero AR-AP Markdown snapshots with optional OpenAI GPT summaries-16926",
+      "name": "Create Xero AR AP Markdown Snapshots With Optional OpenAI GPT Summaries",
+      "tags": [
+        "Document Extraction",
+        "AI Summarization"
+      ],
+      "author": "kristian",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "create_xero_ar_ap_markdown_snapshots_with_optional_openai_gpt_summaries.json",
+      "workflowPath": "workflows/Create Xero AR-AP Markdown snapshots with optional OpenAI GPT summaries-16926/create_xero_ar_ap_markdown_snapshots_with_optional_openai_gpt_summaries.json",
+      "url": "https://n8nworkflows.xyz/workflows/create-xero-ar-ap-markdown-snapshots-with-optional-openai-gpt-summaries-16926\n",
+      "nodeTypes": [
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.xero",
+        "n8n-nodes-base.merge",
+        "n8n-nodes-base.stickyNote",
+        "@n8n/n8n-nodes-langchain.agent",
+        "n8n-nodes-base.scheduleTrigger",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi"
+      ]
+    },
+    {
+      "id": 16922,
+      "slug": "Send personalized cold emails from Google Sheets with Claude MCP and Gmail-16922",
+      "name": "Send Personalized Cold Emails From Google Sheets With Claude MCP And Gmail",
+      "tags": [
+        "Lead Nurturing",
+        "AI RAG"
+      ],
+      "author": "mohsin-amir",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "send_personalized_cold_emails_from_google_sheets_with_claude_mcp_and_gmail.json",
+      "workflowPath": "workflows/Send personalized cold emails from Google Sheets with Claude MCP and Gmail-16922/send_personalized_cold_emails_from_google_sheets_with_claude_mcp_and_gmail.json",
+      "url": "https://n8nworkflows.xyz/workflows/send-personalized-cold-emails-from-google-sheets-with-claude-mcp-and-gmail-16922\n",
+      "nodeTypes": [
+        "n8n-nodes-base.gmailTool",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.googleSheetsTool",
+        "@n8n/n8n-nodes-langchain.mcpTrigger"
+      ]
+    },
+    {
+      "id": 16908,
+      "slug": "Handle theater ticket bookings with Anthropic, Google Sheets, SendGrid, and Twilio-16908",
+      "name": "Handle Theater Ticket Bookings With Anthropic, Google Sheets, SendGrid, And Twilio",
+      "tags": [
+        "Miscellaneous",
+        "AI Summarization"
+      ],
+      "author": "oneclick-ai",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "handle_theater_ticket_bookings_with_anthropic_google_sheets_sendgrid_and_twilio.json",
+      "workflowPath": "workflows/Handle theater ticket bookings with Anthropic, Google Sheets, SendGrid, and Twilio-16908/handle_theater_ticket_bookings_with_anthropic_google_sheets_sendgrid_and_twilio.json",
+      "url": "https://n8nworkflows.xyz/workflows/handle-theater-ticket-bookings-with-anthropic--google-sheets--sendgrid--and-twilio-16908\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.wait",
+        "n8n-nodes-base.filter",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "@n8n/n8n-nodes-langchain.agent",
+        "n8n-nodes-base.respondToWebhook",
+        "@n8n/n8n-nodes-langchain.lmChatAnthropic"
+      ]
+    },
+    {
+      "id": 16905,
+      "slug": "Create AI image and video posts from Telegram with GPT-4o, AtlasCloud and Blotato-16905",
+      "name": "Create AI Image And Video Posts From Telegram With GPT 4o, AtlasCloud And Blotato",
+      "tags": [
+        "Content Creation",
+        "Multimodal AI"
+      ],
+      "author": "drfiras",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "create_ai_image_and_video_posts_from_telegram_with_gpt-4o_atlascloud_and_blotato.json",
+      "workflowPath": "workflows/Create AI image and video posts from Telegram with GPT-4o, AtlasCloud and Blotato-16905/create_ai_image_and_video_posts_from_telegram_with_gpt-4o_atlascloud_and_blotato.json",
+      "url": "https://n8nworkflows.xyz/workflows/create-ai-image-and-video-posts-from-telegram-with-gpt-4o--atlascloud-and-blotato-16905\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.wait",
+        "n8n-nodes-base.merge",
+        "n8n-nodes-base.telegram",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "@n8n/n8n-nodes-langchain.agent",
+        "n8n-nodes-base.telegramTrigger",
+        "@blotato/n8n-nodes-blotato.blotato",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "@n8n/n8n-nodes-langchain.outputParserStructured"
+      ]
+    },
+    {
+      "id": 16896,
+      "slug": "Generate studio product photos for new Shopify products with Dreem AI-16896",
+      "name": "Generate Studio Product Photos For New Shopify Products With Dreem AI",
+      "tags": [
+        "Content Creation",
+        "Multimodal AI"
+      ],
+      "author": "kristianj",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "generate_studio_product_photos_for_new_shopify_products_with_dreem_ai.json",
+      "workflowPath": "workflows/Generate studio product photos for new Shopify products with Dreem AI-16896/generate_studio_product_photos_for_new_shopify_products_with_dreem_ai.json",
+      "url": "https://n8nworkflows.xyz/workflows/generate-studio-product-photos-for-new-shopify-products-with-dreem-ai-16896\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.wait",
+        "n8n-nodes-base.slack",
+        "n8n-nodes-dreem.dreem",
+        "n8n-nodes-base.shopify",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.shopifyTrigger"
+      ]
+    },
+    {
+      "id": 16895,
+      "slug": "Generate AI selfie photos from Telegram with AtlasCloud and Blotato-16895",
+      "name": "Generate AI Selfie Photos From Telegram With AtlasCloud And Blotato",
+      "tags": [
+        "Content Creation",
+        "Multimodal AI"
+      ],
+      "author": "drfiras",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "generate_ai_selfie_photos_from_telegram_with_atlascloud_and_blotato.json",
+      "workflowPath": "workflows/Generate AI selfie photos from Telegram with AtlasCloud and Blotato-16895/generate_ai_selfie_photos_from_telegram_with_atlascloud_and_blotato.json",
+      "url": "https://n8nworkflows.xyz/workflows/generate-ai-selfie-photos-from-telegram-with-atlascloud-and-blotato-16895\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.wait",
+        "n8n-nodes-base.telegram",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.telegramTrigger",
+        "@blotato/n8n-nodes-blotato.blotato"
+      ]
+    },
+    {
+      "id": 16866,
+      "slug": "Generate, email, and archive PDFs from HTML with PDFBolt, Gmail, and Google Drive-16866",
+      "name": "Generate, Email, And Archive PDFs From HTML With PDFBolt, Gmail, And Google Drive",
+      "tags": [
+        "Document Extraction",
+        "Multimodal AI"
+      ],
+      "author": "pdfbolt-api",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "generate_email_and_archive_pdfs_from_html_with_pdfbolt_gmail_and_google_drive.json",
+      "workflowPath": "workflows/Generate, email, and archive PDFs from HTML with PDFBolt, Gmail, and Google Drive-16866/generate_email_and_archive_pdfs_from_html_with_pdfbolt_gmail_and_google_drive.json",
+      "url": "https://n8nworkflows.xyz/workflows/generate--email--and-archive-pdfs-from-html-with-pdfbolt--gmail--and-google-drive-16866\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.gmail",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-pdfbolt.pdfBolt",
+        "n8n-nodes-base.googleDrive",
+        "n8n-nodes-base.respondToWebhook"
+      ]
+    },
+    {
+      "id": 16864,
+      "slug": "Send daily brand mention digests to Slack with ScraperAPI and OpenAI-16864",
+      "name": "Send Daily Brand Mention Digests To Slack With ScraperAPI And OpenAI",
+      "tags": [
+        "Market Research",
+        "AI Summarization"
+      ],
+      "author": "scraperapi",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "send_daily_brand_mention_digests_to_slack_with_scraperapi_and_openai.json",
+      "workflowPath": "workflows/Send daily brand mention digests to Slack with ScraperAPI and OpenAI-16864/send_daily_brand_mention_digests_to_slack_with_scraperapi_and_openai.json",
+      "url": "https://n8nworkflows.xyz/workflows/send-daily-brand-mention-digests-to-slack-with-scraperapi-and-openai-16864\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.slack",
+        "n8n-nodes-base.dataTable",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.scheduleTrigger",
+        "@n8n/n8n-nodes-langchain.chainLlm",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "n8n-nodes-scraperapi-official.scraperApi"
+      ]
+    },
+    {
+      "id": 16836,
+      "slug": "Send railway queue predictions with OpenAI GPT-4o-mini, Gmail, and Google Sheets-16836",
+      "name": "Send Railway Queue Predictions With OpenAI GPT 4o Mini, Gmail, And Google Sheets",
+      "tags": [
+        "Market Research",
+        "AI Summarization"
+      ],
+      "author": "isawow",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "send_railway_queue_predictions_with_openai_gpt-4o-mini_gmail_and_google_sheets.json",
+      "workflowPath": "workflows/Send railway queue predictions with OpenAI GPT-4o-mini, Gmail, and Google Sheets-16836/send_railway_queue_predictions_with_openai_gpt-4o-mini_gmail_and_google_sheets.json",
+      "url": "https://n8nworkflows.xyz/workflows/send-railway-queue-predictions-with-openai-gpt-4o-mini--gmail--and-google-sheets-16836\n",
+      "nodeTypes": [
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.gmail",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.formTrigger",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.googleSheets"
+      ]
+    },
+    {
+      "id": 16833,
+      "slug": "Run a Telegram productivity assistant with OpenRouter, Google Calendar, and Todoist-16833",
+      "name": "Run A Telegram Productivity Assistant With OpenRouter, Google Calendar, And Todoist",
+      "tags": [
+        "Personal Productivity",
+        "AI Chatbot"
+      ],
+      "author": "nijan97",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "run_a_telegram_productivity_assistant_with_openrouter_google_calendar_and_todoist.json",
+      "workflowPath": "workflows/Run a Telegram productivity assistant with OpenRouter, Google Calendar, and Todoist-16833/run_a_telegram_productivity_assistant_with_openrouter_google_calendar_and_todoist.json",
+      "url": "https://n8nworkflows.xyz/workflows/run-a-telegram-productivity-assistant-with-openrouter--google-calendar--and-todoist-16833\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.merge",
+        "n8n-nodes-base.switch",
+        "n8n-nodes-base.todoist",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.telegram",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.todoistTool",
+        "n8n-nodes-base.errorTrigger",
+        "n8n-nodes-base.googleCalendar",
+        "@n8n/n8n-nodes-langchain.agent",
+        "n8n-nodes-base.scheduleTrigger",
+        "n8n-nodes-base.telegramTrigger",
+        "n8n-nodes-base.googleCalendarTool",
+        "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+        "@n8n/n8n-nodes-langchain.memoryBufferWindow"
+      ]
+    },
+    {
+      "id": 16832,
+      "slug": "Sync Salesforce MQL lead journey timelines with Factors.ai-16832",
+      "name": "Sync Salesforce MQL Lead Journey Timelines With Factors.Ai",
+      "tags": [
+        "Lead Generation"
+      ],
+      "author": "surajprakashkarale",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "sync_salesforce_mql_lead_journey_timelines_with_factors.ai.json",
+      "workflowPath": "workflows/Sync Salesforce MQL lead journey timelines with Factors.ai-16832/sync_salesforce_mql_lead_journey_timelines_with_factors.ai.json",
+      "url": "https://n8nworkflows.xyz/workflows/sync-salesforce-mql-lead-journey-timelines-with-factors-ai-16832\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.wait",
+        "n8n-nodes-base.salesforce",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.splitInBatches",
+        "n8n-nodes-base.scheduleTrigger"
+      ]
+    },
+    {
+      "id": 16828,
+      "slug": "Review stale Notion docs with Gmail alerts, Slack reports, and OpenAI-16828",
+      "name": "Review Stale Notion Docs With Gmail Alerts, Slack Reports, And OpenAI",
+      "tags": [
+        "Document Extraction",
+        "AI Summarization"
+      ],
+      "author": "kii",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "review_stale_notion_docs_with_gmail_alerts_slack_reports_and_openai.json",
+      "workflowPath": "workflows/Review stale Notion docs with Gmail alerts, Slack reports, and OpenAI-16828/review_stale_notion_docs_with_gmail_alerts_slack_reports_and_openai.json",
+      "url": "https://n8nworkflows.xyz/workflows/review-stale-notion-docs-with-gmail-alerts--slack-reports--and-openai-16828\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.noOp",
+        "n8n-nodes-base.gmail",
+        "n8n-nodes-base.slack",
+        "n8n-nodes-base.filter",
+        "n8n-nodes-base.notion",
+        "n8n-nodes-base.aggregate",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.scheduleTrigger",
+        "@n8n/n8n-nodes-langchain.chainLlm",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi"
+      ]
+    },
+    {
+      "id": 16821,
+      "slug": "Triage and reply to email threads with GPT-5.2, IMAP, Gmail, and ESP suppression-16821",
+      "name": "Triage And Reply To Email Threads With GPT 5.2, IMAP, Gmail, And ESP Suppression",
+      "tags": [
+        "Ticket Management",
+        "AI Chatbot"
+      ],
+      "author": "iamrup",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "triage_and_reply_to_email_threads_with_gpt-5.2_imap_gmail_and_esp_suppression.json",
+      "workflowPath": "workflows/Triage and reply to email threads with GPT-5.2, IMAP, Gmail, and ESP suppression-16821/triage_and_reply_to_email_threads_with_gpt-5.2_imap_gmail_and_esp_suppression.json",
+      "url": "https://n8nworkflows.xyz/workflows/triage-and-reply-to-email-threads-with-gpt-5-2--imap--gmail--and-esp-suppression-16821\n",
+      "nodeTypes": [
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.gmail",
+        "n8n-nodes-base.filter",
+        "n8n-nodes-base.switch",
+        "n8n-nodes-base.dataTable",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.emailReadImap",
+        "n8n-nodes-base.executionData",
+        "@n8n/n8n-nodes-langchain.openAi"
+      ]
+    },
+    {
+      "id": 16814,
+      "slug": "Answer legal questions with Groq using CanLII and CourtListener-16814",
+      "name": "Answer Legal Questions With Groq Using CanLII And CourtListener",
+      "tags": [
+        "Document Extraction",
+        "AI RAG"
+      ],
+      "author": "exekyute",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "answer_legal_questions_with_groq_using_canlii_and_courtlistener.json",
+      "workflowPath": "workflows/Answer legal questions with Groq using CanLII and CourtListener-16814/answer_legal_questions_with_groq_using_canlii_and_courtlistener.json",
+      "url": "https://n8nworkflows.xyz/workflows/answer-legal-questions-with-groq-using-canlii-and-courtlistener-16814\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.form",
+        "n8n-nodes-base.switch",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.formTrigger",
+        "n8n-nodes-base.httpRequest",
+        "@n8n/n8n-nodes-langchain.chainLlm",
+        "@n8n/n8n-nodes-langchain.lmChatGroq",
+        "@n8n/n8n-nodes-langchain.outputParserStructured"
+      ]
+    },
+    {
+      "id": 16812,
+      "slug": "File Google Drive inbox documents into dated folders with a Google Sheets audit log-16812",
+      "name": "File Google Drive Inbox Documents Into Dated Folders With A Google Sheets Audit Log",
+      "tags": [
+        "File Management"
+      ],
+      "author": "exekyute",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "file_google_drive_inbox_documents_into_dated_folders_with_a_google_sheets_audit_log.json",
+      "workflowPath": "workflows/File Google Drive inbox documents into dated folders with a Google Sheets audit log-16812/file_google_drive_inbox_documents_into_dated_folders_with_a_google_sheets_audit_log.json",
+      "url": "https://n8nworkflows.xyz/workflows/file-google-drive-inbox-documents-into-dated-folders-with-a-google-sheets-audit-log-16812\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.switch",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.googleDrive",
+        "n8n-nodes-base.googleSheets",
+        "n8n-nodes-base.googleDriveTrigger"
       ]
     },
     {
@@ -1470,6 +1902,29 @@
       ]
     },
     {
+      "id": 16704,
+      "slug": "Recover missed clinic appointments with Supabase and WhatsApp-16704",
+      "name": "Recover Missed Clinic Appointments With Supabase And WhatsApp",
+      "tags": [
+        "Support Chatbot"
+      ],
+      "author": "kanishka-shrivastava",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "recover_missed_clinic_appointments_with_supabase_and_whatsapp.json",
+      "workflowPath": "workflows/Recover missed clinic appointments with Supabase and WhatsApp-16704/recover_missed_clinic_appointments_with_supabase_and_whatsapp.json",
+      "url": "https://n8nworkflows.xyz/workflows/recover-missed-clinic-appointments-with-supabase-and-whatsapp-16704\n",
+      "nodeTypes": [
+        "n8n-nodes-base.filter",
+        "n8n-nodes-base.supabase",
+        "n8n-nodes-base.whatsApp",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.splitInBatches",
+        "n8n-nodes-base.scheduleTrigger"
+      ]
+    },
+    {
       "id": 16701,
       "slug": "Audit Google Drive backup freshness with Google Sheets and Slack-16701",
       "name": "Audit Google Drive Backup Freshness With Google Sheets And Slack",
@@ -2725,6 +3180,31 @@
       ]
     },
     {
+      "id": 16621,
+      "slug": "Label incoming Gmail messages with Google Gemini and Telegram alerts-16621",
+      "name": "Label Incoming Gmail Messages With Google Gemini And Telegram Alerts",
+      "tags": [
+        "Document Extraction",
+        "AI Summarization"
+      ],
+      "author": "yuvraj",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "label_incoming_gmail_messages_with_google_gemini_and_telegram_alerts.json",
+      "workflowPath": "workflows/Label incoming Gmail messages with Google Gemini and Telegram alerts-16621/label_incoming_gmail_messages_with_google_gemini_and_telegram_alerts.json",
+      "url": "https://n8nworkflows.xyz/workflows/label-incoming-gmail-messages-with-google-gemini-and-telegram-alerts-16621\n",
+      "nodeTypes": [
+        "n8n-nodes-base.noOp",
+        "n8n-nodes-base.gmail",
+        "n8n-nodes-base.telegram",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.gmailTrigger",
+        "@n8n/n8n-nodes-langchain.textClassifier",
+        "@n8n/n8n-nodes-langchain.lmChatGoogleGemini"
+      ]
+    },
+    {
       "id": 16618,
       "slug": "Build hospitality lead lists from Booking.com using Apify and Google Sheets-16618",
       "name": "Build Hospitality Lead Lists From Booking.Com Using Apify And Google Sheets",
@@ -3179,6 +3659,34 @@
         "n8n-nodes-base.gmailTrigger",
         "n8n-nodes-base.googleSheets",
         "@n8n/n8n-nodes-langchain.agent",
+        "@n8n/n8n-nodes-langchain.lmChatGroq"
+      ]
+    },
+    {
+      "id": 16591,
+      "slug": "Repurpose content into 5-platform posts with Groq Llama 3.3 and Upload-Post-16591",
+      "name": "Repurpose Content Into 5 Platform Posts With Groq Llama 3.3 And Upload Post",
+      "tags": [
+        "Content Creation",
+        "Multimodal AI"
+      ],
+      "author": "utkarsh-automates",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "repurpose_content_into_5-platform_posts_with_groq_llama_3.3_and_upload-post.json",
+      "workflowPath": "workflows/Repurpose content into 5-platform posts with Groq Llama 3.3 and Upload-Post-16591/repurpose_content_into_5-platform_posts_with_groq_llama_3.3_and_upload-post.json",
+      "url": "https://n8nworkflows.xyz/workflows/repurpose-content-into-5-platform-posts-with-groq-llama-3-3-and-upload-post-16591\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.googleSheets",
+        "@n8n/n8n-nodes-langchain.agent",
+        "n8n-nodes-base.respondToWebhook",
         "@n8n/n8n-nodes-langchain.lmChatGroq"
       ]
     },
@@ -5101,6 +5609,33 @@
         "n8n-nodes-base.stopAndError",
         "n8n-nodes-encelade.encelade",
         "n8n-nodes-base.manualTrigger"
+      ]
+    },
+    {
+      "id": 16454,
+      "slug": "Monitor negative customer reviews with an HTTP API, Google Sheets and Slack-16454",
+      "name": "Monitor Negative Customer Reviews With An HTTP API, Google Sheets And Slack",
+      "tags": [
+        "Market Research"
+      ],
+      "author": "redowanfarhan",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "monitor_negative_customer_reviews_with_an_http_api_google_sheets_and_slack.json",
+      "workflowPath": "workflows/Monitor negative customer reviews with an HTTP API, Google Sheets and Slack-16454/monitor_negative_customer_reviews_with_an_http_api_google_sheets_and_slack.json",
+      "url": "https://n8nworkflows.xyz/workflows/monitor-negative-customer-reviews-with-an-http-api--google-sheets-and-slack-16454\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.merge",
+        "n8n-nodes-base.slack",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.errorTrigger",
+        "n8n-nodes-base.googleSheets",
+        "n8n-nodes-base.scheduleTrigger"
       ]
     },
     {
