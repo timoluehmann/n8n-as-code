@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-07-18T05:39:39.536Z",
+  "generatedAt": "2026-07-21T06:03:05.890Z",
   "repository": "https://github.com/nusquama/n8nworkflows.xyz.git",
   "sourceRef": "main",
-  "sourceCommit": "7e54d64a33fcbbd10ea2189f674af8c56a01edbc",
+  "sourceCommit": "7f742ca3d65dab0b42a7dfe4797b4c1e0f6bdefd",
   "refreshStrategy": "fresh-clone-per-build",
-  "totalWorkflows": 9683,
+  "totalWorkflows": 9684,
   "workflows": [
     {
       "id": 17054,
@@ -362,6 +362,34 @@
         "n8n-nodes-base.stickyNote",
         "n8n-nodes-base.googleSheetsTool",
         "@n8n/n8n-nodes-langchain.mcpTrigger"
+      ]
+    },
+    {
+      "id": 16914,
+      "slug": "Send monthly rent and sales market updates to Slack with Rentcast and Supabase-16914",
+      "name": "Send Monthly Rent And Sales Market Updates To Slack With Rentcast And Supabase",
+      "tags": [
+        "Market Research",
+        "AI Summarization"
+      ],
+      "author": "iamvaar",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "send_monthly_rent_and_sales_market_updates_to_slack_with_rentcast_and_supabase.json",
+      "workflowPath": "workflows/Send monthly rent and sales market updates to Slack with Rentcast and Supabase-16914/send_monthly_rent_and_sales_market_updates_to_slack_with_rentcast_and_supabase.json",
+      "url": "https://n8nworkflows.xyz/workflows/send-monthly-rent-and-sales-market-updates-to-slack-with-rentcast-and-supabase-16914\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.merge",
+        "n8n-nodes-base.slack",
+        "n8n-nodes-base.supabase",
+        "n8n-nodes-base.aggregate",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.scheduleTrigger"
       ]
     },
     {
