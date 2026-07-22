@@ -1,11 +1,36 @@
 {
-  "generatedAt": "2026-07-21T06:03:05.890Z",
+  "generatedAt": "2026-07-22T06:02:07.394Z",
   "repository": "https://github.com/nusquama/n8nworkflows.xyz.git",
   "sourceRef": "main",
-  "sourceCommit": "7f742ca3d65dab0b42a7dfe4797b4c1e0f6bdefd",
+  "sourceCommit": "cbfbb06df010a1ad6174f76b773d62e83eb6d0f6",
   "refreshStrategy": "fresh-clone-per-build",
-  "totalWorkflows": 9684,
+  "totalWorkflows": 9686,
   "workflows": [
+    {
+      "id": 17127,
+      "slug": "Generate weekly Pinterest content opportunity briefs with Apify, OpenAI and Google Sheets-17127",
+      "name": "Generate Weekly Pinterest Content Opportunity Briefs With Apify, OpenAI And Google Sheets",
+      "tags": [
+        "Market Research",
+        "AI Summarization"
+      ],
+      "author": "fetch-cat",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "generate_weekly_pinterest_content_opportunity_briefs_with_apify_openai_and_google_sheets.json",
+      "workflowPath": "workflows/Generate weekly Pinterest content opportunity briefs with Apify, OpenAI and Google Sheets-17127/generate_weekly_pinterest_content_opportunity_briefs_with_apify_openai_and_google_sheets.json",
+      "url": "https://n8nworkflows.xyz/workflows/generate-weekly-pinterest-content-opportunity-briefs-with-apify--openai-and-google-sheets-17127\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.googleSheets",
+        "n8n-nodes-base.manualTrigger",
+        "@n8n/n8n-nodes-langchain.openAi"
+      ]
+    },
     {
       "id": 17054,
       "slug": "Manage Google and Trustpilot reviews with OpenAI and Slack-17054",
@@ -625,6 +650,40 @@
         "n8n-nodes-base.manualTrigger",
         "n8n-nodes-base.microsoftEntra",
         "@seventhingscompany/n8n-nodes-seventhings.seventhings"
+      ]
+    },
+    {
+      "id": 16880,
+      "slug": "Assist hospital doctors via Telegram with OpenAI, Google Sheets, Gmail and Slack-16880",
+      "name": "Assist Hospital Doctors Via Telegram With OpenAI, Google Sheets, Gmail And Slack",
+      "tags": [
+        "Support Chatbot",
+        "AI Chatbot"
+      ],
+      "author": "rahul08",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "assist_hospital_doctors_via_telegram_with_openai_google_sheets_gmail_and_slack.json",
+      "workflowPath": "workflows/Assist hospital doctors via Telegram with OpenAI, Google Sheets, Gmail and Slack-16880/assist_hospital_doctors_via_telegram_with_openai_google_sheets_gmail_and_slack.json",
+      "url": "https://n8nworkflows.xyz/workflows/assist-hospital-doctors-via-telegram-with-openai--google-sheets--gmail-and-slack-16880\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.gmail",
+        "n8n-nodes-base.slack",
+        "n8n-nodes-base.filter",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.telegram",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.errorTrigger",
+        "n8n-nodes-base.googleSheets",
+        "n8n-nodes-base.splitInBatches",
+        "n8n-nodes-base.extractFromFile",
+        "n8n-nodes-base.scheduleTrigger",
+        "n8n-nodes-base.telegramTrigger",
+        "@n8n/n8n-nodes-langchain.openAi"
       ]
     },
     {
