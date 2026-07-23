@@ -1,11 +1,69 @@
 {
-  "generatedAt": "2026-07-22T06:02:07.394Z",
+  "generatedAt": "2026-07-23T06:13:28.386Z",
   "repository": "https://github.com/nusquama/n8nworkflows.xyz.git",
   "sourceRef": "main",
-  "sourceCommit": "cbfbb06df010a1ad6174f76b773d62e83eb6d0f6",
+  "sourceCommit": "b75ae16ad7f99f62f10f84c599cdb118ac236632",
   "refreshStrategy": "fresh-clone-per-build",
-  "totalWorkflows": 9686,
+  "totalWorkflows": 9694,
   "workflows": [
+    {
+      "id": 17192,
+      "slug": "Send and track Slack invoice requests with Gemini, Google Sheets and Gmail-17192",
+      "name": "Send And Track Slack Invoice Requests With Gemini, Google Sheets And Gmail",
+      "tags": [
+        "Invoice Processing",
+        "AI Chatbot"
+      ],
+      "author": "iamvaar",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "send_and_track_slack_invoice_requests_with_gemini_google_sheets_and_gmail.json",
+      "workflowPath": "workflows/Send and track Slack invoice requests with Gemini, Google Sheets and Gmail-17192/send_and_track_slack_invoice_requests_with_gemini_google_sheets_and_gmail.json",
+      "url": "https://n8nworkflows.xyz/workflows/send-and-track-slack-invoice-requests-with-gemini--google-sheets-and-gmail-17192\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.gmail",
+        "n8n-nodes-base.slack",
+        "n8n-nodes-base.switch",
+        "n8n-nodes-pdfbro.pdfBro",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.googleSheets",
+        "n8n-nodes-base.slackTrigger",
+        "@n8n/n8n-nodes-langchain.agent",
+        "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+        "@n8n/n8n-nodes-langchain.outputParserStructured"
+      ]
+    },
+    {
+      "id": 17142,
+      "slug": "Detect LLM prompt regressions with Data Tables, OpenAI APIs, and Telegram-17142",
+      "name": "Detect LLM Prompt Regressions With Data Tables, OpenAI APIs, And Telegram",
+      "tags": [
+        "Engineering",
+        "AI Summarization"
+      ],
+      "author": "serhiilabs",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "detect_llm_prompt_regressions_with_data_tables_openai_apis_and_telegram.json",
+      "workflowPath": "workflows/Detect LLM prompt regressions with Data Tables, OpenAI APIs, and Telegram-17142/detect_llm_prompt_regressions_with_data_tables_openai_apis_and_telegram.json",
+      "url": "https://n8nworkflows.xyz/workflows/detect-llm-prompt-regressions-with-data-tables--openai-apis--and-telegram-17142\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.noOp",
+        "n8n-nodes-base.merge",
+        "n8n-nodes-base.telegram",
+        "n8n-nodes-base.dataTable",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.scheduleTrigger"
+      ]
+    },
     {
       "id": 17127,
       "slug": "Generate weekly Pinterest content opportunity briefs with Apify, OpenAI and Google Sheets-17127",
@@ -29,6 +87,39 @@
         "n8n-nodes-base.googleSheets",
         "n8n-nodes-base.manualTrigger",
         "@n8n/n8n-nodes-langchain.openAi"
+      ]
+    },
+    {
+      "id": 17126,
+      "slug": "Find and verify business emails with ScraperCity, OpenAI, Google Sheets, and Gmail-17126",
+      "name": "Find And Verify Business Emails With ScraperCity, OpenAI, Google Sheets, And Gmail",
+      "tags": [
+        "Lead Generation",
+        "Multimodal AI"
+      ],
+      "author": "drfiras",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "find_and_verify_business_emails_with_scrapercity_openai_google_sheets_and_gmail.json",
+      "workflowPath": "workflows/Find and verify business emails with ScraperCity, OpenAI, Google Sheets, and Gmail-17126/find_and_verify_business_emails_with_scrapercity_openai_google_sheets_and_gmail.json",
+      "url": "https://n8nworkflows.xyz/workflows/find-and-verify-business-emails-with-scrapercity--openai--google-sheets--and-gmail-17126\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.noOp",
+        "n8n-nodes-base.wait",
+        "n8n-nodes-base.gmail",
+        "n8n-nodes-base.filter",
+        "n8n-nodes-base.switch",
+        "n8n-nodes-base.aggregate",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.googleSheets",
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.extractFromFile",
+        "@n8n/n8n-nodes-langchain.chainLlm",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi"
       ]
     },
     {
@@ -60,6 +151,89 @@
         "n8n-nodes-base.scheduleTrigger",
         "@n8n/n8n-nodes-langchain.lmChatOpenAi",
         "@n8n/n8n-nodes-langchain.outputParserStructured"
+      ]
+    },
+    {
+      "id": 17044,
+      "slug": "Confirm and log WhatsApp restaurant orders with Groq and Google Sheets-17044",
+      "name": "Confirm And Log WhatsApp Restaurant Orders With Groq And Google Sheets",
+      "tags": [
+        "Support Chatbot",
+        "AI Chatbot"
+      ],
+      "author": "kanishka-shrivastava",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "confirm_and_log_whatsapp_restaurant_orders_with_groq_and_google_sheets.json",
+      "workflowPath": "workflows/Confirm and log WhatsApp restaurant orders with Groq and Google Sheets-17044/confirm_and_log_whatsapp_restaurant_orders_with_groq_and_google_sheets.json",
+      "url": "https://n8nworkflows.xyz/workflows/confirm-and-log-whatsapp-restaurant-orders-with-groq-and-google-sheets-17044\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.whatsApp",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.googleSheets",
+        "n8n-nodes-base.whatsAppTrigger",
+        "@n8n/n8n-nodes-langchain.chainLlm",
+        "@n8n/n8n-nodes-langchain.lmChatGroq",
+        "@n8n/n8n-nodes-langchain.outputParserStructured"
+      ]
+    },
+    {
+      "id": 17043,
+      "slug": "Predict Salesforce deal escalation risk with Gemini and Slack alerts-17043",
+      "name": "Predict Salesforce Deal Escalation Risk With Gemini And Slack Alerts",
+      "tags": [
+        "CRM",
+        "AI Summarization"
+      ],
+      "author": "weblineindia",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "predict_salesforce_deal_escalation_risk_with_gemini_and_slack_alerts.json",
+      "workflowPath": "workflows/Predict Salesforce deal escalation risk with Gemini and Slack alerts-17043/predict_salesforce_deal_escalation_risk_with_gemini_and_slack_alerts.json",
+      "url": "https://n8nworkflows.xyz/workflows/predict-salesforce-deal-escalation-risk-with-gemini-and-slack-alerts-17043\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.wait",
+        "n8n-nodes-base.merge",
+        "n8n-nodes-base.slack",
+        "n8n-nodes-base.salesforce",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.splitInBatches",
+        "@n8n/n8n-nodes-langchain.googleGemini"
+      ]
+    },
+    {
+      "id": 17040,
+      "slug": "Send gold-silver ratio opportunity alerts with GoldAPI and Gmail-17040",
+      "name": "Send Gold Silver Ratio Opportunity Alerts With GoldAPI And Gmail",
+      "tags": [
+        "Crypto Trading",
+        "AI Summarization"
+      ],
+      "author": "weblineindia",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "send_gold-silver_ratio_opportunity_alerts_with_goldapi_and_gmail.json",
+      "workflowPath": "workflows/Send gold-silver ratio opportunity alerts with GoldAPI and Gmail-17040/send_gold-silver_ratio_opportunity_alerts_with_goldapi_and_gmail.json",
+      "url": "https://n8nworkflows.xyz/workflows/send-gold-silver-ratio-opportunity-alerts-with-goldapi-and-gmail-17040\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.gmail",
+        "n8n-nodes-base.merge",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.manualTrigger"
       ]
     },
     {
@@ -418,6 +592,36 @@
       ]
     },
     {
+      "id": 16911,
+      "slug": "Handle real estate SMS inquiries with Twilio, Google Sheets, Gemini, and Calendar-16911",
+      "name": "Handle Real Estate SMS Inquiries With Twilio, Google Sheets, Gemini, And Calendar",
+      "tags": [
+        "Support Chatbot",
+        "AI Chatbot"
+      ],
+      "author": "iamvaar",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "handle_real_estate_sms_inquiries_with_twilio_google_sheets_gemini_and_calendar.json",
+      "workflowPath": "workflows/Handle real estate SMS inquiries with Twilio, Google Sheets, Gemini, and Calendar-16911/handle_real_estate_sms_inquiries_with_twilio_google_sheets_gemini_and_calendar.json",
+      "url": "https://n8nworkflows.xyz/workflows/handle-real-estate-sms-inquiries-with-twilio--google-sheets--gemini--and-calendar-16911\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.twilio",
+        "n8n-nodes-base.aggregate",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.googleSheets",
+        "n8n-nodes-base.twilioTrigger",
+        "@n8n/n8n-nodes-langchain.agent",
+        "n8n-nodes-base.googleSheetsTool",
+        "n8n-nodes-base.googleCalendarTool",
+        "@n8n/n8n-nodes-langchain.memoryRedisChat",
+        "@n8n/n8n-nodes-langchain.lmChatGoogleGemini"
+      ]
+    },
+    {
       "id": 16908,
       "slug": "Handle theater ticket bookings with Anthropic, Google Sheets, SendGrid, and Twilio-16908",
       "name": "Handle Theater Ticket Bookings With Anthropic, Google Sheets, SendGrid, And Twilio",
@@ -683,6 +887,35 @@
         "n8n-nodes-base.extractFromFile",
         "n8n-nodes-base.scheduleTrigger",
         "n8n-nodes-base.telegramTrigger",
+        "@n8n/n8n-nodes-langchain.openAi"
+      ]
+    },
+    {
+      "id": 16876,
+      "slug": "Send ranked freight quote PDFs with GPT-4o, Google Sheets, Gmail and PDFShift-16876",
+      "name": "Send Ranked Freight Quote PDFs With GPT 4o, Google Sheets, Gmail And PDFShift",
+      "tags": [
+        "Document Extraction",
+        "Multimodal AI"
+      ],
+      "author": "rahul08",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "send_ranked_freight_quote_pdfs_with_gpt-4o_google_sheets_gmail_and_pdfshift.json",
+      "workflowPath": "workflows/Send ranked freight quote PDFs with GPT-4o, Google Sheets, Gmail and PDFShift-16876/send_ranked_freight_quote_pdfs_with_gpt-4o_google_sheets_gmail_and_pdfshift.json",
+      "url": "https://n8nworkflows.xyz/workflows/send-ranked-freight-quote-pdfs-with-gpt-4o--google-sheets--gmail-and-pdfshift-16876\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.gmail",
+        "n8n-nodes-base.merge",
+        "n8n-nodes-base.slack",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.errorTrigger",
+        "n8n-nodes-base.googleSheets",
         "@n8n/n8n-nodes-langchain.openAi"
       ]
     },
