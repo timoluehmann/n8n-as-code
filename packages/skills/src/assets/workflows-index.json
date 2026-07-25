@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-07-23T06:13:28.386Z",
+  "generatedAt": "2026-07-25T05:54:14.343Z",
   "repository": "https://github.com/nusquama/n8nworkflows.xyz.git",
   "sourceRef": "main",
-  "sourceCommit": "b75ae16ad7f99f62f10f84c599cdb118ac236632",
+  "sourceCommit": "e32ec7cb4c8d7d466624d177b786267428fb5585",
   "refreshStrategy": "fresh-clone-per-build",
-  "totalWorkflows": 9694,
+  "totalWorkflows": 9695,
   "workflows": [
     {
       "id": 17192,
@@ -34,6 +34,31 @@
         "@n8n/n8n-nodes-langchain.agent",
         "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
         "@n8n/n8n-nodes-langchain.outputParserStructured"
+      ]
+    },
+    {
+      "id": 17190,
+      "slug": "Send WhatsApp booking links for Facebook leads with Sheets, Redis, and Cal.com-17190",
+      "name": "Send WhatsApp Booking Links For Facebook Leads With Sheets, Redis, And Cal.Com",
+      "tags": [
+        "Lead Nurturing"
+      ],
+      "author": "iamvaar",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "send_whatsapp_booking_links_for_facebook_leads_with_sheets_redis_and_cal.com.json",
+      "workflowPath": "workflows/Send WhatsApp booking links for Facebook leads with Sheets, Redis, and Cal.com-17190/send_whatsapp_booking_links_for_facebook_leads_with_sheets_redis_and_cal.com.json",
+      "url": "https://n8nworkflows.xyz/workflows/send-whatsapp-booking-links-for-facebook-leads-with-sheets--redis--and-cal-com-17190\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.redis",
+        "n8n-nodes-base.whatsApp",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.googleSheets",
+        "n8n-nodes-base.facebookLeadAdsTrigger"
       ]
     },
     {
