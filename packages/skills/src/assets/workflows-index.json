@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-07-28T05:59:56.471Z",
+  "generatedAt": "2026-07-29T06:09:19.178Z",
   "repository": "https://github.com/nusquama/n8nworkflows.xyz.git",
   "sourceRef": "main",
-  "sourceCommit": "cf82e85969de4fdef6da943730dd44c25c17d0fb",
+  "sourceCommit": "854631c674cca29ac2691dc7778d92a00e112433",
   "refreshStrategy": "fresh-clone-per-build",
-  "totalWorkflows": 9794,
+  "totalWorkflows": 9796,
   "workflows": [
     {
       "id": 17365,
@@ -749,6 +749,34 @@
       ]
     },
     {
+      "id": 17258,
+      "slug": "Qualify Facebook lead ads and send follow-ups with Gemini, Gmail, and Sheets-17258",
+      "name": "Qualify Facebook Lead Ads And Send Follow Ups With Gemini, Gmail, And Sheets",
+      "tags": [
+        "Lead Generation",
+        "AI Summarization"
+      ],
+      "author": "hassans",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "qualify_facebook_lead_ads_and_send_follow-ups_with_gemini_gmail_and_sheets.json",
+      "workflowPath": "workflows/Qualify Facebook lead ads and send follow-ups with Gemini, Gmail, and Sheets-17258/qualify_facebook_lead_ads_and_send_follow-ups_with_gemini_gmail_and_sheets.json",
+      "url": "https://n8nworkflows.xyz/workflows/qualify-facebook-lead-ads-and-send-follow-ups-with-gemini--gmail--and-sheets-17258\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.gmail",
+        "n8n-nodes-base.slack",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.whatsApp",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.googleSheets",
+        "@n8n/n8n-nodes-langchain.googleGemini",
+        "n8n-nodes-base.facebookLeadAdsTrigger"
+      ]
+    },
+    {
       "id": 17248,
       "slug": "Send a daily AI-ranked news brief with Anthropic Claude and Gmail-17248",
       "name": "Send A Daily AI Ranked News Brief With Anthropic Claude And Gmail",
@@ -1139,6 +1167,34 @@
         "@n8n/n8n-nodes-langchain.agent",
         "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
         "@n8n/n8n-nodes-langchain.outputParserStructured"
+      ]
+    },
+    {
+      "id": 17181,
+      "slug": "Create Instagram carousels and TikTok slideshows with OpenAI and PostFast-17181",
+      "name": "Create Instagram Carousels And TikTok Slideshows With OpenAI And PostFast",
+      "tags": [
+        "Social Media",
+        "Multimodal AI"
+      ],
+      "author": "peturgeorgievv",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "create_instagram_carousels_and_tiktok_slideshows_with_openai_and_postfast.json",
+      "workflowPath": "workflows/Create Instagram carousels and TikTok slideshows with OpenAI and PostFast-17181/create_instagram_carousels_and_tiktok_slideshows_with_openai_and_postfast.json",
+      "url": "https://n8nworkflows.xyz/workflows/create-instagram-carousels-and-tiktok-slideshows-with-openai-and-postfast-17181\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.noOp",
+        "n8n-nodes-base.telegram",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-postfast.postFast",
+        "n8n-nodes-base.scheduleTrigger",
+        "@n8n/n8n-nodes-langchain.openAi"
       ]
     },
     {
