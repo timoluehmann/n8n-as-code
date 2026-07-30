@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-07-29T06:09:19.178Z",
+  "generatedAt": "2026-07-30T05:54:23.487Z",
   "repository": "https://github.com/nusquama/n8nworkflows.xyz.git",
   "sourceRef": "main",
-  "sourceCommit": "854631c674cca29ac2691dc7778d92a00e112433",
+  "sourceCommit": "75f9b8e82ae8672d36f05db92f0ce64369ad3aac",
   "refreshStrategy": "fresh-clone-per-build",
-  "totalWorkflows": 9796,
+  "totalWorkflows": 9797,
   "workflows": [
     {
       "id": 17365,
@@ -3403,6 +3403,30 @@
         "@n8n/n8n-nodes-langchain.chainLlm",
         "@n8n/n8n-nodes-langchain.lmChatGroq",
         "@n8n/n8n-nodes-langchain.outputParserStructured"
+      ]
+    },
+    {
+      "id": 16872,
+      "slug": "Collect local business leads from Google Maps with ScraperAPI and Google Sheets-16872",
+      "name": "Collect Local Business Leads From Google Maps With ScraperAPI And Google Sheets",
+      "tags": [
+        "Lead Generation"
+      ],
+      "author": "scraperapi",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "collect_local_business_leads_from_google_maps_with_scraperapi_and_google_sheets.json",
+      "workflowPath": "workflows/Collect local business leads from Google Maps with ScraperAPI and Google Sheets-16872/collect_local_business_leads_from_google_maps_with_scraperapi_and_google_sheets.json",
+      "url": "https://n8nworkflows.xyz/workflows/collect-local-business-leads-from-google-maps-with-scraperapi-and-google-sheets-16872\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.formTrigger",
+        "n8n-nodes-base.googleSheets",
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-scraperapi-official.scraperApi"
       ]
     },
     {
