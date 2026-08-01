@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-07-30T05:54:23.487Z",
+  "generatedAt": "2026-08-01T06:09:36.442Z",
   "repository": "https://github.com/nusquama/n8nworkflows.xyz.git",
   "sourceRef": "main",
-  "sourceCommit": "75f9b8e82ae8672d36f05db92f0ce64369ad3aac",
+  "sourceCommit": "6d3f2c10445af19a2924cf6b840489f42ea5abc9",
   "refreshStrategy": "fresh-clone-per-build",
-  "totalWorkflows": 9797,
+  "totalWorkflows": 9805,
   "workflows": [
     {
       "id": 17365,
@@ -1394,6 +1394,31 @@
       ]
     },
     {
+      "id": 17144,
+      "slug": "Text back missed callers with Twilio, CallRail, and email alerts-17144",
+      "name": "Text Back Missed Callers With Twilio, CallRail, And Email Alerts",
+      "tags": [
+        "Lead Nurturing"
+      ],
+      "author": "deletosh",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "text_back_missed_callers_with_twilio_callrail_and_email_alerts.json",
+      "workflowPath": "workflows/Text back missed callers with Twilio, CallRail, and email alerts-17144/text_back_missed_callers_with_twilio_callrail_and_email_alerts.json",
+      "url": "https://n8nworkflows.xyz/workflows/text-back-missed-callers-with-twilio--callrail--and-email-alerts-17144\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.noOp",
+        "n8n-nodes-base.twilio",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.emailSend",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.executeWorkflow"
+      ]
+    },
+    {
       "id": 17143,
       "slug": "Assess visa eligibility and send PDF checklists with Claude and SendGrid-17143",
       "name": "Assess Visa Eligibility And Send PDF Checklists With Claude And SendGrid",
@@ -1699,6 +1724,34 @@
       ]
     },
     {
+      "id": 17103,
+      "slug": "Post daily LinkedIn and Instagram content with Airtable, Claude, OpenAI, and Buffer-17103",
+      "name": "Post Daily LinkedIn And Instagram Content With Airtable, Claude, OpenAI, And Buffer",
+      "tags": [
+        "Social Media",
+        "Multimodal AI"
+      ],
+      "author": "woutbelmans",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "post_daily_linkedin_and_instagram_content_with_airtable_claude_openai_and_buffer.json",
+      "workflowPath": "workflows/Post daily LinkedIn and Instagram content with Airtable, Claude, OpenAI, and Buffer-17103/post_daily_linkedin_and_instagram_content_with_airtable_claude_openai_and_buffer.json",
+      "url": "https://n8nworkflows.xyz/workflows/post-daily-linkedin-and-instagram-content-with-airtable--claude--openai--and-buffer-17103\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.noOp",
+        "n8n-nodes-base.airtable",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.convertToFile",
+        "n8n-nodes-base.scheduleTrigger",
+        "@bufferapp/n8n-nodes-buffer.buffer"
+      ]
+    },
+    {
       "id": 17097,
       "slug": "Create narrated blog audio from RSS with Google Gemini, Smallest.ai and WordPress-17097",
       "name": "Create Narrated Blog Audio From RSS With Google Gemini, Smallest.Ai And WordPress",
@@ -1861,6 +1914,34 @@
       ]
     },
     {
+      "id": 17087,
+      "slug": "Audit landing page CRO and log results with OpenAI and Data Tables-17087",
+      "name": "Audit Landing Page CRO And Log Results With OpenAI And Data Tables",
+      "tags": [
+        "Market Research",
+        "AI Summarization"
+      ],
+      "author": "drfiras",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "audit_landing_page_cro_and_log_results_with_openai_and_data_tables.json",
+      "workflowPath": "workflows/Audit landing page CRO and log results with OpenAI and Data Tables-17087/audit_landing_page_cro_and_log_results_with_openai_and_data_tables.json",
+      "url": "https://n8nworkflows.xyz/workflows/audit-landing-page-cro-and-log-results-with-openai-and-data-tables-17087\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.form",
+        "n8n-nodes-base.dataTable",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.formTrigger",
+        "n8n-nodes-base.httpRequest",
+        "@n8n/n8n-nodes-langchain.chainLlm",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "@n8n/n8n-nodes-langchain.outputParserStructured"
+      ]
+    },
+    {
       "id": 17084,
       "slug": "Enrich company records with social media links using GPT-4o and Supabase-17084",
       "name": "Enrich Company Records With Social Media Links Using GPT 4o And Supabase",
@@ -2008,6 +2089,93 @@
         "@blotato/n8n-nodes-blotato.blotato",
         "@n8n/n8n-nodes-langchain.lmChatOpenAi",
         "@n8n/n8n-nodes-langchain.outputParserStructured"
+      ]
+    },
+    {
+      "id": 17058,
+      "slug": "Create AI product video ad Shorts from Telegram photos with OpenAI and AtlasCloud-17058",
+      "name": "Create AI Product Video Ad Shorts From Telegram Photos With OpenAI And AtlasCloud",
+      "tags": [
+        "Content Creation",
+        "Multimodal AI"
+      ],
+      "author": "drfiras",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "create_ai_product_video_ad_shorts_from_telegram_photos_with_openai_and_atlascloud.json",
+      "workflowPath": "workflows/Create AI product video ad Shorts from Telegram photos with OpenAI and AtlasCloud-17058/create_ai_product_video_ad_shorts_from_telegram_photos_with_openai_and_atlascloud.json",
+      "url": "https://n8nworkflows.xyz/workflows/create-ai-product-video-ad-shorts-from-telegram-photos-with-openai-and-atlascloud-17058\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.wait",
+        "n8n-nodes-base.telegram",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "@n8n/n8n-nodes-langchain.agent",
+        "n8n-nodes-base.telegramTrigger",
+        "@n8n/n8n-nodes-langchain.openAi",
+        "@blotato/n8n-nodes-blotato.blotato",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "@n8n/n8n-nodes-langchain.outputParserStructured"
+      ]
+    },
+    {
+      "id": 17057,
+      "slug": "Publish AI social posts from Telegram to LinkedIn, Instagram, Facebook and Threads with OpenAI and Blotato-17057",
+      "name": "Publish AI Social Posts From Telegram To LinkedIn, Instagram, Facebook And Threads With OpenAI And Blotato",
+      "tags": [
+        "Social Media",
+        "Multimodal AI"
+      ],
+      "author": "drfiras",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "publish_ai_social_posts_from_telegram_to_linkedin_instagram_facebook_and_threads_with_openai_and_blotato.json",
+      "workflowPath": "workflows/Publish AI social posts from Telegram to LinkedIn, Instagram, Facebook and Threads with OpenAI and Blotato-17057/publish_ai_social_posts_from_telegram_to_linkedin_instagram_facebook_and_threads_with_openai_and_blotato.json",
+      "url": "https://n8nworkflows.xyz/workflows/publish-ai-social-posts-from-telegram-to-linkedin--instagram--facebook-and-threads-with-openai-and-blotato-17057\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.switch",
+        "n8n-nodes-base.telegram",
+        "n8n-nodes-base.stickyNote",
+        "@n8n/n8n-nodes-langchain.agent",
+        "n8n-nodes-base.telegramTrigger",
+        "@n8n/n8n-nodes-langchain.openAi",
+        "@blotato/n8n-nodes-blotato.blotato",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "@n8n/n8n-nodes-langchain.outputParserStructured"
+      ]
+    },
+    {
+      "id": 17055,
+      "slug": "Send weekly blended ad performance reports with Meta, Google Ads, GA4 and OpenAI-17055",
+      "name": "Send Weekly Blended Ad Performance Reports With Meta, Google Ads, GA4 And OpenAI",
+      "tags": [
+        "Content Creation",
+        "AI Summarization"
+      ],
+      "author": "redowanfarhan",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "send_weekly_blended_ad_performance_reports_with_meta_google_ads_ga4_and_openai.json",
+      "workflowPath": "workflows/Send weekly blended ad performance reports with Meta, Google Ads, GA4 and OpenAI-17055/send_weekly_blended_ad_performance_reports_with_meta_google_ads_ga4_and_openai.json",
+      "url": "https://n8nworkflows.xyz/workflows/send-weekly-blended-ad-performance-reports-with-meta--google-ads--ga4-and-openai-17055\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.gmail",
+        "n8n-nodes-base.merge",
+        "n8n-nodes-base.slack",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.errorTrigger",
+        "@n8n/n8n-nodes-langchain.agent",
+        "n8n-nodes-base.scheduleTrigger",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi"
       ]
     },
     {
@@ -2533,6 +2701,35 @@
       ]
     },
     {
+      "id": 16977,
+      "slug": "Validate startup ideas and generate business plans from Telegram with Perplexity and GPT-4o-16977",
+      "name": "Validate Startup Ideas And Generate Business Plans From Telegram With Perplexity And GPT 4o",
+      "tags": [
+        "Market Research",
+        "AI RAG"
+      ],
+      "author": "drfiras",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "validate_startup_ideas_and_generate_business_plans_from_telegram_with_perplexity_and_gpt-4o.json",
+      "workflowPath": "workflows/Validate startup ideas and generate business plans from Telegram with Perplexity and GPT-4o-16977/validate_startup_ideas_and_generate_business_plans_from_telegram_with_perplexity_and_gpt-4o.json",
+      "url": "https://n8nworkflows.xyz/workflows/validate-startup-ideas-and-generate-business-plans-from-telegram-with-perplexity-and-gpt-4o-16977\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.telegram",
+        "n8n-nodes-base.googleDocs",
+        "n8n-nodes-base.perplexity",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.googleSheets",
+        "n8n-nodes-base.telegramTrigger",
+        "@n8n/n8n-nodes-langchain.chainLlm",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "@n8n/n8n-nodes-langchain.outputParserStructured"
+      ]
+    },
+    {
       "id": 16964,
       "slug": "Qualify WhatsApp real estate leads with Gemini and Supabase-16964",
       "name": "Qualify WhatsApp Real Estate Leads With Gemini And Supabase",
@@ -2724,6 +2921,30 @@
         "@n8n/n8n-nodes-langchain.agent",
         "@blotato/n8n-nodes-blotato.blotato",
         "@n8n/n8n-nodes-langchain.lmChatOpenAi"
+      ]
+    },
+    {
+      "id": 16937,
+      "slug": "Repost watermark-free TikTok videos to YouTube via Telegram and Blotato-16937",
+      "name": "Repost Watermark Free TikTok Videos To YouTube Via Telegram And Blotato",
+      "tags": [
+        "Social Media"
+      ],
+      "author": "drfiras",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "repost_watermark-free_tiktok_videos_to_youtube_via_telegram_and_blotato.json",
+      "workflowPath": "workflows/Repost watermark-free TikTok videos to YouTube via Telegram and Blotato-16937/repost_watermark-free_tiktok_videos_to_youtube_via_telegram_and_blotato.json",
+      "url": "https://n8nworkflows.xyz/workflows/repost-watermark-free-tiktok-videos-to-youtube-via-telegram-and-blotato-16937\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.telegram",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.telegramTrigger",
+        "@blotato/n8n-nodes-blotato.blotato"
       ]
     },
     {
