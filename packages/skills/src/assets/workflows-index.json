@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-01T06:09:36.442Z",
+  "generatedAt": "2026-08-05T05:56:54.049Z",
   "repository": "https://github.com/nusquama/n8nworkflows.xyz.git",
   "sourceRef": "main",
-  "sourceCommit": "6d3f2c10445af19a2924cf6b840489f42ea5abc9",
+  "sourceCommit": "9d71207d2800d6396bc3f8bf67b1a1625535128a",
   "refreshStrategy": "fresh-clone-per-build",
-  "totalWorkflows": 9805,
+  "totalWorkflows": 9807,
   "workflows": [
     {
       "id": 17365,
@@ -1475,6 +1475,34 @@
       ]
     },
     {
+      "id": 17132,
+      "slug": "Create personalized videos from Google Sheets with iLoveVideoEditor and Gmail-17132",
+      "name": "Create Personalized Videos From Google Sheets With ILoveVideoEditor And Gmail",
+      "tags": [
+        "Content Creation",
+        "Multimodal AI"
+      ],
+      "author": "ilovevideoeditor",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "create_personalized_videos_from_google_sheets_with_ilovevideoeditor_and_gmail.json",
+      "workflowPath": "workflows/Create personalized videos from Google Sheets with iLoveVideoEditor and Gmail-17132/create_personalized_videos_from_google_sheets_with_ilovevideoeditor_and_gmail.json",
+      "url": "https://n8nworkflows.xyz/workflows/create-personalized-videos-from-google-sheets-with-ilovevideoeditor-and-gmail-17132\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.wait",
+        "n8n-nodes-base.gmail",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.googleDrive",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.googleSheets",
+        "n8n-nodes-base.googleSheetsTrigger",
+        "n8n-nodes-ilovevideoeditor.iloveVideoEditor"
+      ]
+    },
+    {
       "id": 17131,
       "slug": "Start ScraperAPI crawler jobs from webhooks and store results in data tables-17131",
       "name": "Start ScraperAPI Crawler Jobs From Webhooks And Store Results In Data Tables",
@@ -1749,6 +1777,33 @@
         "n8n-nodes-base.convertToFile",
         "n8n-nodes-base.scheduleTrigger",
         "@bufferapp/n8n-nodes-buffer.buffer"
+      ]
+    },
+    {
+      "id": 17101,
+      "slug": "Create Shopify product videos from tagged photos with Dreem.ai and Slack-17101",
+      "name": "Create Shopify Product Videos From Tagged Photos With Dreem.Ai And Slack",
+      "tags": [
+        "Content Creation",
+        "Multimodal AI"
+      ],
+      "author": "kristianj",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "create_shopify_product_videos_from_tagged_photos_with_dreem.ai_and_slack.json",
+      "workflowPath": "workflows/Create Shopify product videos from tagged photos with Dreem.ai and Slack-17101/create_shopify_product_videos_from_tagged_photos_with_dreem.ai_and_slack.json",
+      "url": "https://n8nworkflows.xyz/workflows/create-shopify-product-videos-from-tagged-photos-with-dreem-ai-and-slack-17101\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.wait",
+        "n8n-nodes-base.merge",
+        "n8n-nodes-base.slack",
+        "n8n-nodes-dreem.dreem",
+        "n8n-nodes-base.shopify",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.shopifyTrigger"
       ]
     },
     {
