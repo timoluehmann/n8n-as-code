@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-12T04:58:04.335Z",
+  "generatedAt": "2026-08-13T05:02:53.695Z",
   "repository": "https://github.com/nusquama/n8nworkflows.xyz.git",
   "sourceRef": "main",
-  "sourceCommit": "a54e95c94387cd34cd3fac71a17641cceb4491a5",
+  "sourceCommit": "98a87a8869761004ade09ea78e7ee75f0e520d45",
   "refreshStrategy": "fresh-clone-per-build",
-  "totalWorkflows": 9993,
+  "totalWorkflows": 9995,
   "workflows": [
     {
       "id": 17769,
@@ -6606,6 +6606,33 @@
       ]
     },
     {
+      "id": 16976,
+      "slug": "Translate YouTube video metadata into multiple languages with OpenAI-16976",
+      "name": "Translate YouTube Video Metadata Into Multiple Languages With OpenAI",
+      "tags": [
+        "Content Creation",
+        "AI Summarization"
+      ],
+      "author": "drfiras",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "translate_youtube_video_metadata_into_multiple_languages_with_openai.json",
+      "workflowPath": "workflows/Translate YouTube video metadata into multiple languages with OpenAI-16976/translate_youtube_video_metadata_into_multiple_languages_with_openai.json",
+      "url": "https://n8nworkflows.xyz/workflows/translate-youtube-video-metadata-into-multiple-languages-with-openai-16976\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.youTube",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.manualTrigger",
+        "@n8n/n8n-nodes-langchain.agent",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "@n8n/n8n-nodes-langchain.outputParserStructured"
+      ]
+    },
+    {
       "id": 16975,
       "slug": "Send scheduled quote follow-up emails with Gmail and Google Sheets-16975",
       "name": "Send Scheduled Quote Follow Up Emails With Gmail And Google Sheets",
@@ -11015,6 +11042,32 @@
         "n8n-nodes-base.stickyNote",
         "n8n-nodes-base.formTrigger",
         "n8n-nodes-base.httpRequest"
+      ]
+    },
+    {
+      "id": 16681,
+      "slug": "Rank resumes by job description similarity using OpenRouter embeddings-16681",
+      "name": "Rank Resumes By Job Description Similarity Using OpenRouter Embeddings",
+      "tags": [
+        "HR",
+        "AI Summarization"
+      ],
+      "author": "athaahsan",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "rank_resumes_by_job_description_similarity_using_openrouter_embeddings.json",
+      "workflowPath": "workflows/Rank resumes by job description similarity using OpenRouter embeddings-16681/rank_resumes_by_job_description_similarity_using_openrouter_embeddings.json",
+      "url": "https://n8nworkflows.xyz/workflows/rank-resumes-by-job-description-similarity-using-openrouter-embeddings-16681\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.form",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.formTrigger",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.splitInBatches",
+        "n8n-nodes-base.extractFromFile"
       ]
     },
     {
