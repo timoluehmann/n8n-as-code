@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-19T03:57:05.257Z",
+  "generatedAt": "2026-08-20T03:57:34.088Z",
   "repository": "https://github.com/nusquama/n8nworkflows.xyz.git",
   "sourceRef": "main",
-  "sourceCommit": "a003d5456fe7b46ea51c6af0c0802843cb0f2a3b",
+  "sourceCommit": "afe7afe78e95b43524b801c1967a68c64b6c6434",
   "refreshStrategy": "fresh-clone-per-build",
-  "totalWorkflows": 10075,
+  "totalWorkflows": 10077,
   "workflows": [
     {
       "id": 17769,
@@ -10446,6 +10446,30 @@
       ]
     },
     {
+      "id": 16857,
+      "slug": "Schedule weekly social media posts with OpenAI and PostFast-16857",
+      "name": "Schedule Weekly Social Media Posts With OpenAI And PostFast",
+      "tags": [
+        "Social Media",
+        "Multimodal AI"
+      ],
+      "author": "peturgeorgievv",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "schedule_weekly_social_media_posts_with_openai_and_postfast.json",
+      "workflowPath": "workflows/Schedule weekly social media posts with OpenAI and PostFast-16857/schedule_weekly_social_media_posts_with_openai_and_postfast.json",
+      "url": "https://n8nworkflows.xyz/workflows/schedule-weekly-social-media-posts-with-openai-and-postfast-16857\n",
+      "nodeTypes": [
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-postfast.postFast",
+        "n8n-nodes-base.scheduleTrigger",
+        "@n8n/n8n-nodes-langchain.openAi"
+      ]
+    },
+    {
       "id": 16856,
       "slug": "Post approved Trello bookkeeping drafts to Xero with receipt attachments-16856",
       "name": "Post Approved Trello Bookkeeping Drafts To Xero With Receipt Attachments",
@@ -11135,6 +11159,35 @@
         "n8n-nodes-base.whatsAppTrigger",
         "@n8n/n8n-nodes-langchain.anthropic",
         "@llamaindex/n8n-nodes-llamacloud.llamaParsePlatform"
+      ]
+    },
+    {
+      "id": 16794,
+      "slug": "Generate Google Maps leads with Apify, Hunter, and HubSpot CRM-16794",
+      "name": "Generate Google Maps Leads With Apify, Hunter, And HubSpot CRM",
+      "tags": [
+        "Lead Generation"
+      ],
+      "author": "jdsolanki",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "generate_google_maps_leads_with_apify_hunter_and_hubspot_crm.json",
+      "workflowPath": "workflows/Generate Google Maps leads with Apify, Hunter, and HubSpot CRM-16794/generate_google_maps_leads_with_apify_hunter_and_hubspot_crm.json",
+      "url": "https://n8nworkflows.xyz/workflows/generate-google-maps-leads-with-apify--hunter--and-hubspot-crm-16794\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.noOp",
+        "n8n-nodes-base.merge",
+        "n8n-nodes-base.filter",
+        "n8n-nodes-base.hunter",
+        "n8n-nodes-base.hubspot",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.formTrigger",
+        "@apify/n8n-nodes-apify.apify",
+        "n8n-nodes-base.removeDuplicates"
       ]
     },
     {
