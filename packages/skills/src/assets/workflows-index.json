@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-22T03:52:23.502Z",
+  "generatedAt": "2026-08-26T04:04:26.078Z",
   "repository": "https://github.com/nusquama/n8nworkflows.xyz.git",
   "sourceRef": "main",
-  "sourceCommit": "afe7afe78e95b43524b801c1967a68c64b6c6434",
+  "sourceCommit": "93e196919aff55edc2497deb3f42f0d20c8b73ff",
   "refreshStrategy": "fresh-clone-per-build",
-  "totalWorkflows": 10077,
+  "totalWorkflows": 10083,
   "workflows": [
     {
       "id": 17769,
@@ -6857,6 +6857,35 @@
       ]
     },
     {
+      "id": 17074,
+      "slug": "Schedule weekly focus-time blocks with Google Calendar, OpenAI, and Slack-17074",
+      "name": "Schedule Weekly Focus Time Blocks With Google Calendar, OpenAI, And Slack",
+      "tags": [
+        "Personal Productivity",
+        "Multimodal AI"
+      ],
+      "author": "kii",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "schedule_weekly_focus-time_blocks_with_google_calendar_openai_and_slack.json",
+      "workflowPath": "workflows/Schedule weekly focus-time blocks with Google Calendar, OpenAI, and Slack-17074/schedule_weekly_focus-time_blocks_with_google_calendar_openai_and_slack.json",
+      "url": "https://n8nworkflows.xyz/workflows/schedule-weekly-focus-time-blocks-with-google-calendar--openai--and-slack-17074\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.limit",
+        "n8n-nodes-base.slack",
+        "n8n-nodes-base.aggregate",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.googleCalendar",
+        "n8n-nodes-base.scheduleTrigger",
+        "@n8n/n8n-nodes-langchain.chainLlm",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi"
+      ]
+    },
+    {
       "id": 17065,
       "slug": "Extract Twilio voice donation details with Groq, Gemini, and Google Sheets-17065",
       "name": "Extract Twilio Voice Donation Details With Groq, Gemini, And Google Sheets",
@@ -7215,6 +7244,31 @@
         "n8n-nodes-base.httpRequest",
         "n8n-nodes-base.gmailTrigger",
         "n8n-nodes-base.manualTrigger"
+      ]
+    },
+    {
+      "id": 17048,
+      "slug": "Monitor Hostinger email DNS records weekly and send alert emails via SMTP-17048",
+      "name": "Monitor Hostinger Email DNS Records Weekly And Send Alert Emails Via SMTP",
+      "tags": [
+        "SecOps"
+      ],
+      "author": "hostinger",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "monitor_hostinger_email_dns_records_weekly_and_send_alert_emails_via_smtp.json",
+      "workflowPath": "workflows/Monitor Hostinger email DNS records weekly and send alert emails via SMTP-17048/monitor_hostinger_email_dns_records_weekly_and_send_alert_emails_via_smtp.json",
+      "url": "https://n8nworkflows.xyz/workflows/monitor-hostinger-email-dns-records-weekly-and-send-alert-emails-via-smtp-17048\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.splitOut",
+        "n8n-nodes-base.emailSend",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.scheduleTrigger",
+        "n8n-nodes-hostinger-api.hostingerApi"
       ]
     },
     {
@@ -7782,6 +7836,35 @@
         "n8n-nodes-base.httpRequest",
         "n8n-nodes-base.manualTrigger",
         "n8n-nodes-base.facebookGraphApi"
+      ]
+    },
+    {
+      "id": 17010,
+      "slug": "Create and approve AI social posts with OpenAI, Telegram and Blotato-17010",
+      "name": "Create And Approve AI Social Posts With OpenAI, Telegram And Blotato",
+      "tags": [
+        "Social Media",
+        "Multimodal AI"
+      ],
+      "author": "drfiras",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "create_and_approve_ai_social_posts_with_openai_telegram_and_blotato.json",
+      "workflowPath": "workflows/Create and approve AI social posts with OpenAI, Telegram and Blotato-17010/create_and_approve_ai_social_posts_with_openai_telegram_and_blotato.json",
+      "url": "https://n8nworkflows.xyz/workflows/create-and-approve-ai-social-posts-with-openai--telegram-and-blotato-17010\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.telegram",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.googleSheets",
+        "n8n-nodes-base.scheduleTrigger",
+        "@n8n/n8n-nodes-langchain.openAi",
+        "@n8n/n8n-nodes-langchain.chainLlm",
+        "@blotato/n8n-nodes-blotato.blotato",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "@n8n/n8n-nodes-langchain.outputParserStructured"
       ]
     },
     {
@@ -8869,6 +8952,29 @@
       ]
     },
     {
+      "id": 16942,
+      "slug": "Extract business card contacts with LDX hub AnalyzeDoc and Google Sheets-16942",
+      "name": "Extract Business Card Contacts With LDX Hub AnalyzeDoc And Google Sheets",
+      "tags": [
+        "Document Extraction",
+        "AI Summarization"
+      ],
+      "author": "hidekimori",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "extract_business_card_contacts_with_ldx_hub_analyzedoc_and_google_sheets.json",
+      "workflowPath": "workflows/Extract business card contacts with LDX hub AnalyzeDoc and Google Sheets-16942/extract_business_card_contacts_with_ldx_hub_analyzedoc_and_google_sheets.json",
+      "url": "https://n8nworkflows.xyz/workflows/extract-business-card-contacts-with-ldx-hub-analyzedoc-and-google-sheets-16942\n",
+      "nodeTypes": [
+        "n8n-nodes-ldxhub.ldxHub",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.formTrigger",
+        "n8n-nodes-base.googleSheets",
+        "n8n-nodes-base.extractFromFile"
+      ]
+    },
+    {
       "id": 16940,
       "slug": "Send daily AI-personalized cold emails with Google Places and OpenAI-16940",
       "name": "Send Daily AI Personalized Cold Emails With Google Places And OpenAI",
@@ -9166,6 +9272,33 @@
         "@n8n/n8n-nodes-langchain.agent",
         "n8n-nodes-base.scheduleTrigger",
         "@n8n/n8n-nodes-langchain.lmChatOpenAi"
+      ]
+    },
+    {
+      "id": 16925,
+      "slug": "Onboard employees and manage Slack access with Google Sheets and Gmail-16925",
+      "name": "Onboard Employees And Manage Slack Access With Google Sheets And Gmail",
+      "tags": [
+        "HR"
+      ],
+      "author": "umarimran1234",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "onboard_employees_and_manage_slack_access_with_google_sheets_and_gmail.json",
+      "workflowPath": "workflows/Onboard employees and manage Slack access with Google Sheets and Gmail-16925/onboard_employees_and_manage_slack_access_with_google_sheets_and_gmail.json",
+      "url": "https://n8nworkflows.xyz/workflows/onboard-employees-and-manage-slack-access-with-google-sheets-and-gmail-16925\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.gmail",
+        "n8n-nodes-base.slack",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.splitOut",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.googleSheets",
+        "n8n-nodes-base.respondToWebhook"
       ]
     },
     {
@@ -10080,6 +10213,32 @@
         "n8n-nodes-base.scheduleTrigger",
         "n8n-nodes-base.telegramTrigger",
         "@n8n/n8n-nodes-langchain.openAi"
+      ]
+    },
+    {
+      "id": 16879,
+      "slug": "Rename Japan e-bookkeeping receipts and invoices with Gemini and Google Drive-16879",
+      "name": "Rename Japan E Bookkeeping Receipts And Invoices With Gemini And Google Drive",
+      "tags": [
+        "Invoice Processing",
+        "AI Summarization"
+      ],
+      "author": "genseki-kobo",
+      "createdAt": null,
+      "description": null,
+      "hasWorkflow": true,
+      "workflowFile": "rename_japan_e-bookkeeping_receipts_and_invoices_with_gemini_and_google_drive.json",
+      "workflowPath": "workflows/Rename Japan e-bookkeeping receipts and invoices with Gemini and Google Drive-16879/rename_japan_e-bookkeeping_receipts_and_invoices_with_gemini_and_google_drive.json",
+      "url": "https://n8nworkflows.xyz/workflows/rename-japan-e-bookkeeping-receipts-and-invoices-with-gemini-and-google-drive-16879\n",
+      "nodeTypes": [
+        "n8n-nodes-base.if",
+        "n8n-nodes-base.set",
+        "n8n-nodes-base.code",
+        "n8n-nodes-base.stickyNote",
+        "n8n-nodes-base.googleDrive",
+        "n8n-nodes-base.httpRequest",
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.splitInBatches"
       ]
     },
     {
